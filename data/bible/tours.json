@@ -1,0 +1,836 @@
+[
+ {
+  "id": "abraham",
+  "era": "patriarchs",
+  "start": -1950,
+  "end": -1820,
+  "path": true,
+  "title": "Abraham's journey",
+  "title_zh": "亚伯拉罕的旅程",
+  "summary": "Called by God, Abraham leaves Ur and Haran and walks the length of Canaan, down to Egypt and back.",
+  "summary_zh": "亚伯拉罕蒙神呼召，离开吾珥和哈兰，走遍迦南全地，又下到埃及再回来。",
+  "steps": [
+   {
+    "year": -1950,
+    "at": [
+     46.103,
+     30.963
+    ],
+    "zoom": 5.2,
+    "ref": "Gen.11.31",
+    "text": "Terah takes his son Abram, Abram's wife Sarai and his grandson Lot out of Ur of the Chaldeans, near the mouth of the Euphrates, heading for Canaan.",
+    "text_zh": "他拉带着儿子亚伯兰、儿妇撒莱和孙子罗得，出了迦勒底的吾珥（在幼发拉底河下游），要往迦南去。"
+   },
+   {
+    "year": -1925,
+    "at": [
+     39.031,
+     36.86
+    ],
+    "zoom": 5.6,
+    "ref": "Gen.11.31-32",
+    "text": "They settle instead at Haran on the Balikh River, a trading town of the upper Euphrates. Terah dies there.",
+    "text_zh": "他们走到幼发拉底河上游的贸易城镇哈兰，就住在那里。他拉死在哈兰。"
+   },
+   {
+    "year": -1920,
+    "at": [
+     35.254,
+     32.221
+    ],
+    "zoom": 7.2,
+    "event": "abraham-enters-canaan",
+    "ref": "Gen.12.1-7",
+    "text": "At seventy-five Abram sets out for Canaan as God told him. At Shechem, by the oak of Moreh, God promises the land to his descendants and Abram builds an altar.",
+    "text_zh": "亚伯兰七十五岁时遵神的吩咐往迦南去。在示剑摩利橡树那里，神应许把这地赐给他的后裔，亚伯兰就筑了一座坛。"
+   },
+   {
+    "year": -1920,
+    "at": [
+     35.221,
+     31.931
+    ],
+    "zoom": 7.4,
+    "ref": "Gen.12.8",
+    "text": "He pitches his tent in the hills between Bethel and Ai and builds another altar.",
+    "text_zh": "他在伯特利与艾城之间的山地支搭帐棚，又筑了一座坛。"
+   },
+   {
+    "year": -1920,
+    "at": [
+     31.3,
+     30.8
+    ],
+    "zoom": 5.8,
+    "event": "abraham-goes-to-egypt",
+    "ref": "Gen.12.10-20",
+    "text": "Famine drives Abram down to Egypt, where he passes Sarai off as his sister and Pharaoh takes her into his house until plagues reveal the truth.",
+    "text_zh": "那地遭遇饥荒，亚伯兰下到埃及，称撒莱为妹子，法老把她接进宫去，直到灾殃临到才知道实情。"
+   },
+   {
+    "year": -1919,
+    "at": [
+     35.094,
+     31.549
+    ],
+    "zoom": 7.6,
+    "event": "abraham-and-lot-separate",
+    "ref": "Gen.13.8-18",
+    "text": "Back in Canaan, Abram and Lot part ways. Lot chooses the Jordan plain near Sodom; Abram settles by the oaks of Mamre at Hebron.",
+    "text_zh": "回到迦南后，亚伯兰与罗得分开。罗得选择所多玛附近的约旦河平原，亚伯兰住在希伯仑幔利的橡树那里。"
+   },
+   {
+    "year": -1872,
+    "at": [
+     35.235,
+     31.778
+    ],
+    "zoom": 7.6,
+    "ref": "Gen.22.1-14",
+    "text": "God tests Abraham on a mountain in the land of Moriah, later identified with Jerusalem's temple mount. A ram is provided in place of Isaac.",
+    "text_zh": "神在摩利亚地的山上试验亚伯拉罕（后世认为就是耶路撒冷的圣殿山），预备了一只公羊代替以撒。"
+   },
+   {
+    "year": -1820,
+    "at": [
+     35.11,
+     31.524
+    ],
+    "zoom": 7.4,
+    "ref": "Gen.25.7-10",
+    "text": "Abraham dies at 175 and is buried beside Sarah in the cave of Machpelah at Hebron.",
+    "text_zh": "亚伯拉罕享寿一百七十五岁而死，葬在希伯仑麦比拉洞里，与撒拉同葬。"
+   }
+  ]
+ },
+ {
+  "id": "exodus",
+  "era": "wilderness",
+  "start": -1490,
+  "end": -1450,
+  "path": true,
+  "title": "The Exodus",
+  "title_zh": "出埃及",
+  "summary": "From the brick-making cities of the Nile delta, Moses leads Israel through the sea, to Sinai, and after forty years to the edge of the promised land.",
+  "summary_zh": "摩西带领以色列人从尼罗河三角洲造砖的城市出发，过红海，到西奈山，四十年后来到应许之地的边上。",
+  "steps": [
+   {
+    "year": -1490,
+    "at": [
+     31.834,
+     30.799
+    ],
+    "zoom": 6.4,
+    "event": "exodus-from-egypt",
+    "ref": "Exod.12.37",
+    "text": "After the tenth plague and the first Passover, Israel sets out from Rameses, a store city they had built as slaves.",
+    "text_zh": "第十灾与第一个逾越节之后，以色列人从兰塞起行，那是他们为奴时所建的积货城。"
+   },
+   {
+    "year": -1490,
+    "at": [
+     32.259,
+     30.621
+    ],
+    "zoom": 6.6,
+    "ref": "Exod.13.20-22",
+    "text": "They camp at Succoth and then Etham, on the edge of the wilderness, led by a pillar of cloud by day and of fire by night.",
+    "text_zh": "他们在疏割、又在旷野边的以倘安营，日间有云柱、夜间有火柱领路。"
+   },
+   {
+    "year": -1490,
+    "at": [
+     32.425,
+     29.947
+    ],
+    "zoom": 6.6,
+    "ref": "Exod.14.21-31",
+    "text": "Hemmed in by Pharaoh's army at Pi-hahiroth, they cross the sea on dry ground, and the waters return over the Egyptians.",
+    "text_zh": "在比哈希录被法老的军队追上，他们在海中走干地过去，海水复合，淹没了埃及人。"
+   },
+   {
+    "year": -1490,
+    "at": [
+     32.933,
+     29.35
+    ],
+    "zoom": 6.4,
+    "ref": "Exod.15.22-27",
+    "text": "Three days into the wilderness of Shur the water at Marah is bitter until Moses throws in a tree. At Elim they find twelve springs and seventy palms.",
+    "text_zh": "在书珥旷野走了三天，到了玛拉，水苦不能喝，摩西把一棵树丢在水里，水就变甜了。到了以琳，那里有十二股水泉、七十棵棕树。"
+   },
+   {
+    "year": -1490,
+    "at": [
+     33.842,
+     28.731
+    ],
+    "zoom": 6.8,
+    "ref": "Exod.17.1-16",
+    "text": "At Rephidim water flows from the rock, and Israel defeats Amalek while Moses' hands are held up.",
+    "text_zh": "在利非订，水从磐石中流出；摩西举手，以色列人就打败了亚玛力人。"
+   },
+   {
+    "year": -1490,
+    "at": [
+     33.975,
+     28.539
+    ],
+    "zoom": 7.2,
+    "ref": "Exod.19.1-20",
+    "text": "In the third month they reach Mount Sinai. God gives the Ten Commandments and the law, and the tabernacle is built at its foot.",
+    "text_zh": "出埃及第三个月，他们来到西奈山。神颁布十诫和律法，会幕也在山下造成。"
+   },
+   {
+    "year": -1489,
+    "at": [
+     34.423,
+     30.648
+    ],
+    "zoom": 6.8,
+    "ref": "Num.13.25-14.10",
+    "text": "From Kadesh-barnea twelve spies explore Canaan. Ten bring a frightening report, and the people refuse to go up; they are sentenced to forty years in the wilderness.",
+    "text_zh": "十二个探子从加低斯巴尼亚出去窥探迦南，其中十个报恶信，百姓不肯上去，于是被罚在旷野漂流四十年。"
+   },
+   {
+    "year": -1451,
+    "at": [
+     35.725,
+     31.768
+    ],
+    "zoom": 7.2,
+    "ref": "Deut.34.1-6",
+    "text": "From Mount Nebo in Moab, Moses sees the whole land across the Jordan. He dies there and is buried in a valley of Moab.",
+    "text_zh": "摩西从摩押地的尼波山观看约旦河对岸的全地，就死在那里，葬在摩押地的谷中。"
+   },
+   {
+    "year": -1450,
+    "at": [
+     35.444,
+     31.87
+    ],
+    "zoom": 7.4,
+    "event": "crossing-the-jordan-into-canaan",
+    "ref": "Josh.3.14-17",
+    "text": "Under Joshua the people cross the Jordan opposite Jericho as the river stops flowing, and camp at Gilgal.",
+    "text_zh": "百姓在约书亚带领下，在耶利哥对面过约旦河，河水停住，他们在吉甲安营。"
+   }
+  ]
+ },
+ {
+  "id": "david",
+  "era": "united-kingdom",
+  "start": -1063,
+  "end": -1047,
+  "path": true,
+  "title": "David, shepherd to king",
+  "title_zh": "大卫：从牧童到君王",
+  "summary": "The youngest son of Jesse is anointed in Bethlehem, kills Goliath, flees from Saul and finally rules all Israel from Jerusalem.",
+  "summary_zh": "耶西最小的儿子在伯利恒受膏，杀死歌利亚，躲避扫罗的追杀，最后在耶路撒冷统治全以色列。",
+  "steps": [
+   {
+    "year": -1063,
+    "at": [
+     35.208,
+     31.704
+    ],
+    "zoom": 8.0,
+    "ref": "1Sam.16.1-13",
+    "text": "Samuel comes to Bethlehem and anoints David, the youngest of Jesse's sons, who was out keeping the sheep.",
+    "text_zh": "撒母耳来到伯利恒，膏了耶西最小的儿子大卫，那时他正在放羊。"
+   },
+   {
+    "year": -1063,
+    "at": [
+     34.96,
+     31.69
+    ],
+    "zoom": 8.0,
+    "ref": "1Sam.17.1-51",
+    "text": "In the Valley of Elah, where the Philistines face Saul's army, David kills the giant Goliath of Gath with a sling stone.",
+    "text_zh": "非利士人与扫罗的军队在以拉谷对阵，大卫用机弦甩石打死了迦特的巨人歌利亚。"
+   },
+   {
+    "year": -1060,
+    "at": [
+     35.233,
+     31.823
+    ],
+    "zoom": 8.0,
+    "ref": "1Sam.18.6-16",
+    "text": "David's victories make Saul jealous. At Saul's court in Gibeah he twice dodges the king's spear.",
+    "text_zh": "大卫屡战屡胜，惹得扫罗嫉妒。在基比亚的王宫里，他两次躲过扫罗掷来的枪。"
+   },
+   {
+    "year": -1058,
+    "at": [
+     35.39,
+     31.46
+    ],
+    "zoom": 8.0,
+    "ref": "1Sam.24.1-22",
+    "text": "Hunted by Saul, David hides in the wilderness of En-gedi above the Dead Sea, where he spares Saul's life in a cave.",
+    "text_zh": "大卫被扫罗追杀，躲在死海边上的隐基底旷野，在洞里放过了扫罗的性命。"
+   },
+   {
+    "year": -1056,
+    "at": [
+     34.867,
+     31.383
+    ],
+    "zoom": 7.6,
+    "ref": "1Sam.27.1-7",
+    "text": "He takes refuge with Achish, the Philistine king of Gath, who gives him the town of Ziklag.",
+    "text_zh": "他投奔非利士的迦特王亚吉，亚吉把洗革拉赐给他。"
+   },
+   {
+    "year": -1054,
+    "at": [
+     35.11,
+     31.524
+    ],
+    "zoom": 7.6,
+    "ref": "2Sam.2.1-4",
+    "text": "After Saul dies on Mount Gilboa, the men of Judah anoint David king at Hebron, where he reigns seven and a half years.",
+    "text_zh": "扫罗死在基利波山后，犹大人在希伯仑膏大卫作王，他在那里作王七年零六个月。"
+   },
+   {
+    "year": -1047,
+    "at": [
+     35.236,
+     31.773
+    ],
+    "zoom": 8.2,
+    "ref": "2Sam.5.6-10",
+    "text": "David captures the Jebusite stronghold of Zion and makes Jerusalem, the City of David, his capital.",
+    "text_zh": "大卫攻取耶布斯人的锡安保障，定耶路撒冷为京城，称为大卫城。"
+   }
+  ]
+ },
+ {
+  "id": "exile",
+  "era": "exile",
+  "start": -586,
+  "end": -445,
+  "path": true,
+  "title": "Exile and return",
+  "title_zh": "被掳与归回",
+  "summary": "Babylon destroys Jerusalem and carries Judah east. Seventy years later Persia lets them go home to rebuild.",
+  "summary_zh": "巴比伦毁灭耶路撒冷，把犹大人掳到东方。七十年后，波斯准许他们归回重建。",
+  "steps": [
+   {
+    "year": -586,
+    "at": [
+     35.235,
+     31.778
+    ],
+    "zoom": 7.6,
+    "ref": "2Kgs.25.8-12",
+    "text": "Nebuchadnezzar's army burns the temple, the palace and every great house in Jerusalem and breaks down its walls.",
+    "text_zh": "尼布甲尼撒的军队焚烧了耶路撒冷的圣殿、王宫和一切大户的房屋，又拆毁城墙。"
+   },
+   {
+    "year": -586,
+    "at": [
+     36.386,
+     34.353
+    ],
+    "zoom": 6.8,
+    "ref": "2Kgs.25.6-7",
+    "text": "King Zedekiah is caught near Jericho and brought to Nebuchadnezzar at Riblah in Syria, where he is blinded and taken in chains to Babylon.",
+    "text_zh": "西底家王在耶利哥附近被擒，押到叙利亚的利比拉见尼布甲尼撒，被剜了眼睛，用铜链锁着带到巴比伦。"
+   },
+   {
+    "year": -586,
+    "at": [
+     44.421,
+     32.536
+    ],
+    "zoom": 6.0,
+    "ref": "Ps.137.1-4",
+    "text": "By the rivers of Babylon the exiles sit down and weep when they remember Zion. Daniel serves at the royal court; Ezekiel prophesies by the Chebar canal.",
+    "text_zh": "被掳的人坐在巴比伦的河边，一追想锡安就哭了。但以理在王宫供职，以西结在迦巴鲁河边说预言。"
+   },
+   {
+    "year": -539,
+    "at": [
+     44.421,
+     32.536
+    ],
+    "zoom": 6.0,
+    "ref": "Dan.5.25-31",
+    "text": "The writing on the wall: that night Babylon falls to the Medes and Persians.",
+    "text_zh": "墙上的文字显现，当夜巴比伦就落入玛代人和波斯人手中。"
+   },
+   {
+    "year": -538,
+    "at": [
+     44.421,
+     32.536
+    ],
+    "zoom": 5.4,
+    "ref": "Ezra.1.1-4",
+    "text": "Cyrus of Persia issues a decree letting the Jews return to Jerusalem and rebuild the house of God.",
+    "text_zh": "波斯王古列下诏，准许犹太人回耶路撒冷重建神的殿。"
+   },
+   {
+    "year": -516,
+    "at": [
+     35.235,
+     31.778
+    ],
+    "zoom": 7.6,
+    "ref": "Ezra.6.13-16",
+    "text": "Encouraged by Haggai and Zechariah, the returned exiles finish the second temple.",
+    "text_zh": "归回的人受哈该和撒迦利亚的鼓励，建成了第二圣殿。"
+   },
+   {
+    "year": -473,
+    "at": [
+     48.249,
+     32.192
+    ],
+    "zoom": 6.4,
+    "ref": "Esth.4.13-16",
+    "text": "In Susa, the Persian winter capital, Queen Esther risks her life to save her people.",
+    "text_zh": "在波斯的都城书珊，以斯帖王后冒死拯救她的同胞。"
+   },
+   {
+    "year": -445,
+    "at": [
+     35.235,
+     31.778
+    ],
+    "zoom": 7.6,
+    "ref": "Neh.6.15-16",
+    "text": "Nehemiah, cupbearer to Artaxerxes, comes to Jerusalem and rebuilds its walls in fifty-two days.",
+    "text_zh": "亚达薛西王的酒政尼希米来到耶路撒冷，五十二天就修完了城墙。"
+   }
+  ]
+ },
+ {
+  "id": "jesus",
+  "era": "jesus",
+  "start": -3,
+  "end": 30,
+  "path": true,
+  "title": "The life of Jesus",
+  "title_zh": "耶稣的一生",
+  "summary": "From the manger in Bethlehem to the empty tomb in Jerusalem, through the villages around the Sea of Galilee.",
+  "summary_zh": "从伯利恒的马槽到耶路撒冷的空坟墓，中间走遍加利利海周围的村庄。",
+  "steps": [
+   {
+    "year": -3,
+    "at": [
+     35.208,
+     31.704
+    ],
+    "zoom": 8.4,
+    "event": "birth-of-jesus",
+    "ref": "Luke.2.1-7",
+    "text": "Joseph and Mary travel to Bethlehem for the census of Augustus, and Jesus is born there and laid in a manger.",
+    "text_zh": "约瑟和马利亚因该撒奥古斯都的报名上册之令回到伯利恒，耶稣就在那里降生，放在马槽里。"
+   },
+   {
+    "year": 9,
+    "at": [
+     35.3,
+     32.701
+    ],
+    "zoom": 8.4,
+    "ref": "Luke.2.39-52",
+    "text": "He grows up in Nazareth, a village in the hills of Galilee. At twelve he amazes the teachers in the temple.",
+    "text_zh": "他在加利利山地的小村拿撒勒长大。十二岁时在圣殿里与教师问答，众人都希奇。"
+   },
+   {
+    "year": 26,
+    "at": [
+     35.553,
+     31.836
+    ],
+    "zoom": 8.4,
+    "event": "john-baptizes-jesus",
+    "ref": "Matt.3.13-17",
+    "text": "John baptizes him in the Jordan at Bethany beyond the Jordan, and the Spirit descends on him like a dove.",
+    "text_zh": "约翰在约旦河外的伯大尼为他施洗，圣灵仿佛鸽子降在他身上。"
+   },
+   {
+    "year": 27,
+    "at": [
+     35.303,
+     32.824
+    ],
+    "zoom": 8.6,
+    "ref": "John.2.1-11",
+    "text": "At a wedding in Cana he turns water into wine, the first of his signs.",
+    "text_zh": "在迦拿的婚筵上，他把水变成酒，这是他所行的头一件神迹。"
+   },
+   {
+    "year": 27,
+    "at": [
+     35.575,
+     32.881
+    ],
+    "zoom": 8.8,
+    "event": "jesus-in-capernaum",
+    "ref": "Matt.4.12-22",
+    "text": "He makes Capernaum on the Sea of Galilee his home and calls the fishermen Peter, Andrew, James and John.",
+    "text_zh": "他以加利利海边的迦百农为家，呼召打鱼的彼得、安得烈、雅各、约翰。"
+   },
+   {
+    "year": 28,
+    "at": [
+     35.55,
+     32.88
+    ],
+    "zoom": 8.8,
+    "ref": "Matt.5.1-12",
+    "text": "On a hillside above the lake he teaches the Sermon on the Mount.",
+    "text_zh": "他在湖边的山上讲论登山宝训。"
+   },
+   {
+    "year": 29,
+    "at": [
+     35.694,
+     33.248
+    ],
+    "zoom": 8.4,
+    "ref": "Matt.16.13-20",
+    "text": "Near Caesarea Philippi, at the springs of the Jordan, Peter confesses: You are the Christ.",
+    "text_zh": "在约旦河源头的该撒利亚腓立比境内，彼得认信说：你是基督。"
+   },
+   {
+    "year": 30,
+    "at": [
+     35.262,
+     31.771
+    ],
+    "zoom": 8.8,
+    "ref": "John.11.38-44",
+    "text": "At Bethany, on the far side of the Mount of Olives, he raises Lazarus from the dead.",
+    "text_zh": "在橄榄山另一侧的伯大尼，他使拉撒路从死里复活。"
+   },
+   {
+    "year": 30,
+    "at": [
+     35.235,
+     31.778
+    ],
+    "zoom": 9.0,
+    "event": "the-last-supper",
+    "ref": "Luke.22.7-20",
+    "text": "In Jerusalem for Passover he eats the Last Supper with his disciples, prays in Gethsemane and is arrested.",
+    "text_zh": "逾越节期间在耶路撒冷，他与门徒吃最后的晚餐，在客西马尼祷告，随后被捕。"
+   },
+   {
+    "year": 30,
+    "at": [
+     35.23,
+     31.778
+    ],
+    "zoom": 9.0,
+    "event": "crucifixion-and-burial",
+    "ref": "John.19.16-42",
+    "text": "He is crucified at Golgotha outside the city wall and buried in a nearby tomb. On the third day the tomb is empty.",
+    "text_zh": "他在城外的各各他被钉十字架，葬在附近的坟墓里。第三天，坟墓空了。"
+   }
+  ]
+ },
+ {
+  "id": "paul-first",
+  "era": "early-church",
+  "start": 45,
+  "end": 47,
+  "path": true,
+  "title": "Paul's first journey",
+  "title_zh": "保罗第一次旅行布道",
+  "summary": "Sent out from Antioch, Paul and Barnabas sail to Cyprus and walk the roads of southern Asia Minor.",
+  "summary_zh": "保罗和巴拿巴从安提阿被差遣出去，航行到塞浦路斯，再走遍小亚细亚南部。",
+  "steps": [
+   {
+    "year": 45,
+    "at": [
+     36.165,
+     36.201
+    ],
+    "zoom": 6.4,
+    "event": "first-missionary-journey",
+    "ref": "Acts.13.1-3",
+    "text": "The church at Antioch in Syria lays hands on Barnabas and Saul and sends them out.",
+    "text_zh": "叙利亚安提阿的教会为巴拿巴和扫罗按手，差遣他们出去。"
+   },
+   {
+    "year": 45,
+    "at": [
+     33.903,
+     35.179
+    ],
+    "zoom": 6.6,
+    "ref": "Acts.13.4-5",
+    "text": "They sail from Seleucia to Salamis on Cyprus, Barnabas's home island, and preach in its synagogues.",
+    "text_zh": "他们从西流基坐船到巴拿巴的家乡塞浦路斯的撒拉米，在会堂里传道。"
+   },
+   {
+    "year": 45,
+    "at": [
+     32.574,
+     34.707
+    ],
+    "zoom": 6.8,
+    "ref": "Acts.13.6-12",
+    "text": "At Paphos the proconsul Sergius Paulus believes. From here Saul is called Paul.",
+    "text_zh": "在帕弗，方伯士求保罗信了主。从此扫罗又名保罗。"
+   },
+   {
+    "year": 46,
+    "at": [
+     31.191,
+     38.305
+    ],
+    "zoom": 6.4,
+    "ref": "Acts.13.14-52",
+    "text": "Inland at Antioch in Pisidia, Paul's sermon in the synagogue draws the whole city, and he turns to the Gentiles.",
+    "text_zh": "到了内陆的彼西底的安提阿，保罗在会堂讲道，几乎合城的人都来听，他就转向外邦人。"
+   },
+   {
+    "year": 46,
+    "at": [
+     32.385,
+     37.602
+    ],
+    "zoom": 6.8,
+    "ref": "Acts.14.8-20",
+    "text": "At Lystra a lame man is healed. The crowd hails them as gods, then stones Paul and leaves him for dead.",
+    "text_zh": "在路司得，一个瘸腿的人得了医治。众人先把他们当作神明，后来却用石头打保罗，以为他死了。"
+   },
+   {
+    "year": 46,
+    "at": [
+     33.362,
+     37.349
+    ],
+    "zoom": 6.8,
+    "ref": "Acts.14.20-21",
+    "text": "At Derbe many become disciples. Paul and Barnabas turn back through the same towns to strengthen the new churches.",
+    "text_zh": "在特庇有许多人作了门徒。保罗和巴拿巴原路返回，坚固各城的教会。"
+   },
+   {
+    "year": 47,
+    "at": [
+     36.165,
+     36.201
+    ],
+    "zoom": 6.0,
+    "ref": "Acts.14.24-28",
+    "text": "They sail home from Attalia and report to Antioch how God has opened the door of faith to the Gentiles.",
+    "text_zh": "他们从亚大利坐船回到安提阿，述说神怎样为外邦人开了信道的门。"
+   }
+  ]
+ },
+ {
+  "id": "paul-second",
+  "era": "early-church",
+  "start": 47,
+  "end": 50,
+  "path": true,
+  "title": "Paul's second journey",
+  "title_zh": "保罗第二次旅行布道",
+  "summary": "Paul crosses into Europe: Philippi, Thessalonica, Athens and a year and a half in Corinth.",
+  "summary_zh": "保罗渡海进入欧洲：腓立比、帖撒罗尼迦、雅典，又在哥林多住了一年半。",
+  "steps": [
+   {
+    "year": 47,
+    "at": [
+     36.165,
+     36.201
+    ],
+    "zoom": 6.0,
+    "event": "second-missionary-journey-begins",
+    "ref": "Acts.15.36-41",
+    "text": "After parting from Barnabas, Paul sets out from Antioch with Silas through Syria and Cilicia.",
+    "text_zh": "保罗与巴拿巴分手后，带着西拉从安提阿出发，走遍叙利亚和基利家。"
+   },
+   {
+    "year": 47,
+    "at": [
+     32.385,
+     37.602
+    ],
+    "zoom": 6.4,
+    "ref": "Acts.16.1-5",
+    "text": "At Lystra young Timothy joins them.",
+    "text_zh": "在路司得，年轻的提摩太加入他们。"
+   },
+   {
+    "year": 47,
+    "at": [
+     26.158,
+     39.751
+    ],
+    "zoom": 6.4,
+    "event": "call-to-macedonia",
+    "ref": "Acts.16.8-10",
+    "text": "At Troas on the Aegean Paul sees a vision of a man of Macedonia pleading: Come over and help us.",
+    "text_zh": "在爱琴海边的特罗亚，保罗在异象中见一个马其顿人求他说：请你过来帮助我们。"
+   },
+   {
+    "year": 48,
+    "at": [
+     24.284,
+     41.013
+    ],
+    "zoom": 6.8,
+    "ref": "Acts.16.12-40",
+    "text": "At Philippi Lydia the seller of purple is baptized; Paul and Silas are beaten and jailed, and an earthquake opens the prison.",
+    "text_zh": "在腓立比，卖紫色布的吕底亚受了洗；保罗和西拉被打下监，地大震动，监门全开。"
+   },
+   {
+    "year": 48,
+    "at": [
+     22.95,
+     40.63
+    ],
+    "zoom": 6.8,
+    "ref": "Acts.17.1-9",
+    "text": "In Thessalonica many believe, but a riot drives Paul on to Berea, where the Jews search the scriptures daily.",
+    "text_zh": "在帖撒罗尼迦有许多人信了，但骚乱迫使保罗转往庇哩亚，那里的人天天考查圣经。"
+   },
+   {
+    "year": 49,
+    "at": [
+     23.727,
+     37.972
+    ],
+    "zoom": 7.2,
+    "ref": "Acts.17.16-34",
+    "text": "In Athens Paul speaks on the Areopagus about the altar To the Unknown God.",
+    "text_zh": "在雅典，保罗站在亚略巴古，讲论那座写着「未识之神」的坛。"
+   },
+   {
+    "year": 49,
+    "at": [
+     22.879,
+     37.906
+    ],
+    "zoom": 7.2,
+    "ref": "Acts.18.1-11",
+    "text": "In Corinth he works as a tentmaker with Aquila and Priscilla and stays a year and six months.",
+    "text_zh": "在哥林多，他与亚居拉、百基拉一同织帐棚，住了一年零六个月。"
+   },
+   {
+    "year": 50,
+    "at": [
+     27.34,
+     37.942
+    ],
+    "zoom": 6.8,
+    "ref": "Acts.18.19-21",
+    "text": "He stops briefly at Ephesus, promising to return.",
+    "text_zh": "他在以弗所短暂停留，答应还要回来。"
+   },
+   {
+    "year": 50,
+    "at": [
+     36.165,
+     36.201
+    ],
+    "zoom": 5.6,
+    "event": "return-from-second-missionary-journey",
+    "ref": "Acts.18.22",
+    "text": "He lands at Caesarea, greets the church in Jerusalem and goes down to Antioch.",
+    "text_zh": "他在该撒利亚上岸，上耶路撒冷问教会安，然后下安提阿去。"
+   }
+  ]
+ },
+ {
+  "id": "paul-rome",
+  "era": "early-church",
+  "start": 56,
+  "end": 57,
+  "path": true,
+  "title": "Paul's voyage to Rome",
+  "title_zh": "保罗往罗马",
+  "summary": "A prisoner appealing to Caesar, Paul sails west, survives a storm and shipwreck on Malta and reaches Rome.",
+  "summary_zh": "保罗作为上告该撒的囚犯坐船西行，遇风暴在米利大岛破船，终于到达罗马。",
+  "steps": [
+   {
+    "year": 56,
+    "at": [
+     34.891,
+     32.499
+    ],
+    "zoom": 6.6,
+    "event": "journey-to-rome-begins",
+    "ref": "Acts.27.1-2",
+    "text": "After two years in custody at Caesarea, Paul appeals to Caesar and is put aboard a ship under the centurion Julius.",
+    "text_zh": "保罗在该撒利亚被拘押两年后上告该撒，被交给百夫长犹流押上船。"
+   },
+   {
+    "year": 56,
+    "at": [
+     35.371,
+     33.56
+    ],
+    "zoom": 6.6,
+    "ref": "Acts.27.3",
+    "text": "At Sidon Julius lets him visit his friends.",
+    "text_zh": "在西顿，犹流准他往朋友那里去。"
+   },
+   {
+    "year": 56,
+    "at": [
+     29.985,
+     36.259
+    ],
+    "zoom": 6.2,
+    "ref": "Acts.27.5-6",
+    "text": "At Myra in Lycia they change to an Alexandrian grain ship bound for Italy.",
+    "text_zh": "在吕家的每拉，他们换上一只往意大利去的亚历山大船。"
+   },
+   {
+    "year": 56,
+    "at": [
+     24.77,
+     34.93
+    ],
+    "zoom": 6.2,
+    "ref": "Acts.27.8-12",
+    "text": "They creep along Crete to Fair Havens. Paul warns against sailing on so late in the season, but is overruled.",
+    "text_zh": "他们沿着革哩底岛艰难航行到佳澳。保罗劝他们不要在这个时节继续航行，众人却不听。"
+   },
+   {
+    "year": 57,
+    "at": [
+     14.449,
+     35.874
+    ],
+    "zoom": 6.4,
+    "ref": "Acts.27.41-28.6",
+    "text": "A fourteen-day storm wrecks the ship on Malta. All 276 aboard reach land, and Paul shakes a viper off his hand unharmed.",
+    "text_zh": "风暴吹了十四天，船在米利大搁浅破坏，船上二百七十六人都得救上岸，保罗把手上的毒蛇甩掉，并没有受伤。"
+   },
+   {
+    "year": 57,
+    "at": [
+     14.122,
+     40.828
+    ],
+    "zoom": 6.6,
+    "ref": "Acts.28.11-14",
+    "text": "After three months they sail by Syracuse and Rhegium to Puteoli on the Bay of Naples.",
+    "text_zh": "三个月后，他们经过叙拉古和利基翁，到了那不勒斯湾的部丢利。"
+   },
+   {
+    "year": 57,
+    "at": [
+     12.484,
+     41.893
+    ],
+    "zoom": 7.0,
+    "ref": "Acts.28.16-31",
+    "text": "In Rome Paul lives two years in his own rented house under guard, welcoming all who come to him.",
+    "text_zh": "保罗在罗马自己租的房子里住了足足两年，有兵看守，凡来见他的人他都接待。"
+   }
+  ]
+ }
+]
