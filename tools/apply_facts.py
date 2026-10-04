@@ -14,19 +14,25 @@ status = {r["key"]: r["status"] for r in report}
 n = {"ok": 0, "fixed": 0, "doubt": 0}
 
 
-def mark(x, key):
-    x.pop("check", None)
+def mark(x, keyof):
+    # An item fixed on an earlier run is matched by its original values, which check.was keeps.
+    old = x.pop("check", None) or {}
+    orig = {**x, **(old.get("was") or {})}
+    key = keyof(orig)
     v = verdict.get(key)
     if v:
         c = {"s": v["s"]}
         if v.get("set"):
-            c["was"] = {k: x.get(k) for k in v["set"]}
+            c["was"] = {k: orig.get(k) for k in v["set"]}
             x.update(v["set"])
+        elif old.get("was"):
+            x.update(old["was"])
         for k in ("n", "n_zh"):
             if v.get(k): c[k] = v[k]
         x["check"] = c
-    elif status.get(key) == "ok":
-        x["check"] = {"s": "ok"}
+    else:
+        if old.get("was"): x.update(old["was"])
+        if status.get(key) == "ok": x["check"] = {"s": "ok"}
     if "check" in x: n[x["check"]["s"]] += 1
 
 
@@ -39,15 +45,15 @@ def dump(path, data):
 
 p = os.path.join(ROOT, "data/events.json")
 evs = json.load(open(p))
-for e in evs: mark(e, e["id"])
+for e in evs: mark(e, lambda o: o["id"])
 dump(p, evs)
 for f in sorted(glob.glob(os.path.join(ROOT, "data/layers/*.json"))):
     D = json.load(open(f))
     world = os.path.basename(f).startswith("world-")
     for L in (D.values() if world else [D]):
         for x in L.get("people", []):
-            mark(x, "|".join(map(str, ("p", x["name"], x.get("born"), x.get("died")))))
+            mark(x, lambda o: "|".join(map(str, ("p", o["name"], o.get("born"), o.get("died")))))
         for polity, rs in (L.get("rulers") or {}).items():
-            for x in rs: mark(x, f"{polity}|{x['name']}|{x['from']}|{x['to']}")
+            for x in rs: mark(x, lambda o: f"{polity}|{o['name']}|{o['from']}|{o['to']}")
     dump(f, D)
 print(n)

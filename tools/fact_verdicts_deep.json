@@ -1,0 +1,1451 @@
+[
+ {
+  "key": "sam-aspero",
+  "s": "ok"
+ },
+ {
+  "key": "me-gilgamesh-of-uruk",
+  "s": "doubt",
+  "n": "Chinese Wikipedia dates Gilgamesh's reign to about 2600 BC, not 2700.",
+  "n_zh": "中文维基百科称吉尔伽美什统治期大约在公元前2600年，而非2700年。"
+ },
+ {
+  "key": "sa-dholavira-settled",
+  "s": "ok"
+ },
+ {
+  "key": "sa-great-bath",
+  "s": "ok"
+ },
+ {
+  "key": "me-urukagina-reforms",
+  "s": "doubt",
+  "n": "Wikipedia gives Urukagina ruling c. 2378-2371 BC (died c. 2368), earlier than the 2350 date.",
+  "n_zh": "维基百科称乌鲁卡基那约前2378年至前2371年在位（约前2368年卒），早于前2350年。"
+ },
+ {
+  "key": "me-enheduanna",
+  "s": "ok"
+ },
+ {
+  "key": "ca-sintashta",
+  "s": "ok"
+ },
+ {
+  "key": "sea-phung-nguyen-culture",
+  "s": "ok"
+ },
+ {
+  "key": "sea-khok-phanom-di",
+  "s": "ok"
+ },
+ {
+  "key": "sam-sechin-alto",
+  "s": "ok"
+ },
+ {
+  "key": "me-code-of-hammurabi",
+  "s": "ok"
+ },
+ {
+  "key": "jie-of-xia",
+  "s": "ok"
+ },
+ {
+  "key": "mx-paso-de-la-amada",
+  "s": "ok"
+ },
+ {
+  "key": "eg-horse-chariot",
+  "s": "doubt",
+  "n": "Wikipedia says chariots reached Egypt with the Hyksos around 1700 BCE.",
+  "n_zh": "维基百科称战车约在公元前1700年随希克索斯人传入埃及。"
+ },
+ {
+  "key": "eg-rhind-papyrus",
+  "s": "doubt",
+  "n": "Chinese Wikipedia dates the papyrus's copying to about 1650 BC.",
+  "n_zh": "中文维基百科称该纸草书约前1650年抄写。"
+ },
+ {
+  "key": "af-bantu-expansion",
+  "s": "doubt",
+  "n": "Wikipedia says the Western Stream of Bantu expansion began between 5000 and 3000 BC.",
+  "n_zh": "维基百科称班图大迁徙西支约始于公元前5000至3000年间。"
+ },
+ {
+  "key": "zhengzhou-shang-city",
+  "s": "ok"
+ },
+ {
+  "key": "panlongcheng",
+  "s": "ok"
+ },
+ {
+  "key": "zhongding-moves-to-ao",
+  "s": "ok"
+ },
+ {
+  "key": "mx-tlatilco",
+  "s": "doubt",
+  "n": "Wikipedia says Tlatilco culture flourished 1250-800 BCE, not from 1400.",
+  "n_zh": "维基百科称特拉蒂尔科文化繁盛于公元前1250至800年，而非1400年。"
+ },
+ {
+  "key": "eg-akhenaten-reform",
+  "s": "ok"
+ },
+ {
+  "key": "oracle-bones",
+  "s": "ok"
+ },
+ {
+  "key": "wu-ding-appoints-fu-yue",
+  "s": "ok"
+ },
+ {
+  "key": "sanxingdui",
+  "s": "ok"
+ },
+ {
+  "key": "mx-olmec-colossal-heads",
+  "s": "doubt",
+  "n": "Wikipedia says the colossal heads date from at least 900 BCE.",
+  "n_zh": "维基百科称巨石头像至少可追溯至公元前900年。"
+ },
+ {
+  "key": "four-goat-square-zun",
+  "s": "doubt",
+  "n": "Wikipedia dates the Four-goat Zun to late Shang, 11th-10th century BC.",
+  "n_zh": "维基百科称四羊方尊属商代晚期，约前11至前10世纪。"
+ },
+ {
+  "key": "duke-of-shao-founds-yan",
+  "s": "ok"
+ },
+ {
+  "key": "cheng-kang-peace",
+  "s": "ok"
+ },
+ {
+  "key": "kr-dolmens",
+  "s": "ok"
+ },
+ {
+  "key": "eu-lefkandi",
+  "s": "ok"
+ },
+ {
+  "key": "duke-ai-of-qi-boiled",
+  "s": "doubt",
+  "n": "Chinese Wikipedia gives Duke Ai of Qi's death as 890 BC, not 868.",
+  "n_zh": "中文维基百科称齐哀公卒于前890年，而非前868年。"
+ },
+ {
+  "key": "king-xuan-restoration",
+  "s": "ok"
+ },
+ {
+  "key": "eu-lycurgus",
+  "s": "doubt",
+  "n": "Chinese Wikipedia dates Lycurgus c. 700-630 BC, active 7th century BC.",
+  "n_zh": "中文维基百科称来古格士约前700年至前630年，活动于前7世纪。"
+ },
+ {
+  "key": "na-adena-culture",
+  "s": "doubt",
+  "n": "Wikipedia says the Adena culture existed from 500 BC to 100 AD.",
+  "n_zh": "维基百科称阿德纳文化存在于公元前500年至公元100年。"
+ },
+ {
+  "key": "sa-sulba-sutras",
+  "s": "ok"
+ },
+ {
+  "key": "af-dmt-yeha",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says Yeha appeared around 400 BC.",
+  "n_zh": "中文维基百科称耶哈约前400年出现。"
+ },
+ {
+  "key": "sam-lanzon",
+  "s": "doubt",
+  "n": "Wikipedia says the Lanzon was erected circa 500 BCE.",
+  "n_zh": "维基百科称兰松约于公元前500年竖立。"
+ },
+ {
+  "key": "eu-homer",
+  "s": "ok"
+ },
+ {
+  "key": "me-marib-dam",
+  "s": "ok"
+ },
+ {
+  "key": "ir-median-kingdom",
+  "s": "ok"
+ },
+ {
+  "key": "me-lydian-coinage",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says Lydia began minting coins around 640 BC.",
+  "n_zh": "中文维基百科称吕底亚约公元前640年开始铸币。"
+ },
+ {
+  "key": "wu-learns-chariot-warfare",
+  "s": "ok"
+ },
+ {
+  "key": "eu-peisistratus",
+  "s": "ok"
+ },
+ {
+  "key": "eu-aegina-coinage",
+  "s": "doubt",
+  "n": "Wikipedia says coinage was introduced to the Greek world in the 7th century BC.",
+  "n_zh": "维基百科称钱币于公元前7世纪传入希腊世界。"
+ },
+ {
+  "key": "sa-bimbisara",
+  "s": "ok"
+ },
+ {
+  "key": "jin-penal-cauldron",
+  "s": "ok"
+ },
+ {
+  "key": "wu-xu",
+  "s": "ok"
+ },
+ {
+  "key": "laozi-writes-tao-te-ching",
+  "s": "ok"
+ },
+ {
+  "key": "eg-hanno-the-navigator",
+  "s": "ok"
+ },
+ {
+  "key": "eu-twelve-tables",
+  "s": "ok"
+ },
+ {
+  "key": "eu-hippocrates",
+  "s": "ok"
+ },
+ {
+  "key": "eu-democritus",
+  "s": "ok"
+ },
+ {
+  "key": "li-kui-reforms",
+  "s": "ok"
+ },
+ {
+  "key": "sa-panini",
+  "s": "ok"
+ },
+ {
+  "key": "ca-issyk",
+  "s": "ok"
+ },
+ {
+  "key": "knife-money-of-qi",
+  "s": "ok"
+ },
+ {
+  "key": "gan-shi-star-catalog",
+  "s": "ok"
+ },
+ {
+  "key": "bian-que",
+  "s": "ok"
+ },
+ {
+  "key": "li-sao",
+  "s": "doubt",
+  "n": "Wikipedia says the Li Sao dates from the 3rd century BCE.",
+  "n_zh": "维基百科称《离骚》成于公元前3世纪。"
+ },
+ {
+  "key": "kr-qin-kai",
+  "s": "ok"
+ },
+ {
+  "key": "eastern-and-western-emperors",
+  "s": "ok"
+ },
+ {
+  "key": "ir-ai-khanoum",
+  "s": "ok"
+ },
+ {
+  "key": "battle-of-fei",
+  "s": "ok"
+ },
+ {
+  "key": "af-meroitic-script",
+  "s": "ok"
+ },
+ {
+  "key": "sa-manusmriti",
+  "s": "ok"
+ },
+ {
+  "key": "jp-dotaku",
+  "s": "ok"
+ },
+ {
+  "key": "sam-san-agustin",
+  "s": "ok"
+ },
+ {
+  "key": "lu-mu-uprising",
+  "s": "ok"
+ },
+ {
+  "key": "kr-gaya-founded",
+  "s": "ok"
+ },
+ {
+  "key": "ca-fayaz-tepe",
+  "s": "ok"
+ },
+ {
+  "key": "sea-oc-eo",
+  "s": "ok"
+ },
+ {
+  "key": "kr-byeonhan-iron",
+  "s": "ok"
+ },
+ {
+  "key": "two-palaces-dispute",
+  "s": "ok"
+ },
+ {
+  "key": "sanguozhi",
+  "s": "ok"
+ },
+ {
+  "key": "sa-kalidasa",
+  "s": "ok"
+ },
+ {
+  "key": "wa-king-bu-memorial",
+  "s": "ok"
+ },
+ {
+  "key": "book-of-wei",
+  "s": "ok"
+ },
+ {
+  "key": "sam-gate-of-the-sun",
+  "s": "ok"
+ },
+ {
+  "key": "kr-silla-tang-alliance",
+  "s": "ok"
+ },
+ {
+  "key": "me-abd-al-malik-reforms",
+  "s": "ok"
+ },
+ {
+  "key": "sa-kailasa-temple",
+  "s": "ok"
+ },
+ {
+  "key": "sa-tripartite-struggle",
+  "s": "ok"
+ },
+ {
+  "key": "flying-cash",
+  "s": "ok"
+ },
+ {
+  "key": "kr-jang-bogo",
+  "s": "ok"
+ },
+ {
+  "key": "mx-el-tajin",
+  "s": "ok"
+ },
+ {
+  "key": "jin-conquers-yan",
+  "s": "ok"
+ },
+ {
+  "key": "ca-samanid-mausoleum",
+  "s": "ok"
+ },
+ {
+  "key": "weibo-joins-jin",
+  "s": "ok"
+ },
+ {
+  "key": "battle-of-yangcheng",
+  "s": "ok"
+ },
+ {
+  "key": "chu-civil-war",
+  "s": "ok"
+ },
+ {
+  "key": "eg-banu-hilal",
+  "s": "ok"
+ },
+ {
+  "key": "af-great-zimbabwe",
+  "s": "ok"
+ },
+ {
+  "key": "mx-eight-deer",
+  "s": "ok"
+ },
+ {
+  "key": "sam-kuelap",
+  "s": "ok"
+ },
+ {
+  "key": "hanshu-completed",
+  "s": "doubt",
+  "n": "Wikipedia says the Book of Han was finished in 111 CE (Ban Gu d. 92), not 82.",
+  "n_zh": "维基百科称《汉书》完成于公元111年（班固卒于92年），而非82年。"
+ },
+ {
+  "key": "jing-hao-bifaji",
+  "s": "doubt",
+  "n": "Wikipedia gives Jing Hao's life as c. 855–915, so a treatise c. 925 is after his death.",
+  "n_zh": "维基百科称荆浩生卒约855–915年，925年已在其身后。"
+ },
+ {
+  "key": "jp-honen",
+  "s": "ok"
+ },
+ {
+  "key": "liangzhou-meeting",
+  "s": "ok"
+ },
+ {
+  "key": "battle-of-lingbei",
+  "s": "ok"
+ },
+ {
+  "key": "han-liner-drowned",
+  "s": "doubt",
+  "n": "Wikipedia says Han Lin'er died in 1367, not 1366.",
+  "n_zh": "维基百科称韩林儿死于1367年，而非1366年。"
+ },
+ {
+  "key": "mx-kiche-kingdom",
+  "s": "ok"
+ },
+ {
+  "key": "mx-templo-mayor",
+  "s": "ok"
+ },
+ {
+  "key": "wang-zhi-executed",
+  "s": "doubt",
+  "n": "Wikipedia gives Wang Zhi's death as 22 January 1560, not 1559.",
+  "n_zh": "维基百科称汪直死于1560年1月22日，而非1559年。"
+ },
+ {
+  "key": "ir-mulla-sadra",
+  "s": "ok"
+ },
+ {
+  "key": "sa-fort-st-george",
+  "s": "ok"
+ },
+ {
+  "key": "sam-gold-rush",
+  "s": "ok"
+ },
+ {
+  "key": "fixed-ding-quota",
+  "s": "ok"
+ },
+ {
+  "key": "af-mfecane",
+  "s": "ok"
+ },
+ {
+  "key": "sam-guano",
+  "s": "ok"
+ },
+ {
+  "key": "kr-daewongun",
+  "s": "ok"
+ },
+ {
+  "key": "p|Li Gu|94|147",
+  "s": "ok"
+ },
+ {
+  "key": "p|Wang Shuhe|180|270",
+  "s": "doubt",
+  "n": "Chinese Wikipedia gives Wang Shuhe as c. 210?–258?, not 180–270.",
+  "n_zh": "中文维基百科称王叔和约生于210年、卒于258年，而非180–270年。"
+ },
+ {
+  "key": "Han|Liu Zhao|88|105",
+  "s": "ok"
+ },
+ {
+  "key": "Paekche|Gaeru|128|166",
+  "s": "ok"
+ },
+ {
+  "key": "p|Liu Xu|887|946",
+  "s": "ok"
+ },
+ {
+  "key": "Southern Han|Liu Yin|904|911",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: army made him acting governor in 901, jiedushi 905; died 911.",
+  "n_zh": "中文维基百科称刘隐901年任留后，905年任节度使，911年卒。"
+ },
+ {
+  "key": "Guiyi Circuit|Cao Yuande|935|939",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says Cao Yuande succeeded in 940 after Cao Yijin's death.",
+  "n_zh": "中文维基百科称曹议金940年卒，曹元德袭位。"
+ },
+ {
+  "key": "Jinghai Circuit (Khuc clan)|Kiều Công Tiễn|937|938",
+  "s": "ok"
+ },
+ {
+  "key": "p|Wei Liangfu|1489|1566",
+  "s": "doubt",
+  "n": "Chinese Wikipedia gives Wei Liangfu as before 1522 to c. 1586.",
+  "n_zh": "中文维基百科称魏良辅生于1522年以前，约卒于1586年。"
+ },
+ {
+  "key": "p|Zhang Jiebin (Zhang Jingyue)|1563|1640",
+  "s": "doubt",
+  "n": "Wikipedia gives 1563 – 1642; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作1563年—1642年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Tuyuhun|Murong Achai|417|424",
+  "s": "fixed",
+  "set": {
+   "to": 426
+  },
+  "n": "Reign end corrected from 424 to 426 per Wikipedia.",
+  "n_zh": "在位结束年据维基百科由424年更正为426年。"
+ },
+ {
+  "key": "Tuyuhun|Murong Mugui|424|436",
+  "s": "fixed",
+  "set": {
+   "from": 426
+  },
+  "n": "Reign start corrected from 424 to 426 per Wikipedia.",
+  "n_zh": "在位开始年据维基百科由424年更正为426年。"
+ },
+ {
+  "key": "Koguryo|Yangwon|545|559",
+  "s": "ok"
+ },
+ {
+  "key": "p|Liu Yong|984|1053",
+  "s": "ok"
+ },
+ {
+  "key": "Dali|Duan Silian|1045|1074",
+  "s": "ok"
+ },
+ {
+  "key": "Dzungar Khanate|Sengge|1653|1670",
+  "s": "ok"
+ },
+ {
+  "key": "Korea|Yi Myeong-bok|1863|1907",
+  "s": "ok"
+ },
+ {
+  "key": "Shang|Pan Geng|-1300|-1251",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: Pan Geng died 1277 BC, reigned 28 years, c. 1300 BC start.",
+  "n_zh": "中文维基百科称盘庚卒于前1277年，在位28年，约前1300年即位。"
+ },
+ {
+  "key": "Zhou (vassal west)|Ji Fa|-1049|-1047",
+  "s": "doubt",
+  "n": "Chinese Wikipedia dates King Wu's reign 1046-1043 BC (or c.1049-1043 BC); died c.1043 BC.",
+  "n_zh": "中文维基百科称周武王在位前1046–前1043年（或约前1049–前1043年），约前1043年卒。"
+ },
+ {
+  "key": "p|Zhou Qufei|1135|1189",
+  "s": "ok"
+ },
+ {
+  "key": "Kara Khitai Khaganate|Yelü Pusuwan|1164|1177",
+  "s": "ok"
+ },
+ {
+  "key": "Goryeo|Wang Sik|1259|1274",
+  "s": "ok"
+ },
+ {
+  "key": "Dali|Duan Zhixiang|1204|1238",
+  "s": "ok"
+ },
+ {
+  "key": "Zhou royal domain|Ji Yi|-585|-572",
+  "s": "ok"
+ },
+ {
+  "key": "Jin|Ji Guizhu|-676|-651",
+  "s": "ok"
+ },
+ {
+  "key": "Lu|Ji Cheng|-795|-769",
+  "s": "ok"
+ },
+ {
+  "key": "Lu|Ji Fuhuang|-768|-723",
+  "s": "ok"
+ },
+ {
+  "key": "Lu|Ji Chou|-541|-510",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi He|-728|-720",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi Jie|-691|-682",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi Yuyue|-681|-651",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi Wangchen|-636|-620",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi Bao|-610|-589",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi Cheng|-575|-532",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Tu|-700|-697",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Hu|-696|-695",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Ziying|-693|-680",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Jie|-672|-628",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Jian|-604|-587",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Fei|-586|-585",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Gun|-584|-571",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Ning|-529|-514",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Chai|-513|-501",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Sheng|-500|-463",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji He|-812|-758",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Qianmou|-696|-687",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Qiu|-558|-547",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Zhe|-476|-470",
+  "s": "ok"
+ },
+ {
+  "key": "Cai|Marquis Xi of Cai|-809|-762",
+  "s": "ok"
+ },
+ {
+  "key": "Cai|Ji Lu|-529|-522",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Mu of Cao|-759|-757",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Huan of Cao|-756|-702",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Zhuang of Cao|-701|-671",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Xi of Cao|-670|-662",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Zhao of Cao|-661|-653",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Gong of Cao|-652|-618",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Wen of Cao|-617|-595",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Duke Xuan of Cao|-594|-578",
+  "s": "ok"
+ },
+ {
+  "key": "Cao|Ji Fuchu|-577|-555",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Marquis Ai of Yan|-766|-765",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Marquis Mu of Yan|-728|-711",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Marquis Xuan of Yan|-710|-698",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Marquis Huan of Yan|-697|-691",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Zhuang of Yan|-690|-658",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Xiang of Yan|-657|-618",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Xuan of Yan|-601|-587",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Zhao of Yan|-586|-574",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Wen of Yan|-554|-549",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Yi of Yan|-548|-545",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Dao of Yan|-535|-529",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Gong of Yan|-528|-524",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Duke Ping of Yan|-523|-505",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Wen of Qin|-765|-716",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Xian of Qin|-715|-704",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Chuzi of Qin|-703|-698",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Xuan of Qin|-675|-664",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Huan of Qin|-603|-577",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Jing of Qin|-576|-537",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Ai of Qin|-536|-501",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Dao of Qin|-490|-477",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Ligong of Qin|-476|-443",
+  "s": "ok"
+ },
+ {
+  "key": "Chu|Xiong Kan|-763|-758",
+  "s": "ok"
+ },
+ {
+  "key": "Silla|Kim Baekjeong|579|632",
+  "s": "ok"
+ },
+ {
+  "key": "Uyghurs|Dunbaghatarkhan|779|789",
+  "s": "ok"
+ },
+ {
+  "key": "Silla|Kim Seungman|647|654",
+  "s": "ok"
+ },
+ {
+  "key": "p|Zhang Yi|None|-309",
+  "s": "ok"
+ },
+ {
+  "key": "p|Lin Xiangru|None|-259",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Fu|-450|-432",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Jiu|-431|-426",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Wei|-425|-415",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Tui|-414|-373",
+  "s": "ok"
+ },
+ {
+  "key": "Wey|Ji Xun|-372|-362",
+  "s": "ok"
+ },
+ {
+  "key": "Qi|Tian Di|-300|-284",
+  "s": "ok"
+ },
+ {
+  "key": "Lu|Ji Ning|-467|-437",
+  "s": "ok"
+ },
+ {
+  "key": "Lu|Ji Jia|-436|-416",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Yi|-462|-455",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Chou|-454|-424",
+  "s": "ok"
+ },
+ {
+  "key": "Zheng|Ji Yi|-395|-375",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|King Yi of Yan|-332|-321",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Zizhi|-316|-314",
+  "s": "ok"
+ },
+ {
+  "key": "Yan|Ji Xi|-254|-222",
+  "s": "ok"
+ },
+ {
+  "key": "Qin|Duke Huai of Qin|-428|-425",
+  "s": "ok"
+ },
+ {
+  "key": "Yue|Lüying|-464|-459",
+  "s": "ok"
+ },
+ {
+  "key": "Yue|Bushou|-458|-449",
+  "s": "ok"
+ },
+ {
+  "key": "Yue|Zhugou|-448|-412",
+  "s": "ok"
+ },
+ {
+  "key": "Yue|Yi|-411|-376",
+  "s": "ok"
+ },
+ {
+  "key": "Han|King Xuanhui of Han|-332|-312",
+  "s": "ok"
+ },
+ {
+  "key": "Zhao|Duke Wu of Zhao|-399|-387",
+  "s": "ok"
+ },
+ {
+  "key": "Dai|Zhao Jia|-227|-222",
+  "s": "ok"
+ },
+ {
+  "key": "Samanid Empire|Nasr I|864|892",
+  "s": "ok"
+ },
+ {
+  "key": "central Asian khanates|Ubaydullah Khan|1533|1540",
+  "s": "ok"
+ },
+ {
+  "key": "central Asian khanates|Shah Murad|1785|1800",
+  "s": "ok"
+ },
+ {
+  "key": "Egypt|Khasekhemwy|-2720|-2686",
+  "s": "ok"
+ },
+ {
+  "key": "Song|Zi Touman|-516|-451",
+  "s": "doubt",
+  "n": "Wikipedia gives 516 BC – 469 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前516年—前469年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "p|Zhang Xu|675|750",
+  "s": "doubt",
+  "n": "Wikipedia gives 685 – 759; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作685年—759年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Wey|Ji Su|-361|-333",
+  "s": "doubt",
+  "n": "Wikipedia gives 371 BC – 343 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前371年—前343年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Wey|Marquis Ping of Wey|-332|-325",
+  "s": "doubt",
+  "n": "Wikipedia gives 343 BC – 335 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前343年—前335年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Wey|Lord Si of Wey|-324|-283",
+  "s": "doubt",
+  "n": "Wikipedia gives 334 BC – 293 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前334年—前293年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Wey|Lord Huai of Wey|-282|-253",
+  "s": "doubt",
+  "n": "Wikipedia gives 292 BC – 252 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前292年—前252年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Wey|Jue|-229|-209",
+  "s": "doubt",
+  "n": "Wikipedia gives 241 BC – 209 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前241年—前209年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Lu|Ji Fen|-382|-361",
+  "s": "doubt",
+  "n": "Wikipedia gives 382 BC – 353 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前382年—前353年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Lu|Ji Tun|-360|-352",
+  "s": "doubt",
+  "n": "Wikipedia gives 352 BC – 344 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前352年—前344年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Lu|Ji Yan|-351|-323",
+  "s": "doubt",
+  "n": "Wikipedia gives 343 BC – 323 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前343年—前323年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Yan|Duke Cheng of Yan|-449|-434",
+  "s": "doubt",
+  "n": "Wikipedia gives 454 BC – 439 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前454年—前439年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Yan|Duke Min of Yan|-433|-403",
+  "s": "doubt",
+  "n": "Wikipedia gives 438 BC – 415 BC; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作前438年—前415年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Cao|Earl Hui of Cao|-795|-760",
+  "s": "doubt",
+  "n": "Wikipedia says reigned 34 years, died c. 760 BC (start c. 793 BC).",
+  "n_zh": "维基百科称在位34年，约前760年卒（即位约前793年）。"
+ },
+ {
+  "key": "p|Yue Yi|None|-250",
+  "s": "doubt",
+  "n": "Chinese Wikipedia gives c. 300 BC - c. 260 BC.",
+  "n_zh": "中文维基百科作约前300年—约前260年。"
+ },
+ {
+  "key": "Jin|Ji Julu|-368|-349",
+  "s": "doubt",
+  "n": "Wikipedia: Jing of Jin enthroned 378 BC (ZZTJ) or 356 BC (Shiji), deposed 376 or 349 BC.",
+  "n_zh": "维基百科：晋静公即位于前378年（资治通鉴）或前356年（史记），被废于前376年或前349年。"
+ },
+ {
+  "key": "Wey|Ji Zhe|-476|-456",
+  "s": "doubt",
+  "n": "English Wikipedia: second reign ended 470 BC; Chinese says died 456 BC.",
+  "n_zh": "英文维基百科称复位后于前470年被推翻；中文称前456年卒。"
+ },
+ {
+  "key": "Wey|Ji Qian|-455|-451",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: died 465 BC after 5 years on throne.",
+  "n_zh": "中文维基百科：前465年卒，在位5年。"
+ },
+ {
+  "key": "Lu|Ji Xian|-415|-383",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: died 377 BC, reigned 33 years.",
+  "n_zh": "中文维基百科：前377年卒，在位33年。"
+ },
+ {
+  "key": "Song|Zi Gouyou|-403|-396",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: died 385 BC after 8 years on throne.",
+  "n_zh": "中文维基百科：前385年卒，在位8年。"
+ },
+ {
+  "key": "Song|Ticheng|-369|-329",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: usurped c. 356-350 BC; 27th year is 329 BC.",
+  "n_zh": "中文维基百科：约前356至前350年篡位；二十七年为前329年。"
+ },
+ {
+  "key": "Yan|Duke Xiao of Yan|-464|-450",
+  "s": "doubt",
+  "n": "Chinese Wikipedia: died 455 BC after 38 years on throne.",
+  "n_zh": "中文维基百科：前455年卒，在位38年。"
+ },
+ {
+  "key": "Kushan Empire|Kanishka II|230|247",
+  "s": "doubt",
+  "n": "English Wikipedia: ruled c. 232-247 CE.",
+  "n_zh": "英文维基百科：约232-247年在位。"
+ },
+ {
+  "key": "Kushan Empire|Vasishka|247|267",
+  "s": "doubt",
+  "n": "English Wikipedia: ruled c. 247-265 CE.",
+  "n_zh": "英文维基百科：约247-265年在位。"
+ },
+ {
+  "key": "Egypt|Narmer|-3000|-2990",
+  "s": "doubt",
+  "n": "English Wikipedia dates Narmer to c. 3100 BC.",
+  "n_zh": "英文维基百科称那尔迈约在前3100年。"
+ },
+ {
+  "key": "Egypt|Hor-Aha|-2990|-2960",
+  "s": "doubt",
+  "n": "English Wikipedia dates Hor-Aha to c. 3085 BC.",
+  "n_zh": "英文维基百科称荷尔-阿哈约在前3085年。"
+ },
+ {
+  "key": "Egypt|Djer|-2960|-2920",
+  "s": "doubt",
+  "n": "English Wikipedia: Djer mid 31st century BC, reigned about 40 years.",
+  "n_zh": "英文维基百科：哲尔约在前31世纪中叶，在位约40年。"
+ },
+ {
+  "key": "Egypt|Djet|-2920|-2910",
+  "s": "doubt",
+  "n": "English Wikipedia dates Djet to c. 2980 BC.",
+  "n_zh": "英文维基百科称杰特约在前2980年。"
+ },
+ {
+  "key": "Egypt|Qa'a|-2840|-2810",
+  "s": "doubt",
+  "n": "English Wikipedia: Qa'a reigned about 33 years at end of 30th century BC.",
+  "n_zh": "英文维基百科：卡阿在位约33年，约在前30世纪末。"
+ },
+ {
+  "key": "Egypt|Nyuserre Ini|-2445|-2421",
+  "s": "ok"
+ },
+ {
+  "key": "p|Djehutihotep|-1900|-1850",
+  "s": "ok"
+ },
+ {
+  "key": "Egypt|Seqenenre Tao|-1558|-1554",
+  "s": "ok"
+ },
+ {
+  "key": "p|Thutmose|-1370|-1320",
+  "s": "ok"
+ },
+ {
+  "key": "Egypt|Siamun|-978|-959",
+  "s": "ok"
+ },
+ {
+  "key": "Egypt|Tefnakht|-732|-725",
+  "s": "ok"
+ },
+ {
+  "key": "Kush|Shebitku|-702|-690",
+  "s": "ok"
+ },
+ {
+  "key": "Idrisid Caliphate|Yahya I|848|864",
+  "s": "ok"
+ },
+ {
+  "key": "Idrisid Caliphate|Yahya II|864|866",
+  "s": "ok"
+ },
+ {
+  "key": "Kara Koyunlu|Qara Yusuf|1389|1420",
+  "s": "ok"
+ },
+ {
+  "key": "Lagash|Akurgal|-2464|-2455",
+  "s": "ok"
+ },
+ {
+  "key": "Lagash|Eannatum|-2454|-2425",
+  "s": "ok"
+ },
+ {
+  "key": "Lagash|Enannatum I|-2424|-2405",
+  "s": "ok"
+ },
+ {
+  "key": "Lagash|Entemena|-2404|-2375",
+  "s": "ok"
+ },
+ {
+  "key": "Hittites|Suppiluliuma II|-1207|-1178",
+  "s": "ok"
+ },
+ {
+  "key": "Assyria|Ashur-nirari III|-1193|-1188",
+  "s": "ok"
+ },
+ {
+  "key": "Assyria|Ninurta-apal-Ekur|-1182|-1180",
+  "s": "ok"
+ },
+ {
+  "key": "Assyria|Shalmaneser IV|-782|-773",
+  "s": "ok"
+ },
+ {
+  "key": "Achaemenid Empire|Artaxerxes II|-405|-358",
+  "s": "ok"
+ },
+ {
+  "key": "p|Patanjali|-200|-150",
+  "s": "ok"
+ },
+ {
+  "key": "p|Tô Hiến Thành|1102|1179",
+  "s": "ok"
+ },
+ {
+  "key": "Đại Việt|Trần Duệ Tông|1372|1377",
+  "s": "ok"
+ },
+ {
+  "key": "Đại Việt|Lê Tương Dực|1510|1516",
+  "s": "ok"
+ },
+ {
+  "key": "Songhai|Askia Ismail|1537|1539",
+  "s": "ok"
+ },
+ {
+  "key": "Songhai|Askia Ishaq I|1539|1549",
+  "s": "ok"
+ },
+ {
+  "key": "Egypt|Intef I|-2125|-2112",
+  "s": "doubt",
+  "n": "Wikipedia (zh) gives c. 2115-2103 BC.",
+  "n_zh": "中文维基给出约前2115年—前2103年。"
+ },
+ {
+  "key": "p|Amenemhat I|-2010|-1956",
+  "s": "doubt",
+  "n": "Wikipedia (zh) gives reign c. 1991-1962 BC; en gives no birth date.",
+  "n_zh": "中文维基载在位约前1991年—前1962年。"
+ },
+ {
+  "key": "Hyksos|Khamudi|-1555|-1544",
+  "s": "doubt",
+  "n": "Wikipedia says he came to power in 1534 or 1541 BC.",
+  "n_zh": "维基称其于前1534年或前1541年即位。"
+ },
+ {
+  "key": "Egypt|Twosret|-1188|-1186",
+  "s": "doubt",
+  "n": "Wikipedia says Tausret died in 1188 BC (end of dynasty).",
+  "n_zh": "维基称塔瓦斯雷特卒于前1188年。"
+ },
+ {
+  "key": "Egypt|Smendes|-1069|-1043",
+  "s": "doubt",
+  "n": "Wikipedia (zh) gives c. 1077/1076-1052 BC.",
+  "n_zh": "中文维基载在位约前1077/1076年—前1052年。"
+ },
+ {
+  "key": "Egypt|Psusennes I|-1039|-991",
+  "s": "doubt",
+  "n": "Wikipedia gives c. 1047-998 BC (en) or 1047-1001 BC (zh).",
+  "n_zh": "维基载在位前1047年—前998/1001年。"
+ },
+ {
+  "key": "Egypt|Osorkon I|-924|-889",
+  "s": "doubt",
+  "n": "Wikipedia gives c. 922-887 BC.",
+  "n_zh": "维基载在位约前922年—前887年。"
+ },
+ {
+  "key": "Egypt|Osorkon II|-874|-850",
+  "s": "doubt",
+  "n": "Wikipedia gives c. 872-837 BC.",
+  "n_zh": "维基载在位约前872年—前837年。"
+ },
+ {
+  "key": "Egypt|Shoshenq III|-825|-773",
+  "s": "doubt",
+  "n": "Wikipedia gives c. 841-803/799 BC or 831-791/788 BC.",
+  "n_zh": "维基载在位约前841年—前803/799年或前831年—前791/788年。"
+ },
+ {
+  "key": "Kush|Piye|-747|-716",
+  "s": "doubt",
+  "n": "Wikipedia (en) gives 744-714 BC; zh says died c. 721 BC.",
+  "n_zh": "英文维基载前744年—前714年；中文载约前721年卒。"
+ },
+ {
+  "key": "Media|Phraortes|-647|-625",
+  "s": "doubt",
+  "n": "Wikipedia (zh) gives c. 675-653 BC (some say 678-625).",
+  "n_zh": "中文维基载在位约前675年—前653年（或说前678年—前625年）。"
+ },
+ {
+  "key": "p|Jang Yeong-sil|1390|1450",
+  "s": "doubt",
+  "n": "Wikipedia (zh) gives 1383-1450.",
+  "n_zh": "中文维基载1383年—1450年。"
+ },
+ {
+  "key": "p|Urukagina|-2380|-2330",
+  "s": "doubt",
+  "n": "Wikipedia says died c. 2368 BC; zh reign 2378-2371 BC.",
+  "n_zh": "维基称约前2368年卒；在位前2378年—前2371年。"
+ },
+ {
+  "key": "Lagash|Ur-Nanshe|-2494|-2465",
+  "s": "doubt",
+  "n": "Wikipedia gives fl. c. 2520 BC (en) or c. 2550 BC (zh).",
+  "n_zh": "维基载约前2520年（英）/前2550年（中）在位。"
+ },
+ {
+  "key": "Lagash|Urukagina|-2350|-2335",
+  "s": "doubt",
+  "n": "Wikipedia says died c. 2368 BC; zh reign 2378-2371 BC.",
+  "n_zh": "维基称约前2368年卒；在位前2378年—前2371年。"
+ },
+ {
+  "key": "p|Lugal-ushumgal|-2250|-2190",
+  "s": "doubt",
+  "n": "Wikipedia says ruled c. 2230-2210 BC, died c. 2210 BC.",
+  "n_zh": "维基称约前2230年—前2210年在位，约前2210年卒。"
+ },
+ {
+  "key": "Assyria|Ishme-Dagan I|-1775|-1735",
+  "s": "doubt",
+  "n": "Wikipedia says Ishme-Dagan I died c. 1765 BC.",
+  "n_zh": "维基称约前1765年卒。"
+ },
+ {
+  "key": "Hittites|Tudhaliya I|-1430|-1400",
+  "s": "doubt",
+  "n": "Wikipedia says ruled perhaps c. 1465-1440 BC.",
+  "n_zh": "维基称约前1465年—前1440年在位。"
+ },
+ {
+  "key": "Hittites|Mursili III|-1272|-1267",
+  "s": "doubt",
+  "n": "Wikipedia gives 1282-1275 BC or 1272-1265 BC.",
+  "n_zh": "维基载前1282年—前1275年或前1272年—前1265年。"
+ },
+ {
+  "key": "Hittites|Tudhaliya IV|-1237|-1209",
+  "s": "doubt",
+  "n": "Wikipedia says reigned c. 1245-1215 BC.",
+  "n_zh": "维基称约前1245年—前1215年在位。"
+ },
+ {
+  "key": "Assyria|Shalmaneser I|-1263|-1234",
+  "s": "doubt",
+  "n": "Wikipedia gives 1273-1244 or 1265-1235 BC; zh 1275-1245.",
+  "n_zh": "维基载前1273年—前1244年或前1265年—前1235年；中文前1275年—前1245年。"
+ },
+ {
+  "key": "Lydia|Alyattes|-619|-560",
+  "s": "doubt",
+  "n": "Wikipedia gives reigned c. 635-585 BC; Croesus succeeded 560.",
+  "n_zh": "维基称约前635年—前585年在位。"
+ },
+ {
+  "key": "p|Fuzuli|1480|1556",
+  "s": "doubt",
+  "n": "Wikipedia (zh) gives 1483-1556.",
+  "n_zh": "中文维基载1483年—1556年。"
+ },
+ {
+  "key": "Satavahanihara|Vasishthiputra Pulumavi|130|158",
+  "s": "doubt",
+  "n": "Wikipedia gives new consensus c. 85-125 CE; older 110-138 or 130-159.",
+  "n_zh": "维基载新共识约85—125年；旧说110—138或130—159年。"
+ },
+ {
+  "key": "Palas|Narayanapala|854|908",
+  "s": "doubt",
+  "n": "Wikipedia says Narayanapala reigned 871-925.",
+  "n_zh": "维基载在位871年—925年。"
+ },
+ {
+  "key": "Palas|Rajyapala|908|940",
+  "s": "doubt",
+  "n": "Wikipedia says Rajyapala reigned 925-962.",
+  "n_zh": "维基载在位925年—962年。"
+ },
+ {
+  "key": "Palas|Gopala II|940|960",
+  "s": "doubt",
+  "n": "Wikipedia says Gopala II reigned 866-870.",
+  "n_zh": "维基载在位866年—870年。"
+ },
+ {
+  "key": "Palas|Vigrahapala II|960|988",
+  "s": "doubt",
+  "n": "Wikipedia says Vigrahapala II reigned c. 973-978.",
+  "n_zh": "维基载在位约973年—978年。"
+ },
+ {
+  "key": "p|Trưng Trắc and Trưng Nhị|12|43",
+  "s": "doubt",
+  "n": "Wikipedia gives c. 14 - c. 43.",
+  "n_zh": "维基载约14年—约43年。"
+ },
+ {
+  "key": "Khmer Empire|Suryavarman I|1006|1050",
+  "s": "doubt",
+  "n": "Wikipedia gives reign 1002 (or 1010) to 1050.",
+  "n_zh": "维基载1002年（或1010年）至1050年在位。"
+ },
+ {
+  "key": "Kanem|Hummay|1075|1086",
+  "s": "doubt",
+  "n": "Wikipedia says ruled approximately 1085-1097.",
+  "n_zh": "维基称约1085年—1097年在位。"
+ },
+ {
+  "key": "Kanem|Dunama I|1086|1140",
+  "s": "doubt",
+  "n": "Wikipedia says ruled approximately 1097-1151.",
+  "n_zh": "维基称约1097年—1151年在位。"
+ },
+ {
+  "key": "Kanem|Dunama Dabbalemi|1203|1243",
+  "s": "doubt",
+  "n": "Wikipedia says ruled approximately 1221-1259.",
+  "n_zh": "维基称约1221年—1259年在位。"
+ },
+ {
+  "key": "Kanem-Bornu|Dunama Dabbalemi|1203|1243",
+  "s": "doubt",
+  "n": "Wikipedia says ruled approximately 1221-1259.",
+  "n_zh": "维基称约1221年—1259年在位。"
+ },
+ {
+  "key": "Makkura|Merkurios|697|710",
+  "s": "doubt",
+  "n": "Wikipedia says reigned 697 to c. 722.",
+  "n_zh": "维基称697年至约722年在位。"
+ },
+ {
+  "key": "Oman|Said bin Ahmad|1783|1792",
+  "s": "doubt",
+  "n": "Wikipedia gives 1783 – 1786; sources differ, the map keeps the dates it had.",
+  "n_zh": "维基百科作1783年—1786年；诸说不一，地图暂沿用原年代。"
+ },
+ {
+  "key": "Chola Empire|Kulothunga I|1070|1120",
+  "s": "fixed",
+  "set": {
+   "to": 1122
+  },
+  "n": "Reign end corrected from 1120 to 1122 per Wikipedia.",
+  "n_zh": "据维基百科，在位终年由1120年改为1122年。"
+ }
+]
