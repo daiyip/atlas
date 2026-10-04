@@ -915,6 +915,10 @@ function setEra(era, quiet) {
   const seal = $("era-glyph");
   seal.textContent = era.seal || era.glyph;
   seal.classList.toggle("double", (era.seal || era.glyph).length > 1);
+  const civ = era.region === "world" ? { seal: "#56606a" } : state.regionById[era.region];
+  const color = era.region === "china" ? null : era.color || civ?.seal || civ?.color;
+  seal.classList.toggle("civ", !!color);
+  if (color) seal.style.setProperty("--seal", color); else seal.style.removeProperty("--seal");
   $("era-name").textContent = zh() ? era.name_zh : era.name;
   // Each piece wraps whole: other-language name, span of years, length.
   const region = state.regionById[era.region];

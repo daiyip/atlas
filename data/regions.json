@@ -287,6 +287,7 @@
    "name": "Korea",
    "name_zh": "朝鲜半岛",
    "color": "#8e44ad",
+   "seal": "#6c3483",
    "polygon": [
     [
      124.5,
@@ -554,6 +555,7 @@
    "name": "Japan",
    "name_zh": "日本",
    "color": "#d35400",
+   "seal": "#ad1457",
    "polygon": [
     [
      129.5,
@@ -894,6 +896,7 @@
    "name": "Southeast Asia",
    "name_zh": "东南亚",
    "color": "#16a085",
+   "seal": "#138d75",
    "polygon": [
     [
      92.0,
@@ -1225,6 +1228,7 @@
    "name": "Indian Subcontinent",
    "name_zh": "印度次大陆",
    "color": "#e67e22",
+   "seal": "#d68910",
    "polygon": [
     [
      61.5,
@@ -1627,6 +1631,7 @@
    "name": "Central Asia and the Steppe",
    "name_zh": "中亚与草原",
    "color": "#b7950b",
+   "seal": "#8a7a0f",
    "polygon": [
     [
      53.0,
@@ -2031,6 +2036,7 @@
    "name": "Iranian Plateau",
    "name_zh": "伊朗高原",
    "color": "#2980b9",
+   "seal": "#138a9e",
    "polygon": [
     [
      61.5,
@@ -2461,6 +2467,7 @@
    "name": "Mesopotamia, the Levant, Anatolia and Arabia",
    "name_zh": "两河流域、黎凡特、安纳托利亚与阿拉伯",
    "color": "#7d6608",
+   "seal": "#9c640c",
    "polygon": [
     [
      44.2,
@@ -2987,6 +2994,7 @@
    "name": "Egypt and North Africa",
    "name_zh": "埃及与北非",
    "color": "#ca6f1e",
+   "seal": "#283593",
    "polygon": [
     [
      -10.0,
@@ -3471,6 +3479,7 @@
    "name": "Europe and the Mediterranean",
    "name_zh": "欧洲与地中海",
    "color": "#1f618d",
+   "seal": "#1f618d",
    "polygon": [
     [
      -9.5,
@@ -4036,6 +4045,7 @@
    "name": "Sub-Saharan Africa",
    "name_zh": "撒哈拉以南非洲",
    "color": "#6e2c00",
+   "seal": "#6e2c00",
    "polygon": [
     [
      -17.0,
@@ -4393,6 +4403,7 @@
    "name": "North America",
    "name_zh": "北美洲",
    "color": "#1e8449",
+   "seal": "#1e8449",
    "polygon": [
     [
      -117.1,
@@ -4741,6 +4752,7 @@
    "name": "Mexico and Central America",
    "name_zh": "墨西哥与中美洲",
    "color": "#a04000",
+   "seal": "#a04000",
    "polygon": [
     [
      -117.1,
@@ -5084,6 +5096,7 @@
    "name": "South America",
    "name_zh": "南美洲",
    "color": "#117864",
+   "seal": "#0b5345",
    "polygon": [
     [
      -77.2,

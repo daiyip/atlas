@@ -81,11 +81,13 @@ body {
   grid-row: span 3;
   width: 56px; height: 56px;
   display: grid; place-items: center;
-  background: var(--cinnabar);
-  color: var(--cinnabar-ink);
+  --seal-bg: var(--cinnabar); --seal-ink: var(--cinnabar-ink);
+  background: var(--seal-bg);
+  color: var(--seal-ink);
   font: 700 36px/1 var(--font-display);
   border-radius: 6px;
-  box-shadow: inset 0 0 0 3px var(--cinnabar), inset 0 0 0 4px var(--cinnabar-ink);
+  box-shadow: inset 0 0 0 3px var(--seal-bg), inset 0 0 0 4px var(--seal-ink);
+  transition: background-color 0.4s;
 }
 .era-name { margin: 0; font: 600 17px/1.2 var(--font-body); text-wrap: balance; }
 .era-zh { font: 500 14px/1.2 var(--font-display); color: var(--muted); }
@@ -371,7 +373,7 @@ html:lang(en) .mk-polity.minor small { display: none; }
     top: calc(8px + env(safe-area-inset-top)); left: 8px; width: calc(100% - 16px);
     padding: 8px 10px; gap: 0 10px; box-sizing: border-box;
   }
-  .seal { width: 38px; height: 38px; font-size: 24px; grid-row: span 2; box-shadow: inset 0 0 0 2px var(--cinnabar), inset 0 0 0 3px var(--cinnabar-ink); }
+  .seal { width: 38px; height: 38px; font-size: 24px; grid-row: span 2; box-shadow: inset 0 0 0 2px var(--seal-bg), inset 0 0 0 3px var(--seal-ink); }
   .seal.double { font-size: 14px; }
   .era-name { font-size: 15px; }
   .era-zh { display: none; }
@@ -1019,3 +1021,7 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .lang-pop svg { width: 12px; height: 12px; color: var(--jade); visibility: hidden; }
 .lang-pop [aria-checked="true"] svg { visibility: visible; }
 @media (max-width: 720px) { .lang-btn { padding-inline: 6px; height: 30px; font-size: 12px; } }
+/* The seal takes its civilisation's colour (data/regions.json `seal`, else `color`); China keeps cinnabar. */
+.seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 84%, #000); --seal-ink: #fffaf5; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 72%, #fff); --seal-ink: #15110f; } }
+:root[data-theme="dark"] .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 72%, #fff); --seal-ink: #15110f; }
