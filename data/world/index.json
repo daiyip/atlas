@@ -4,9 +4,44 @@
   "full": "data/world/-3000.json"
  },
  {
+  "from": -2700,
+  "full": "data/world/-2700.json"
+ },
+ {
+  "from": -2500,
+  "full": "data/world/-2500.json"
+ },
+ {
+  "from": -2300,
+  "full": "data/world/-2300.json"
+ },
+ {
+  "from": -2200,
+  "full": "data/world/-2200.json"
+ },
+ {
+  "from": -2100,
+  "full": "data/world/-2100.json"
+ },
+ {
   "from": -2000,
   "full": "data/world/-2000.json",
   "outer": "data/world/-2000-outer.json"
+ },
+ {
+  "from": -1800,
+  "full": "data/world/-1800.json",
+  "outer": "data/world/-1800-outer.json"
+ },
+ {
+  "from": -1700,
+  "full": "data/world/-1700.json",
+  "outer": "data/world/-1700-outer.json"
+ },
+ {
+  "from": -1600,
+  "full": "data/world/-1600.json",
+  "outer": "data/world/-1600-outer.json"
  },
  {
   "from": -1500,
@@ -14,9 +49,44 @@
   "outer": "data/world/-1500-outer.json"
  },
  {
+  "from": -1400,
+  "full": "data/world/-1400.json",
+  "outer": "data/world/-1400-outer.json"
+ },
+ {
+  "from": -1300,
+  "full": "data/world/-1300.json",
+  "outer": "data/world/-1300-outer.json"
+ },
+ {
+  "from": -1200,
+  "full": "data/world/-1200.json",
+  "outer": "data/world/-1200-outer.json"
+ },
+ {
+  "from": -1100,
+  "full": "data/world/-1100.json",
+  "outer": "data/world/-1100-outer.json"
+ },
+ {
   "from": -1000,
   "full": "data/world/-1000.json",
   "outer": "data/world/-1000-outer.json"
+ },
+ {
+  "from": -900,
+  "full": "data/world/-900.json",
+  "outer": "data/world/-900-outer.json"
+ },
+ {
+  "from": -800,
+  "full": "data/world/-800.json",
+  "outer": "data/world/-800-outer.json"
+ },
+ {
+  "from": -750,
+  "full": "data/world/-750.json",
+  "outer": "data/world/-750-outer.json"
  },
  {
   "from": -700,
@@ -24,14 +94,39 @@
   "outer": "data/world/-700-outer.json"
  },
  {
+  "from": -650,
+  "full": "data/world/-650.json",
+  "outer": "data/world/-650-outer.json"
+ },
+ {
+  "from": -600,
+  "full": "data/world/-600.json",
+  "outer": "data/world/-600-outer.json"
+ },
+ {
+  "from": -550,
+  "full": "data/world/-550.json",
+  "outer": "data/world/-550-outer.json"
+ },
+ {
   "from": -500,
   "full": "data/world/-500.json",
   "outer": "data/world/-500-outer.json"
  },
  {
-  "from": -400,
-  "full": "data/world/-400.json",
-  "outer": "data/world/-400-outer.json"
+  "from": -450,
+  "full": "data/world/-450.json",
+  "outer": "data/world/-450-outer.json"
+ },
+ {
+  "from": -383,
+  "full": "data/world/-383.json",
+  "outer": "data/world/-383-outer.json"
+ },
+ {
+  "from": -333,
+  "full": "data/world/-333.json",
+  "outer": "data/world/-333-outer.json"
  },
  {
   "from": -323,
@@ -39,44 +134,114 @@
   "outer": "data/world/-323-outer.json"
  },
  {
-  "from": -300,
-  "full": "data/world/-300.json",
-  "outer": "data/world/-300-outer.json"
+  "from": -272,
+  "full": "data/world/-272.json",
+  "outer": "data/world/-272-outer.json"
  },
  {
-  "from": -200,
-  "full": "data/world/-200.json",
-  "outer": "data/world/-200-outer.json"
+  "from": -222,
+  "full": "data/world/-222.json",
+  "outer": "data/world/-222-outer.json"
  },
  {
-  "from": -100,
-  "full": "data/world/-100.json",
-  "outer": "data/world/-100-outer.json"
+  "from": -170,
+  "full": "data/world/-170.json",
+  "outer": "data/world/-170-outer.json"
  },
  {
-  "from": -1,
-  "full": "data/world/-1.json",
-  "outer": "data/world/-1-outer.json"
+  "from": -110,
+  "full": "data/world/-110.json",
+  "outer": "data/world/-110-outer.json"
  },
  {
-  "from": 100,
-  "full": "data/world/100.json",
-  "outer": "data/world/100-outer.json"
+  "from": -50,
+  "full": "data/world/-50.json",
+  "outer": "data/world/-50-outer.json"
  },
  {
-  "from": 200,
-  "full": "data/world/200.json",
-  "outer": "data/world/200-outer.json"
+  "from": 1,
+  "full": "data/world/1.json",
+  "outer": "data/world/1-outer.json"
  },
  {
-  "from": 300,
-  "full": "data/world/300.json",
-  "outer": "data/world/300-outer.json"
+  "from": 30,
+  "full": "data/world/30.json",
+  "outer": "data/world/30-outer.json"
  },
  {
-  "from": 400,
-  "full": "data/world/400.json",
-  "outer": "data/world/400-outer.json"
+  "from": 60,
+  "full": "data/world/60.json",
+  "outer": "data/world/60-outer.json"
+ },
+ {
+  "from": 91,
+  "full": "data/world/91.json",
+  "outer": "data/world/91-outer.json"
+ },
+ {
+  "from": 117,
+  "full": "data/world/117.json",
+  "outer": "data/world/117-outer.json"
+ },
+ {
+  "from": 154,
+  "full": "data/world/154.json",
+  "outer": "data/world/154-outer.json"
+ },
+ {
+  "from": 184,
+  "full": "data/world/184.json",
+  "outer": "data/world/184-outer.json"
+ },
+ {
+  "from": 215,
+  "full": "data/world/215.json",
+  "outer": "data/world/215-outer.json"
+ },
+ {
+  "from": 247,
+  "full": "data/world/247.json",
+  "outer": "data/world/247-outer.json"
+ },
+ {
+  "from": 283,
+  "full": "data/world/283.json",
+  "outer": "data/world/283-outer.json"
+ },
+ {
+  "from": 308,
+  "full": "data/world/308.json",
+  "outer": "data/world/308-outer.json"
+ },
+ {
+  "from": 337,
+  "full": "data/world/337.json",
+  "outer": "data/world/337-outer.json"
+ },
+ {
+  "from": 367,
+  "full": "data/world/367.json",
+  "outer": "data/world/367-outer.json"
+ },
+ {
+  "from": 392,
+  "full": "data/world/392.json",
+  "outer": "data/world/392-outer.json"
+ },
+ {
+  "from": 417,
+  "full": "data/world/417.json",
+  "outer": "data/world/417-outer.json"
+ },
+ {
+  "from": 443,
+  "full": "data/world/443.json",
+  "outer": "data/world/443-outer.json"
+ },
+ {
+  "from": 469,
+  "full": "data/world/469.json",
+  "outer": "data/world/469-outer.json"
  },
  {
   "from": 500,
@@ -84,14 +249,54 @@
   "outer": "data/world/500-outer.json"
  },
  {
-  "from": 600,
-  "full": "data/world/600.json",
-  "outer": "data/world/600-outer.json"
+  "from": 534,
+  "full": "data/world/534.json",
+  "outer": "data/world/534-outer.json"
  },
  {
-  "from": 700,
-  "full": "data/world/700.json",
-  "outer": "data/world/700-outer.json"
+  "from": 561,
+  "full": "data/world/561.json",
+  "outer": "data/world/561-outer.json"
+ },
+ {
+  "from": 587,
+  "full": "data/world/587.json",
+  "outer": "data/world/587-outer.json"
+ },
+ {
+  "from": 612,
+  "full": "data/world/612.json",
+  "outer": "data/world/612-outer.json"
+ },
+ {
+  "from": 638,
+  "full": "data/world/638.json",
+  "outer": "data/world/638-outer.json"
+ },
+ {
+  "from": 666,
+  "full": "data/world/666.json",
+  "outer": "data/world/666-outer.json"
+ },
+ {
+  "from": 692,
+  "full": "data/world/692.json",
+  "outer": "data/world/692-outer.json"
+ },
+ {
+  "from": 718,
+  "full": "data/world/718.json",
+  "outer": "data/world/718-outer.json"
+ },
+ {
+  "from": 750,
+  "full": "data/world/750.json",
+  "outer": "data/world/750-outer.json"
+ },
+ {
+  "from": 775,
+  "full": "data/world/775.json",
+  "outer": "data/world/775-outer.json"
  },
  {
   "from": 800,
@@ -99,39 +304,129 @@
   "outer": "data/world/800-outer.json"
  },
  {
+  "from": 825,
+  "full": "data/world/825.json",
+  "outer": "data/world/825-outer.json"
+ },
+ {
+  "from": 850,
+  "full": "data/world/850.json",
+  "outer": "data/world/850-outer.json"
+ },
+ {
+  "from": 875,
+  "full": "data/world/875.json",
+  "outer": "data/world/875-outer.json"
+ },
+ {
   "from": 900,
   "full": "data/world/900.json",
   "outer": "data/world/900-outer.json"
  },
  {
-  "from": 1000,
-  "full": "data/world/1000.json",
-  "outer": "data/world/1000-outer.json"
+  "from": 926,
+  "full": "data/world/926.json",
+  "outer": "data/world/926-outer.json"
  },
  {
-  "from": 1100,
-  "full": "data/world/1100.json",
-  "outer": "data/world/1100-outer.json"
+  "from": 960,
+  "full": "data/world/960.json",
+  "outer": "data/world/960-outer.json"
  },
  {
-  "from": 1200,
-  "full": "data/world/1200.json",
-  "outer": "data/world/1200-outer.json"
+  "from": 990,
+  "full": "data/world/990.json",
+  "outer": "data/world/990-outer.json"
  },
  {
-  "from": 1279,
-  "full": "data/world/1279.json",
-  "outer": "data/world/1279-outer.json"
+  "from": 1015,
+  "full": "data/world/1015.json",
+  "outer": "data/world/1015-outer.json"
  },
  {
-  "from": 1300,
-  "full": "data/world/1300.json",
-  "outer": "data/world/1300-outer.json"
+  "from": 1040,
+  "full": "data/world/1040.json",
+  "outer": "data/world/1040-outer.json"
  },
  {
-  "from": 1400,
-  "full": "data/world/1400.json",
-  "outer": "data/world/1400-outer.json"
+  "from": 1066,
+  "full": "data/world/1066.json",
+  "outer": "data/world/1066-outer.json"
+ },
+ {
+  "from": 1094,
+  "full": "data/world/1094.json",
+  "outer": "data/world/1094-outer.json"
+ },
+ {
+  "from": 1126,
+  "full": "data/world/1126.json",
+  "outer": "data/world/1126-outer.json"
+ },
+ {
+  "from": 1152,
+  "full": "data/world/1152.json",
+  "outer": "data/world/1152-outer.json"
+ },
+ {
+  "from": 1177,
+  "full": "data/world/1177.json",
+  "outer": "data/world/1177-outer.json"
+ },
+ {
+  "from": 1202,
+  "full": "data/world/1202.json",
+  "outer": "data/world/1202-outer.json"
+ },
+ {
+  "from": 1227,
+  "full": "data/world/1227.json",
+  "outer": "data/world/1227-outer.json"
+ },
+ {
+  "from": 1260,
+  "full": "data/world/1260.json",
+  "outer": "data/world/1260-outer.json"
+ },
+ {
+  "from": 1285,
+  "full": "data/world/1285.json",
+  "outer": "data/world/1285-outer.json"
+ },
+ {
+  "from": 1314,
+  "full": "data/world/1314.json",
+  "outer": "data/world/1314-outer.json"
+ },
+ {
+  "from": 1344,
+  "full": "data/world/1344.json",
+  "outer": "data/world/1344-outer.json"
+ },
+ {
+  "from": 1375,
+  "full": "data/world/1375.json",
+  "outer": "data/world/1375-outer.json"
+ },
+ {
+  "from": 1402,
+  "full": "data/world/1402.json",
+  "outer": "data/world/1402-outer.json"
+ },
+ {
+  "from": 1429,
+  "full": "data/world/1429.json",
+  "outer": "data/world/1429-outer.json"
+ },
+ {
+  "from": 1459,
+  "full": "data/world/1459.json",
+  "outer": "data/world/1459-outer.json"
+ },
+ {
+  "from": 1487,
+  "full": "data/world/1487.json",
+  "outer": "data/world/1487-outer.json"
  },
  {
   "from": 1492,
@@ -139,14 +434,24 @@
   "outer": "data/world/1492-outer.json"
  },
  {
-  "from": 1500,
-  "full": "data/world/1500.json",
-  "outer": "data/world/1500-outer.json"
+  "from": 1512,
+  "full": "data/world/1512.json",
+  "outer": "data/world/1512-outer.json"
  },
  {
-  "from": 1530,
-  "full": "data/world/1530.json",
-  "outer": "data/world/1530-outer.json"
+  "from": 1534,
+  "full": "data/world/1534.json",
+  "outer": "data/world/1534-outer.json"
+ },
+ {
+  "from": 1556,
+  "full": "data/world/1556.json",
+  "outer": "data/world/1556-outer.json"
+ },
+ {
+  "from": 1579,
+  "full": "data/world/1579.json",
+  "outer": "data/world/1579-outer.json"
  },
  {
   "from": 1600,
@@ -154,39 +459,94 @@
   "outer": "data/world/1600-outer.json"
  },
  {
-  "from": 1650,
-  "full": "data/world/1650.json",
-  "outer": "data/world/1650-outer.json"
+  "from": 1622,
+  "full": "data/world/1622.json",
+  "outer": "data/world/1622-outer.json"
  },
  {
-  "from": 1700,
-  "full": "data/world/1700.json",
-  "outer": "data/world/1700-outer.json"
+  "from": 1642,
+  "full": "data/world/1642.json",
+  "outer": "data/world/1642-outer.json"
  },
  {
-  "from": 1715,
-  "full": "data/world/1715.json",
-  "outer": "data/world/1715-outer.json"
+  "from": 1662,
+  "full": "data/world/1662.json",
+  "outer": "data/world/1662-outer.json"
  },
  {
-  "from": 1783,
-  "full": "data/world/1783.json",
-  "outer": "data/world/1783-outer.json"
+  "from": 1683,
+  "full": "data/world/1683.json",
+  "outer": "data/world/1683-outer.json"
  },
  {
-  "from": 1800,
-  "full": "data/world/1800.json",
-  "outer": "data/world/1800-outer.json"
+  "from": 1706,
+  "full": "data/world/1706.json",
+  "outer": "data/world/1706-outer.json"
  },
  {
-  "from": 1815,
-  "full": "data/world/1815.json",
-  "outer": "data/world/1815-outer.json"
+  "from": 1727,
+  "full": "data/world/1727.json",
+  "outer": "data/world/1727-outer.json"
  },
  {
-  "from": 1880,
-  "full": "data/world/1880.json",
-  "outer": "data/world/1880-outer.json"
+  "from": 1748,
+  "full": "data/world/1748.json",
+  "outer": "data/world/1748-outer.json"
+ },
+ {
+  "from": 1769,
+  "full": "data/world/1769.json",
+  "outer": "data/world/1769-outer.json"
+ },
+ {
+  "from": 1791,
+  "full": "data/world/1791.json",
+  "outer": "data/world/1791-outer.json"
+ },
+ {
+  "from": 1803,
+  "full": "data/world/1803.json",
+  "outer": "data/world/1803-outer.json"
+ },
+ {
+  "from": 1814,
+  "full": "data/world/1814.json",
+  "outer": "data/world/1814-outer.json"
+ },
+ {
+  "from": 1824,
+  "full": "data/world/1824.json",
+  "outer": "data/world/1824-outer.json"
+ },
+ {
+  "from": 1834,
+  "full": "data/world/1834.json",
+  "outer": "data/world/1834-outer.json"
+ },
+ {
+  "from": 1846,
+  "full": "data/world/1846.json",
+  "outer": "data/world/1846-outer.json"
+ },
+ {
+  "from": 1856,
+  "full": "data/world/1856.json",
+  "outer": "data/world/1856-outer.json"
+ },
+ {
+  "from": 1866,
+  "full": "data/world/1866.json",
+  "outer": "data/world/1866-outer.json"
+ },
+ {
+  "from": 1877,
+  "full": "data/world/1877.json",
+  "outer": "data/world/1877-outer.json"
+ },
+ {
+  "from": 1890,
+  "full": "data/world/1890.json",
+  "outer": "data/world/1890-outer.json"
  },
  {
   "from": 1900,
@@ -194,39 +554,52 @@
   "outer": "data/world/1900-outer.json"
  },
  {
+  "from": 1911,
+  "full": "data/world/1911.json",
+  "outer": "data/world/1911-outer.json"
+ },
+ {
   "from": 1914,
   "full": "data/world/1914.json"
  },
  {
-  "from": 1920,
-  "full": "data/world/1920.json"
+  "from": 1924,
+  "full": "data/world/1924.json"
  },
  {
-  "from": 1930,
-  "full": "data/world/1930.json"
- },
- {
-  "from": 1938,
-  "full": "data/world/1938.json"
+  "from": 1936,
+  "full": "data/world/1936.json"
  },
  {
   "from": 1945,
   "full": "data/world/1945.json"
  },
  {
-  "from": 1960,
-  "full": "data/world/1960.json"
+  "from": 1956,
+  "full": "data/world/1956.json"
  },
  {
-  "from": 1994,
-  "full": "data/world/1994.json"
+  "from": 1967,
+  "full": "data/world/1967.json"
+ },
+ {
+  "from": 1979,
+  "full": "data/world/1979.json"
+ },
+ {
+  "from": 1990,
+  "full": "data/world/1990.json"
  },
  {
   "from": 2000,
   "full": "data/world/2000.json"
  },
  {
-  "from": 2010,
-  "full": "data/world/2010.json"
+  "from": 2014,
+  "full": "data/world/2014.json"
+ },
+ {
+  "from": 2024,
+  "full": "data/world/2024.json"
  }
 ]

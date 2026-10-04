@@ -4,3 +4,5 @@ __pycache__/
 node_modules/
 tools/.cache/terrain.*
 tools/.cache/hb/
+tools/.cache/clio/
+tools/.cache/world_sources.json

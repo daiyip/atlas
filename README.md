@@ -15,7 +15,7 @@ inventions and more. It works in English and Chinese.
 
 ![The atlas in 221 BCE, when Qin unifies China](docs/img/atlas.jpg)
 
-- **The whole world, 3000 BCE to 2010.** Borders come from historical-basemaps. The timeline follows the
+- **The whole world, 3000 BCE to today.** Borders come from Cliopatria (Seshat) and historical-basemaps, with 124 world maps. The timeline follows the
   civilisation you are looking at: over Europe it shows Europe's periods, over India India's. About 3,500 events,
   204 guided tours, and rulers and people for 14 regions, plus trade routes and the spread of faiths, techniques and crops.
 - **China in depth.** Xia to Qing, with battles, roads, walls, elites and long event stories.
@@ -101,7 +101,7 @@ Opening `index.html` straight from disk won't work, because browsers block `fetc
 
 ## Credits
 
-Borders: [historical-basemaps](https://github.com/aourednik/historical-basemaps) (GPL-3.0). Terrain: Mapzen / AWS
+Borders: [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria), Seshat Global History Databank (CC BY 4.0; simplified, renamed and merged with historical-basemaps), and [historical-basemaps](https://github.com/aourednik/historical-basemaps) (GPL-3.0). Terrain: Mapzen / AWS
 Terrain Tiles. Imagery: Sentinel-2 cloudless mosaic 2020, contains modified Copernicus Sentinel data processed by
 Sentinel Hub (CC BY 4.0), and Sentinel-2 cloudless 2016 by EOX ([s2maps.eu](https://s2maps.eu), CC BY 4.0). Rivers and lakes: Natural Earth. Map rendering: [MapLibre GL JS](https://maplibre.org).
 Events, stories, tours and Chinese translations were drafted with an AI model and have not been checked line by line
@@ -110,5 +110,5 @@ against sources. See [docs/internals.md](docs/internals.md#data-sources-and-know
 ## License
 
 The code is released under the [MIT License](LICENSE). Bundled third-party data keeps its own licence: the border
-maps derived from historical-basemaps are GPL-3.0, the satellite imagery is CC BY 4.0, and illustrations from
+maps derived from historical-basemaps are GPL-3.0 (with Cliopatria data, CC BY 4.0), the satellite imagery is CC BY 4.0, and illustrations from
 Wikimedia Commons carry the licence shown under each image.
