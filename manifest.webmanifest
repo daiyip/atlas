@@ -1,0 +1,16 @@
+{
+  "name": "Atlas",
+  "short_name": "Atlas",
+  "description": "An interactive 3D history map: borders, events, rulers and people through time.",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101416",
+  "theme_color": "#101416",
+  "icons": [
+    { "src": "docs/img/app-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "docs/img/app-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "docs/img/app-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

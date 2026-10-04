@@ -2988,6 +2988,10 @@ function loadView() {
   return v.cam && Array.isArray(v.cam.center) ? v.cam : null;
 }
 
+// Home Screen app: a service worker keeps what has been viewed for offline use (not inside embeds or the preview).
+if ("serviceWorker" in navigator && location.protocol === "https:" && !/[?&]embed=1/.test(location.search) && !location.hostname.endsWith("claude.ai") && !location.hostname.endsWith("claudeusercontent.com"))
+  addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+
 async function init() {
   try { state.lang = localStorage.getItem("atlas-lang") === "en" ? "en" : "zh"; } catch {}
   try { const f = JSON.parse(localStorage.getItem("atlas-events") || "null"); if (f) { state.detail = f.detail || 2; state.cats = f.cats || []; } } catch {}
