@@ -5,6 +5,9 @@ For every event, person and ruler that has no `check` yet, it reads the whole En
 ruler's title) and the whole Chinese article (source_zh, or the page named by name_zh / title_zh), and keeps the
 passages where the item's years appear, plus each article's opening lines (for checking summaries).
 
+With a second argument `events`, it does this for every event instead (for checking summaries) and writes
+<out>/deep-events.json.
+
 Writes <out>/deep.json: {key: {"en": title, "zh": title, "hits": {year: [passage, ...]}, "intro": text, "intro_zh": text}}.
 tools/fact_check.py <facts.json> <report.json> <deep.json> uses it."""
 import glob, json, os, re, sys, time, urllib.parse, urllib.request
@@ -13,6 +16,7 @@ UA = {"User-Agent": "Atlas/1.0 (https://github.com/daiyip/atlas; educational his
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = sys.argv[1] if len(sys.argv) > 1 else "out"
 os.makedirs(OUT, exist_ok=True)
+EVENTS = len(sys.argv) > 2 and sys.argv[2] == "events"
 EN, ZH = "https://en.wikipedia.org/wiki/", "https://zh.wikipedia.org/wiki/"
 API = {"en": "https://en.wikipedia.org/w/api.php", "zh": "https://zh.wikipedia.org/w/api.php"}
 
@@ -68,11 +72,11 @@ def passages(text, y, lang):
 
 items = []  # (key, years, en title, zh title)
 for e in json.load(open(os.path.join(ROOT, "data/events.json"))):
-    if "check" in e: continue
+    if "check" in e and not EVENTS: continue
     ys = [e["year"]] + ([e["endYear"]] if e.get("endYear") not in (None, e["year"]) else [])
     items.append((e["id"], ys, title_of(e.get("source"), EN), title_of(e.get("source_zh"), ZH)))
 seen = set()
-for f in sorted(glob.glob(os.path.join(ROOT, "data/layers/*.json"))):
+for f in ([] if EVENTS else sorted(glob.glob(os.path.join(ROOT, "data/layers/*.json")))):
     D = json.load(open(f))
     for L in (D.values() if os.path.basename(f).startswith("world-") else [D]):
         for p in L.get("people", []):
@@ -99,7 +103,7 @@ for n, (key, ys, en, zh) in enumerate(items):
             text, title = article(lang, t)
             if not title: continue
             rec[lang] = title
-            rec["intro" if lang == "en" else "intro_zh"] = text[:700]
+            rec["intro" if lang == "en" else "intro_zh"] = text[:1200 if EVENTS else 700]
             for y in ys:
                 ps = passages(text, y, lang)
                 if ps: rec["hits"].setdefault(str(y), []).extend(f"[{lang}] {p}" for p in ps)
@@ -107,5 +111,5 @@ for n, (key, ys, en, zh) in enumerate(items):
     deep[key] = rec
     if n % 200 == 0: print("items", n, flush=True)
 
-json.dump(deep, open(os.path.join(OUT, "deep.json"), "w"), ensure_ascii=False)
+json.dump(deep, open(os.path.join(OUT, "deep-events.json" if EVENTS else "deep.json"), "w"), ensure_ascii=False)
 print("done", len(deep), "items,", sum(1 for d in deep.values() if d["hits"]), "with passages")

@@ -1,4 +1,5 @@
 # Fetches Wikipedia intros and Wikidata facts for events, people and rulers (tools/fact_fetch.py) and puts them on the `fact-check` branch.
+# With "deep-events", does the same for every event (for checking summaries) and puts it on `fact-events`.
 # With "deep", reads whole English and Chinese articles for items still unchecked (tools/fact_deep.py) and puts them on `fact-deep`.
 # Run by hand (Actions → Facts → Run workflow); tools/fact_check.py compares them with the data.
 name: Facts
@@ -6,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "facts or deep"
+        description: "facts, deep or deep-events"
         default: facts
 permissions:
   contents: write
@@ -16,10 +17,10 @@ jobs:
     timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
-      - run: python3 tools/${{ inputs.mode == 'deep' && 'fact_deep.py' || 'fact_fetch.py' }} /tmp/out
+      - run: python3 tools/${{ startsWith(inputs.mode, 'deep') && 'fact_deep.py' || 'fact_fetch.py' }} /tmp/out ${{ inputs.mode == 'deep-events' && 'events' || '' }}
       - name: Commit results
         run: |
-          BR=${{ inputs.mode == 'deep' && 'fact-deep' || 'fact-check' }}
+          BR=${{ inputs.mode == 'deep' && 'fact-deep' || inputs.mode == 'deep-events' && 'fact-events' || 'fact-check' }}
           cd /tmp/out
           git init -q -b "$BR"
           git config user.name github-actions && git config user.email github-actions@users.noreply.github.com
