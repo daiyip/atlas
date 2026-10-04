@@ -422,10 +422,6 @@ html:lang(en) .mk-polity.minor small { display: none; }
 html:lang(zh-CN) .lg { padding-left: 2.9em; }
 html:lang(zh-CN) .lg > span { letter-spacing: 0.1em; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.lang-switch { display: flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
-.lang-switch button { appearance: none; border: 0; background: transparent; color: var(--muted); font: 600 11px/1 var(--font-body); padding: 5px 8px; cursor: pointer; }
-.lang-switch button + button { border-left: 1px solid var(--rule); }
-.lang-switch button[aria-pressed="true"] { background: var(--jade); color: #fff; }
 .chip.layer[aria-pressed="true"] { background: rgba(185, 58, 38, 0.1); border-color: var(--cinnabar); color: var(--cinnabar); }
 .era-ruler { grid-column: 1 / -1; margin: 6px 0 0; font: 600 13px/1.35 var(--font-display); color: var(--ink); }
 
@@ -804,7 +800,7 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 .era-corner { grid-column: 1 / -1; order: -1; display: flex; align-items: center; justify-content: flex-end; gap: 6px; margin: -4px -4px 4px 0; }
 /* Region (and, on phones, layers) on the left; language, search, share on the right. */
 .era-corner { justify-content: flex-start; }
-.era-corner .lang-switch { margin-left: auto; }
+.era-corner .lang-btn { margin-left: auto; }
 .search-open { display: grid; place-items: center; width: 26px; height: 26px; padding: 0; }
 .search-open svg { width: 13px; height: 13px; }
 @media (max-width: 720px) {
@@ -1004,3 +1000,22 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 }
 .cmp-sync { flex: none; white-space: nowrap; font-size: 12px; padding: 4px 10px; }
 .cmp-sync[aria-pressed="true"] { background: var(--jade); border-color: var(--jade); color: #fff; }
+/* Language menu: the corner chip shows the current language; its menu lists every language in its own name. */
+.lang-btn { display: inline-flex; align-items: center; gap: 4px; padding-inline: 8px; }
+.lang-btn svg { width: 14px; height: 14px; flex: none; }
+.lang-btn svg.caret { width: 10px; height: 10px; margin-left: -1px; opacity: 0.7; }
+.lang-btn[aria-expanded="true"] svg.caret { transform: rotate(180deg); }
+.lang-pop {
+  position: absolute; z-index: 30; min-width: 150px; padding: 5px; display: grid; gap: 2px;
+  background: var(--panel-solid); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.lang-pop[hidden] { display: none; }
+.lang-pop button {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left;
+  padding: 8px 10px; border: 0; border-radius: 8px; background: none; color: inherit; font: inherit; cursor: pointer;
+}
+.lang-pop button:hover, .lang-pop button:focus-visible { background: rgba(0, 0, 0, 0.06); outline: none; }
+.lang-pop b { font-size: 13px; font-weight: 600; }
+.lang-pop svg { width: 12px; height: 12px; color: var(--jade); visibility: hidden; }
+.lang-pop [aria-checked="true"] svg { visibility: visible; }
+@media (max-width: 720px) { .lang-btn { padding-inline: 6px; height: 30px; font-size: 12px; } }

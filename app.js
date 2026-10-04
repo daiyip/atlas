@@ -132,6 +132,13 @@ const UI = {
 };
 const t = (k) => UI[state.lang][k];
 const zh = () => state.lang === "zh";
+// Languages offered in the language menu: `short` labels the corner button, `name` is the language's own name.
+// Adding one means adding it here plus its strings and data fields (text falls back to English where missing).
+const LANGS = [
+  { id: "zh", short: "中文", name: "简体中文", html: "zh-CN" },
+  { id: "en", short: "EN", name: "English", html: "en" },
+];
+const langOk = (l) => LANGS.some((x) => x.id === l);
 // Pick the field for the current language, falling back to the other one.
 const cmp = { sync: true, on: false, region: null, map: null, marks: [], key: "" }; // compare view: second map and its region
 const tx = (o, k) => (zh() ? o[k + "_zh"] || o[k] : o[k] || o[k + "_zh"]) || "";
@@ -152,13 +159,14 @@ function fmtYearParts(y) {
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 function applyLang() {
-  document.documentElement.lang = zh() ? "zh-CN" : "en";
+  const L = LANGS.find((x) => x.id === state.lang) || LANGS[0];
+  document.documentElement.lang = L.html;
   document.title = t("title");
   document.querySelectorAll("[data-i18n]").forEach((el) => (el.textContent = t(el.dataset.i18n)));
   // A pack's own note replaces the China borders note.
   if (state.pack?.only) document.querySelector('[data-i18n="note"]').textContent = tx(state.pack.manifest, "note") || t("notePack");
   document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); el.setAttribute("aria-label", el.title); });
-  $("lang").querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
+  $("lang-name").textContent = L.short;
   $("zoom-in").setAttribute("aria-label", t("zoomIn"));
   $("zoom-out").setAttribute("aria-label", t("zoomOut"));
   $("pan-prev").setAttribute("aria-label", t("earlier"));
@@ -1925,6 +1933,20 @@ function renderRegionBtn() {
   $("region-name").textContent = r ? (zh() ? r.short_zh || r.name_zh : r.short || r.name) : t("allWorld");
   $("region-btn").hidden = state.regions.length < 2;
 }
+function toggleLangPop(open) {
+  const pop = $("lang-pop"), btn = $("lang");
+  open ??= pop.hidden;
+  pop.hidden = !open;
+  btn.setAttribute("aria-expanded", open);
+  if (!open) return;
+  pop.innerHTML = LANGS.map((l) => `<button type="button" role="menuitemradio" aria-checked="${l.id === state.lang}" data-lang="${l.id}" lang="${l.html}"><b>${esc(l.name)}</b><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
+  // Placed under the button, inside the panel that holds both.
+  const r = btn.getBoundingClientRect(), o = pop.offsetParent.getBoundingClientRect();
+  pop.style.top = `${r.bottom - o.top + 6}px`;
+  pop.style.right = `${Math.max(0, o.right - r.right)}px`;
+  pop.querySelector('[aria-checked="true"]')?.focus();
+}
+
 function toggleRegionPop(open) {
   const pop = $("region-pop"), btn = $("region-btn");
   open ??= pop.hidden;
@@ -2939,7 +2961,7 @@ function viewHash() {
   if (state.tab !== "events") q.set("t", state.tab);
   if (state.reading && state.selected) q.set("e", state.selected);
   if (state.tour) { q.set("tour", state.tour.id); q.set("s", state.tour.i + 1); }
-  if (state.lang === "en") q.set("l", "en");
+  if (state.lang !== "zh") q.set("l", state.lang);
   return q.toString();
 }
 function readHash() {
@@ -2993,12 +3015,13 @@ if ("serviceWorker" in navigator && location.protocol === "https:" && !/[?&]embe
   addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
 
 async function init() {
-  try { state.lang = localStorage.getItem("atlas-lang") === "en" ? "en" : "zh"; } catch {}
+  try { const l = localStorage.getItem("atlas-lang"); if (langOk(l)) state.lang = l; } catch {}
   try { const f = JSON.parse(localStorage.getItem("atlas-events") || "null"); if (f) { state.detail = f.detail || 2; state.cats = f.cats || []; } } catch {}
   try { state.showSat = localStorage.getItem("atlas-look") !== "relief"; } catch {}
   const q = new URLSearchParams(location.search).get("lang");
-  if (q === "en" || q === "zh") state.lang = q;
-  if (new URLSearchParams(location.hash.slice(1)).get("l") === "en") state.lang = "en";
+  if (langOk(q)) state.lang = q;
+  const hl = new URLSearchParams(location.hash.slice(1)).get("l");
+  if (langOk(hl)) state.lang = hl;
   // A link pasted into the same tab only changes the hash: start again from it.
   addEventListener("hashchange", () => { if (map && location.hash.length > 1) location.reload(); });
   if (PACK_URL) {
@@ -3168,7 +3191,15 @@ async function init() {
     const y = posToYear(((e.clientX - r.left) / r.width) * SLIDER_MAX);
     setZoom(state.zoom + (e.deltaY < 0 ? 1 : -1), e.deltaY < 0 ? y : state.year);
   }, { passive: false });
-  $("lang").addEventListener("click", (e) => { const l = e.target.closest("[data-lang]")?.dataset.lang; if (l && l !== state.lang) setLang(l); });
+  $("lang").addEventListener("click", (e) => { e.stopPropagation(); toggleLangPop(); });
+  $("lang-pop").addEventListener("click", (e) => {
+    const l = e.target.closest("[data-lang]")?.dataset.lang;
+    toggleLangPop(false);
+    if (l && l !== state.lang) setLang(l);
+  });
+  document.addEventListener("click", (e) => { if (!$("lang-pop").hidden && !e.target.closest("#lang-pop")) toggleLangPop(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("lang-pop").hidden) { toggleLangPop(false); $("lang").focus(); } });
+  addEventListener("resize", () => toggleLangPop(false));
   toggle("t-3d", "show3d", () => {
     state.terrainExag = null;
     if (state.show3d) setTerrainForZoom(); else map.setTerrain(null);
