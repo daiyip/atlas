@@ -2090,7 +2090,7 @@ function renderCompareEvents(era) {
 const evTitleText = (ev) => zh() ? ev.title_zh || ev.title : ev.title;
 function compareEventPopup(ev) {
   cmp.popup?.remove();
-  cmp.popup = new maplibregl.Popup({ maxWidth: "260px", offset: 12 }).setLngLat([ev.lon, ev.lat])
+  cmp.popup = new maplibregl.Popup({ className: "atlas-pop", maxWidth: "300px", offset: 14, focusAfterOpen: false }).setLngLat([ev.lon, ev.lat])
     .setHTML(`<div class="pc-kind">${fmtYear(ev.year, ev.circa)} · ${esc(tx(ev, "place"))}</div><h4>${esc(evTitleText(ev))}</h4><p>${esc(tx(ev, "summary"))}</p>`)
     .addTo(cmp.map);
 }
