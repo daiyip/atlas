@@ -2925,8 +2925,6 @@ function saveView() {
     const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab,
       cam: { center: [+c.lng.toFixed(3), +c.lat.toFixed(3)], zoom: +map.getZoom().toFixed(2), pitch: Math.round(map.getPitch()), bearing: Math.round(map.getBearing()) } };
     try { localStorage.setItem(viewKey(), JSON.stringify(view)); } catch {}
-    // The address keeps the same view, so it can be copied or bookmarked.
-    try { history.replaceState(null, "", "#" + viewHash()); } catch {}
   }, 500);
 }
 
@@ -2974,8 +2972,10 @@ function loadView() {
   let v = null, tg = null;
   try { v = JSON.parse(localStorage.getItem(viewKey()) || "null"); tg = JSON.parse(localStorage.getItem("atlas-toggles") || "null"); } catch {}
   if (tg) for (const k of ["show3d", "showNeighbours", "showPlaces", "showGeo"]) if (typeof tg[k] === "boolean") state[k] = tg[k];
-  // A shared link wins over the remembered view.
+  // A shared link wins over the remembered view. The address is then cleaned, so a bookmark or a Home Screen
+  // icon made later opens the site as usual (the share button builds a link to the current view).
   const link = readHash();
+  if (location.hash) try { history.replaceState(null, "", location.pathname + location.search); } catch {}
   if (link?.tour) state.pendingTour = [link.tour, link.step - 1];
   if (link && typeof link.year === "number") {
     v = { ...link, zoom: 0 };
@@ -2996,7 +2996,7 @@ async function init() {
   if (q === "en" || q === "zh") state.lang = q;
   if (new URLSearchParams(location.hash.slice(1)).get("l") === "en") state.lang = "en";
   // A link pasted into the same tab only changes the hash: start again from it.
-  addEventListener("hashchange", () => { if (map && location.hash.slice(1) !== viewHash()) location.reload(); });
+  addEventListener("hashchange", () => { if (map && location.hash.length > 1) location.reload(); });
   if (PACK_URL) {
     state.pack = await openPack(PACK_URL);
     state.selected = null;
