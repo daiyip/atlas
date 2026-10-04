@@ -1025,3 +1025,23 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 84%, #000); --seal-ink: #fffaf5; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 72%, #fff); --seal-ink: #15110f; } }
 :root[data-theme="dark"] .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 72%, #fff); --seal-ink: #15110f; }
+/* Elsewhere this year: a row of other regions' headline events just above the timeline (wide screens only). */
+.world-strip {
+  position: absolute; z-index: 3; left: 64px; bottom: calc(var(--rail-h, 96px) + 24px); max-width: calc(100vw - 470px);
+  display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; overflow: hidden; pointer-events: none;
+}
+.world-strip[hidden], .touring .world-strip, .comparing .world-strip { display: none; }
+.world-strip > * { pointer-events: auto; }
+.ws-head { padding: 5px 9px; border-radius: 999px; background: rgba(20, 24, 26, 0.72); color: #fff; font: 600 11px/1.2 var(--font-body); white-space: nowrap; flex: none; }
+.world-strip button {
+  display: inline-flex; align-items: center; gap: 5px; min-width: 0; max-width: 260px; padding: 5px 9px; border: 0; border-radius: 999px;
+  background: var(--panel-solid); color: var(--ink); font: 500 12px/1.2 var(--font-body); cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.world-strip button:hover { box-shadow: 0 0 0 2px var(--rc, var(--jade)), 0 2px 8px rgba(0, 0, 0, 0.18); }
+.world-strip i { width: 8px; height: 8px; border-radius: 50%; background: var(--rc); flex: none; }
+.world-strip b { font-weight: 600; flex: none; }
+.world-strip span { font: 500 11px var(--font-data); color: var(--muted); flex: none; }
+.world-strip .ws-x { width: 24px; height: 24px; padding: 0; justify-content: center; color: var(--muted); font-size: 15px; flex: none; }
+@media (max-width: 1100px) { .world-strip { display: none; } }
+.ws-on { margin: 0 0 8px; }
