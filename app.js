@@ -969,8 +969,143 @@ async function setMaps(era, year) {
   state.snapshot = key;
   await bordersFor(spec);
   if (state.snapshot !== key) return; // a newer request won
-  map.getSource("borders")?.setData(state.borders[key]);
+  const prev = state.shownBorders;
+  state.shownBorders = state.borders[key];
   renderPolityLabels(state.borders[key]);
+  // While playing, the old map turns into the new one; otherwise it simply switches.
+  if (state.playing && prev && !matchMedia("(prefers-reduced-motion: reduce)").matches && morphBorders(prev, state.borders[key])) return;
+  endMorph();
+  map.getSource("borders")?.setData(state.borders[key]);
+}
+
+/* ---------- border morph: during playback each territory change spreads outward from the side that gains it ---------- */
+// Both maps are drawn onto a grid over the area that changed; every changed cell flips from its old owner to its
+// new one at a time set by how far it lies from the new owner's existing land, so conquests advance as a front.
+// The grid is shown as a canvas layer for the length of the morph, then the vector borders take over again.
+let morph = null;
+const MORPH_MS = 800, MORPH_CELLS = 640;
+const geomSig = (f) => { const g = f.geometry, c = g.type === "Polygon" ? g.coordinates[0] : g.coordinates[0]?.[0]; return `${f.properties.name}|${g.coordinates.length}|${c?.length}|${c?.[0]}`; };
+function endMorph() {
+  if (!morph) return;
+  cancelAnimationFrame(morph.raf);
+  if (map.getLayer("morph")) map.removeLayer("morph");
+  if (map.getSource("morph")) map.removeSource("morph");
+  morph = null;
+}
+function morphBorders(A, B) {
+  endMorph();
+  const keep = (f) => f.geometry && (f.properties.focus || state.showNeighbours);
+  const sigA = new Set(A.features.filter(keep).map(geomSig)), sigB = new Set(B.features.filter(keep).map(geomSig));
+  const all = [...A.features.filter((f) => keep(f) && !sigB.has(geomSig(f))), ...B.features.filter((f) => keep(f) && !sigA.has(geomSig(f)))];
+  // The story is in the main states: they morph; neighbours that changed simply switch.
+  const main = (f) => f.properties.focus || f.properties.kind === "state";
+  const changed = all.some(main) ? all.filter(main) : all;
+  if (!changed.length) return false;
+  // Area to animate: everything that changed, padded a little, kept within the Mercator range.
+  let w = 180, e = -180, so = 85, n = -85;
+  const walk = (c) => { if (typeof c[0] === "number") { w = Math.min(w, c[0]); e = Math.max(e, c[0]); so = Math.min(so, c[1]); n = Math.max(n, c[1]); } else c.forEach(walk); };
+  changed.forEach((f) => walk(f.geometry.coordinates));
+  if (e - w > 200 || e <= w) return false;
+  const pad = Math.max(0.5, (e - w) * 0.04);
+  w = Math.max(-180, w - pad); e = Math.min(180, e + pad); so = Math.max(-84, so - pad); n = Math.min(84, n + pad);
+  const my = (lat) => Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360));
+  const mN = my(n), mS = my(so);
+  const aspect = (mN - mS) / (((e - w) * Math.PI) / 180);
+  const W = aspect > 1 ? Math.max(8, Math.round(MORPH_CELLS / aspect)) : MORPH_CELLS, H = aspect > 1 ? MORPH_CELLS : Math.max(8, Math.round(MORPH_CELLS * aspect));
+  const px = (lon) => ((lon - w) / (e - w)) * W, py = (lat) => ((mN - my(Math.max(-84, Math.min(84, lat)))) / (mN - mS)) * H;
+
+  // Owners: one table of names for both maps; colour and focus come from each map's own feature.
+  const names = [], idx = new Map(), look = [new Map(), new Map()];
+  const ownerOf = (f, side) => {
+    const nm = f.properties.name || "";
+    if (!idx.has(nm)) { idx.set(nm, names.length); names.push(nm); }
+    look[side].set(idx.get(nm), f.properties);
+    return idx.get(nm);
+  };
+  const raster = (gj, side) => {
+    const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+    const g = cv.getContext("2d", { willReadFrequently: true });
+    gj.features.forEach((f) => {
+      if (!keep(f)) return;
+      const id = ownerOf(f, side) + 1;
+      g.fillStyle = `rgb(${id & 255},${(id >> 8) & 255},${id >> 16})`;
+      g.beginPath();
+      const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates;
+      for (const poly of polys) for (const ring of poly) ring.forEach(([x, y], i) => (i ? g.lineTo(px(x), py(y)) : g.moveTo(px(x), py(y))));
+      g.fill("evenodd");
+    });
+    const d = g.getImageData(0, 0, W, H).data, own = new Int32Array(W * H);
+    for (let i = 0; i < W * H; i++) {
+      // Anti-aliased edge pixels blend two ids: they take the owner of the pixel to their left.
+      own[i] = d[i * 4 + 3] < 128 ? -1 : d[i * 4] + (d[i * 4 + 1] << 8) + (d[i * 4 + 2] << 16) - 1;
+      if (own[i] >= names.length || (d[i * 4 + 3] > 0 && d[i * 4 + 3] < 255)) own[i] = i % W ? own[i - 1] : -1;
+    }
+    return own;
+  };
+  const oa = raster(A, 0), ob = raster(B, 1);
+
+  // Flip times: a breadth-first front from each new owner's unchanged land through the cells it gains.
+  const N = W * H, dist = new Float32Array(N).fill(-1), q = new Int32Array(N);
+  let qh = 0, qt = 0;
+  const nb = (i, fn) => { const x = i % W; if (x) fn(i - 1); if (x < W - 1) fn(i + 1); if (i >= W) fn(i - W); if (i < N - W) fn(i + W); };
+  for (let i = 0; i < N; i++) if (oa[i] !== ob[i]) nb(i, (j) => { if (dist[i] < 0 && oa[j] === ob[j] && oa[j] === ob[i]) { dist[i] = 1; q[qt++] = i; } });
+  while (qh < qt) { const i = q[qh++]; nb(i, (j) => { if (dist[j] < 0 && oa[j] !== ob[j] && ob[j] === ob[i]) { dist[j] = dist[i] + 1; q[qt++] = j; } }); }
+  let max = 1;
+  for (let i = 0; i < N; i++) if (dist[i] > max) max = dist[i];
+  // Land with no neighbour to grow from (a new state, an island) fades in across the morph instead.
+  for (let i = 0; i < N; i++) if (oa[i] !== ob[i]) dist[i] = dist[i] < 0 ? 0.15 + 0.7 * ((i * 2654435761) % 1000) / 1000 : dist[i] / max;
+
+  // Colours as the vector layers paint them.
+  const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+  const paint = (p) => {
+    const c = hex(p.color && /^#[0-9a-f]{6}$/i.test(p.color) ? p.color : p.focus ? "#2c7a68" : "#6b5a7a");
+    const a = p.focus ? (p.color ? 0.34 : 0.2) : p.name_zh ? 0.2 : 0.07;
+    return [...c, Math.round(a * 255)];
+  };
+  // Only owners whose shape changes are drawn here; the rest stay on the vector layers throughout.
+  const moved = [new Set(), new Set()];
+  changed.forEach((f) => { const k = idx.get(f.properties.name || ""); if (k !== undefined) { moved[0].add(k); moved[1].add(k); } });
+  const col = [new Map(), new Map()];
+  for (const s of [0, 1]) for (const [k, p] of look[s]) col[s].set(k, { fill: paint(p), focus: !!p.focus });
+
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const g = cv.getContext("2d"), img = g.createImageData(W, H), px8 = img.data;
+  const cur = new Int32Array(N), side = new Uint8Array(N);
+  const draw = (p) => {
+    for (let i = 0; i < N; i++) { const b = oa[i] === ob[i] || dist[i] <= p; cur[i] = b ? ob[i] : oa[i]; side[i] = b ? 1 : 0; }
+    for (let i = 0; i < N; i++) {
+      const o = cur[i], k = i * 4;
+      if (o < 0 || !moved[side[i]].has(o)) { px8[k + 3] = 0; continue; }
+      const c = col[side[i]].get(o) || col[1 - side[i]].get(o);
+      // A cell beside a different owner is drawn as border: red round the main state, dusky between neighbours.
+      const x = i % W, edge = (x < W - 1 && cur[i + 1] !== o) || (i < N - W && cur[i + W] !== o) || (x && cur[i - 1] !== o) || (i >= W && cur[i - W] !== o);
+      if (edge) { const f = c.focus; px8[k] = f ? 185 : 75; px8[k + 1] = f ? 58 : 64; px8[k + 2] = f ? 38 : 88; px8[k + 3] = f ? 230 : 140; }
+      else { px8[k] = c.fill[0]; px8[k + 1] = c.fill[1]; px8[k + 2] = c.fill[2]; px8[k + 3] = c.fill[3]; }
+    }
+    g.putImageData(img, 0, 0);
+  };
+  draw(0);
+
+  // Swap in the canvas: the vector borders keep only what lies outside the animated area (unchanged anyway).
+  const coords = [[w, n], [e, n], [e, so], [w, so]];
+  map.addSource("morph", { type: "canvas", canvas: cv, coordinates: coords, animate: true });
+  map.addLayer({ id: "morph", type: "raster", source: "morph", paint: { "raster-opacity": 1, "raster-fade-duration": 0, "raster-resampling": "nearest" } }, "hl-fill");
+  map.getSource("borders")?.setData({ type: "FeatureCollection", features: B.features.filter((f) => !keep(f) || sigA.has(geomSig(f)) || !moved[1].has(idx.get(f.properties.name || ""))) });
+  const t0 = performance.now();
+  morph = { raf: 0 };
+  const tick = () => {
+    const t = Math.min(1, (performance.now() - t0) / MORPH_MS), ease = t < 0.5 ? 2 * t * t : 1 - (2 - 2 * t) ** 2 / 2;
+    draw(ease);
+    // With 3D terrain the map drapes layers through cached textures: drop them so the new frame shows.
+    (map.terrain?.tileManager || map.terrain?.sourceCache)?.freeRtt?.();
+    map.triggerRepaint();
+    if (t < 1) { morph.raf = requestAnimationFrame(tick); return; }
+    map.getSource("borders")?.setData(B);
+    // Let the vector borders paint before the canvas goes.
+    morph.raf = requestAnimationFrame(() => requestAnimationFrame(endMorph));
+  };
+  morph.raf = requestAnimationFrame(tick);
+  return true;
 }
 
 function renderPolityLabels(gj) {
