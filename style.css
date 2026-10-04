@@ -73,7 +73,7 @@ body {
   width: min(360px, calc(100% - 32px));
   padding: 14px 16px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 4px 14px;
   z-index: 2;
 }
@@ -839,6 +839,9 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 .army-title .army-close:hover { color: var(--cinnabar); }
 @media (max-width: 720px) { .era.open .era-zh { display: block; grid-column: 1 / -1; margin-top: 6px; font-size: 13px; } }
 .era-zh span { white-space: nowrap; }
+/* A long region name (两河流域、黎凡特…) wraps inside the panel instead of running out of it. */
+.era-zh span:first-child { white-space: normal; }
+.era-zh, .era-name { min-width: 0; overflow-wrap: anywhere; }
 
 /* Illustrations (Wikimedia Commons, packed by tools/pack_illustrations.py) */
 .illu { margin: 0 0 8px; }
