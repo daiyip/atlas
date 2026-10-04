@@ -1,0 +1,10702 @@
+[
+ {
+  "id": "eu-stonehenge",
+  "s": "ok"
+ },
+ {
+  "id": "eg-narmer-unifies-egypt",
+  "s": "ok"
+ },
+ {
+  "id": "eu-yamnaya",
+  "s": "ok"
+ },
+ {
+  "id": "eu-troy-founded",
+  "s": "ok"
+ },
+ {
+  "id": "af-lothagam-north-pillar",
+  "s": "ok"
+ },
+ {
+  "id": "sam-aspero",
+  "s": "ok"
+ },
+ {
+  "id": "sam-valdivia",
+  "s": "ok"
+ },
+ {
+  "id": "eg-hieroglyphs",
+  "s": "ok"
+ },
+ {
+  "id": "eu-corded-ware",
+  "s": "ok"
+ },
+ {
+  "id": "eg-memphis-founded",
+  "s": "ok"
+ },
+ {
+  "id": "ir-tepe-yahya-tablets",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kalibangan-ploughed-field",
+  "s": "ok"
+ },
+ {
+  "id": "me-gilgamesh-of-uruk",
+  "s": "ok"
+ },
+ {
+  "id": "eg-step-pyramid",
+  "s": "ok"
+ },
+ {
+  "id": "sa-dholavira-settled",
+  "s": "ok"
+ },
+ {
+  "id": "sa-harappa-city",
+  "s": "ok"
+ },
+ {
+  "id": "sam-caral",
+  "s": "ok"
+ },
+ {
+  "id": "sa-indus-script",
+  "s": "ok"
+ },
+ {
+  "id": "eg-great-pyramid",
+  "s": "ok"
+ },
+ {
+  "id": "eg-diary-of-merer",
+  "s": "ok"
+ },
+ {
+  "id": "af-kerma-culture",
+  "s": "ok"
+ },
+ {
+  "id": "na-stallings-island-pottery",
+  "s": "ok"
+ },
+ {
+  "id": "na-arctic-small-tool",
+  "s": "ok"
+ },
+ {
+  "id": "sa-lothal-dockyard",
+  "s": "ok"
+ },
+ {
+  "id": "me-sargon-founds-akkad",
+  "s": "ok"
+ },
+ {
+  "id": "kr-dangun-legend",
+  "s": "ok"
+ },
+ {
+  "id": "sa-meluhha-trade",
+  "s": "ok"
+ },
+ {
+  "id": "eg-pyramid-texts",
+  "s": "ok"
+ },
+ {
+  "id": "eu-unetice",
+  "s": "ok"
+ },
+ {
+  "id": "me-enheduanna",
+  "s": "ok"
+ },
+ {
+  "id": "sea-austronesian-expansion",
+  "s": "ok"
+ },
+ {
+  "id": "me-ur-nammu-founds-ur-iii",
+  "s": "ok"
+ },
+ {
+  "id": "me-code-of-ur-nammu",
+  "s": "ok"
+ },
+ {
+  "id": "sea-ban-chiang",
+  "s": "ok"
+ },
+ {
+  "id": "ca-sintashta",
+  "s": "ok"
+ },
+ {
+  "id": "yu-founds-xia",
+  "s": "ok"
+ },
+ {
+  "id": "nine-tripod-cauldrons",
+  "s": "ok"
+ },
+ {
+  "id": "eg-mentuhotep-reunites",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-ur",
+  "s": "ok"
+ },
+ {
+  "id": "lajia-disaster",
+  "s": "ok"
+ },
+ {
+  "id": "shao-kang-restoration",
+  "s": "ok"
+ },
+ {
+  "id": "eu-knossos-palace",
+  "s": "ok"
+ },
+ {
+  "id": "qijia-copper",
+  "s": "ok"
+ },
+ {
+  "id": "me-babylonian-mathematics",
+  "s": "ok"
+ },
+ {
+  "id": "eg-story-of-sinuhe",
+  "s": "ok"
+ },
+ {
+  "id": "ca-andronovo",
+  "s": "ok"
+ },
+ {
+  "id": "na-eastern-agricultural-complex",
+  "s": "ok"
+ },
+ {
+  "id": "eu-linear-a",
+  "s": "ok"
+ },
+ {
+  "id": "eg-hyksos-rule",
+  "s": "ok"
+ },
+ {
+  "id": "eu-phaistos-disc",
+  "s": "ok"
+ },
+ {
+  "id": "jie-of-xia",
+  "s": "ok"
+ },
+ {
+  "id": "mingtiao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-thera-eruption",
+  "s": "ok"
+ },
+ {
+  "id": "eg-horse-chariot",
+  "s": "ok"
+ },
+ {
+  "id": "me-hittites-sack-babylon",
+  "s": "ok"
+ },
+ {
+  "id": "me-kassite-babylon",
+  "s": "fixed",
+  "summary": "The Kassites from the Zagros took control of Babylon and ruled it for nearly four centuries, the longest dynasty in its history.",
+  "summary_zh": "来自扎格罗斯山区的加喜特人控制巴比伦，统治近四个世纪，是巴比伦历史上最长的王朝。",
+  "n": "Wikipedia dates Kassite rule c. 1531 to c. 1155 BC, under four centuries, not over.",
+  "n_zh": "据维基百科，加喜特人统治约在前1531年至前1155年，不足四个世纪。"
+ },
+ {
+  "id": "sa-rigveda",
+  "s": "ok"
+ },
+ {
+  "id": "ca-karasuk",
+  "s": "ok"
+ },
+ {
+  "id": "me-mitanni",
+  "s": "ok"
+ },
+ {
+  "id": "sam-cupisnique",
+  "s": "ok"
+ },
+ {
+  "id": "mx-san-jose-mogote",
+  "s": "ok"
+ },
+ {
+  "id": "eg-battle-of-megiddo",
+  "s": "ok"
+ },
+ {
+  "id": "eu-mycenaeans-take-knossos",
+  "s": "ok"
+ },
+ {
+  "id": "eg-hatshepsut",
+  "s": "ok"
+ },
+ {
+  "id": "mx-san-lorenzo",
+  "s": "ok"
+ },
+ {
+  "id": "eu-linear-b",
+  "s": "ok"
+ },
+ {
+  "id": "zu-yi-moves-to-xing",
+  "s": "doubt",
+  "n": "Wikipedia says Zu Yi moved the capital from Xiang to Geng, then to Bi, not Xing.",
+  "n_zh": "维基百科称祖乙先由相迁都于耿，后迁于庇，未提邢。"
+ },
+ {
+  "id": "sa-battle-of-ten-kings",
+  "s": "ok"
+ },
+ {
+  "id": "me-ugaritic-alphabet",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says the Ugaritic alphabet has 31 letters, not 30.",
+  "n_zh": "中文维基百科称乌加里特字母表含31个字母，而非30个。"
+ },
+ {
+  "id": "mx-tlatilco",
+  "s": "ok"
+ },
+ {
+  "id": "eg-akhenaten-reform",
+  "s": "ok"
+ },
+ {
+  "id": "eg-amarna-letters",
+  "s": "ok"
+ },
+ {
+  "id": "me-suppiluliuma",
+  "s": "ok"
+ },
+ {
+  "id": "eg-tutankhamun",
+  "s": "ok"
+ },
+ {
+  "id": "yin",
+  "s": "ok"
+ },
+ {
+  "id": "eu-urnfield",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-kadesh",
+  "s": "ok"
+ },
+ {
+  "id": "eg-abu-simbel",
+  "s": "ok"
+ },
+ {
+  "id": "eg-egyptian-hittite-treaty",
+  "s": "ok"
+ },
+ {
+  "id": "oracle-bones",
+  "s": "ok"
+ },
+ {
+  "id": "ir-chogha-zanbil",
+  "s": "ok"
+ },
+ {
+  "id": "wu-ding-appoints-fu-yue",
+  "s": "ok"
+ },
+ {
+  "id": "eu-lion-gate",
+  "s": "ok"
+ },
+ {
+  "id": "wu-ding-guifang",
+  "s": "ok"
+ },
+ {
+  "id": "eu-trojan-war",
+  "s": "ok"
+ },
+ {
+  "id": "ir-zoroaster",
+  "s": "ok"
+ },
+ {
+  "id": "mx-olmec-colossal-heads",
+  "s": "ok"
+ },
+ {
+  "id": "fu-hao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-bronze-age-collapse",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kuru-kingdom",
+  "s": "ok"
+ },
+ {
+  "id": "four-goat-square-zun",
+  "s": "ok"
+ },
+ {
+  "id": "mx-cuello",
+  "s": "ok"
+ },
+ {
+  "id": "houmuwu-ding",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-hattusa",
+  "s": "ok"
+ },
+ {
+  "id": "eg-sea-peoples",
+  "s": "ok"
+ },
+ {
+  "id": "ir-shutruk-nakhunte-babylon",
+  "s": "ok"
+ },
+ {
+  "id": "wu-yi-shoots-heaven",
+  "s": "ok"
+ },
+ {
+  "id": "gugong-danfu-zhouyuan",
+  "s": "ok"
+ },
+ {
+  "id": "ir-nebuchadnezzar-i-susa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-dorian-invasion",
+  "s": "ok"
+ },
+ {
+  "id": "eu-gadir",
+  "s": "ok"
+ },
+ {
+  "id": "eg-tanis-and-thebes",
+  "s": "ok"
+ },
+ {
+  "id": "di-xin-dongyi",
+  "s": "ok"
+ },
+ {
+  "id": "jiang-ziya-joins-zhou",
+  "s": "ok"
+ },
+ {
+  "id": "king-wen-imprisoned-youli",
+  "s": "ok"
+ },
+ {
+  "id": "king-wen-builds-feng",
+  "s": "ok"
+ },
+ {
+  "id": "muye",
+  "s": "ok"
+ },
+ {
+  "id": "taigong-founds-qi",
+  "s": "ok"
+ },
+ {
+  "id": "duke-of-shao-founds-yan",
+  "s": "ok"
+ },
+ {
+  "id": "three-guards-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "cheng-kang-peace",
+  "s": "ok"
+ },
+ {
+  "id": "chengzhou",
+  "s": "ok"
+ },
+ {
+  "id": "he-zun",
+  "s": "ok"
+ },
+ {
+  "id": "rites-and-music-of-zhou",
+  "s": "ok"
+ },
+ {
+  "id": "sa-varna-system",
+  "s": "ok"
+ },
+ {
+  "id": "sea-dong-son-culture",
+  "s": "ok"
+ },
+ {
+  "id": "me-kingdom-of-david",
+  "s": "ok"
+ },
+ {
+  "id": "kr-dolmens",
+  "s": "ok"
+ },
+ {
+  "id": "sea-sa-huynh-culture",
+  "s": "ok"
+ },
+ {
+  "id": "king-zhao-southern-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "king-mu-travels",
+  "s": "ok"
+ },
+ {
+  "id": "me-solomons-temple",
+  "s": "ok"
+ },
+ {
+  "id": "me-israel-judah-split",
+  "s": "ok"
+ },
+ {
+  "id": "sam-chavin-de-huantar",
+  "s": "ok"
+ },
+ {
+  "id": "mx-la-venta",
+  "s": "ok"
+ },
+ {
+  "id": "shi-qiang-pan",
+  "s": "ok"
+ },
+ {
+  "id": "eu-geometric-art",
+  "s": "ok"
+ },
+ {
+  "id": "eu-villanovan",
+  "s": "ok"
+ },
+ {
+  "id": "feizi-granted-qin",
+  "s": "ok"
+ },
+ {
+  "id": "xiong-qu-proclaims-kings",
+  "s": "ok"
+ },
+ {
+  "id": "duke-ai-of-qi-boiled",
+  "s": "ok"
+ },
+ {
+  "id": "me-urartu",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-qarqar",
+  "s": "ok"
+ },
+ {
+  "id": "gonghe",
+  "s": "ok"
+ },
+ {
+  "id": "king-xuan-restoration",
+  "s": "ok"
+ },
+ {
+  "id": "qin-zhong-dies-fighting-rong",
+  "s": "ok"
+ },
+ {
+  "id": "eu-lycurgus",
+  "s": "ok"
+ },
+ {
+  "id": "eg-carthage-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eu-greek-alphabet",
+  "s": "ok"
+ },
+ {
+  "id": "eu-hallstatt",
+  "s": "ok"
+ },
+ {
+  "id": "mao-gong-ding",
+  "s": "doubt",
+  "n": "Wikipedia says the Mao Gong ding inscription has 500 characters (32 lines), not 497.",
+  "n_zh": "维基百科称毛公鼎铭文为500字（32行），而非497字。"
+ },
+ {
+  "id": "ir-hasanlu",
+  "s": "ok"
+ },
+ {
+  "id": "af-dmt-yeha",
+  "s": "ok"
+ },
+ {
+  "id": "mx-chalcatzingo",
+  "s": "ok"
+ },
+ {
+  "id": "mx-nakbe",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-qianmu",
+  "s": "ok"
+ },
+ {
+  "id": "census-at-taiyuan",
+  "s": "ok"
+ },
+ {
+  "id": "three-rivers-earthquake",
+  "s": "ok"
+ },
+ {
+  "id": "king-you-and-bao-si",
+  "s": "ok"
+ },
+ {
+  "id": "eu-first-olympics",
+  "s": "ok"
+ },
+ {
+  "id": "haojing-falls",
+  "s": "ok"
+ },
+ {
+  "id": "move-east",
+  "s": "ok"
+ },
+ {
+  "id": "qin-becomes-state",
+  "s": "ok"
+ },
+ {
+  "id": "eu-founding-of-rome",
+  "s": "ok"
+ },
+ {
+  "id": "qin-begins-keeping-records",
+  "s": "ok"
+ },
+ {
+  "id": "eu-first-messenian-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-syracuse-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eg-piye-conquest",
+  "s": "ok"
+ },
+ {
+  "id": "spring-autumn-annals-begin",
+  "s": "ok"
+ },
+ {
+  "id": "zheng-defeats-duan-at-yan",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-samaria",
+  "s": "ok"
+ },
+ {
+  "id": "zhou-zheng-exchange-hostages",
+  "s": "ok"
+ },
+ {
+  "id": "zhouxu-kills-duke-huan-of-wey",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-xuge",
+  "s": "ok"
+ },
+ {
+  "id": "xiong-tong-declares-king",
+  "s": "ok"
+ },
+ {
+  "id": "eu-etruscans",
+  "s": "ok"
+ },
+ {
+  "id": "ir-median-kingdom",
+  "s": "ok"
+ },
+ {
+  "id": "ca-samarkand-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sea-van-lang",
+  "s": "ok"
+ },
+ {
+  "id": "duke-huan-of-lu-murdered",
+  "s": "ok"
+ },
+ {
+  "id": "qin-creates-first-counties",
+  "s": "ok"
+ },
+ {
+  "id": "gongsun-wuzhi-kills-duke-xiang",
+  "s": "ok"
+ },
+ {
+  "id": "guan-zhong-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-changshao",
+  "s": "ok"
+ },
+ {
+  "id": "duke-huan",
+  "s": "ok"
+ },
+ {
+  "id": "quwo-supplants-yi",
+  "s": "ok"
+ },
+ {
+  "id": "eu-byzantium-founded",
+  "s": "ok"
+ },
+ {
+  "id": "chu-moves-capital-to-ying",
+  "s": "doubt",
+  "n": "Wikipedia gives four theories for when Chu moved to Ying; only one dates it to 689 BC under King Wen.",
+  "n_zh": "维基百科称楚迁都于郢有四种说法，仅其一认为是前689年楚文王时。"
+ },
+ {
+  "id": "qi-attacks-shanrong",
+  "s": "ok"
+ },
+ {
+  "id": "eg-psamtik-i",
+  "s": "ok"
+ },
+ {
+  "id": "di-destroy-wey",
+  "s": "ok"
+ },
+ {
+  "id": "covenant-of-zhaoling",
+  "s": "ok"
+ },
+ {
+  "id": "lady-li-and-shensheng",
+  "s": "ok"
+ },
+ {
+  "id": "guo-yu",
+  "s": "ok"
+ },
+ {
+  "id": "covenant-of-kuiqiu",
+  "s": "ok"
+ },
+ {
+  "id": "me-library-of-ashurbanipal",
+  "s": "ok"
+ },
+ {
+  "id": "ir-ashurbanipal-sacks-susa",
+  "s": "ok"
+ },
+ {
+  "id": "chonger-returns",
+  "s": "ok"
+ },
+ {
+  "id": "chengpu",
+  "s": "ok"
+ },
+ {
+  "id": "covenant-of-jiantu",
+  "s": "ok"
+ },
+ {
+  "id": "eg-cyrene-founded",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-xiao",
+  "s": "ok"
+ },
+ {
+  "id": "shangchen-kills-king-cheng",
+  "s": "ok"
+ },
+ {
+  "id": "me-nabopolassar",
+  "s": "ok"
+ },
+ {
+  "id": "qin-dominates-rong",
+  "s": "ok"
+ },
+ {
+  "id": "eu-draco",
+  "s": "ok"
+ },
+ {
+  "id": "halleys-comet-record",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-nineveh",
+  "s": "ok"
+ },
+ {
+  "id": "chu-destroys-yong",
+  "s": "ok"
+ },
+ {
+  "id": "zhao-chuan-kills-duke-ling",
+  "s": "ok"
+ },
+ {
+  "id": "chu-asks-about-cauldrons",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-carchemish",
+  "s": "ok"
+ },
+ {
+  "id": "sa-sixteen-mahajanapadas",
+  "s": "ok"
+ },
+ {
+  "id": "classic-of-poetry",
+  "s": "ok"
+ },
+ {
+  "id": "me-lydian-coinage",
+  "s": "ok"
+ },
+ {
+  "id": "eu-massalia",
+  "s": "ok"
+ },
+ {
+  "id": "sa-mahavira",
+  "s": "ok"
+ },
+ {
+  "id": "xia-zhengshu-kills-duke-ling-of-chen",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-bi",
+  "s": "ok"
+ },
+ {
+  "id": "eu-solon",
+  "s": "ok"
+ },
+ {
+  "id": "lu-land-tax",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-an",
+  "s": "ok"
+ },
+ {
+  "id": "jin-forms-six-armies",
+  "s": "ok"
+ },
+ {
+  "id": "me-babylonian-captivity",
+  "s": "ok"
+ },
+ {
+  "id": "eu-thales",
+  "s": "ok"
+ },
+ {
+  "id": "ir-battle-of-the-eclipse",
+  "s": "ok"
+ },
+ {
+  "id": "wu-learns-chariot-warfare",
+  "s": "ok"
+ },
+ {
+  "id": "lu-xiang-severs-qin",
+  "s": "ok"
+ },
+ {
+  "id": "me-ishtar-gate",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-yanling",
+  "s": "ok"
+ },
+ {
+  "id": "duke-dao-revives-jin",
+  "s": "ok"
+ },
+ {
+  "id": "wei-jiang-peace-with-rong",
+  "s": "ok"
+ },
+ {
+  "id": "qi-lai",
+  "s": "ok"
+ },
+ {
+  "id": "sa-buddha-born",
+  "s": "ok"
+ },
+ {
+  "id": "three-huan-divide-lu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-peisistratus",
+  "s": "ok"
+ },
+ {
+  "id": "confucius",
+  "s": "ok"
+ },
+ {
+  "id": "ir-cyrus-founds-empire",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-lydia",
+  "s": "ok"
+ },
+ {
+  "id": "conference-of-song",
+  "s": "ok"
+ },
+ {
+  "id": "ca-cyrus-conquest",
+  "s": "ok"
+ },
+ {
+  "id": "sa-bimbisara",
+  "s": "ok"
+ },
+ {
+  "id": "zichan-governs-zheng",
+  "s": "ok"
+ },
+ {
+  "id": "sa-vijaya-lanka",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-babylon",
+  "s": "ok"
+ },
+ {
+  "id": "me-return-to-zion",
+  "s": "ok"
+ },
+ {
+  "id": "zichan-law-code",
+  "s": "ok"
+ },
+ {
+  "id": "eu-pythagoras",
+  "s": "ok"
+ },
+ {
+  "id": "ca-tomyris",
+  "s": "ok"
+ },
+ {
+  "id": "king-ling-of-chu-dies",
+  "s": "ok"
+ },
+ {
+  "id": "sa-buddha-enlightenment",
+  "s": "ok"
+ },
+ {
+  "id": "sa-first-sermon",
+  "s": "ok"
+ },
+ {
+  "id": "eg-cambyses-conquest",
+  "s": "ok"
+ },
+ {
+  "id": "wu-zixu-flees",
+  "s": "ok"
+ },
+ {
+  "id": "ir-behistun-inscription",
+  "s": "ok"
+ },
+ {
+  "id": "ir-persepolis-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sa-darius-indus",
+  "s": "ok"
+ },
+ {
+  "id": "me-second-temple",
+  "s": "ok"
+ },
+ {
+  "id": "zhuan-zhu-assassinates-liao",
+  "s": "ok"
+ },
+ {
+  "id": "helu-builds-gusu",
+  "s": "ok"
+ },
+ {
+  "id": "jin-penal-cauldron",
+  "s": "ok"
+ },
+ {
+  "id": "art-of-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-roman-republic",
+  "s": "ok"
+ },
+ {
+  "id": "eu-cleisthenes",
+  "s": "ok"
+ },
+ {
+  "id": "boju",
+  "s": "ok"
+ },
+ {
+  "id": "shen-baoxu-weeps",
+  "s": "ok"
+ },
+ {
+  "id": "af-nok-culture",
+  "s": "ok"
+ },
+ {
+  "id": "mx-monte-alban",
+  "s": "ok"
+ },
+ {
+  "id": "ir-royal-road",
+  "s": "fixed",
+  "summary": "A road of about 2,700 km with relay stations linked Susa to Sardis, so royal couriers could cross the empire in about nine days.",
+  "summary_zh": "一条长约2700公里、设有驿站的大道连接苏萨与萨第斯，王室信使约九天即可横穿帝国。",
+  "n": "Per Wikipedia, mounted couriers covered the road in nine days, not a week.",
+  "n_zh": "据维基百科，骑马信使走完御道需九天，而非一周。"
+ },
+ {
+  "id": "jp-rice-reaches-kyushu",
+  "s": "ok"
+ },
+ {
+  "id": "sea-plain-of-jars",
+  "s": "ok"
+ },
+ {
+  "id": "eg-hanno-the-navigator",
+  "s": "ok"
+ },
+ {
+  "id": "af-urewe",
+  "s": "ok"
+ },
+ {
+  "id": "na-dorset-culture",
+  "s": "ok"
+ },
+ {
+  "id": "me-ionian-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "demolishing-three-cities",
+  "s": "ok"
+ },
+ {
+  "id": "confucius-travels",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-fujiao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-secession-plebs",
+  "s": "ok"
+ },
+ {
+  "id": "eu-marathon",
+  "s": "ok"
+ },
+ {
+  "id": "han-canal",
+  "s": "ok"
+ },
+ {
+  "id": "wu-zixu-forced-suicide",
+  "s": "ok"
+ },
+ {
+  "id": "meeting-at-huangchi",
+  "s": "ok"
+ },
+ {
+  "id": "tian-family-qi",
+  "s": "ok"
+ },
+ {
+  "id": "capture-of-the-lin",
+  "s": "ok"
+ },
+ {
+  "id": "eu-thermopylae",
+  "s": "ok"
+ },
+ {
+  "id": "eu-salamis",
+  "s": "ok"
+ },
+ {
+  "id": "ir-xerxes-invades-greece",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-confucius",
+  "s": "ok"
+ },
+ {
+  "id": "rebellion-of-duke-bai",
+  "s": "ok"
+ },
+ {
+  "id": "eu-plataea",
+  "s": "ok"
+ },
+ {
+  "id": "eu-delian-league",
+  "s": "ok"
+ },
+ {
+  "id": "chu-destroys-chen",
+  "s": "ok"
+ },
+ {
+  "id": "yue-wu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-pericles",
+  "s": "ok"
+ },
+ {
+  "id": "chu-destroys-lu",
+  "s": "ok"
+ },
+ {
+  "id": "yan-attacks-zhao-hao",
+  "s": "ok"
+ },
+ {
+  "id": "ir-greco-bactrian",
+  "s": "ok"
+ },
+ {
+  "id": "sa-mahinda-lanka",
+  "s": "ok"
+ },
+ {
+  "id": "af-djenne-djenno",
+  "s": "ok"
+ },
+ {
+  "id": "lu-buwei-chancellor",
+  "s": "ok"
+ },
+ {
+  "id": "qin-ends-eastern-zhou",
+  "s": "ok"
+ },
+ {
+  "id": "ir-arsaces-founds-parthia",
+  "s": "ok"
+ },
+ {
+  "id": "xinling-defeats-qin",
+  "s": "ok"
+ },
+ {
+  "id": "ying-zheng-king",
+  "s": "ok"
+ },
+ {
+  "id": "zhengguo-canal",
+  "s": "ok"
+ },
+ {
+  "id": "chu-moves-to-shouchun",
+  "s": "ok"
+ },
+ {
+  "id": "eg-eratosthenes",
+  "s": "ok"
+ },
+ {
+  "id": "lushi-chunqiu",
+  "s": "ok"
+ },
+ {
+  "id": "lao-ai",
+  "s": "ok"
+ },
+ {
+  "id": "lord-chunshen-killed",
+  "s": "ok"
+ },
+ {
+  "id": "li-si-against-expulsion",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-lu-buwei",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-fei",
+  "s": "ok"
+ },
+ {
+  "id": "li-mu-executed",
+  "s": "ok"
+ },
+ {
+  "id": "qin-zhao",
+  "s": "ok"
+ },
+ {
+  "id": "jing-ke",
+  "s": "ok"
+ },
+ {
+  "id": "qin-wei",
+  "s": "ok"
+ },
+ {
+  "id": "qin-chu",
+  "s": "ok"
+ },
+ {
+  "id": "qin-yan",
+  "s": "ok"
+ },
+ {
+  "id": "qin-unifies",
+  "s": "ok"
+ },
+ {
+  "id": "qin-baiyue",
+  "s": "ok"
+ },
+ {
+  "id": "unified-script",
+  "s": "ok"
+ },
+ {
+  "id": "unified-weights-and-coins",
+  "s": "ok"
+ },
+ {
+  "id": "twelve-metal-colossi",
+  "s": "ok"
+ },
+ {
+  "id": "imperial-highways",
+  "s": "ok"
+ },
+ {
+  "id": "taishan-feng",
+  "s": "ok"
+ },
+ {
+  "id": "xu-fu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-hannibal-alps",
+  "s": "ok"
+ },
+ {
+  "id": "bolangsha",
+  "s": "ok"
+ },
+ {
+  "id": "shuihudi-qin-slips",
+  "s": "ok"
+ },
+ {
+  "id": "eu-cannae",
+  "s": "ok"
+ },
+ {
+  "id": "land-self-reporting",
+  "s": "ok"
+ },
+ {
+  "id": "lingqu",
+  "s": "ok"
+ },
+ {
+  "id": "southern-commanderies",
+  "s": "ok"
+ },
+ {
+  "id": "book-burning",
+  "s": "ok"
+ },
+ {
+  "id": "eu-siege-of-syracuse",
+  "s": "ok"
+ },
+ {
+  "id": "epang",
+  "s": "ok"
+ },
+ {
+  "id": "dongjun-meteorite",
+  "s": "ok"
+ },
+ {
+  "id": "shaqiu",
+  "s": "ok"
+ },
+ {
+  "id": "terracotta-army",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-fusu",
+  "s": "ok"
+ },
+ {
+  "id": "dazexiang",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-chu-proclaimed",
+  "s": "ok"
+ },
+ {
+  "id": "xiang-liang-rises",
+  "s": "ok"
+ },
+ {
+  "id": "liu-bang-pei",
+  "s": "ok"
+ },
+ {
+  "id": "li-si-death",
+  "s": "ok"
+ },
+ {
+  "id": "king-huai-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-dingtao",
+  "s": "ok"
+ },
+ {
+  "id": "chen-sheng-killed",
+  "s": "doubt",
+  "n": "English Wikipedia says five months; the Shiji counts six (陈胜王凡六月).",
+  "n_zh": "英文维基百科作五个月；《史记》作“陈胜王凡六月”。"
+ },
+ {
+  "id": "julu",
+  "s": "ok"
+ },
+ {
+  "id": "wangyi-palace-coup",
+  "s": "ok"
+ },
+ {
+  "id": "deer-horse",
+  "s": "ok"
+ },
+ {
+  "id": "ziying-kills-zhao-gao",
+  "s": "ok"
+ },
+ {
+  "id": "hongmen",
+  "s": "ok"
+ },
+ {
+  "id": "xiang-yu-eighteen-kingdoms",
+  "s": "ok"
+ },
+ {
+  "id": "han-reconquers-guanzhong",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-pengcheng",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-jingxing",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-wei-river",
+  "s": "ok"
+ },
+ {
+  "id": "treaty-of-hong-canal",
+  "s": "ok"
+ },
+ {
+  "id": "gaixia",
+  "s": "ok"
+ },
+ {
+  "id": "eg-battle-of-zama",
+  "s": "ok"
+ },
+ {
+  "id": "eg-masinissa-numidia",
+  "s": "ok"
+ },
+ {
+  "id": "han-xin-demoted",
+  "s": "ok"
+ },
+ {
+  "id": "baideng",
+  "s": "ok"
+ },
+ {
+  "id": "sea-pyu-city-states",
+  "s": "ok"
+ },
+ {
+  "id": "shusun-tong-court-ritual",
+  "s": "ok"
+ },
+ {
+  "id": "first-heqin",
+  "s": "ok"
+ },
+ {
+  "id": "eg-rosetta-stone-decree",
+  "s": "ok"
+ },
+ {
+  "id": "han-xin-death",
+  "s": "ok"
+ },
+ {
+  "id": "peng-yue-executed",
+  "s": "ok"
+ },
+ {
+  "id": "ying-bu-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "lu-jia-nanyue-mission",
+  "s": "ok"
+ },
+ {
+  "id": "empress-lu",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-gaozu",
+  "s": "ok"
+ },
+ {
+  "id": "kr-wiman",
+  "s": "ok"
+ },
+ {
+  "id": "liu-ruyi-poisoned",
+  "s": "ok"
+ },
+ {
+  "id": "xiao-gui-cao-sui",
+  "s": "ok"
+ },
+ {
+  "id": "chen-xi-rebellion",
+  "s": "doubt",
+  "n": "Wikipedia gives Chen Xi death as November or December 196 BC, not 195 BCE.",
+  "n_zh": "维基百科记载陈豨卒于前196年，而非前195年。"
+ },
+ {
+  "id": "eu-winged-victory",
+  "s": "ok"
+ },
+ {
+  "id": "ernian-statutes",
+  "s": "ok"
+ },
+ {
+  "id": "sa-shunga-coup",
+  "s": "ok"
+ },
+ {
+  "id": "wen-jing",
+  "s": "ok"
+ },
+ {
+  "id": "lu-clan-disturbance",
+  "s": "ok"
+ },
+ {
+  "id": "xiongnu-conquer-yuezhi",
+  "s": "ok"
+ },
+ {
+  "id": "jia-yi-changsha",
+  "s": "ok"
+ },
+ {
+  "id": "chao-cuo-frontier",
+  "s": "ok"
+ },
+ {
+  "id": "mawangdui",
+  "s": "ok"
+ },
+ {
+  "id": "eu-pydna",
+  "s": "ok"
+ },
+ {
+  "id": "abolish-mutilating-punishments",
+  "s": "ok"
+ },
+ {
+  "id": "me-maccabean-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "xiongnu-raid-xiao-pass",
+  "s": "ok"
+ },
+ {
+  "id": "xiliu-camp",
+  "s": "ok"
+ },
+ {
+  "id": "land-tax-one-thirtieth",
+  "s": "ok"
+ },
+ {
+  "id": "sa-menander",
+  "s": "ok"
+ },
+ {
+  "id": "seven-states",
+  "s": "ok"
+ },
+ {
+  "id": "defense-of-suiyang",
+  "s": "ok"
+ },
+ {
+  "id": "eu-third-punic-war",
+  "s": "ok"
+ },
+ {
+  "id": "eg-destruction-of-carthage",
+  "s": "ok"
+ },
+ {
+  "id": "eu-corinth-146",
+  "s": "ok"
+ },
+ {
+  "id": "ca-ai-khanoum-falls",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mithridates-i-mesopotamia",
+  "s": "ok"
+ },
+ {
+  "id": "huainanzi",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-qian",
+  "s": "ok"
+ },
+ {
+  "id": "dong-ou-moves-north",
+  "s": "ok"
+ },
+ {
+  "id": "tang-meng-yelang",
+  "s": "ok"
+ },
+ {
+  "id": "dong-zhongshu-three-responses",
+  "s": "ok"
+ },
+ {
+  "id": "filial-incorrupt-recommendation",
+  "s": "ok"
+ },
+ {
+  "id": "eu-gracchi",
+  "s": "ok"
+ },
+ {
+  "id": "mayi",
+  "s": "ok"
+ },
+ {
+  "id": "ca-yuezhi-daxia",
+  "s": "ok"
+ },
+ {
+  "id": "emperor-wu-accession",
+  "s": "doubt",
+  "n": "English Wikipedia says Liu Che ascended at age 15; Chinese Wikipedia says 16 (East Asian age counting).",
+  "n_zh": "英文维基百科称刘彻即位时15岁，中文维基百科称十六岁登基。"
+ },
+ {
+  "id": "battle-of-longcheng",
+  "s": "ok"
+ },
+ {
+  "id": "ca-zhang-qian-yuezhi",
+  "s": "ok"
+ },
+ {
+  "id": "recovery-of-henan",
+  "s": "ok"
+ },
+ {
+  "id": "edict-of-grace",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-qian-returns",
+  "s": "ok"
+ },
+ {
+  "id": "huainan-conspiracy",
+  "s": "ok"
+ },
+ {
+  "id": "hexi-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "mobei",
+  "s": "ok"
+ },
+ {
+  "id": "salt-iron",
+  "s": "ok"
+ },
+ {
+  "id": "wuzhu",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-qian-wusun",
+  "s": "ok"
+ },
+ {
+  "id": "sa-heliodorus-pillar",
+  "s": "ok"
+ },
+ {
+  "id": "music-bureau",
+  "s": "ok"
+ },
+ {
+  "id": "eg-jugurthine-war",
+  "s": "ok"
+ },
+ {
+  "id": "nanyue",
+  "s": "ok"
+ },
+ {
+  "id": "sea-han-jiaozhi",
+  "s": "ok"
+ },
+ {
+  "id": "pingzhun-junshu",
+  "s": "ok"
+ },
+ {
+  "id": "fengshan-mount-tai",
+  "s": "ok"
+ },
+ {
+  "id": "minyue-conquered",
+  "s": "ok"
+ },
+ {
+  "id": "gojoseon",
+  "s": "ok"
+ },
+ {
+  "id": "dian-submits",
+  "s": "ok"
+ },
+ {
+  "id": "kr-four-commanderies",
+  "s": "ok"
+ },
+ {
+  "id": "loulan-gushi-captured",
+  "s": "ok"
+ },
+ {
+  "id": "eu-marian-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "heavenly-horses",
+  "s": "ok"
+ },
+ {
+  "id": "eu-antikythera",
+  "s": "ok"
+ },
+ {
+  "id": "sa-manusmriti",
+  "s": "ok"
+ },
+ {
+  "id": "na-hopewell-tradition",
+  "s": "ok"
+ },
+ {
+  "id": "sam-nazca",
+  "s": "ok"
+ },
+ {
+  "id": "su-wu-detained",
+  "s": "ok"
+ },
+ {
+  "id": "kr-samhan",
+  "s": "ok"
+ },
+ {
+  "id": "li-ling-surrenders",
+  "s": "ok"
+ },
+ {
+  "id": "bai-canal",
+  "s": "ok"
+ },
+ {
+  "id": "shiji",
+  "s": "ok"
+ },
+ {
+  "id": "eu-social-war",
+  "s": "ok"
+ },
+ {
+  "id": "witchcraft-scandal",
+  "s": "ok"
+ },
+ {
+  "id": "li-guangli-surrenders",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-emperor-wu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-sulla",
+  "s": "ok"
+ },
+ {
+  "id": "salt-iron-debate",
+  "s": "ok"
+ },
+ {
+  "id": "su-wu",
+  "s": "ok"
+ },
+ {
+  "id": "shangguan-plot",
+  "s": "ok"
+ },
+ {
+  "id": "fu-jiezi-loulan",
+  "s": "ok"
+ },
+ {
+  "id": "huo-guang",
+  "s": "ok"
+ },
+ {
+  "id": "eu-spartacus",
+  "s": "ok"
+ },
+ {
+  "id": "huo-clan-exterminated",
+  "s": "ok"
+ },
+ {
+  "id": "me-roman-syria",
+  "s": "ok"
+ },
+ {
+  "id": "eu-catiline",
+  "s": "ok"
+ },
+ {
+  "id": "zhao-chongguo-qiang",
+  "s": "ok"
+ },
+ {
+  "id": "western-regions",
+  "s": "ok"
+ },
+ {
+  "id": "eu-first-triumvirate",
+  "s": "ok"
+ },
+ {
+  "id": "eu-gallic-wars",
+  "s": "ok"
+ },
+ {
+  "id": "kr-silla-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eu-lucretius",
+  "s": "ok"
+ },
+ {
+  "id": "ever-normal-granary",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-carrhae",
+  "s": "ok"
+ },
+ {
+  "id": "huhanye",
+  "s": "ok"
+ },
+ {
+  "id": "eu-rubicon",
+  "s": "ok"
+ },
+ {
+  "id": "eu-pharsalus",
+  "s": "ok"
+ },
+ {
+  "id": "eu-julian-calendar",
+  "s": "ok"
+ },
+ {
+  "id": "eu-caesar-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "kr-goguryeo-founded",
+  "s": "ok"
+ },
+ {
+  "id": "zhizhi",
+  "s": "ok"
+ },
+ {
+  "id": "mx-long-count-date",
+  "s": "ok"
+ },
+ {
+  "id": "zhaojun",
+  "s": "ok"
+ },
+ {
+  "id": "eu-actium",
+  "s": "ok"
+ },
+ {
+  "id": "eg-cleopatra-death",
+  "s": "ok"
+ },
+ {
+  "id": "sa-pali-canon-written",
+  "s": "ok"
+ },
+ {
+  "id": "sunspot-record",
+  "s": "ok"
+ },
+ {
+  "id": "eu-augustus",
+  "s": "ok"
+ },
+ {
+  "id": "liu-xiang-collation",
+  "s": "ok"
+ },
+ {
+  "id": "af-amanirenas-rome",
+  "s": "ok"
+ },
+ {
+  "id": "eu-aeneid",
+  "s": "ok"
+ },
+ {
+  "id": "kr-baekje-founded",
+  "s": "ok"
+ },
+ {
+  "id": "limit-land-slaves",
+  "s": "ok"
+ },
+ {
+  "id": "queen-mother-west-movement",
+  "s": "ok"
+ },
+ {
+  "id": "yicun-buddhist-sutra",
+  "s": "ok"
+ },
+ {
+  "id": "dong-xian-falls",
+  "s": "ok"
+ },
+ {
+  "id": "sam-nazca-lines",
+  "s": "ok"
+ },
+ {
+  "id": "sam-san-agustin",
+  "s": "ok"
+ },
+ {
+  "id": "census-2ce",
+  "s": "ok"
+ },
+ {
+  "id": "wang-mang-regent",
+  "s": "ok"
+ },
+ {
+  "id": "wang-mang",
+  "s": "ok"
+ },
+ {
+  "id": "eu-teutoburg",
+  "s": "ok"
+ },
+ {
+  "id": "yellow-river-11",
+  "s": "ok"
+ },
+ {
+  "id": "wangtian-repealed",
+  "s": "ok"
+ },
+ {
+  "id": "western-regions-lost",
+  "s": "ok"
+ },
+ {
+  "id": "lu-mu-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "huoquan-huobu",
+  "s": "ok"
+ },
+ {
+  "id": "lulin",
+  "s": "ok"
+ },
+ {
+  "id": "red-eyebrows",
+  "s": "ok"
+ },
+ {
+  "id": "liu-xiu-rises",
+  "s": "ok"
+ },
+ {
+  "id": "lulin-split",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-chengchang",
+  "s": "ok"
+ },
+ {
+  "id": "kunyang",
+  "s": "ok"
+ },
+ {
+  "id": "gengshi",
+  "s": "ok"
+ },
+ {
+  "id": "wang-mang-death",
+  "s": "ok"
+ },
+ {
+  "id": "liu-xin-plot",
+  "s": "ok"
+ },
+ {
+  "id": "gongsun-shu-shu",
+  "s": "ok"
+ },
+ {
+  "id": "guangwu",
+  "s": "ok"
+ },
+ {
+  "id": "chimei-take-changan",
+  "s": "ok"
+ },
+ {
+  "id": "chimei-surrender",
+  "s": "ok"
+ },
+ {
+  "id": "me-crucifixion-of-jesus",
+  "s": "ok"
+ },
+ {
+  "id": "ir-kushan-empire",
+  "s": "ok"
+ },
+ {
+  "id": "conquest-of-shu",
+  "s": "ok"
+ },
+ {
+  "id": "trung-sisters",
+  "s": "ok"
+ },
+ {
+  "id": "eu-conquest-of-britain",
+  "s": "ok"
+ },
+ {
+  "id": "ma-yuan-jiaozhi",
+  "s": "ok"
+ },
+ {
+  "id": "xiongnu-split",
+  "s": "ok"
+ },
+ {
+  "id": "ma-yuan-death",
+  "s": "ok"
+ },
+ {
+  "id": "af-periplus",
+  "s": "ok"
+ },
+ {
+  "id": "na-gold-seal",
+  "s": "ok"
+ },
+ {
+  "id": "eu-boudica",
+  "s": "ok"
+ },
+ {
+  "id": "eu-great-fire-rome",
+  "s": "ok"
+ },
+ {
+  "id": "liu-ying-buddhism",
+  "s": "ok"
+ },
+ {
+  "id": "white-horse",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gaya-founded",
+  "s": "doubt",
+  "n": "Wikipedia dates Geumgwan Gaya to 43-532, not AD 42 (legendary founding).",
+  "n_zh": "维基百科称金官伽倻存续于43至532年，而非公元42年（传说建国年）。"
+ },
+ {
+  "id": "yongchang-commandery",
+  "s": "ok"
+ },
+ {
+  "id": "me-siege-of-jerusalem-70",
+  "s": "ok"
+ },
+ {
+  "id": "eu-colosseum",
+  "s": "ok"
+ },
+ {
+  "id": "ban-chao",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-pulei-sea",
+  "s": "ok"
+ },
+ {
+  "id": "eu-pliny-natural-history",
+  "s": "ok"
+ },
+ {
+  "id": "eu-vesuvius",
+  "s": "ok"
+ },
+ {
+  "id": "wang-chong-lunheng",
+  "s": "ok"
+ },
+ {
+  "id": "dou-xian-xiongnu",
+  "s": "ok"
+ },
+ {
+  "id": "kushan-attack-ban-chao",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-jinwei-mountain",
+  "s": "ok"
+ },
+ {
+  "id": "fall-of-dou-xian",
+  "s": "ok"
+ },
+ {
+  "id": "ban-chao-yanqi",
+  "s": "ok"
+ },
+ {
+  "id": "eu-five-good-emperors",
+  "s": "ok"
+ },
+ {
+  "id": "gan-ying",
+  "s": "ok"
+ },
+ {
+  "id": "sa-gandhara-art",
+  "s": "ok"
+ },
+ {
+  "id": "sea-funan-rise",
+  "s": "ok"
+ },
+ {
+  "id": "af-aksum-rises",
+  "s": "ok"
+ },
+ {
+  "id": "sam-moche",
+  "s": "ok"
+ },
+ {
+  "id": "shuowen",
+  "s": "ok"
+ },
+ {
+  "id": "sa-sangam-literature",
+  "s": "ok"
+ },
+ {
+  "id": "ca-fayaz-tepe",
+  "s": "ok"
+ },
+ {
+  "id": "na-newark-earthworks",
+  "s": "ok"
+ },
+ {
+  "id": "eu-dacian-wars",
+  "s": "ok"
+ },
+ {
+  "id": "cai-lun",
+  "s": "ok"
+ },
+ {
+  "id": "deng-sui-regency",
+  "s": "ok"
+ },
+ {
+  "id": "ban-zhao-lessons",
+  "s": "ok"
+ },
+ {
+  "id": "western-regions-abandoned",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-heng-armillary",
+  "s": "ok"
+ },
+ {
+  "id": "eu-hadrians-wall",
+  "s": "ok"
+ },
+ {
+  "id": "ban-yong-western-regions",
+  "s": "ok"
+ },
+ {
+  "id": "nineteen-eunuchs",
+  "s": "ok"
+ },
+ {
+  "id": "eu-pantheon",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kanishka",
+  "s": "ok"
+ },
+ {
+  "id": "me-bar-kokhba-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "emperor-zhi-poisoned",
+  "s": "ok"
+ },
+ {
+  "id": "an-shigao-translations",
+  "s": "ok"
+ },
+ {
+  "id": "ir-an-shigao",
+  "s": "ok"
+ },
+ {
+  "id": "sa-nagarjuna",
+  "s": "ok"
+ },
+ {
+  "id": "sea-oc-eo",
+  "s": "ok"
+ },
+ {
+  "id": "tanshihuai-confederation",
+  "s": "ok"
+ },
+ {
+  "id": "liang-ji",
+  "s": "ok"
+ },
+ {
+  "id": "eu-galen",
+  "s": "ok"
+ },
+ {
+  "id": "eu-antonine-plague",
+  "s": "ok"
+ },
+ {
+  "id": "partisan-prohibitions",
+  "s": "ok"
+ },
+ {
+  "id": "daqin-envoy",
+  "s": "ok"
+ },
+ {
+  "id": "eu-marcomannic-wars",
+  "s": "ok"
+ },
+ {
+  "id": "chen-fan-dou-wu-coup",
+  "s": "ok"
+ },
+ {
+  "id": "second-partisan-prohibition",
+  "s": "ok"
+ },
+ {
+  "id": "eu-meditations",
+  "s": "ok"
+ },
+ {
+  "id": "xiping-classics",
+  "s": "ok"
+ },
+ {
+  "id": "tanshihuai-defeats-han",
+  "s": "fixed",
+  "summary": "Three Han armies of 30,000 cavalry struck at Tanshihuai's Xianbei confederation and were routed, losing seventy to eighty percent of their men.",
+  "summary_zh": "夏育、田晏、臧旻三路出击檀石槐，大败而还，十丧七八。",
+  "n": "Han losses were seven to eight in ten (70-80%), not nearly 90 percent, per Chinese Wikipedia.",
+  "n_zh": "据中文维基百科，汉军死者十之七八，而非近九成。"
+ },
+ {
+  "id": "jp-wa-great-disturbance",
+  "s": "ok"
+ },
+ {
+  "id": "yellow-turbans",
+  "s": "ok"
+ },
+ {
+  "id": "liangzhou-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "provincial-governors",
+  "s": "ok"
+ },
+ {
+  "id": "dong-zhuo",
+  "s": "ok"
+ },
+ {
+  "id": "he-jin-eunuchs",
+  "s": "ok"
+ },
+ {
+  "id": "zheng-xuan-annotations",
+  "s": "ok"
+ },
+ {
+  "id": "anti-dong-coalition",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-jieqiao",
+  "s": "ok"
+ },
+ {
+  "id": "sea-champa-founded",
+  "s": "ok"
+ },
+ {
+  "id": "dong-zhuo-killed",
+  "s": "ok"
+ },
+ {
+  "id": "qingzhou-army",
+  "s": "ok"
+ },
+ {
+  "id": "eu-severus",
+  "s": "ok"
+ },
+ {
+  "id": "eg-septimius-severus",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-puyang",
+  "s": "ok"
+ },
+ {
+  "id": "sun-ce-jiangdong",
+  "s": "ok"
+ },
+ {
+  "id": "emperor-xian-flight",
+  "s": "ok"
+ },
+ {
+  "id": "xian-to-xu",
+  "s": "ok"
+ },
+ {
+  "id": "cao-tuntian",
+  "s": "ok"
+ },
+ {
+  "id": "yuan-shu-emperor",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-wancheng",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-xiapi",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-yijing",
+  "s": "ok"
+ },
+ {
+  "id": "guandu",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-baima",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-sun-ce",
+  "s": "ok"
+ },
+ {
+  "id": "kr-byeonhan-iron",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-yuan-shao",
+  "s": "ok"
+ },
+ {
+  "id": "capture-of-ye",
+  "s": "ok"
+ },
+ {
+  "id": "shanghan-lun",
+  "s": "ok"
+ },
+ {
+  "id": "white-wolf-mountain",
+  "s": "ok"
+ },
+ {
+  "id": "longzhong-plan",
+  "s": "ok"
+ },
+ {
+  "id": "red-cliffs",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-changban",
+  "s": "ok"
+ },
+ {
+  "id": "zhou-yu-dies",
+  "s": "ok"
+ },
+ {
+  "id": "bronze-sparrow-terrace",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-tong-pass",
+  "s": "ok"
+ },
+ {
+  "id": "eu-constitutio-antoniniana",
+  "s": "ok"
+ },
+ {
+  "id": "duke-of-wei",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-ruxu-213",
+  "s": "ok"
+ },
+ {
+  "id": "liu-bei-takes-yi",
+  "s": "ok"
+ },
+ {
+  "id": "xiaoyao-ford",
+  "s": "ok"
+ },
+ {
+  "id": "cao-cao-hanzhong",
+  "s": "ok"
+ },
+ {
+  "id": "jianan-plague",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-dingjun",
+  "s": "ok"
+ },
+ {
+  "id": "fancheng",
+  "s": "ok"
+ },
+ {
+  "id": "king-of-hanzhong",
+  "s": "ok"
+ },
+ {
+  "id": "cao-pi",
+  "s": "ok"
+ },
+ {
+  "id": "nine-rank-system",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-cao-cao",
+  "s": "ok"
+ },
+ {
+  "id": "shu-han",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-fei-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "sun-quan-king-of-wu",
+  "s": "ok"
+ },
+ {
+  "id": "yiling",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-dongkou",
+  "s": "ok"
+ },
+ {
+  "id": "baidi-entrust",
+  "s": "ok"
+ },
+ {
+  "id": "deng-zhi-mission-wu",
+  "s": "ok"
+ },
+ {
+  "id": "ir-ardashir-founds-sasanian",
+  "s": "ok"
+ },
+ {
+  "id": "southern-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "cao-pi-guangling",
+  "s": "ok"
+ },
+ {
+  "id": "cao-rui-succeeds",
+  "s": "ok"
+ },
+ {
+  "id": "wu-takes-jiaozhou",
+  "s": "ok"
+ },
+ {
+  "id": "chu-shi-biao",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-shiting",
+  "s": "ok"
+ },
+ {
+  "id": "jieting",
+  "s": "ok"
+ },
+ {
+  "id": "sima-yi-meng-da",
+  "s": "ok"
+ },
+ {
+  "id": "siege-of-chencang",
+  "s": "ok"
+ },
+ {
+  "id": "sun-quan-emperor",
+  "s": "ok"
+ },
+ {
+  "id": "shu-takes-wudu-yinping",
+  "s": "ok"
+ },
+ {
+  "id": "ziwu-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-mount-qi",
+  "s": "ok"
+ },
+ {
+  "id": "wooden-ox",
+  "s": "ok"
+ },
+ {
+  "id": "cao-zhi-dies",
+  "s": "ok"
+ },
+ {
+  "id": "gongsun-yuan-betrays-wu",
+  "s": "ok"
+ },
+ {
+  "id": "wuzhang",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-hefei-234",
+  "s": "ok"
+ },
+ {
+  "id": "emperor-xian-dies",
+  "s": "ok"
+ },
+ {
+  "id": "eu-crisis-third-century",
+  "s": "ok"
+ },
+ {
+  "id": "liaodong-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "himiko-envoy",
+  "s": "ok"
+ },
+ {
+  "id": "cao-fang-regency",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mani",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kushano-sasanian",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-quebei",
+  "s": "ok"
+ },
+ {
+  "id": "two-palaces-dispute",
+  "s": "ok"
+ },
+ {
+  "id": "wei-goguryeo",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-xingshi",
+  "s": "ok"
+ },
+ {
+  "id": "zhengshi-xuanxue",
+  "s": "ok"
+ },
+ {
+  "id": "kang-tai-funan",
+  "s": "ok"
+ },
+ {
+  "id": "huang-hao-rises",
+  "s": "ok"
+ },
+ {
+  "id": "kang-senghui-jianye",
+  "s": "ok"
+ },
+ {
+  "id": "lady-trieu-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "gaoping-tombs",
+  "s": "ok"
+ },
+ {
+  "id": "sam-sipan",
+  "s": "ok"
+ },
+ {
+  "id": "jp-hashihaka-kofun",
+  "s": "ok"
+ },
+ {
+  "id": "wang-ling-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "sima-yi-dies",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-dongxing",
+  "s": "ok"
+ },
+ {
+  "id": "zhuge-ke-killed",
+  "s": "ok"
+ },
+ {
+  "id": "fei-yi-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "cao-fang-deposed",
+  "s": "ok"
+ },
+ {
+  "id": "guanqiu-jian-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "zhuge-dan-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "sun-xiu-kills-sun-chen",
+  "s": "ok"
+ },
+ {
+  "id": "cao-mao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-gallic-empire",
+  "s": "ok"
+ },
+ {
+  "id": "me-capture-of-valerian",
+  "s": "ok"
+ },
+ {
+  "id": "kr-goi-reform",
+  "s": "ok"
+ },
+ {
+  "id": "ji-kang",
+  "s": "ok"
+ },
+ {
+  "id": "wei-shu",
+  "s": "ok"
+ },
+ {
+  "id": "liu-hui",
+  "s": "ok"
+ },
+ {
+  "id": "zhong-hui-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "sun-hao-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "jin-founded",
+  "s": "ok"
+ },
+ {
+  "id": "pei-xiu-maps",
+  "s": "ok"
+ },
+ {
+  "id": "yang-hu-xiangyang",
+  "s": "ok"
+ },
+ {
+  "id": "tufa-shujineng-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "eg-antony-monasticism",
+  "s": "ok"
+ },
+ {
+  "id": "me-palmyrene-empire",
+  "s": "ok"
+ },
+ {
+  "id": "af-aksum-coins",
+  "s": "ok"
+ },
+ {
+  "id": "eu-aurelian-walls",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-xiling",
+  "s": "ok"
+ },
+ {
+  "id": "bamboo-annals",
+  "s": "ok"
+ },
+ {
+  "id": "jin-wu",
+  "s": "ok"
+ },
+ {
+  "id": "sanguozhi",
+  "s": "ok"
+ },
+ {
+  "id": "eight-princes",
+  "s": "ok"
+ },
+ {
+  "id": "eu-tetrarchy",
+  "s": "ok"
+ },
+ {
+  "id": "qi-wannian-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "af-ghana-rises",
+  "s": "ok"
+ },
+ {
+  "id": "jia-nanfeng",
+  "s": "ok"
+ },
+ {
+  "id": "li-te-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-gui-liangzhou",
+  "s": "ok"
+ },
+ {
+  "id": "princes-against-lun",
+  "s": "ok"
+ },
+ {
+  "id": "eu-price-edict",
+  "s": "ok"
+ },
+ {
+  "id": "eu-great-persecution",
+  "s": "ok"
+ },
+ {
+  "id": "han-zhao",
+  "s": "ok"
+ },
+ {
+  "id": "li-xiong-cheng-han",
+  "s": "ok"
+ },
+ {
+  "id": "wang-dao-jianye",
+  "s": "ok"
+ },
+ {
+  "id": "fotudeng-arrives",
+  "s": "ok"
+ },
+ {
+  "id": "yongjia",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-ningping",
+  "s": "ok"
+ },
+ {
+  "id": "eu-milvian-bridge",
+  "s": "ok"
+ },
+ {
+  "id": "eu-edict-of-milan",
+  "s": "ok"
+ },
+ {
+  "id": "kr-lelang-falls",
+  "s": "ok"
+ },
+ {
+  "id": "zu-ti",
+  "s": "ok"
+ },
+ {
+  "id": "shi-le-captures-wang-jun",
+  "s": "ok"
+ },
+ {
+  "id": "tuoba-yilu-dai",
+  "s": "ok"
+ },
+ {
+  "id": "eastern-jin",
+  "s": "ok"
+ },
+ {
+  "id": "ge-hong",
+  "s": "ok"
+ },
+ {
+  "id": "fall-of-changan-316",
+  "s": "fixed",
+  "summary": "Han Zhao besieges Chang'an until Emperor Min surrenders. He is killed two years later.",
+  "summary_zh": "汉赵军围困长安，晋愍帝出城投降，两年后遇害。",
+  "n": "Emperor Min surrendered in 316 and was executed in 318, two years later, per Wikipedia.",
+  "n_zh": "据维基百科，晋愍帝316年投降，318年被杀，即两年后。"
+ },
+ {
+  "id": "jin-zhun-coup",
+  "s": "ok"
+ },
+ {
+  "id": "eg-arian-controversy",
+  "s": "ok"
+ },
+ {
+  "id": "later-zhao-founded",
+  "s": "ok"
+ },
+ {
+  "id": "zu-ti-dies",
+  "s": "ok"
+ },
+ {
+  "id": "wang-dun",
+  "s": "ok"
+ },
+ {
+  "id": "me-council-of-nicaea",
+  "s": "ok"
+ },
+ {
+  "id": "su-jun-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "shi-le-liu-yao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-constantinople",
+  "s": "ok"
+ },
+ {
+  "id": "af-ezana-christianity",
+  "s": "ok"
+ },
+ {
+  "id": "sa-samudragupta",
+  "s": "ok"
+ },
+ {
+  "id": "shi-hu-capital-ye",
+  "s": "ok"
+ },
+ {
+  "id": "former-yan-founded",
+  "s": "ok"
+ },
+ {
+  "id": "shiyijian-dai",
+  "s": "ok"
+ },
+ {
+  "id": "huan-wen-shu",
+  "s": "ok"
+ },
+ {
+  "id": "af-aksum-meroe",
+  "s": "ok"
+ },
+ {
+  "id": "ran-min",
+  "s": "ok"
+ },
+ {
+  "id": "former-qin-founded",
+  "s": "ok"
+ },
+ {
+  "id": "ran-min-captured",
+  "s": "ok"
+ },
+ {
+  "id": "lanting",
+  "s": "ok"
+ },
+ {
+  "id": "huan-wen-first-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "huan-wen-recovers-luoyang",
+  "s": "ok"
+ },
+ {
+  "id": "fu-jian-wang-meng",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kidarites",
+  "s": "ok"
+ },
+ {
+  "id": "mogao",
+  "s": "ok"
+ },
+ {
+  "id": "fangtou",
+  "s": "ok"
+ },
+ {
+  "id": "former-qin-conquers-yan",
+  "s": "ok"
+ },
+ {
+  "id": "huan-wen-deposes-emperor",
+  "s": "ok"
+ },
+ {
+  "id": "kr-geunchogo",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says Crown Prince Geunsugu led 30,000 troops to take Pyongyang and kill Gogugwon in 371, not Geunchogo himself.",
+  "n_zh": "中文维基称371年率3万军攻取平壤、处死故国原王者为太子近仇首王，而非近肖古王本人。"
+ },
+ {
+  "id": "kr-buddhism-goguryeo",
+  "s": "ok"
+ },
+ {
+  "id": "former-qin-unites-north",
+  "s": "ok"
+ },
+ {
+  "id": "eu-adrianople",
+  "s": "ok"
+ },
+ {
+  "id": "mx-siyaj-kak-tikal",
+  "s": "ok"
+ },
+ {
+  "id": "eu-edict-thessalonica",
+  "s": "ok"
+ },
+ {
+  "id": "gu-kaizhi",
+  "s": "ok"
+ },
+ {
+  "id": "lu-guang-western-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "eu-vulgate",
+  "s": "ok"
+ },
+ {
+  "id": "fei-river",
+  "s": "ok"
+ },
+ {
+  "id": "later-yan-founded",
+  "s": "ok"
+ },
+ {
+  "id": "fu-jian-killed",
+  "s": "ok"
+ },
+ {
+  "id": "northern-wei-founded",
+  "s": "ok"
+ },
+ {
+  "id": "later-liang-founded",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gwanggaeto",
+  "s": "ok"
+ },
+ {
+  "id": "eg-last-hieroglyph",
+  "s": "ok"
+ },
+ {
+  "id": "eu-division-of-empire",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-canhe",
+  "s": "ok"
+ },
+ {
+  "id": "sa-chandragupta-ii-saka",
+  "s": "ok"
+ },
+ {
+  "id": "eg-augustine-of-hippo",
+  "s": "ok"
+ },
+ {
+  "id": "northern-liang-founded",
+  "s": "ok"
+ },
+ {
+  "id": "pingcheng-capital",
+  "s": "ok"
+ },
+ {
+  "id": "faxian",
+  "s": "ok"
+ },
+ {
+  "id": "sun-en",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kalidasa",
+  "s": "ok"
+ },
+ {
+  "id": "sam-tiwanaku-rise",
+  "s": "ok"
+ },
+ {
+  "id": "western-liang-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sa-iron-pillar",
+  "s": "ok"
+ },
+ {
+  "id": "kumarajiva",
+  "s": "ok"
+ },
+ {
+  "id": "huiyuan-lushan",
+  "s": "ok"
+ },
+ {
+  "id": "huan-xuan-usurps",
+  "s": "ok"
+ },
+ {
+  "id": "liu-yu-jingkou",
+  "s": "ok"
+ },
+ {
+  "id": "jp-wani-books",
+  "s": "ok"
+ },
+ {
+  "id": "eu-rhine-crossing",
+  "s": "ok"
+ },
+ {
+  "id": "helian-bobo-xia",
+  "s": "ok"
+ },
+ {
+  "id": "eu-sack-of-rome-410",
+  "s": "ok"
+ },
+ {
+  "id": "southern-yan",
+  "s": "ok"
+ },
+ {
+  "id": "eu-end-roman-britain",
+  "s": "ok"
+ },
+ {
+  "id": "faxian-returns",
+  "s": "ok"
+ },
+ {
+  "id": "eu-augustine-city-of-god",
+  "s": "ok"
+ },
+ {
+  "id": "western-shu-conquered",
+  "s": "ok"
+ },
+ {
+  "id": "gwanggaeto-stele",
+  "s": "ok"
+ },
+ {
+  "id": "eg-hypatia",
+  "s": "ok"
+ },
+ {
+  "id": "liu-yu-changan",
+  "s": "ok"
+ },
+ {
+  "id": "liu-song",
+  "s": "ok"
+ },
+ {
+  "id": "xie-lingyun-landscape",
+  "s": "ok"
+ },
+ {
+  "id": "emperor-shao-deposed",
+  "s": "ok"
+ },
+ {
+  "id": "mx-copan-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "sa-nalanda-founded",
+  "s": "ok"
+ },
+ {
+  "id": "wei-takes-tongwan",
+  "s": "ok"
+ },
+ {
+  "id": "kr-pyongyang-capital",
+  "s": "ok"
+ },
+ {
+  "id": "shishuo-xinyu",
+  "s": "ok"
+ },
+ {
+  "id": "dao-yanzhi-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "xia-destroyed",
+  "s": "ok"
+ },
+ {
+  "id": "northern-yan-destroyed",
+  "s": "ok"
+ },
+ {
+  "id": "tan-daoji-executed",
+  "s": "ok"
+ },
+ {
+  "id": "four-academies",
+  "s": "ok"
+ },
+ {
+  "id": "eu-theodosian-code",
+  "s": "ok"
+ },
+ {
+  "id": "wei-unifies-north",
+  "s": "ok"
+ },
+ {
+  "id": "eg-vandals-take-carthage",
+  "s": "ok"
+ },
+ {
+  "id": "kou-qianzhi-taoism",
+  "s": "ok"
+ },
+ {
+  "id": "juqu-gaochang",
+  "s": "ok"
+ },
+ {
+  "id": "hou-han-shu",
+  "s": "ok"
+ },
+ {
+  "id": "taiwu-persecution",
+  "s": "ok"
+ },
+ {
+  "id": "eu-anglo-saxons",
+  "s": "ok"
+ },
+ {
+  "id": "yuanjia-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "ca-hephthalites",
+  "s": "ok"
+ },
+ {
+  "id": "cui-hao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-catalaunian-plains",
+  "s": "ok"
+ },
+ {
+  "id": "eg-chalcedon-coptic-schism",
+  "s": "ok"
+ },
+ {
+  "id": "me-council-of-chalcedon",
+  "s": "ok"
+ },
+ {
+  "id": "taiwu-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "eu-sack-of-rome-455",
+  "s": "ok"
+ },
+ {
+  "id": "sa-skandagupta-huns",
+  "s": "ok"
+ },
+ {
+  "id": "yungang",
+  "s": "ok"
+ },
+ {
+  "id": "sa-ajanta-caves",
+  "s": "ok"
+ },
+ {
+  "id": "zu-chongzhi",
+  "s": "ok"
+ },
+ {
+  "id": "yijia-war",
+  "s": "ok"
+ },
+ {
+  "id": "wei-takes-huaibei",
+  "s": "ok"
+ },
+ {
+  "id": "xianwen-abdicates",
+  "s": "ok"
+ },
+ {
+  "id": "kr-hanseong-falls",
+  "s": "ok"
+ },
+ {
+  "id": "eu-romulus-augustulus",
+  "s": "ok"
+ },
+ {
+  "id": "eu-476-fall-of-western-roman-empire",
+  "s": "ok"
+ },
+ {
+  "id": "sa-sigiriya",
+  "s": "ok"
+ },
+ {
+  "id": "wa-king-bu-memorial",
+  "s": "ok"
+ },
+ {
+  "id": "southern-qi",
+  "s": "ok"
+ },
+ {
+  "id": "yongming-era",
+  "s": "doubt",
+  "n": "Wikipedia says Emperor Wu is criticized for a lavish lifestyle, though generally able and diligent.",
+  "n_zh": "据维基百科，齐武帝被批评生活奢华，但总体被认为勤勉能干。"
+ },
+ {
+  "id": "ca-peroz",
+  "s": "ok"
+ },
+ {
+  "id": "equal-field",
+  "s": "ok"
+ },
+ {
+  "id": "tang-yuzhi-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "four-tones",
+  "s": "ok"
+ },
+ {
+  "id": "fan-zhen-shenmie",
+  "s": "ok"
+ },
+ {
+  "id": "longmen-grottoes",
+  "s": "ok"
+ },
+ {
+  "id": "xiaowen",
+  "s": "ok"
+ },
+ {
+  "id": "xiao-luan-usurps",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mazdak",
+  "s": "doubt",
+  "n": "Wikipedia says Mazdak was killed by Khusrau I (r. 531-579), with Kavad I's reign 498-531; no 528 suppression stated.",
+  "n_zh": "据维基百科，玛兹达克被库思老一世（531-579年在位）所杀，未提及528年被镇压。"
+ },
+ {
+  "id": "shaolin-founded",
+  "s": "ok"
+ },
+ {
+  "id": "taihe-wuzhu",
+  "s": "ok"
+ },
+ {
+  "id": "han-surnames",
+  "s": "ok"
+ },
+ {
+  "id": "eu-496-baptism-of-clovis",
+  "s": "ok"
+ },
+ {
+  "id": "sa-aryabhata",
+  "s": "ok"
+ },
+ {
+  "id": "xiaowen-dies",
+  "s": "doubt",
+  "n": "Wikipedia dates give birth 13 Oct 467 and death 26 Apr 499 (age 31); the summaries give 32 and 33.",
+  "n_zh": "据维基百科，孝文帝生于467年10月13日、卒于499年4月26日（31岁）；中英文简介分别写作32岁和33岁。"
+ },
+ {
+  "id": "me-babylonian-talmud",
+  "s": "ok"
+ },
+ {
+  "id": "sam-puquios",
+  "s": "ok"
+ },
+ {
+  "id": "wenxin-diaolong",
+  "s": "ok"
+ },
+ {
+  "id": "liang-founded",
+  "s": "ok"
+ },
+ {
+  "id": "zhongli",
+  "s": "ok"
+ },
+ {
+  "id": "empress-dowager-hu",
+  "s": "ok"
+ },
+ {
+  "id": "shuijingzhu",
+  "s": "ok"
+ },
+ {
+  "id": "mahayana-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "song-yun-mission",
+  "s": "ok"
+ },
+ {
+  "id": "bodhidharma",
+  "s": "ok"
+ },
+ {
+  "id": "yuan-cha-coup",
+  "s": "ok"
+ },
+ {
+  "id": "kr-muryeong",
+  "s": "ok"
+ },
+ {
+  "id": "af-kaleb-himyar",
+  "s": "ok"
+ },
+ {
+  "id": "kr-ichadon",
+  "s": "ok"
+ },
+ {
+  "id": "tongtai-temple",
+  "s": "ok"
+ },
+ {
+  "id": "jp-iwai-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "heyin",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-fukou",
+  "s": "ok"
+ },
+ {
+  "id": "eu-529-corpus-juris-civilis",
+  "s": "ok"
+ },
+ {
+  "id": "chen-qingzhi",
+  "s": "ok"
+ },
+ {
+  "id": "wen-xuan",
+  "s": "ok"
+ },
+ {
+  "id": "erzhu-rong-killed",
+  "s": "ok"
+ },
+ {
+  "id": "ir-khosrow-i-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "eg-vandalic-war",
+  "s": "ok"
+ },
+ {
+  "id": "wei-splits",
+  "s": "ok"
+ },
+ {
+  "id": "xiaowu-poisoned",
+  "s": "ok"
+ },
+ {
+  "id": "eu-537-hagia-sophia",
+  "s": "ok"
+ },
+ {
+  "id": "shayuan",
+  "s": "ok"
+ },
+ {
+  "id": "jp-buddhism-arrives",
+  "s": "ok"
+ },
+ {
+  "id": "kr-sabi",
+  "s": "ok"
+ },
+ {
+  "id": "eu-541-plague-of-justinian",
+  "s": "ok"
+ },
+ {
+  "id": "yupian",
+  "s": "doubt",
+  "n": "Wikipedia says the Yupian has 12,158 entries (Feng Yan claimed 16,917), not clearly over 16,000.",
+  "n_zh": "维基百科称《玉篇》收字12158个（封演称16917字），并非明确超过一万六千。"
+ },
+ {
+  "id": "ly-bi",
+  "s": "ok"
+ },
+ {
+  "id": "qimin-yaoshu",
+  "s": "ok"
+ },
+ {
+  "id": "yutai-xinyong",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-hanshan",
+  "s": "ok"
+ },
+ {
+  "id": "hou-jing-defects",
+  "s": "ok"
+ },
+ {
+  "id": "hou-jing",
+  "s": "ok"
+ },
+ {
+  "id": "northern-qi",
+  "s": "ok"
+ },
+ {
+  "id": "fubing",
+  "s": "ok"
+ },
+ {
+  "id": "sea-chenla-conquers-funan",
+  "s": "ok"
+ },
+ {
+  "id": "mx-teotihuacan-falls",
+  "s": "ok"
+ },
+ {
+  "id": "turkic-khaganate",
+  "s": "ok"
+ },
+ {
+  "id": "western-wei-takes-shu",
+  "s": "ok"
+ },
+ {
+  "id": "kr-han-river",
+  "s": "ok"
+ },
+ {
+  "id": "jiangling-falls",
+  "s": "ok"
+ },
+ {
+  "id": "book-of-wei",
+  "s": "ok"
+ },
+ {
+  "id": "wang-sengbian-killed",
+  "s": "ok"
+ },
+ {
+  "id": "qi-great-wall-2",
+  "s": "ok"
+ },
+ {
+  "id": "chen-founded",
+  "s": "ok"
+ },
+ {
+  "id": "northern-zhou",
+  "s": "ok"
+ },
+ {
+  "id": "yuwen-hu-kills-emperor",
+  "s": "ok"
+ },
+ {
+  "id": "kr-daegaya",
+  "s": "ok"
+ },
+ {
+  "id": "mx-caracol-defeats-tikal",
+  "s": "ok"
+ },
+ {
+  "id": "prince-lanling",
+  "s": "ok"
+ },
+ {
+  "id": "ashina-marriage",
+  "s": "ok"
+ },
+ {
+  "id": "ca-zemarchus",
+  "s": "ok"
+ },
+ {
+  "id": "ir-bamiyan-buddhas",
+  "s": "ok"
+ },
+ {
+  "id": "me-birth-of-muhammad",
+  "s": "ok"
+ },
+ {
+  "id": "yuwen-hu-killed",
+  "s": "ok"
+ },
+ {
+  "id": "wu-mingche-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "lanling-death",
+  "s": "ok"
+ },
+ {
+  "id": "zhou-bans-buddhism",
+  "s": "ok"
+ },
+ {
+  "id": "zhiyi-tiantai",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-pingyang",
+  "s": "ok"
+ },
+ {
+  "id": "kr-hwarang",
+  "s": "ok"
+ },
+ {
+  "id": "zhou-conquers-qi",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-lvliang",
+  "s": "ok"
+ },
+ {
+  "id": "yuchi-jiong-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "sui-founded",
+  "s": "ok"
+ },
+ {
+  "id": "daxing-city",
+  "s": "ok"
+ },
+ {
+  "id": "chen-shubao-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "abolish-commanderies",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-baidao",
+  "s": "ok"
+ },
+ {
+  "id": "jp-soga-mononobe",
+  "s": "ok"
+ },
+ {
+  "id": "sui-conquers-chen",
+  "s": "ok"
+ },
+ {
+  "id": "fubing-registered",
+  "s": "ok"
+ },
+ {
+  "id": "jp-suiko-shotoku",
+  "s": "ok"
+ },
+ {
+  "id": "renshou-palace",
+  "s": "ok"
+ },
+ {
+  "id": "anji-bridge",
+  "s": "ok"
+ },
+ {
+  "id": "first-goguryeo-war",
+  "s": "ok"
+ },
+ {
+  "id": "yami-qaghan-submits",
+  "s": "ok"
+ },
+ {
+  "id": "sam-wari",
+  "s": "ok"
+ },
+ {
+  "id": "sam-gate-of-the-sun",
+  "s": "ok"
+ },
+ {
+  "id": "sea-dvaravati",
+  "s": "ok"
+ },
+ {
+  "id": "mx-joya-de-ceren",
+  "s": "ok"
+ },
+ {
+  "id": "qieyun",
+  "s": "ok"
+ },
+ {
+  "id": "liu-fang-vietnam",
+  "s": "ok"
+ },
+ {
+  "id": "jp-twelve-cap-ranks",
+  "s": "ok"
+ },
+ {
+  "id": "jp-seventeen-article",
+  "s": "ok"
+ },
+ {
+  "id": "yang-accession",
+  "s": "ok"
+ },
+ {
+  "id": "yang-liang-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "grand-canal",
+  "s": "ok"
+ },
+ {
+  "id": "keju",
+  "s": "ok"
+ },
+ {
+  "id": "champa-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "sa-harsha",
+  "s": "ok"
+ },
+ {
+  "id": "ono-no-imoko",
+  "s": "ok"
+ },
+ {
+  "id": "jp-horyu-ji",
+  "s": "ok"
+ },
+ {
+  "id": "pei-ju-xiyu",
+  "s": "ok"
+ },
+ {
+  "id": "yongji-canal",
+  "s": "ok"
+ },
+ {
+  "id": "yang-zhangye",
+  "s": "ok"
+ },
+ {
+  "id": "me-first-revelation",
+  "s": "ok"
+ },
+ {
+  "id": "sui-uprisings",
+  "s": "ok"
+ },
+ {
+  "id": "goguryeo-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "yang-xuangan",
+  "s": "ok"
+ },
+ {
+  "id": "third-goguryeo-war",
+  "s": "doubt",
+  "n": "Wikipedia labels the 614 campaign the fourth invasion (the 613 one being the third), and Goguryeo returned Hu Sizheng.",
+  "n_zh": "维基百科称614年这次为第四次征伐（613年为第三次），高句丽遣还斛斯政。"
+ },
+ {
+  "id": "af-hijra-abyssinia",
+  "s": "ok"
+ },
+ {
+  "id": "mx-pakal",
+  "s": "ok"
+ },
+ {
+  "id": "yangdi-jiangdu",
+  "s": "ok"
+ },
+ {
+  "id": "sea-isanapura",
+  "s": "ok"
+ },
+ {
+  "id": "li-mi-luokou",
+  "s": "ok"
+ },
+ {
+  "id": "li-yuan-takes-changan",
+  "s": "ok"
+ },
+ {
+  "id": "li-yuan-taiyuan",
+  "s": "ok"
+ },
+ {
+  "id": "dou-jiande-king",
+  "s": "ok"
+ },
+ {
+  "id": "tang-founded",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-qianshuiyuan",
+  "s": "ok"
+ },
+ {
+  "id": "sa-pulakeshin-harsha",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-hulao",
+  "s": "ok"
+ },
+ {
+  "id": "kaiyuan-tongbao-issued",
+  "s": "ok"
+ },
+ {
+  "id": "tang-conquers-liang-xiao-xian",
+  "s": "ok"
+ },
+ {
+  "id": "me-hijra",
+  "s": "ok"
+ },
+ {
+  "id": "liu-heita-executed",
+  "s": "ok"
+ },
+ {
+  "id": "wude-equal-field-edict",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-badr",
+  "s": "ok"
+ },
+ {
+  "id": "fu-gongshi-suppressed",
+  "s": "ok"
+ },
+ {
+  "id": "xuanwu-gate",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-nineveh-627",
+  "s": "ok"
+ },
+ {
+  "id": "sa-brahmagupta",
+  "s": "ok"
+ },
+ {
+  "id": "liang-shidu-destroyed",
+  "s": "ok"
+ },
+ {
+  "id": "xuanzang",
+  "s": "ok"
+ },
+ {
+  "id": "eastern-turks",
+  "s": "ok"
+ },
+ {
+  "id": "me-conquest-of-mecca",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tang-missions",
+  "s": "ok"
+ },
+ {
+  "id": "sa-xuanzang-india",
+  "s": "ok"
+ },
+ {
+  "id": "me-abu-bakr-caliph",
+  "s": "ok"
+ },
+ {
+  "id": "kr-cheomseongdae",
+  "s": "ok"
+ },
+ {
+  "id": "alopen-arrives-changan",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-yarmuk",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-qadisiyyah",
+  "s": "ok"
+ },
+ {
+  "id": "me-basra-kufa-founded",
+  "s": "ok"
+ },
+ {
+  "id": "me-arab-conquest-of-jerusalem",
+  "s": "ok"
+ },
+ {
+  "id": "anxi",
+  "s": "ok"
+ },
+ {
+  "id": "wencheng",
+  "s": "ok"
+ },
+ {
+  "id": "eg-muslim-conquest-egypt",
+  "s": "ok"
+ },
+ {
+  "id": "eg-fustat-founded",
+  "s": "ok"
+ },
+ {
+  "id": "ir-battle-of-nahavand",
+  "s": "ok"
+ },
+ {
+  "id": "kr-yeon-gaesomun",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-wei-zheng",
+  "s": "ok"
+ },
+ {
+  "id": "jp-taika-reform",
+  "s": "ok"
+ },
+ {
+  "id": "siege-of-ansi",
+  "s": "ok"
+ },
+ {
+  "id": "xueyantuo-destroyed",
+  "s": "ok"
+ },
+ {
+  "id": "sa-wang-xuance",
+  "s": "ok"
+ },
+ {
+  "id": "wang-xuance-india",
+  "s": "ok"
+ },
+ {
+  "id": "tang-campaign-against-kucha",
+  "s": "ok"
+ },
+ {
+  "id": "me-uthman-quran",
+  "s": "ok"
+ },
+ {
+  "id": "ir-yazdegerd-iii-killed",
+  "s": "ok"
+ },
+ {
+  "id": "af-baqt",
+  "s": "ok"
+ },
+ {
+  "id": "tang-code",
+  "s": "ok"
+ },
+ {
+  "id": "wu-becomes-empress",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-irtysh-657",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-siffin",
+  "s": "ok"
+ },
+ {
+  "id": "xinxiu-bencao",
+  "s": "ok"
+ },
+ {
+  "id": "zhangsun-wuji-death",
+  "s": "ok"
+ },
+ {
+  "id": "tang-silla-conquer-baekje",
+  "s": "ok"
+ },
+ {
+  "id": "me-umayyad-caliphate",
+  "s": "ok"
+ },
+ {
+  "id": "ir-persian-area-command",
+  "s": "ok"
+ },
+ {
+  "id": "xue-rengui-tianshan",
+  "s": "ok"
+ },
+ {
+  "id": "baekgang",
+  "s": "ok"
+ },
+ {
+  "id": "shangguan-yi-executed",
+  "s": "ok"
+ },
+ {
+  "id": "xuanzang-dies",
+  "s": "ok"
+ },
+ {
+  "id": "goguryeo-falls",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-dafeichuan",
+  "s": "ok"
+ },
+ {
+  "id": "silla-tang-war",
+  "s": "ok"
+ },
+ {
+  "id": "eg-kairouan-founded",
+  "s": "ok"
+ },
+ {
+  "id": "jp-jinshin-war",
+  "s": "ok"
+ },
+ {
+  "id": "longmen-vairocana",
+  "s": "ok"
+ },
+ {
+  "id": "huineng-ordained",
+  "s": "ok"
+ },
+ {
+  "id": "pei-xingjian-suyab",
+  "s": "ok"
+ },
+ {
+  "id": "sea-annan-protectorate",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-karbala",
+  "s": "ok"
+ },
+ {
+  "id": "second-turkic-khaganate",
+  "s": "ok"
+ },
+ {
+  "id": "sea-srivijaya-rise",
+  "s": "ok"
+ },
+ {
+  "id": "mx-temple-of-inscriptions",
+  "s": "ok"
+ },
+ {
+  "id": "li-jingye-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "kr-nine-provinces",
+  "s": "ok"
+ },
+ {
+  "id": "wu-zetian",
+  "s": "ok"
+ },
+ {
+  "id": "me-dome-of-the-rock",
+  "s": "ok"
+ },
+ {
+  "id": "me-abd-al-malik-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "khitan-revolt-yingzhou",
+  "s": "ok"
+ },
+ {
+  "id": "balhae-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sa-shore-temple",
+  "s": "ok"
+ },
+ {
+  "id": "jp-taiho-code",
+  "s": "ok"
+ },
+ {
+  "id": "beiting",
+  "s": "ok"
+ },
+ {
+  "id": "ca-qutayba",
+  "s": "ok"
+ },
+ {
+  "id": "three-surrender-cities",
+  "s": "ok"
+ },
+ {
+  "id": "jp-wado-kaichin",
+  "s": "ok"
+ },
+ {
+  "id": "jp-heijo-kyo",
+  "s": "ok"
+ },
+ {
+  "id": "tanglong-coup",
+  "s": "ok"
+ },
+ {
+  "id": "princess-jincheng-tibet",
+  "s": "ok"
+ },
+ {
+  "id": "first-jiedushi-hexi",
+  "s": "ok"
+ },
+ {
+  "id": "eg-tariq-crosses",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kojiki",
+  "s": "ok"
+ },
+ {
+  "id": "kaiyuan",
+  "s": "ok"
+ },
+ {
+  "id": "xiantian-coup",
+  "s": "ok"
+ },
+ {
+  "id": "me-umayyad-mosque",
+  "s": "ok"
+ },
+ {
+  "id": "yao-chong-locusts",
+  "s": "ok"
+ },
+ {
+  "id": "abe-no-nakamaro-arrives",
+  "s": "ok"
+ },
+ {
+  "id": "me-siege-of-constantinople-717",
+  "s": "ok"
+ },
+ {
+  "id": "jp-nihon-shoki",
+  "s": "ok"
+ },
+ {
+  "id": "sea-mai-thuc-loan",
+  "s": "ok"
+ },
+ {
+  "id": "yuwen-rong-census",
+  "s": "ok"
+ },
+ {
+  "id": "eu-726-byzantine-iconoclasm",
+  "s": "ok"
+ },
+ {
+  "id": "eu-732-battle-of-tours",
+  "s": "ok"
+ },
+ {
+  "id": "sea-mataram-canggal",
+  "s": "ok"
+ },
+ {
+  "id": "li-linfu-dominance",
+  "s": "ok"
+ },
+ {
+  "id": "nanzhao-unification",
+  "s": "ok"
+ },
+ {
+  "id": "eg-berber-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "jp-konden-einen",
+  "s": "ok"
+ },
+ {
+  "id": "li-bai-du-fu",
+  "s": "ok"
+ },
+ {
+  "id": "ir-abbasid-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "gao-xianzhi-little-balur",
+  "s": "ok"
+ },
+ {
+  "id": "shibao-fortress",
+  "s": "ok"
+ },
+ {
+  "id": "me-abbasid-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "ir-kalila-and-dimna",
+  "s": "ok"
+ },
+ {
+  "id": "sa-gopala-pala",
+  "s": "ok"
+ },
+ {
+  "id": "talas",
+  "s": "ok"
+ },
+ {
+  "id": "tianbao-war-nanzhao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-751-pepin-crowned",
+  "s": "ok"
+ },
+ {
+  "id": "kr-bulguksa",
+  "s": "ok"
+ },
+ {
+  "id": "ca-paper",
+  "s": "ok"
+ },
+ {
+  "id": "jp-todai-ji-buddha",
+  "s": "ok"
+ },
+ {
+  "id": "jianzhen-japan",
+  "s": "ok"
+ },
+ {
+  "id": "an-lushan",
+  "s": "ok"
+ },
+ {
+  "id": "luoyang-falls-755",
+  "s": "ok"
+ },
+ {
+  "id": "kr-sanggyeong",
+  "s": "ok"
+ },
+ {
+  "id": "mawei",
+  "s": "ok"
+ },
+ {
+  "id": "eu-756-donation-of-pepin",
+  "s": "ok"
+ },
+ {
+  "id": "tong-pass-756",
+  "s": "ok"
+ },
+ {
+  "id": "suzong-lingwu",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-xun-yongqiu",
+  "s": "ok"
+ },
+ {
+  "id": "suiyang-siege",
+  "s": "ok"
+ },
+ {
+  "id": "changan-recaptured-757",
+  "s": "ok"
+ },
+ {
+  "id": "prince-yong-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "salt-monopoly-diwu-qi",
+  "s": "ok"
+ },
+ {
+  "id": "jp-manyoshu",
+  "s": "ok"
+ },
+ {
+  "id": "du-fu-three-officials",
+  "s": "ok"
+ },
+ {
+  "id": "classic-of-tea",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kailasa-temple",
+  "s": "ok"
+ },
+ {
+  "id": "me-baghdad-founded",
+  "s": "ok"
+ },
+ {
+  "id": "tibet-changan",
+  "s": "ok"
+ },
+ {
+  "id": "end-of-an-shi-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "liu-yan-grain-transport",
+  "s": "ok"
+ },
+ {
+  "id": "pugu-huaien-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "guo-ziyi-uyghurs",
+  "s": "ok"
+ },
+ {
+  "id": "yu-chaoen-killed",
+  "s": "ok"
+ },
+ {
+  "id": "ca-muqanna",
+  "s": "ok"
+ },
+ {
+  "id": "two-tax",
+  "s": "ok"
+ },
+ {
+  "id": "sea-borobudur",
+  "s": "ok"
+ },
+ {
+  "id": "nestorian-stele",
+  "s": "ok"
+ },
+ {
+  "id": "jingyuan-mutiny",
+  "s": "ok"
+ },
+ {
+  "id": "treaty-of-qingshui",
+  "s": "ok"
+ },
+ {
+  "id": "yan-zhenqing-killed",
+  "s": "ok"
+ },
+ {
+  "id": "sa-tripartite-struggle",
+  "s": "doubt",
+  "n": "Wikipedia's opening dates the struggle to 785–816; other accounts stretch it over the 8th–10th centuries.",
+  "n_zh": "维基百科开篇将三方之争定于785—816年；也有说法认为延续八至十世纪。"
+ },
+ {
+  "id": "me-harun-al-rashid",
+  "s": "ok"
+ },
+ {
+  "id": "pingliang-ambush",
+  "s": "ok"
+ },
+ {
+  "id": "sa-adi-shankara",
+  "s": "ok"
+ },
+ {
+  "id": "eg-idrisid-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "jp-enryaku-ji",
+  "s": "ok"
+ },
+ {
+  "id": "mx-bonampak-murals",
+  "s": "ok"
+ },
+ {
+  "id": "jp-heian-kyo",
+  "s": "ok"
+ },
+ {
+  "id": "eu-800-charlemagne-crowned",
+  "s": "ok"
+ },
+ {
+  "id": "af-swahili-coast",
+  "s": "ok"
+ },
+ {
+  "id": "mx-classic-maya-collapse",
+  "s": "ok"
+ },
+ {
+  "id": "eu-800-carolingian-renaissance",
+  "s": "ok"
+ },
+ {
+  "id": "sam-sican",
+  "s": "ok"
+ },
+ {
+  "id": "sam-ciudad-perdida",
+  "s": "ok"
+ },
+ {
+  "id": "tongdian-completed",
+  "s": "ok"
+ },
+ {
+  "id": "wei-gao-defeats-tibet",
+  "s": "ok"
+ },
+ {
+  "id": "sea-khmer-empire",
+  "s": "ok"
+ },
+ {
+  "id": "kukai-arrives",
+  "s": "ok"
+ },
+ {
+  "id": "yongzhen-reform",
+  "s": "ok"
+ },
+ {
+  "id": "classical-prose-movement",
+  "s": "ok"
+ },
+ {
+  "id": "flying-cash",
+  "s": "ok"
+ },
+ {
+  "id": "liu-pi-suppressed",
+  "s": "ok"
+ },
+ {
+  "id": "niu-li-factional-strife",
+  "s": "ok"
+ },
+ {
+  "id": "wu-yuanheng-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "pipa-xing",
+  "s": "ok"
+ },
+ {
+  "id": "ir-babak-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "ir-imam-reza-shrine",
+  "s": "ok"
+ },
+ {
+  "id": "ca-samanids",
+  "s": "ok"
+ },
+ {
+  "id": "han-yu-buddha-bone",
+  "s": "ok"
+ },
+ {
+  "id": "li-shidao-killed",
+  "s": "ok"
+ },
+ {
+  "id": "me-al-khwarizmi-algebra",
+  "s": "ok"
+ },
+ {
+  "id": "xianzong-murdered",
+  "s": "ok"
+ },
+ {
+  "id": "tang-tibet-treaty",
+  "s": "ok"
+ },
+ {
+  "id": "hebei-revolts-821",
+  "s": "ok"
+ },
+ {
+  "id": "kr-jang-bogo",
+  "s": "ok"
+ },
+ {
+  "id": "me-house-of-wisdom",
+  "s": "ok"
+ },
+ {
+  "id": "ganlu-incident",
+  "s": "ok"
+ },
+ {
+  "id": "me-samarra-capital",
+  "s": "ok"
+ },
+ {
+  "id": "ennin-travels",
+  "s": "ok"
+ },
+ {
+  "id": "uyghur-collapse",
+  "s": "ok"
+ },
+ {
+  "id": "eu-843-treaty-of-verdun",
+  "s": "ok"
+ },
+ {
+  "id": "li-deyu-zelu",
+  "s": "ok"
+ },
+ {
+  "id": "huichang",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-yichao",
+  "s": "ok"
+ },
+ {
+  "id": "na-chaco-canyon",
+  "s": "ok"
+ },
+ {
+  "id": "guiyi-circuit",
+  "s": "ok"
+ },
+ {
+  "id": "sea-prambanan",
+  "s": "ok"
+ },
+ {
+  "id": "eg-al-qarawiyyin",
+  "s": "ok"
+ },
+ {
+  "id": "ir-saffarids",
+  "s": "ok"
+ },
+ {
+  "id": "eu-863-cyril-and-methodius",
+  "s": "ok"
+ },
+ {
+  "id": "jp-yoshifusa-regent",
+  "s": "ok"
+ },
+ {
+  "id": "diamond-sutra",
+  "s": "ok"
+ },
+ {
+  "id": "pang-xun-mutiny",
+  "s": "ok"
+ },
+ {
+  "id": "eg-tulunid-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "me-zanj-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "famen-relic-873",
+  "s": "ok"
+ },
+ {
+  "id": "huang-chao",
+  "s": "ok"
+ },
+ {
+  "id": "eu-878-battle-of-edington",
+  "s": "ok"
+ },
+ {
+  "id": "guangzhou-sack",
+  "s": "ok"
+ },
+ {
+  "id": "huang-chao-changan",
+  "s": "ok"
+ },
+ {
+  "id": "eu-882-kievan-rus",
+  "s": "ok"
+ },
+ {
+  "id": "qin-fu-yin",
+  "s": "ok"
+ },
+ {
+  "id": "li-keyong-retakes-changan",
+  "s": "ok"
+ },
+ {
+  "id": "huang-chao-dies",
+  "s": "ok"
+ },
+ {
+  "id": "sea-yasodharapura",
+  "s": "ok"
+ },
+ {
+  "id": "wang-jian-takes-chengdu",
+  "s": "ok"
+ },
+ {
+  "id": "yang-xingmi-yangzhou",
+  "s": "ok"
+ },
+ {
+  "id": "wang-chao-fuzhou",
+  "s": "ok"
+ },
+ {
+  "id": "jp-end-tang-missions",
+  "s": "ok"
+ },
+ {
+  "id": "mx-chichen-itza",
+  "s": "ok"
+ },
+ {
+  "id": "ir-al-razi",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kana",
+  "s": "ok"
+ },
+ {
+  "id": "kr-later-baekje",
+  "s": "ok"
+ },
+ {
+  "id": "sea-laguna-copperplate",
+  "s": "ok"
+ },
+ {
+  "id": "mx-uxmal",
+  "s": "ok"
+ },
+ {
+  "id": "mx-el-tajin",
+  "s": "ok"
+ },
+ {
+  "id": "kr-taebong",
+  "s": "ok"
+ },
+ {
+  "id": "changan-abandoned",
+  "s": "ok"
+ },
+ {
+  "id": "baima-incident",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kokin-wakashu",
+  "s": "ok"
+ },
+ {
+  "id": "end-of-tang",
+  "s": "ok"
+ },
+ {
+  "id": "wuyue-founded",
+  "s": "ok"
+ },
+ {
+  "id": "former-shu-founded",
+  "s": "ok"
+ },
+ {
+  "id": "ma-yin-king-of-chu",
+  "s": "ok"
+ },
+ {
+  "id": "yang-wo-murdered",
+  "s": "ok"
+ },
+ {
+  "id": "wang-shenzhi-prince-of-min",
+  "s": "ok"
+ },
+ {
+  "id": "eg-fatimid-caliphate-founded",
+  "s": "ok"
+ },
+ {
+  "id": "qian-liu-seawall",
+  "s": "ok"
+ },
+ {
+  "id": "eu-910-cluny-abbey",
+  "s": "ok"
+ },
+ {
+  "id": "eu-911-normandy-founded",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-wen-murdered",
+  "s": "ok"
+ },
+ {
+  "id": "jin-conquers-yan",
+  "s": "ok"
+ },
+ {
+  "id": "ca-samanid-mausoleum",
+  "s": "ok"
+ },
+ {
+  "id": "weibo-joins-jin",
+  "s": "ok"
+ },
+ {
+  "id": "abaoji",
+  "s": "ok"
+ },
+ {
+  "id": "southern-han-founded",
+  "s": "ok"
+ },
+ {
+  "id": "kr-goryeo-founded",
+  "s": "ok"
+ },
+ {
+  "id": "xu-zhixun-killed",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-langshan-river",
+  "s": "ok"
+ },
+ {
+  "id": "khitan-script",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-wangdu",
+  "s": "ok"
+ },
+ {
+  "id": "later-tang",
+  "s": "ok"
+ },
+ {
+  "id": "gao-jixing-jingnan",
+  "s": "ok"
+ },
+ {
+  "id": "shu-conquered",
+  "s": "ok"
+ },
+ {
+  "id": "jing-hao-bifaji",
+  "s": "ok"
+ },
+ {
+  "id": "balhae-falls",
+  "s": "ok"
+ },
+ {
+  "id": "zhuangzong-killed",
+  "s": "ok"
+ },
+ {
+  "id": "mingzong-accession",
+  "s": "ok"
+ },
+ {
+  "id": "guo-chongtao-killed",
+  "s": "ok"
+ },
+ {
+  "id": "eu-929-caliphate-of-cordoba",
+  "s": "ok"
+ },
+ {
+  "id": "ca-rudaki",
+  "s": "ok"
+ },
+ {
+  "id": "nine-classics-printed",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-qian-liu",
+  "s": "ok"
+ },
+ {
+  "id": "later-shu",
+  "s": "ok"
+ },
+ {
+  "id": "li-congke-takes-throne",
+  "s": "ok"
+ },
+ {
+  "id": "ca-satuq",
+  "s": "ok"
+ },
+ {
+  "id": "eg-ikhshidid-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "kr-silla-surrenders",
+  "s": "ok"
+ },
+ {
+  "id": "sixteen-prefectures",
+  "s": "ok"
+ },
+ {
+  "id": "later-tang-falls",
+  "s": "ok"
+ },
+ {
+  "id": "southern-tang",
+  "s": "ok"
+ },
+ {
+  "id": "bach-dang",
+  "s": "ok"
+ },
+ {
+  "id": "liao-southern-capital",
+  "s": "ok"
+ },
+ {
+  "id": "jp-masakado",
+  "s": "ok"
+ },
+ {
+  "id": "li-jing-succeeds",
+  "s": "ok"
+ },
+ {
+  "id": "min-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "old-book-of-tang",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-yangcheng",
+  "s": "ok"
+ },
+ {
+  "id": "me-buyids-take-baghdad",
+  "s": "ok"
+ },
+ {
+  "id": "du-chongwei-surrenders",
+  "s": "ok"
+ },
+ {
+  "id": "liao-takes-kaifeng",
+  "s": "ok"
+ },
+ {
+  "id": "later-han",
+  "s": "ok"
+ },
+ {
+  "id": "deguang-dies",
+  "s": "ok"
+ },
+ {
+  "id": "wuyue-holds-fuzhou",
+  "s": "ok"
+ },
+ {
+  "id": "hezhong-three-revolts",
+  "s": "ok"
+ },
+ {
+  "id": "mx-tula",
+  "s": "ok"
+ },
+ {
+  "id": "chu-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "liu-chengyou-purge",
+  "s": "ok"
+ },
+ {
+  "id": "night-revels-han-xizai",
+  "s": "ok"
+ },
+ {
+  "id": "later-zhou",
+  "s": "ok"
+ },
+ {
+  "id": "chu-falls",
+  "s": "ok"
+ },
+ {
+  "id": "northern-han-founded",
+  "s": "ok"
+ },
+ {
+  "id": "liao-shizong-murdered",
+  "s": "ok"
+ },
+ {
+  "id": "chai-rong-accession",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-feng-dao",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says Feng Dao served five dynasties, eight surnames and eleven emperors.",
+  "n_zh": "中文维基百科称冯道历事五朝、八姓、十一帝。"
+ },
+ {
+  "id": "shizong-buddhism",
+  "s": "ok"
+ },
+ {
+  "id": "kaifeng-expansion",
+  "s": "ok"
+ },
+ {
+  "id": "huainan-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "af-kilwa-sultanate",
+  "s": "ok"
+ },
+ {
+  "id": "southern-tang-cedes-jiangbei",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gwageo",
+  "s": "ok"
+ },
+ {
+  "id": "death-of-chai-rong",
+  "s": "doubt",
+  "n": "English Wikipedia says Chai Rong left a six-year-old heir; Chinese Wikipedia says seven.",
+  "n_zh": "英文维基百科称其继承人六岁，中文维基百科称七岁。"
+ },
+ {
+  "id": "chenqiao",
+  "s": "ok"
+ },
+ {
+  "id": "cup-of-wine",
+  "s": "ok"
+ },
+ {
+  "id": "eu-962-holy-roman-empire",
+  "s": "ok"
+ },
+ {
+  "id": "song-conquers-jingnan-hunan",
+  "s": "ok"
+ },
+ {
+  "id": "song-conquers-later-shu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-966-baptism-of-poland",
+  "s": "ok"
+ },
+ {
+  "id": "sea-dai-co-viet",
+  "s": "ok"
+ },
+ {
+  "id": "eg-fatimid-conquest-cairo",
+  "s": "ok"
+ },
+ {
+  "id": "song-conquers-southern-han",
+  "s": "ok"
+ },
+ {
+  "id": "eg-al-azhar",
+  "s": "ok"
+ },
+ {
+  "id": "southern-tang-conquered",
+  "s": "ok"
+ },
+ {
+  "id": "taizu-death-candle-axe",
+  "s": "ok"
+ },
+ {
+  "id": "yuelu-academy",
+  "s": "ok"
+ },
+ {
+  "id": "wuyue-submits",
+  "s": "ok"
+ },
+ {
+  "id": "gaoliang",
+  "s": "ok"
+ },
+ {
+  "id": "song-conquers-northern-han",
+  "s": "ok"
+ },
+ {
+  "id": "xiao-chuo-regency",
+  "s": "ok"
+ },
+ {
+  "id": "li-jiqian-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "taiping-yulan",
+  "s": "ok"
+ },
+ {
+  "id": "sa-rajaraja",
+  "s": "ok"
+ },
+ {
+  "id": "yang-ye-death",
+  "s": "ok"
+ },
+ {
+  "id": "eu-987-hugh-capet",
+  "s": "doubt",
+  "n": "Wikipedia says Hugh Capet's dynasty ruled France for nearly nine centuries (987 to 1848 via cadet branches).",
+  "n_zh": "维基百科称其王朝统治法国近九个世纪（987年至1848年，含旁支）。"
+ },
+ {
+  "id": "eu-988-baptism-of-rus",
+  "s": "ok"
+ },
+ {
+  "id": "kr-seo-hui",
+  "s": "ok"
+ },
+ {
+  "id": "ca-bukhara-999",
+  "s": "ok"
+ },
+ {
+  "id": "sam-chan-chan",
+  "s": "ok"
+ },
+ {
+  "id": "na-lanse-aux-meadows",
+  "s": "ok"
+ },
+ {
+  "id": "sam-wari-collapse",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1000-kingdom-of-hungary",
+  "s": "ok"
+ },
+ {
+  "id": "sea-butuan-song",
+  "s": "ok"
+ },
+ {
+  "id": "lingzhou-falls",
+  "s": "ok"
+ },
+ {
+  "id": "jp-pillow-book",
+  "s": "ok"
+ },
+ {
+  "id": "jingdezhen-named",
+  "s": "ok"
+ },
+ {
+  "id": "chanyuan",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tale-of-genji",
+  "s": "ok"
+ },
+ {
+  "id": "tianshu-fengshan",
+  "s": "ok"
+ },
+ {
+  "id": "ir-shahnameh",
+  "s": "ok"
+ },
+ {
+  "id": "sa-brihadisvara",
+  "s": "doubt",
+  "n": "Chinese Wikipedia gives the vimana height as 61 metres, not 66.",
+  "n_zh": "中文维基百科称其塔高61米。"
+ },
+ {
+  "id": "sea-thang-long",
+  "s": "ok"
+ },
+ {
+  "id": "eg-ibn-al-haytham-optics",
+  "s": "ok"
+ },
+ {
+  "id": "champa-rice",
+  "s": "ok"
+ },
+ {
+  "id": "sa-rajendra-ganges",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gwiju",
+  "s": "ok"
+ },
+ {
+  "id": "jiaozi",
+  "s": "ok"
+ },
+ {
+  "id": "fan-gong-dike",
+  "s": "ok"
+ },
+ {
+  "id": "ir-canon-of-medicine",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mahmud-somnath",
+  "s": "ok"
+ },
+ {
+  "id": "sa-somnath-sacked",
+  "s": "ok"
+ },
+ {
+  "id": "sea-chola-srivijaya",
+  "s": "ok"
+ },
+ {
+  "id": "ir-al-biruni-india",
+  "s": "ok"
+ },
+ {
+  "id": "sa-khajuraho",
+  "s": "ok"
+ },
+ {
+  "id": "li-yuanhao-succeeds",
+  "s": "ok"
+ },
+ {
+  "id": "tangut-script",
+  "s": "ok"
+ },
+ {
+  "id": "xixia",
+  "s": "ok"
+ },
+ {
+  "id": "ir-battle-of-dandanaqan",
+  "s": "ok"
+ },
+ {
+  "id": "fan-zhongyan-shaanxi",
+  "s": "ok"
+ },
+ {
+  "id": "movable-type",
+  "s": "ok"
+ },
+ {
+  "id": "haoshuichuan",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-dingchuan",
+  "s": "ok"
+ },
+ {
+  "id": "liao-extra-tribute",
+  "s": "ok"
+ },
+ {
+  "id": "qingli-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "sea-pagan-empire",
+  "s": "ok"
+ },
+ {
+  "id": "wujing-zongyao",
+  "s": "ok"
+ },
+ {
+  "id": "qingli-peace",
+  "s": "ok"
+ },
+ {
+  "id": "yueyang-tower-record",
+  "s": "ok"
+ },
+ {
+  "id": "yuanhao-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "shanghu-yellow-river",
+  "s": "ok"
+ },
+ {
+  "id": "na-cahokia",
+  "s": "ok"
+ },
+ {
+  "id": "eg-banu-hilal",
+  "s": "ok"
+ },
+ {
+  "id": "nong-zhigao-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "kunlun-pass",
+  "s": "ok"
+ },
+ {
+  "id": "jp-byodo-in",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1054-east-west-schism",
+  "s": "ok"
+ },
+ {
+  "id": "sn-1054",
+  "s": "ok"
+ },
+ {
+  "id": "me-tughril-baghdad",
+  "s": "ok"
+ },
+ {
+  "id": "yingxian-pagoda",
+  "s": "ok"
+ },
+ {
+  "id": "su-brothers-jinshi",
+  "s": "ok"
+ },
+ {
+  "id": "sea-pagan-thaton",
+  "s": "ok"
+ },
+ {
+  "id": "wang-anshi-memorial",
+  "s": "ok"
+ },
+ {
+  "id": "new-book-of-tang",
+  "s": "ok"
+ },
+ {
+  "id": "bao-zheng-death",
+  "s": "ok"
+ },
+ {
+  "id": "ir-nizam-al-mulk",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1066-battle-of-hastings",
+  "s": "ok"
+ },
+ {
+  "id": "wang-anshi",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kutadgu-bilig",
+  "s": "ok"
+ },
+ {
+  "id": "eg-marrakesh-founded",
+  "s": "ok"
+ },
+ {
+  "id": "baojia-system",
+  "s": "ok"
+ },
+ {
+  "id": "zhou-dunyi-taiji",
+  "s": "ok"
+ },
+ {
+  "id": "sea-temple-of-literature",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-manzikert",
+  "s": "ok"
+ },
+ {
+  "id": "guo-xi-early-spring",
+  "s": "ok"
+ },
+ {
+  "id": "ly-song-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-mapungubwe",
+  "s": "ok"
+ },
+ {
+  "id": "lingshan-border-talks",
+  "s": "ok"
+ },
+ {
+  "id": "af-almoravids-ghana",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1077-walk-to-canossa",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-zai-guanxue",
+  "s": "ok"
+ },
+ {
+  "id": "me-sultanate-of-rum",
+  "s": "ok"
+ },
+ {
+  "id": "crow-terrace-case",
+  "s": "ok"
+ },
+ {
+  "id": "ir-jalali-calendar",
+  "s": "ok"
+ },
+ {
+  "id": "five-route-xia-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "red-cliff-odes",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-yongle",
+  "s": "ok"
+ },
+ {
+  "id": "zizhi-tongjian",
+  "s": "ok"
+ },
+ {
+  "id": "yuanyou-restoration",
+  "s": "ok"
+ },
+ {
+  "id": "jp-insei",
+  "s": "ok"
+ },
+ {
+  "id": "wang-anshi-death",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1086-domesday-book",
+  "s": "ok"
+ },
+ {
+  "id": "quanzhou-shibosi",
+  "s": "ok"
+ },
+ {
+  "id": "dream-pool-essays",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1088-university-of-bologna",
+  "s": "ok"
+ },
+ {
+  "id": "ir-alamut",
+  "s": "ok"
+ },
+ {
+  "id": "shaoshu-restoration",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1096-first-crusade",
+  "s": "ok"
+ },
+ {
+  "id": "me-crusaders-take-jerusalem",
+  "s": "ok"
+ },
+ {
+  "id": "qingtang-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "af-great-zimbabwe",
+  "s": "doubt",
+  "n": "Wikipedia gives earlier estimates of about 20,000, but a recent study says the population did not exceed 10,000.",
+  "n_zh": "维基百科称早期估计峰值约2万人，但近期研究认为人口不超过1万。"
+ },
+ {
+  "id": "ir-rubaiyat",
+  "s": "ok"
+ },
+ {
+  "id": "sa-ramanuja",
+  "s": "ok"
+ },
+ {
+  "id": "mx-eight-deer",
+  "s": "ok"
+ },
+ {
+  "id": "sam-kuelap",
+  "s": "ok"
+ },
+ {
+  "id": "su-shi-death",
+  "s": "ok"
+ },
+ {
+  "id": "yingzao-fashi",
+  "s": "ok"
+ },
+ {
+  "id": "qingming-scroll",
+  "s": "ok"
+ },
+ {
+  "id": "sea-angkor-wat",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-ningjiang",
+  "s": "ok"
+ },
+ {
+  "id": "fang-la",
+  "s": "ok"
+ },
+ {
+  "id": "alliance-at-sea",
+  "s": "ok"
+ },
+ {
+  "id": "jurchen-jin",
+  "s": "ok"
+ },
+ {
+  "id": "jin-takes-supreme-capital",
+  "s": "ok"
+ },
+ {
+  "id": "song-jiang-surrenders",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1122-concordat-of-worms",
+  "s": "ok"
+ },
+ {
+  "id": "yelu-dashi-goes-west",
+  "s": "ok"
+ },
+ {
+  "id": "xia-submits-to-jin",
+  "s": "ok"
+ },
+ {
+  "id": "huizong-abdicates",
+  "s": "ok"
+ },
+ {
+  "id": "liao-falls",
+  "s": "ok"
+ },
+ {
+  "id": "first-siege-kaifeng",
+  "s": "ok"
+ },
+ {
+  "id": "jingkang",
+  "s": "ok"
+ },
+ {
+  "id": "gaozong-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kalyan",
+  "s": "ok"
+ },
+ {
+  "id": "miao-liu-mutiny",
+  "s": "ok"
+ },
+ {
+  "id": "huangtiandang",
+  "s": "ok"
+ },
+ {
+  "id": "qin-hui-returns",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1130-toledo-translators",
+  "s": "ok"
+ },
+ {
+  "id": "ca-western-liao",
+  "s": "ok"
+ },
+ {
+  "id": "yue-fei-xiangyang",
+  "s": "ok"
+ },
+ {
+  "id": "li-qingzhao-jinshi",
+  "s": "ok"
+ },
+ {
+  "id": "kr-myocheong",
+  "s": "ok"
+ },
+ {
+  "id": "linan",
+  "s": "ok"
+ },
+ {
+  "id": "yancheng",
+  "s": "ok"
+ },
+ {
+  "id": "treaty-of-shaoxing",
+  "s": "ok"
+ },
+ {
+  "id": "ca-qatwan",
+  "s": "ok"
+ },
+ {
+  "id": "generals-disarmed",
+  "s": "ok"
+ },
+ {
+  "id": "yue-fei",
+  "s": "ok"
+ },
+ {
+  "id": "me-krak-des-chevaliers",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1144-gothic-architecture",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-edessa",
+  "s": "ok"
+ },
+ {
+  "id": "kr-samguk-sagi",
+  "s": "ok"
+ },
+ {
+  "id": "eg-almohads-take-marrakesh",
+  "s": "ok"
+ },
+ {
+  "id": "sa-rajatarangini",
+  "s": "ok"
+ },
+ {
+  "id": "wanyan-liang-coup",
+  "s": "ok"
+ },
+ {
+  "id": "sa-bhaskara-ii",
+  "s": "ok"
+ },
+ {
+  "id": "jin-zhongdu",
+  "s": "ok"
+ },
+ {
+  "id": "sa-parakramabahu",
+  "s": "ok"
+ },
+ {
+  "id": "qin-hui-death",
+  "s": "ok"
+ },
+ {
+  "id": "jp-hogen",
+  "s": "ok"
+ },
+ {
+  "id": "caishi",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-tangdao",
+  "s": "ok"
+ },
+ {
+  "id": "shizong-of-jin",
+  "s": "ok"
+ },
+ {
+  "id": "xiaozong-rehabilitates-yue-fei",
+  "s": "ok"
+ },
+ {
+  "id": "ca-yasawi",
+  "s": "ok"
+ },
+ {
+  "id": "quanzhen-founded",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kiyomori",
+  "s": "ok"
+ },
+ {
+  "id": "kr-military-coup",
+  "s": "ok"
+ },
+ {
+  "id": "fan-chengda-mission",
+  "s": "ok"
+ },
+ {
+  "id": "eg-saladin-ayyubid",
+  "s": "ok"
+ },
+ {
+  "id": "goose-lake",
+  "s": "ok"
+ },
+ {
+  "id": "jp-honen",
+  "s": "ok"
+ },
+ {
+  "id": "white-deer-grotto-revival",
+  "s": "ok"
+ },
+ {
+  "id": "jp-genpei-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-benin-kingdom",
+  "s": "ok"
+ },
+ {
+  "id": "sea-jayavarman-vii",
+  "s": "ok"
+ },
+ {
+  "id": "changbian-completed",
+  "s": "ok"
+ },
+ {
+  "id": "jp-dan-no-ura",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-hattin",
+  "s": "ok"
+ },
+ {
+  "id": "me-saladin-retakes-jerusalem",
+  "s": "ok"
+ },
+ {
+  "id": "four-books",
+  "s": "ok"
+ },
+ {
+  "id": "na-mesa-verde",
+  "s": "ok"
+ },
+ {
+  "id": "ir-minaret-of-jam",
+  "s": "ok"
+ },
+ {
+  "id": "me-siege-of-acre-1191",
+  "s": "ok"
+ },
+ {
+  "id": "jp-eisai-zen",
+  "s": "ok"
+ },
+ {
+  "id": "sa-second-tarain",
+  "s": "ok"
+ },
+ {
+  "id": "jp-yoritomo-shogun",
+  "s": "ok"
+ },
+ {
+  "id": "sa-nalanda-destroyed",
+  "s": "ok"
+ },
+ {
+  "id": "shaoxi-abdication",
+  "s": "ok"
+ },
+ {
+  "id": "qingyuan-ban",
+  "s": "ok"
+ },
+ {
+  "id": "sa-qutb-minar",
+  "s": "ok"
+ },
+ {
+  "id": "af-lalibela",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-xi-death",
+  "s": "ok"
+ },
+ {
+  "id": "ma-xia-painting",
+  "s": "ok"
+ },
+ {
+  "id": "af-ife-heads",
+  "s": "ok"
+ },
+ {
+  "id": "mx-dresden-codex",
+  "s": "ok"
+ },
+ {
+  "id": "mx-paquime",
+  "s": "ok"
+ },
+ {
+  "id": "sam-cusco-kingdom",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1202-liber-abaci",
+  "s": "ok"
+ },
+ {
+  "id": "jp-hojo-shikken",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1204-fourth-crusade",
+  "s": "ok"
+ },
+ {
+  "id": "xin-qiji-beigu",
+  "s": "ok"
+ },
+ {
+  "id": "genghis",
+  "s": "ok"
+ },
+ {
+  "id": "sa-delhi-sultanate",
+  "s": "ok"
+ },
+ {
+  "id": "kaixi",
+  "s": "ok"
+ },
+ {
+  "id": "han-tuozhou-killed",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1209-franciscans",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-yehuling",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1212-las-navas-de-tolosa",
+  "s": "ok"
+ },
+ {
+  "id": "jin-moves-to-kaifeng",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1215-magna-carta",
+  "s": "ok"
+ },
+ {
+  "id": "zhongdu-falls",
+  "s": "ok"
+ },
+ {
+  "id": "ca-otrar-incident",
+  "s": "ok"
+ },
+ {
+  "id": "mongol-khwarazm-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "ca-bukhara-1220",
+  "s": "ok"
+ },
+ {
+  "id": "mx-mayapan",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mongols-nishapur",
+  "s": "ok"
+ },
+ {
+  "id": "jp-jokyu-war",
+  "s": "ok"
+ },
+ {
+  "id": "qiu-chuji-meets-genghis",
+  "s": "ok"
+ },
+ {
+  "id": "lizong-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "ca-chagatai",
+  "s": "ok"
+ },
+ {
+  "id": "zhao-rugua",
+  "s": "ok"
+ },
+ {
+  "id": "sea-tran-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "western-xia-falls",
+  "s": "ok"
+ },
+ {
+  "id": "ogedei-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "eg-hafsid-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "mongols-invade-korea",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-sanfengshan",
+  "s": "ok"
+ },
+ {
+  "id": "thunder-crash-bombs",
+  "s": "ok"
+ },
+ {
+  "id": "jp-goseibai-shikimoku",
+  "s": "ok"
+ },
+ {
+  "id": "caizhou",
+  "s": "ok"
+ },
+ {
+  "id": "af-kirina",
+  "s": "ok"
+ },
+ {
+  "id": "karakorum-built",
+  "s": "ok"
+ },
+ {
+  "id": "kr-tripitaka",
+  "s": "ok"
+ },
+ {
+  "id": "sa-razia-sultana",
+  "s": "ok"
+ },
+ {
+  "id": "af-kouroukan-fouga",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1237-mongol-invasion-of-rus",
+  "s": "ok"
+ },
+ {
+  "id": "sea-sukhothai",
+  "s": "doubt",
+  "n": "Wikipedia notes the 1238 Khmer-liberation account is older scholarship that later work has questioned.",
+  "n_zh": "据维基百科，1238年摆脱高棉统治之说出自早期学说，后来的研究对此提出质疑。"
+ },
+ {
+  "id": "jp-heike-monogatari",
+  "s": "ok"
+ },
+ {
+  "id": "ca-golden-horde",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1242-battle-on-the-ice",
+  "s": "ok"
+ },
+ {
+  "id": "me-rumi-konya",
+  "s": "ok"
+ },
+ {
+  "id": "liangzhou-meeting",
+  "s": "ok"
+ },
+ {
+  "id": "qin-jiushao",
+  "s": "ok"
+ },
+ {
+  "id": "song-ci",
+  "s": "ok"
+ },
+ {
+  "id": "li-ye-ceyuan",
+  "s": "ok"
+ },
+ {
+  "id": "sa-konark",
+  "s": "ok"
+ },
+ {
+  "id": "ir-hulagu-ilkhanate",
+  "s": "ok"
+ },
+ {
+  "id": "kaiping-founded",
+  "s": "ok"
+ },
+ {
+  "id": "me-siege-of-baghdad-1258",
+  "s": "ok"
+ },
+ {
+  "id": "ir-gulistan",
+  "s": "ok"
+ },
+ {
+  "id": "diaoyu",
+  "s": "ok"
+ },
+ {
+  "id": "siege-of-ezhou",
+  "s": "ok"
+ },
+ {
+  "id": "ir-maragheh-observatory",
+  "s": "ok"
+ },
+ {
+  "id": "kublai-khan-1260",
+  "s": "ok"
+ },
+ {
+  "id": "toluid-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-ain-jalut",
+  "s": "ok"
+ },
+ {
+  "id": "public-fields-law",
+  "s": "ok"
+ },
+ {
+  "id": "xuanzheng",
+  "s": "ok"
+ },
+ {
+  "id": "dadu-construction",
+  "s": "ok"
+ },
+ {
+  "id": "siege-of-xiangyang-begins",
+  "s": "ok"
+ },
+ {
+  "id": "phagspa-script",
+  "s": "ok"
+ },
+ {
+  "id": "ca-talas-kurultai",
+  "s": "ok"
+ },
+ {
+  "id": "kr-sambyeolcho",
+  "s": "ok"
+ },
+ {
+  "id": "af-solomonic",
+  "s": "ok"
+ },
+ {
+  "id": "kublai",
+  "s": "ok"
+ },
+ {
+  "id": "dadu-named-capital",
+  "s": "ok"
+ },
+ {
+  "id": "xiangyang",
+  "s": "ok"
+ },
+ {
+  "id": "marco-polo",
+  "s": "ok"
+ },
+ {
+  "id": "jia-sidao-killed",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-jiaoshan",
+  "s": "ok"
+ },
+ {
+  "id": "linan-falls",
+  "s": "ok"
+ },
+ {
+  "id": "duanzong-enthroned",
+  "s": "ok"
+ },
+ {
+  "id": "pu-shougeng-defects",
+  "s": "ok"
+ },
+ {
+  "id": "quanzhou-shibosi-yuan",
+  "s": "ok"
+ },
+ {
+  "id": "yamen",
+  "s": "ok"
+ },
+ {
+  "id": "yuan-zaju",
+  "s": "ok"
+ },
+ {
+  "id": "kr-samguk-yusa",
+  "s": "ok"
+ },
+ {
+  "id": "ahmad-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "wen-tianxiang",
+  "s": "ok"
+ },
+ {
+  "id": "champa-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "zhiyuan-chao",
+  "s": "ok"
+ },
+ {
+  "id": "sea-mongol-burma",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-bach-dang-1288",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-acre-1291",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1291-swiss-confederation",
+  "s": "ok"
+ },
+ {
+  "id": "sea-ramkhamhaeng-inscription",
+  "s": "ok"
+ },
+ {
+  "id": "sea-majapahit",
+  "s": "ok"
+ },
+ {
+  "id": "kublai-death",
+  "s": "doubt",
+  "n": "Wikipedia's dates (23 September 1215 – 18 February 1294) make Kublai 78 at death, not 79.",
+  "n_zh": "据维基百科，忽必烈生卒为1215年9月23日至1294年2月18日，按周岁享年78而非79。"
+ },
+ {
+  "id": "eu-1295-model-parliament",
+  "s": "ok"
+ },
+ {
+  "id": "zhao-mengfu-autumn",
+  "s": "ok"
+ },
+ {
+  "id": "ir-ghazan-converts",
+  "s": "ok"
+ },
+ {
+  "id": "sea-zhou-daguan",
+  "s": "ok"
+ },
+ {
+  "id": "sea-samudera-pasai",
+  "s": "ok"
+ },
+ {
+  "id": "me-osman-founds-ottomans",
+  "s": "ok"
+ },
+ {
+  "id": "mx-tarascan-state",
+  "s": "ok"
+ },
+ {
+  "id": "west-chamber",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1302-estates-general",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-shijie",
+  "s": "ok"
+ },
+ {
+  "id": "sa-alauddin-markets",
+  "s": "ok"
+ },
+ {
+  "id": "wenxian-tongkao",
+  "s": "ok"
+ },
+ {
+  "id": "montecorvino-archbishop",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1309-avignon-papacy",
+  "s": "ok"
+ },
+ {
+  "id": "yuan-exams",
+  "s": "ok"
+ },
+ {
+  "id": "wang-zhen-nongshu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1320-divine-comedy",
+  "s": "ok"
+ },
+ {
+  "id": "nanpo-incident",
+  "s": "ok"
+ },
+ {
+  "id": "af-mansa-musa-hajj",
+  "s": "ok"
+ },
+ {
+  "id": "eg-mansa-musa-cairo",
+  "s": "ok"
+ },
+ {
+  "id": "mx-tenochtitlan-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eg-ibn-battuta",
+  "s": "ok"
+ },
+ {
+  "id": "sa-daulatabad",
+  "s": "ok"
+ },
+ {
+  "id": "two-capitals-war",
+  "s": "ok"
+ },
+ {
+  "id": "jp-genko-war",
+  "s": "ok"
+ },
+ {
+  "id": "jp-fall-of-kamakura",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kenmu",
+  "s": "ok"
+ },
+ {
+  "id": "sa-vijayanagara",
+  "s": "ok"
+ },
+ {
+  "id": "jp-nanbokucho",
+  "s": "ok"
+ },
+ {
+  "id": "sea-palapa-oath",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1337-hundred-years-war",
+  "s": "ok"
+ },
+ {
+  "id": "jp-ashikaga-shogunate",
+  "s": "ok"
+ },
+ {
+  "id": "ca-black-death",
+  "s": "ok"
+ },
+ {
+  "id": "toghto-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "baimao-flood",
+  "s": "ok"
+ },
+ {
+  "id": "three-histories",
+  "s": "ok"
+ },
+ {
+  "id": "ibn-battuta-quanzhou",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1347-black-death",
+  "s": "ok"
+ },
+ {
+  "id": "sa-bahmani",
+  "s": "ok"
+ },
+ {
+  "id": "eg-black-death-cairo",
+  "s": "ok"
+ },
+ {
+  "id": "fang-guozhen",
+  "s": "ok"
+ },
+ {
+  "id": "daoyi-zhilue",
+  "s": "doubt",
+  "n": "Chinese Wikipedia says the book describes more than 200 places visited, not about 100.",
+  "n_zh": "据中文维基百科，该书记述亲身经历的二百多个地方，而非近百国。"
+ },
+ {
+  "id": "fuchun-mountains",
+  "s": "ok"
+ },
+ {
+  "id": "zhizheng-paper-money",
+  "s": "ok"
+ },
+ {
+  "id": "red-turbans",
+  "s": "ok"
+ },
+ {
+  "id": "sea-ayutthaya",
+  "s": "ok"
+ },
+ {
+  "id": "xu-shouhui-tianwan",
+  "s": "ok"
+ },
+ {
+  "id": "af-ibn-battuta-mali",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-joins-guo",
+  "s": "ok"
+ },
+ {
+  "id": "sea-lan-xang",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-shicheng",
+  "s": "ok"
+ },
+ {
+  "id": "han-liner-song",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1356-hanseatic-league",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gongmin",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-takes-nanjing",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1356-golden-bull",
+  "s": "ok"
+ },
+ {
+  "id": "shangdu-burned",
+  "s": "ok"
+ },
+ {
+  "id": "ir-hafez",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-longwan",
+  "s": "ok"
+ },
+ {
+  "id": "pipa-ji",
+  "s": "ok"
+ },
+ {
+  "id": "chaghan-temur-killed",
+  "s": "ok"
+ },
+ {
+  "id": "poyang",
+  "s": "ok"
+ },
+ {
+  "id": "kr-cotton",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-prince-of-wu",
+  "s": "ok"
+ },
+ {
+  "id": "sea-nagarakretagama",
+  "s": "ok"
+ },
+ {
+  "id": "han-liner-drowned",
+  "s": "doubt",
+  "n": "Wikipedia says the cause of his death is disputed: accident or murder ordered by Zhu Yuanzhang.",
+  "n_zh": "维基百科称其死因有争议：意外沉船，或为朱元璋派人谋杀。"
+ },
+ {
+  "id": "northern-expedition-1367",
+  "s": "ok"
+ },
+ {
+  "id": "pingjiang",
+  "s": "ok"
+ },
+ {
+  "id": "ming-founded",
+  "s": "ok"
+ },
+ {
+  "id": "xu-da-takes-dadu",
+  "s": "ok"
+ },
+ {
+  "id": "jingdezhen-imperial-kiln",
+  "s": "ok"
+ },
+ {
+  "id": "ca-timur",
+  "s": "ok"
+ },
+ {
+  "id": "haijin-maritime-ban",
+  "s": "ok"
+ },
+ {
+  "id": "ming-conquest-of-xia",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-lingbei",
+  "s": "ok"
+ },
+ {
+  "id": "ryukyu-tribute",
+  "s": "ok"
+ },
+ {
+  "id": "eg-ibn-khaldun-muqaddimah",
+  "s": "ok"
+ },
+ {
+  "id": "kr-jikji",
+  "s": "ok"
+ },
+ {
+  "id": "hu-weiyong",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1380-battle-of-kulikovo",
+  "s": "ok"
+ },
+ {
+  "id": "ming-conquest-of-yunnan",
+  "s": "ok"
+ },
+ {
+  "id": "yellow-registers",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1381-peasants-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "ir-timur-herat",
+  "s": "ok"
+ },
+ {
+  "id": "embroidered-uniform-guard",
+  "s": "ok"
+ },
+ {
+  "id": "guo-huan-case",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-buir-lake",
+  "s": "ok"
+ },
+ {
+  "id": "kr-wihwado",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1389-battle-of-kosovo",
+  "s": "ok"
+ },
+ {
+  "id": "af-kongo-kingdom",
+  "s": "doubt",
+  "n": "Wikipedia says Kongo was founded c. 1390 through a political marriage between Nima a Nzima and Lukeni lua Nsanze, not simply conquest.",
+  "n_zh": "维基百科称刚果王国约1390年由尼马·阿·恩济马与卢凯尼·卢阿·恩桑泽的政治联姻建立，而非单纯征服。"
+ },
+ {
+  "id": "kr-joseon-founded",
+  "s": "ok"
+ },
+ {
+  "id": "kr-hanyang",
+  "s": "ok"
+ },
+ {
+  "id": "ca-terek",
+  "s": "ok"
+ },
+ {
+  "id": "great-ming-code",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kinkaku-ji",
+  "s": "ok"
+ },
+ {
+  "id": "jianwen-reduces-fiefs",
+  "s": "ok"
+ },
+ {
+  "id": "sa-timur-delhi",
+  "s": "ok"
+ },
+ {
+  "id": "ca-bibi-khanym",
+  "s": "ok"
+ },
+ {
+  "id": "sea-malacca-sultanate",
+  "s": "ok"
+ },
+ {
+  "id": "jp-zeami",
+  "s": "ok"
+ },
+ {
+  "id": "sea-ho-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "mx-kiche-kingdom",
+  "s": "ok"
+ },
+ {
+  "id": "me-timur-baghdad",
+  "s": "ok"
+ },
+ {
+  "id": "jingnan",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-ankara",
+  "s": "ok"
+ },
+ {
+  "id": "fang-xiaoru-executed",
+  "s": "ok"
+ },
+ {
+  "id": "kr-kangnido",
+  "s": "ok"
+ },
+ {
+  "id": "zheng-he",
+  "s": "ok"
+ },
+ {
+  "id": "forbidden-city-construction",
+  "s": "ok"
+ },
+ {
+  "id": "ming-conquest-of-dai-viet",
+  "s": "ok"
+ },
+ {
+  "id": "yongle-encyclopedia",
+  "s": "ok"
+ },
+ {
+  "id": "nurgan-commission",
+  "s": "ok"
+ },
+ {
+  "id": "ir-shah-rukh-herat",
+  "s": "ok"
+ },
+ {
+  "id": "sea-zheng-he-malacca",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1410-battle-of-grunwald",
+  "s": "ok"
+ },
+ {
+  "id": "grand-canal-restored",
+  "s": "ok"
+ },
+ {
+  "id": "guizhou-province",
+  "s": "ok"
+ },
+ {
+  "id": "ir-chen-cheng-herat",
+  "s": "ok"
+ },
+ {
+  "id": "sea-malacca-islam",
+  "s": "ok"
+ },
+ {
+  "id": "eg-ceuta-captured",
+  "s": "ok"
+ },
+ {
+  "id": "ca-ulugh-beg-madrasa",
+  "s": "ok"
+ },
+ {
+  "id": "ir-goharshad-mosque",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1419-hussite-wars",
+  "s": "ok"
+ },
+ {
+  "id": "eastern-depot",
+  "s": "ok"
+ },
+ {
+  "id": "tang-saier-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "beijing-capital",
+  "s": "ok"
+ },
+ {
+  "id": "yongle-dies-yumuchuan",
+  "s": "ok"
+ },
+ {
+  "id": "ming-withdrawal-vietnam",
+  "s": "ok"
+ },
+ {
+  "id": "ca-ulugh-beg-observatory",
+  "s": "ok"
+ },
+ {
+  "id": "mx-triple-alliance",
+  "s": "ok"
+ },
+ {
+  "id": "sea-later-le",
+  "s": "ok"
+ },
+ {
+  "id": "jp-ryukyu-unified",
+  "s": "ok"
+ },
+ {
+  "id": "sea-siam-angkor",
+  "s": "ok"
+ },
+ {
+  "id": "zheng-he-death",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1436-florence-cathedral-dome",
+  "s": "ok"
+ },
+ {
+  "id": "sam-pachacuti",
+  "s": "ok"
+ },
+ {
+  "id": "luchuan-campaigns",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1440-printing-press",
+  "s": "ok"
+ },
+ {
+  "id": "mx-moctezuma-i",
+  "s": "ok"
+ },
+ {
+  "id": "kr-cheugugi",
+  "s": "ok"
+ },
+ {
+  "id": "wang-zhen-dominance",
+  "s": "ok"
+ },
+ {
+  "id": "kr-hangul",
+  "s": "ok"
+ },
+ {
+  "id": "tumu",
+  "s": "ok"
+ },
+ {
+  "id": "defense-of-beijing-1449",
+  "s": "ok"
+ },
+ {
+  "id": "sam-machu-picchu",
+  "s": "ok"
+ },
+ {
+  "id": "na-iroquois-confederacy",
+  "s": "ok"
+ },
+ {
+  "id": "sam-qhapaq-nan",
+  "s": "ok"
+ },
+ {
+  "id": "sam-quipu",
+  "s": "ok"
+ },
+ {
+  "id": "yingzong-returns",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kabir",
+  "s": "ok"
+ },
+ {
+  "id": "mx-flower-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1453-fall-of-constantinople",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1455-wars-of-the-roses",
+  "s": "ok"
+ },
+ {
+  "id": "sea-trailok-reform",
+  "s": "ok"
+ },
+ {
+  "id": "duomen-coup",
+  "s": "ok"
+ },
+ {
+  "id": "af-sonni-ali",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kazakh-khanate",
+  "s": "ok"
+ },
+ {
+  "id": "jp-onin-war",
+  "s": "ok"
+ },
+ {
+  "id": "ir-uzun-hasan",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1469-catholic-monarchs",
+  "s": "ok"
+ },
+ {
+  "id": "sam-chimor-conquest",
+  "s": "ok"
+ },
+ {
+  "id": "sea-demak",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1480-great-stand-on-the-ugra",
+  "s": "ok"
+ },
+ {
+  "id": "af-elmina",
+  "s": "ok"
+ },
+ {
+  "id": "jp-ginkaku-ji",
+  "s": "ok"
+ },
+ {
+  "id": "sea-hong-duc-code",
+  "s": "ok"
+ },
+ {
+  "id": "ca-navoi",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gyeongguk",
+  "s": "ok"
+ },
+ {
+  "id": "eight-legged-essay",
+  "s": "ok"
+ },
+ {
+  "id": "mx-templo-mayor",
+  "s": "ok"
+ },
+ {
+  "id": "af-dias-cape",
+  "s": "ok"
+ },
+ {
+  "id": "hongzhi-restoration",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kaga-ikki",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1492-columbus-first-voyage",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1492-fall-of-granada",
+  "s": "ok"
+ },
+ {
+  "id": "af-askia",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1494-treaty-of-tordesillas",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1494-italian-wars",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1497-vasco-da-gama",
+  "s": "ok"
+ },
+ {
+  "id": "na-cabot-voyage",
+  "s": "ok"
+ },
+ {
+  "id": "sa-vasco-da-gama",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1498-last-supper",
+  "s": "ok"
+ },
+ {
+  "id": "af-da-gama-malindi",
+  "s": "ok"
+ },
+ {
+  "id": "sa-guru-nanak",
+  "s": "ok"
+ },
+ {
+  "id": "sam-cabral",
+  "s": "ok"
+ },
+ {
+  "id": "ca-shaybani",
+  "s": "ok"
+ },
+ {
+  "id": "af-benin-bronzes",
+  "s": "ok"
+ },
+ {
+  "id": "wu-school-painting",
+  "s": "ok"
+ },
+ {
+  "id": "ir-ismail-founds-safavid",
+  "s": "ok"
+ },
+ {
+  "id": "mx-moctezuma-ii",
+  "s": "ok"
+ },
+ {
+  "id": "mx-aztec-sun-stone",
+  "s": "ok"
+ },
+ {
+  "id": "ir-babur-kabul",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1508-sistine-chapel-ceiling",
+  "s": "ok"
+ },
+ {
+  "id": "sa-krishnadevaraya",
+  "s": "ok"
+ },
+ {
+  "id": "af-afonso-kongo",
+  "s": "ok"
+ },
+ {
+  "id": "ca-marv-1510",
+  "s": "ok"
+ },
+ {
+  "id": "liu-jin-executed",
+  "s": "ok"
+ },
+ {
+  "id": "sa-portuguese-goa",
+  "s": "ok"
+ },
+ {
+  "id": "sea-portuguese-malacca",
+  "s": "ok"
+ },
+ {
+  "id": "ca-khiva",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1513-the-prince",
+  "s": "ok"
+ },
+ {
+  "id": "na-ponce-de-leon-florida",
+  "s": "ok"
+ },
+ {
+  "id": "ir-battle-of-chaldiran",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-marj-dabiq",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1517-ninety-five-theses",
+  "s": "ok"
+ },
+ {
+  "id": "eg-battle-of-ridaniya",
+  "s": "ok"
+ },
+ {
+  "id": "tome-pires-embassy",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1519-magellan-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "mx-cortes-lands",
+  "s": "ok"
+ },
+ {
+  "id": "prince-of-ning-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "mx-noche-triste",
+  "s": "ok"
+ },
+ {
+  "id": "mx-smallpox-1520",
+  "s": "ok"
+ },
+ {
+  "id": "sam-magellan-strait",
+  "s": "ok"
+ },
+ {
+  "id": "mx-fall-of-tenochtitlan",
+  "s": "ok"
+ },
+ {
+  "id": "sea-mactan",
+  "s": "ok"
+ },
+ {
+  "id": "great-rites",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-tunmen",
+  "s": "ok"
+ },
+ {
+  "id": "romance-three-kingdoms-printed",
+  "s": "doubt",
+  "n": "Wikipedia says it was first printed in 1522 in an edition bearing a preface dated 1494.",
+  "n_zh": "维基百科称1522年首次刊印，该版本所附序文署年为1494年。"
+ },
+ {
+  "id": "ningbo-incident",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1524-german-peasants-war",
+  "s": "ok"
+ },
+ {
+  "id": "mx-conquest-of-guatemala",
+  "s": "ok"
+ },
+ {
+  "id": "sa-first-panipat",
+  "s": "ok"
+ },
+ {
+  "id": "af-atlantic-slave-trade",
+  "s": "ok"
+ },
+ {
+  "id": "jp-iwami-ginzan",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1526-battle-of-mohacs",
+  "s": "ok"
+ },
+ {
+  "id": "sea-mac-dang-dung",
+  "s": "ok"
+ },
+ {
+  "id": "af-ethiopia-adal",
+  "s": "ok"
+ },
+ {
+  "id": "sam-inca-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "mx-guadalupe",
+  "s": "ok"
+ },
+ {
+  "id": "sam-cajamarca",
+  "s": "ok"
+ },
+ {
+  "id": "sam-atahualpa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1534-english-reformation",
+  "s": "ok"
+ },
+ {
+  "id": "na-cartier-voyages",
+  "s": "ok"
+ },
+ {
+  "id": "me-suleiman-takes-baghdad",
+  "s": "ok"
+ },
+ {
+  "id": "sam-lima",
+  "s": "ok"
+ },
+ {
+  "id": "eg-conquest-of-tunis-1535",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1536-calvin-geneva",
+  "s": "ok"
+ },
+ {
+  "id": "sam-manco-inca",
+  "s": "ok"
+ },
+ {
+  "id": "sam-bogota",
+  "s": "ok"
+ },
+ {
+  "id": "na-de-soto-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "mx-printing-press",
+  "s": "ok"
+ },
+ {
+  "id": "sa-sher-shah",
+  "s": "ok"
+ },
+ {
+  "id": "na-coronado-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "sam-santiago",
+  "s": "ok"
+ },
+ {
+  "id": "sam-viceroyalty-peru",
+  "s": "ok"
+ },
+ {
+  "id": "sam-orellana",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1543-de-revolutionibus",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tanegashima",
+  "s": "ok"
+ },
+ {
+  "id": "sam-potosi",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1545-council-of-trent",
+  "s": "ok"
+ },
+ {
+  "id": "mx-zacatecas-silver",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1547-ivan-the-terrible",
+  "s": "ok"
+ },
+ {
+  "id": "shuangyu-raid",
+  "s": "ok"
+ },
+ {
+  "id": "sam-salvador",
+  "s": "ok"
+ },
+ {
+  "id": "gengxu-raid",
+  "s": "ok"
+ },
+ {
+  "id": "sam-arauco",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1555-peace-of-augsburg",
+  "s": "ok"
+ },
+ {
+  "id": "sa-akbar",
+  "s": "ok"
+ },
+ {
+  "id": "macau",
+  "s": "ok"
+ },
+ {
+  "id": "wang-zhi-executed",
+  "s": "ok"
+ },
+ {
+  "id": "jp-okehazama",
+  "s": "ok"
+ },
+ {
+  "id": "taizhou-wokou",
+  "s": "ok"
+ },
+ {
+  "id": "yan-song-falls",
+  "s": "ok"
+ },
+ {
+  "id": "shaanxi-earthquake",
+  "s": "doubt",
+  "n": "English Wikipedia says about 100,000 direct deaths; 830,000 is the total drop in registered population including those who fled.",
+  "n_zh": "英文维基称直接死亡约10万人，83万为户籍人口总减少数（含迁离者）；中文维基称83万人死亡。"
+ },
+ {
+  "id": "mx-landa-mani",
+  "s": "ok"
+ },
+ {
+  "id": "na-st-augustine",
+  "s": "ok"
+ },
+ {
+  "id": "sa-talikota",
+  "s": "ok"
+ },
+ {
+  "id": "hai-rui-memorial",
+  "s": "ok"
+ },
+ {
+  "id": "longqing-trade",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1568-eighty-years-war",
+  "s": "ok"
+ },
+ {
+  "id": "kr-yi-hwang",
+  "s": "ok"
+ },
+ {
+  "id": "sea-toungoo-ayutthaya-1569",
+  "s": "ok"
+ },
+ {
+  "id": "sea-manila-founded",
+  "s": "ok"
+ },
+ {
+  "id": "altan-peace",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1571-battle-of-lepanto",
+  "s": "ok"
+ },
+ {
+  "id": "jp-nagasaki-port",
+  "s": "ok"
+ },
+ {
+  "id": "sam-toledo",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-juzheng-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "jp-fall-muromachi",
+  "s": "ok"
+ },
+ {
+  "id": "sa-ramcharitmanas",
+  "s": "ok"
+ },
+ {
+  "id": "jp-nagashino",
+  "s": "ok"
+ },
+ {
+  "id": "eg-battle-of-alcacer-quibir",
+  "s": "ok"
+ },
+ {
+  "id": "single-whip",
+  "s": "ok"
+ },
+ {
+  "id": "jp-honno-ji",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-juzheng-dies",
+  "s": "ok"
+ },
+ {
+  "id": "sa-din-i-ilahi",
+  "s": "ok"
+ },
+ {
+  "id": "zhu-zaiyu-equal-temperament",
+  "s": "ok"
+ },
+ {
+  "id": "na-roanoke-colony",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1588-spanish-armada",
+  "s": "ok"
+ },
+ {
+  "id": "jp-sword-hunt",
+  "s": "ok"
+ },
+ {
+  "id": "jp-odawara-1590",
+  "s": "ok"
+ },
+ {
+  "id": "af-tondibi",
+  "s": "ok"
+ },
+ {
+  "id": "me-fakhr-al-din",
+  "s": "ok"
+ },
+ {
+  "id": "jp-rikyu",
+  "s": "ok"
+ },
+ {
+  "id": "jp-imjin-war",
+  "s": "ok"
+ },
+ {
+  "id": "journey-to-the-west",
+  "s": "ok"
+ },
+ {
+  "id": "kr-hansan",
+  "s": "ok"
+ },
+ {
+  "id": "imjin",
+  "s": "ok"
+ },
+ {
+  "id": "sea-naresuan-elephant-duel",
+  "s": "ok"
+ },
+ {
+  "id": "mining-tax-eunuchs",
+  "s": "ok"
+ },
+ {
+  "id": "kr-myeongnyang",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1598-edict-of-nantes",
+  "s": "ok"
+ },
+ {
+  "id": "peony-pavilion",
+  "s": "ok"
+ },
+ {
+  "id": "jp-sekigahara",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1600-hamlet",
+  "s": "ok"
+ },
+ {
+  "id": "me-mocha-coffee",
+  "s": "ok"
+ },
+ {
+  "id": "ricci",
+  "s": "ok"
+ },
+ {
+  "id": "kunyu-wanguo-quantu",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1602-dutch-east-india-company",
+  "s": "ok"
+ },
+ {
+  "id": "li-zhi-dies",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tokugawa-shogunate",
+  "s": "ok"
+ },
+ {
+  "id": "donglin-academy",
+  "s": "ok"
+ },
+ {
+  "id": "sa-adi-granth",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1605-don-quixote",
+  "s": "ok"
+ },
+ {
+  "id": "sam-palmares",
+  "s": "ok"
+ },
+ {
+  "id": "ir-new-julfa",
+  "s": "ok"
+ },
+ {
+  "id": "na-jamestown",
+  "s": "ok"
+ },
+ {
+  "id": "euclid-chinese",
+  "s": "ok"
+ },
+ {
+  "id": "na-quebec-founded",
+  "s": "ok"
+ },
+ {
+  "id": "ryukyu-invaded-satsuma",
+  "s": "ok"
+ },
+ {
+  "id": "sam-garcilaso",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1610-sidereus-nuncius",
+  "s": "ok"
+ },
+ {
+  "id": "kr-donguibogam",
+  "s": "ok"
+ },
+ {
+  "id": "jp-siege-of-osaka",
+  "s": "ok"
+ },
+ {
+  "id": "later-jin",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1618-thirty-years-war",
+  "s": "ok"
+ },
+ {
+  "id": "fall-of-fushun",
+  "s": "ok"
+ },
+ {
+  "id": "jin-ping-mei-printed",
+  "s": "ok"
+ },
+ {
+  "id": "sarhu",
+  "s": "ok"
+ },
+ {
+  "id": "sea-batavia",
+  "s": "ok"
+ },
+ {
+  "id": "ca-sher-dor",
+  "s": "ok"
+ },
+ {
+  "id": "na-first-africans-virginia",
+  "s": "ok"
+ },
+ {
+  "id": "na-virginia-assembly",
+  "s": "ok"
+ },
+ {
+  "id": "na-mayflower-compact",
+  "s": "ok"
+ },
+ {
+  "id": "feng-menglong-sanyan",
+  "s": "ok"
+ },
+ {
+  "id": "red-pill-case",
+  "s": "ok"
+ },
+ {
+  "id": "fall-of-shenyang-liaoyang",
+  "s": "ok"
+ },
+ {
+  "id": "she-an-rebellion",
+  "s": "doubt",
+  "n": "Wikipedia (EN) says the rebellion lasted almost eight years, ending in 1629; zh Wikipedia gives 1621-1630.",
+  "n_zh": "据英文维基百科，叛乱持续近八年，1629年平定；中文维基百科则记为1621至1630年。"
+ },
+ {
+  "id": "battle-of-guangning",
+  "s": "ok"
+ },
+ {
+  "id": "sino-dutch-penghu",
+  "s": "ok"
+ },
+ {
+  "id": "ir-capture-of-hormuz",
+  "s": "ok"
+ },
+ {
+  "id": "dutch-formosa",
+  "s": "ok"
+ },
+ {
+  "id": "af-nzinga",
+  "s": "ok"
+ },
+ {
+  "id": "donglin-purge",
+  "s": "ok"
+ },
+ {
+  "id": "ningyuan",
+  "s": "ok"
+ },
+ {
+  "id": "wanggongchang-explosion",
+  "s": "ok"
+ },
+ {
+  "id": "wei-zhongxian-falls",
+  "s": "ok"
+ },
+ {
+  "id": "sea-trinh-nguyen-war",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-ningjin",
+  "s": "ok"
+ },
+ {
+  "id": "postal-stations-cut",
+  "s": "ok"
+ },
+ {
+  "id": "jisi-incident",
+  "s": "ok"
+ },
+ {
+  "id": "yuan-chonghuan",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mulla-sadra",
+  "s": "ok"
+ },
+ {
+  "id": "na-massachusetts-bay",
+  "s": "ok"
+ },
+ {
+  "id": "sa-taj-mahal",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-liaoluo-bay",
+  "s": "ok"
+ },
+ {
+  "id": "chongzhen-calendar",
+  "s": "ok"
+ },
+ {
+  "id": "jp-sankin-kotai",
+  "s": "ok"
+ },
+ {
+  "id": "fengyang-tombs-burned",
+  "s": "ok"
+ },
+ {
+  "id": "qing-proclaimed",
+  "s": "ok"
+ },
+ {
+  "id": "qing-invasion-joseon",
+  "s": "ok"
+ },
+ {
+  "id": "af-gondar",
+  "s": "ok"
+ },
+ {
+  "id": "tiangong-kaiwu",
+  "s": "ok"
+ },
+ {
+  "id": "jp-shimabara",
+  "s": "ok"
+ },
+ {
+  "id": "jp-sakoku",
+  "s": "ok"
+ },
+ {
+  "id": "sa-fort-st-george",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-songjin",
+  "s": "doubt",
+  "n": "English Wikipedia says 100,000 Ming troops were crushed; Chinese Wikipedia gives 130,000 Ming troops.",
+  "n_zh": "英文维基百科称明军十万被击溃；中文维基百科记明军共十三万。"
+ },
+ {
+  "id": "luoyang-1641",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-tongguan-1643",
+  "s": "ok"
+ },
+ {
+  "id": "zhang-xianzhong-wuchang",
+  "s": "ok"
+ },
+ {
+  "id": "shanhai",
+  "s": "ok"
+ },
+ {
+  "id": "qing-moves-capital-beijing",
+  "s": "ok"
+ },
+ {
+  "id": "hongguang-regime",
+  "s": "ok"
+ },
+ {
+  "id": "yangzhou-massacre",
+  "s": "doubt",
+  "n": "English Wikipedia says the massacre itself lasted six days; the \"ten days\" comes from the traditional name and a diary account.",
+  "n_zh": "英文维基百科称屠杀本身持续六天；“十日”来自传统称谓与《扬州十日记》。"
+ },
+ {
+  "id": "queue-order",
+  "s": "ok"
+ },
+ {
+  "id": "li-zicheng-dies",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1648-peace-of-westphalia",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1649-execution-of-charles-i",
+  "s": "ok"
+ },
+ {
+  "id": "af-oyo-empire",
+  "s": "ok"
+ },
+ {
+  "id": "sea-quoc-ngu",
+  "s": "ok"
+ },
+ {
+  "id": "af-cape-colony",
+  "s": "ok"
+ },
+ {
+  "id": "li-dingguo-guilin",
+  "s": "ok"
+ },
+ {
+  "id": "fifth-dalai-lama-visit",
+  "s": "ok"
+ },
+ {
+  "id": "sa-aurangzeb",
+  "s": "ok"
+ },
+ {
+  "id": "great-clearance",
+  "s": "ok"
+ },
+ {
+  "id": "kumiao-case",
+  "s": "ok"
+ },
+ {
+  "id": "koxinga",
+  "s": "ok"
+ },
+ {
+  "id": "yongli-killed-kunming",
+  "s": "ok"
+ },
+ {
+  "id": "huang-zongxi-mingyi",
+  "s": "ok"
+ },
+ {
+  "id": "calendar-case",
+  "s": "ok"
+ },
+ {
+  "id": "eg-alaouite-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "oboi",
+  "s": "ok"
+ },
+ {
+  "id": "jp-shakushain",
+  "s": "ok"
+ },
+ {
+  "id": "na-hudsons-bay-company",
+  "s": "ok"
+ },
+ {
+  "id": "three-feudatories",
+  "s": "ok"
+ },
+ {
+  "id": "sa-shivaji-crowned",
+  "s": "ok"
+ },
+ {
+  "id": "na-king-philips-war",
+  "s": "ok"
+ },
+ {
+  "id": "na-pueblo-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "ca-zhety-zhargy",
+  "s": "ok"
+ },
+ {
+  "id": "three-feudatories-end",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1682-palace-of-versailles",
+  "s": "ok"
+ },
+ {
+  "id": "taiwan-1683",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1683-battle-of-vienna",
+  "s": "ok"
+ },
+ {
+  "id": "taiwan-prefecture",
+  "s": "ok"
+ },
+ {
+  "id": "albazin",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1687-principia",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1688-glorious-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "nerchinsk",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1689-bill-of-rights",
+  "s": "ok"
+ },
+ {
+  "id": "lifting-sea-ban-1684",
+  "s": "doubt",
+  "n": "Chinese Wikipedia lists the four customs houses at Guangdong (Macau/Guangzhou), Zhangzhou, Ningbo and Yuntai Mountain, not Xiamen and Shanghai.",
+  "n_zh": "中文维基百科记四海关设于粤东（澳门/广州）、漳州府、宁波府和云台山，而非厦门、上海。"
+ },
+ {
+  "id": "jp-basho",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-ulan-butung",
+  "s": "doubt",
+  "n": "English Wikipedia says the Dzungars repulsed Qing attacks on one flank and withdrew in good order; Fuquan reported it as a victory.",
+  "n_zh": "英文维基百科称准噶尔军击退清军一翼进攻并有序撤退，福全则上报为胜利。"
+ },
+ {
+  "id": "na-salem-witch-trials",
+  "s": "ok"
+ },
+ {
+  "id": "sam-gold-rush",
+  "s": "ok"
+ },
+ {
+  "id": "jao-modo",
+  "s": "ok"
+ },
+ {
+  "id": "mx-nojpeten",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1698-petrine-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "af-omani-fort-jesus",
+  "s": "ok"
+ },
+ {
+  "id": "sa-khalsa",
+  "s": "ok"
+ },
+ {
+  "id": "peach-blossom-fan",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1700-great-northern-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-ashanti",
+  "s": "ok"
+ },
+ {
+  "id": "chengde-mountain-resort",
+  "s": "ok"
+ },
+ {
+  "id": "sa-aurangzeb-death",
+  "s": "ok"
+ },
+ {
+  "id": "yinreng-deposed",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kokand",
+  "s": "ok"
+ },
+ {
+  "id": "fixed-ding-quota",
+  "s": "ok"
+ },
+ {
+  "id": "kangxi-dictionary",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kyoho-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "qing-tibet",
+  "s": "ok"
+ },
+ {
+  "id": "ir-fall-of-isfahan",
+  "s": "ok"
+ },
+ {
+  "id": "ca-great-disaster",
+  "s": "ok"
+ },
+ {
+  "id": "gaitu-guiliu",
+  "s": "ok"
+ },
+ {
+  "id": "treaty-of-kyakhta",
+  "s": "doubt",
+  "n": "Wikipedia (zh intro) says the treaty fixed the eastern section of the Mongolia-Russia border, not the middle section.",
+  "n_zh": "维基百科导言称条约划定的是蒙俄边界东段，而非中段。"
+ },
+ {
+  "id": "amban-tibet",
+  "s": "ok"
+ },
+ {
+  "id": "af-dahomey-ouidah",
+  "s": "ok"
+ },
+ {
+  "id": "kangxi-bans-christianity",
+  "s": "ok"
+ },
+ {
+  "id": "kangxi-atlas",
+  "s": "ok"
+ },
+ {
+  "id": "grand-council",
+  "s": "ok"
+ },
+ {
+  "id": "opium-ban-1729",
+  "s": "ok"
+ },
+ {
+  "id": "jp-dojima",
+  "s": "ok"
+ },
+ {
+  "id": "ir-nader-shah-crowned",
+  "s": "ok"
+ },
+ {
+  "id": "sa-karnal",
+  "s": "ok"
+ },
+ {
+  "id": "me-emirate-of-diriyah",
+  "s": "ok"
+ },
+ {
+  "id": "ir-durrani-empire",
+  "s": "ok"
+ },
+ {
+  "id": "the-scholars-novel",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1751-encyclopedie",
+  "s": "ok"
+ },
+ {
+  "id": "ir-karim-khan-zand",
+  "s": "ok"
+ },
+ {
+  "id": "sea-konbaung",
+  "s": "ok"
+ },
+ {
+  "id": "na-french-and-indian-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1756-seven-years-war",
+  "s": "ok"
+ },
+ {
+  "id": "dzungar",
+  "s": "ok"
+ },
+ {
+  "id": "sa-plassey",
+  "s": "ok"
+ },
+ {
+  "id": "canton-system",
+  "s": "ok"
+ },
+ {
+  "id": "altishahr-khojas",
+  "s": "ok"
+ },
+ {
+  "id": "na-plains-of-abraham",
+  "s": "ok"
+ },
+ {
+  "id": "sa-third-panipat",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1762-social-contract",
+  "s": "ok"
+ },
+ {
+  "id": "na-pontiacs-war",
+  "s": "ok"
+ },
+ {
+  "id": "sa-buxar",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1765-spinning-jenny",
+  "s": "ok"
+ },
+ {
+  "id": "mx-bourbon-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "sino-burmese-war",
+  "s": "ok"
+ },
+ {
+  "id": "na-stamp-act",
+  "s": "ok"
+ },
+ {
+  "id": "sea-fall-of-ayutthaya",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1769-watt-steam-engine",
+  "s": "ok"
+ },
+ {
+  "id": "sa-bengal-famine-1770",
+  "s": "ok"
+ },
+ {
+  "id": "sea-tay-son",
+  "s": "ok"
+ },
+ {
+  "id": "torghut-return",
+  "s": "ok"
+ },
+ {
+  "id": "second-jinchuan-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1772-partitions-of-poland",
+  "s": "ok"
+ },
+ {
+  "id": "na-boston-tea-party",
+  "s": "ok"
+ },
+ {
+  "id": "siku-quanshu",
+  "s": "ok"
+ },
+ {
+  "id": "sa-regulating-act",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kaitai-shinsho",
+  "s": "ok"
+ },
+ {
+  "id": "wang-lun-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "na-first-continental-congress",
+  "s": "ok"
+ },
+ {
+  "id": "na-lexington-concord",
+  "s": "ok"
+ },
+ {
+  "id": "na-declaration-of-independence",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1776-wealth-of-nations",
+  "s": "ok"
+ },
+ {
+  "id": "sam-rio-de-la-plata",
+  "s": "ok"
+ },
+ {
+  "id": "na-common-sense",
+  "s": "ok"
+ },
+ {
+  "id": "na-saratoga",
+  "s": "ok"
+ },
+ {
+  "id": "yizhulou-case",
+  "s": "ok"
+ },
+ {
+  "id": "af-xhosa-wars",
+  "s": "ok"
+ },
+ {
+  "id": "sam-tupac-amaru-ii",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1780-josephinism",
+  "s": "ok"
+ },
+ {
+  "id": "na-yorktown",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1781-critique-of-pure-reason",
+  "s": "ok"
+ },
+ {
+  "id": "sea-chakri-bangkok",
+  "s": "ok"
+ },
+ {
+  "id": "na-treaty-of-paris-1783",
+  "s": "ok"
+ },
+ {
+  "id": "na-loyalists-to-canada",
+  "s": "ok"
+ },
+ {
+  "id": "sa-asiatic-society",
+  "s": "ok"
+ },
+ {
+  "id": "ca-manghit",
+  "s": "ok"
+ },
+ {
+  "id": "lin-shuangwen-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "na-constitutional-convention",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1789-storming-of-the-bastille",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1789-declaration-of-the-rights-of-man",
+  "s": "ok"
+ },
+ {
+  "id": "na-washington-inauguration",
+  "s": "ok"
+ },
+ {
+  "id": "sea-ngoc-hoi-dong-da",
+  "s": "ok"
+ },
+ {
+  "id": "anhui-troupes-beijing",
+  "s": "ok"
+ },
+ {
+  "id": "red-chamber",
+  "s": "ok"
+ },
+ {
+  "id": "na-bill-of-rights",
+  "s": "ok"
+ },
+ {
+  "id": "sino-nepalese-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1792-battle-of-valmy",
+  "s": "ok"
+ },
+ {
+  "id": "af-freetown",
+  "s": "ok"
+ },
+ {
+  "id": "macartney",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1793-reign-of-terror",
+  "s": "ok"
+ },
+ {
+  "id": "sa-permanent-settlement",
+  "s": "ok"
+ },
+ {
+  "id": "na-cotton-gin",
+  "s": "ok"
+ },
+ {
+  "id": "golden-urn",
+  "s": "ok"
+ },
+ {
+  "id": "ir-battle-of-krtsanisi",
+  "s": "ok"
+ },
+ {
+  "id": "white-lotus",
+  "s": "ok"
+ },
+ {
+  "id": "ir-qajar-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "kr-hwaseong",
+  "s": "ok"
+ },
+ {
+  "id": "eg-french-campaign-egypt",
+  "s": "ok"
+ },
+ {
+  "id": "heshen-falls",
+  "s": "ok"
+ },
+ {
+  "id": "sa-ranjit-singh",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1799-coup-of-18-brumaire",
+  "s": "ok"
+ },
+ {
+  "id": "eg-rosetta-stone-found",
+  "s": "ok"
+ },
+ {
+  "id": "sa-seringapatam",
+  "s": "ok"
+ },
+ {
+  "id": "me-siege-of-acre-1799",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1800-voltaic-pile",
+  "s": "ok"
+ },
+ {
+  "id": "sea-nguyen-dynasty",
+  "s": "ok"
+ },
+ {
+  "id": "na-louisiana-purchase",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1804-napoleonic-code",
+  "s": "ok"
+ },
+ {
+  "id": "af-sokoto",
+  "s": "ok"
+ },
+ {
+  "id": "na-lewis-and-clark",
+  "s": "ok"
+ },
+ {
+  "id": "eg-muhammad-ali-rise",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1805-battle-of-trafalgar",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1805-battle-of-austerlitz",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1806-dissolution-of-the-hre",
+  "s": "ok"
+ },
+ {
+  "id": "af-slave-trade-act",
+  "s": "ok"
+ },
+ {
+  "id": "sam-court-to-rio",
+  "s": "ok"
+ },
+ {
+  "id": "mx-grito-de-dolores",
+  "s": "ok"
+ },
+ {
+  "id": "sam-may-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "sam-venezuela-independence",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1812-french-invasion-of-russia",
+  "s": "ok"
+ },
+ {
+  "id": "na-war-of-1812",
+  "s": "ok"
+ },
+ {
+  "id": "eight-trigrams",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1814-congress-of-vienna",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1815-battle-of-waterloo",
+  "s": "ok"
+ },
+ {
+  "id": "sea-tambora",
+  "s": "ok"
+ },
+ {
+  "id": "af-shaka",
+  "s": "ok"
+ },
+ {
+  "id": "sa-sugauli",
+  "s": "ok"
+ },
+ {
+  "id": "sam-tucuman",
+  "s": "ok"
+ },
+ {
+  "id": "sam-crossing-andes",
+  "s": "ok"
+ },
+ {
+  "id": "sa-third-anglo-maratha",
+  "s": "ok"
+ },
+ {
+  "id": "af-mfecane",
+  "s": "ok"
+ },
+ {
+  "id": "sea-singapore-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sam-boyaca",
+  "s": "ok"
+ },
+ {
+  "id": "sam-gran-colombia",
+  "s": "ok"
+ },
+ {
+  "id": "eg-muhammad-ali-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "sea-tale-of-kieu",
+  "s": "ok"
+ },
+ {
+  "id": "na-missouri-compromise",
+  "s": "ok"
+ },
+ {
+  "id": "mx-mexican-independence",
+  "s": "ok"
+ },
+ {
+  "id": "mx-central-america-independence",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1821-greek-war-of-independence",
+  "s": "ok"
+ },
+ {
+  "id": "sam-peru-independence",
+  "s": "ok"
+ },
+ {
+  "id": "sam-brazil-independence",
+  "s": "ok"
+ },
+ {
+  "id": "eg-champollion",
+  "s": "ok"
+ },
+ {
+  "id": "sam-guayaquil",
+  "s": "ok"
+ },
+ {
+  "id": "na-monroe-doctrine",
+  "s": "ok"
+ },
+ {
+  "id": "mx-federal-republic-ca",
+  "s": "ok"
+ },
+ {
+  "id": "sam-ayacucho",
+  "s": "ok"
+ },
+ {
+  "id": "sea-first-anglo-burmese-war",
+  "s": "ok"
+ },
+ {
+  "id": "sea-java-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1825-stockton-darlington-railway",
+  "s": "ok"
+ },
+ {
+  "id": "na-erie-canal",
+  "s": "ok"
+ },
+ {
+  "id": "sam-bolivia",
+  "s": "ok"
+ },
+ {
+  "id": "jahangir-khoja-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "ir-treaty-of-turkmenchay",
+  "s": "ok"
+ },
+ {
+  "id": "sa-brahmo-samaj",
+  "s": "ok"
+ },
+ {
+  "id": "sam-uruguay",
+  "s": "ok"
+ },
+ {
+  "id": "sa-sati-abolished",
+  "s": "ok"
+ },
+ {
+  "id": "sea-cultivation-system",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1830-july-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "sam-gran-colombia-end",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1831-electromagnetic-induction",
+  "s": "ok"
+ },
+ {
+  "id": "jp-hokusai",
+  "s": "ok"
+ },
+ {
+  "id": "eg-abd-al-qadir",
+  "s": "doubt",
+  "n": "Wikipedia en says the coalition resisted for 17 years (1831-1847); zh Wikipedia gives 1832-1847.",
+  "n_zh": "维基百科英文版称抵抗持续17年（1831-1847年），中文版则为1832年至1847年。"
+ },
+ {
+  "id": "eu-1834-zollverein",
+  "s": "ok"
+ },
+ {
+  "id": "af-great-trek",
+  "s": "ok"
+ },
+ {
+  "id": "sam-darwin",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kenesary",
+  "s": "ok"
+ },
+ {
+  "id": "na-rebellions-of-1837",
+  "s": "ok"
+ },
+ {
+  "id": "na-trail-of-tears",
+  "s": "ok"
+ },
+ {
+  "id": "humen",
+  "s": "ok"
+ },
+ {
+  "id": "me-tanzimat",
+  "s": "ok"
+ },
+ {
+  "id": "ir-first-anglo-afghan-war",
+  "s": "ok"
+ },
+ {
+  "id": "sanyuanli-incident",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-the-bogue",
+  "s": "ok"
+ },
+ {
+  "id": "nanking",
+  "s": "doubt",
+  "n": "Wikipedia en calls it the second of the later-termed unequal treaties, after the rejected 1841 Convention of Chuenpi; zh calls it the first signed after defeat.",
+  "n_zh": "英文维基称其为继被拒绝的1841年《穿鼻草约》之后的第二个不平等条约；中文维基称其为清朝战败后签订的首个条约。"
+ },
+ {
+  "id": "haiguo-tuzhi",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-zhenjiang",
+  "s": "ok"
+ },
+ {
+  "id": "shanghai-opened",
+  "s": "ok"
+ },
+ {
+  "id": "ir-bab",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1845-great-famine-ireland",
+  "s": "ok"
+ },
+ {
+  "id": "sam-guano",
+  "s": "ok"
+ },
+ {
+  "id": "mx-mexican-american-war",
+  "s": "ok"
+ },
+ {
+  "id": "mx-caste-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-liberia",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1848-communist-manifesto",
+  "s": "ok"
+ },
+ {
+  "id": "na-california-gold-rush",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1848-revolutions-of-1848",
+  "s": "ok"
+ },
+ {
+  "id": "na-seneca-falls",
+  "s": "ok"
+ },
+ {
+  "id": "mx-guadalupe-hidalgo",
+  "s": "ok"
+ },
+ {
+  "id": "taiping",
+  "s": "ok"
+ },
+ {
+  "id": "ir-amir-kabir",
+  "s": "ok"
+ },
+ {
+  "id": "na-uncle-toms-cabin",
+  "s": "ok"
+ },
+ {
+  "id": "jp-perry",
+  "s": "ok"
+ },
+ {
+  "id": "taiping-capital-nanjing",
+  "s": "ok"
+ },
+ {
+  "id": "xiang-army",
+  "s": "ok"
+ },
+ {
+  "id": "nian-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1853-crimean-war",
+  "s": "ok"
+ },
+ {
+  "id": "sa-first-railway",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kanagawa-convention",
+  "s": "ok"
+ },
+ {
+  "id": "ca-verny",
+  "s": "ok"
+ },
+ {
+  "id": "sea-bowring-treaty",
+  "s": "ok"
+ },
+ {
+  "id": "tianjing-incident",
+  "s": "ok"
+ },
+ {
+  "id": "panthay-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "mx-walker-nicaragua",
+  "s": "ok"
+ },
+ {
+  "id": "sa-rebellion-1857",
+  "s": "ok"
+ },
+ {
+  "id": "mx-reform-war",
+  "s": "ok"
+ },
+ {
+  "id": "treaties-tianjin",
+  "s": "ok"
+ },
+ {
+  "id": "sa-crown-rule",
+  "s": "ok"
+ },
+ {
+  "id": "jp-harris-treaty",
+  "s": "ok"
+ },
+ {
+  "id": "sea-cochinchina-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "aigun",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-sanhe",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1859-origin-of-species",
+  "s": "ok"
+ },
+ {
+  "id": "zizheng-xinpian",
+  "s": "ok"
+ },
+ {
+  "id": "summer-palace",
+  "s": "ok"
+ },
+ {
+  "id": "convention-of-peking",
+  "s": "ok"
+ },
+ {
+  "id": "kr-donghak",
+  "s": "ok"
+ },
+ {
+  "id": "me-lebanon-1860",
+  "s": "ok"
+ },
+ {
+  "id": "na-lincoln-elected",
+  "s": "ok"
+ },
+ {
+  "id": "self-strengthening",
+  "s": "ok"
+ },
+ {
+  "id": "na-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "xinyou-coup",
+  "s": "ok"
+ },
+ {
+  "id": "zongli-yamen",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1861-emancipation-reform-1861",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1861-italian-unification",
+  "s": "ok"
+ },
+ {
+  "id": "mx-battle-of-puebla",
+  "s": "ok"
+ },
+ {
+  "id": "tongwen-guan",
+  "s": "ok"
+ },
+ {
+  "id": "dungan-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "na-emancipation-proclamation",
+  "s": "ok"
+ },
+ {
+  "id": "na-gettysburg",
+  "s": "ok"
+ },
+ {
+  "id": "kr-daewongun",
+  "s": "ok"
+ },
+ {
+  "id": "shi-dakai-dadu-river",
+  "s": "ok"
+ },
+ {
+  "id": "sea-cambodia-protectorate",
+  "s": "ok"
+ },
+ {
+  "id": "sam-paraguayan-war",
+  "s": "ok"
+ },
+ {
+  "id": "fall-of-tianjing",
+  "s": "ok"
+ },
+ {
+  "id": "mx-second-empire",
+  "s": "ok"
+ },
+ {
+  "id": "ca-tashkent",
+  "s": "ok"
+ },
+ {
+  "id": "jiangnan-arsenal",
+  "s": "ok"
+ },
+ {
+  "id": "na-lincoln-assassination",
+  "s": "ok"
+ },
+ {
+  "id": "na-thirteenth-amendment",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1865-mendel",
+  "s": "ok"
+ },
+ {
+  "id": "na-appomattox",
+  "s": "ok"
+ },
+ {
+  "id": "jp-satcho-alliance",
+  "s": "ok"
+ },
+ {
+  "id": "kr-byeongin",
+  "s": "ok"
+ },
+ {
+  "id": "na-canadian-confederation",
+  "s": "ok"
+ },
+ {
+  "id": "jp-taisei-hokan",
+  "s": "ok"
+ },
+ {
+  "id": "ca-turkestan-gg",
+  "s": "ok"
+ },
+ {
+  "id": "na-alaska-purchase",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1867-ausgleich",
+  "s": "ok"
+ },
+ {
+  "id": "jp-meiji-restoration",
+  "s": "ok"
+ },
+ {
+  "id": "sea-chulalongkorn-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "jp-boshin-war",
+  "s": "ok"
+ },
+ {
+  "id": "ca-bukhara-protectorate",
+  "s": "ok"
+ },
+ {
+  "id": "jp-charter-oath",
+  "s": "ok"
+ },
+ {
+  "id": "af-magdala",
+  "s": "ok"
+ },
+ {
+  "id": "eg-suez-canal-opens",
+  "s": "ok"
+ },
+ {
+  "id": "na-transcontinental-railroad",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1869-periodic-table",
+  "s": "ok"
+ },
+ {
+  "id": "na-red-river-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1870-franco-prussian-war",
+  "s": "ok"
+ },
+ {
+  "id": "tianjin-massacre",
+  "s": "ok"
+ },
+ {
+  "id": "me-nahda",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1871-german-unification",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1871-paris-commune",
+  "s": "ok"
+ },
+ {
+  "id": "jp-abolition-han",
+  "s": "ok"
+ },
+ {
+  "id": "jp-iwakura-mission",
+  "s": "ok"
+ },
+ {
+  "id": "educational-mission",
+  "s": "ok"
+ },
+ {
+  "id": "china-merchants-steam",
+  "s": "ok"
+ },
+ {
+  "id": "jp-land-tax-reform",
+  "s": "ok"
+ },
+ {
+  "id": "sea-aceh-war",
+  "s": "ok"
+ },
+ {
+  "id": "japanese-taiwan-expedition",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1874-impressionism",
+  "s": "ok"
+ },
+ {
+  "id": "kr-ganghwa-treaty",
+  "s": "ok"
+ },
+ {
+  "id": "mx-porfiriato",
+  "s": "ok"
+ },
+ {
+  "id": "great-famine",
+  "s": "ok"
+ },
+ {
+  "id": "reconquest-of-xinjiang",
+  "s": "ok"
+ },
+ {
+  "id": "na-telephone",
+  "s": "ok"
+ },
+ {
+  "id": "me-ottoman-constitution-1876",
+  "s": "ok"
+ },
+ {
+  "id": "na-little-bighorn",
+  "s": "ok"
+ },
+ {
+  "id": "jp-satsuma-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "na-compromise-of-1877",
+  "s": "ok"
+ },
+ {
+  "id": "sam-conquest-desert",
+  "s": "ok"
+ },
+ {
+  "id": "sam-war-of-the-pacific",
+  "s": "ok"
+ },
+ {
+  "id": "eg-urabi-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "jp-ryukyu-disposition",
+  "s": "ok"
+ },
+ {
+  "id": "af-isandlwana",
+  "s": "ok"
+ },
+ {
+  "id": "sam-rubber-boom",
+  "s": "ok"
+ },
+ {
+  "id": "sam-immigration-argentina",
+  "s": "ok"
+ },
+ {
+  "id": "ca-geok-tepe",
+  "s": "ok"
+ },
+ {
+  "id": "eg-treaty-of-bardo",
+  "s": "ok"
+ },
+ {
+  "id": "jp-freedom-rights",
+  "s": "ok"
+ },
+ {
+  "id": "eg-british-occupation",
+  "s": "ok"
+ },
+ {
+  "id": "na-chinese-exclusion-act",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1882-triple-alliance",
+  "s": "ok"
+ },
+ {
+  "id": "me-first-aliyah",
+  "s": "ok"
+ },
+ {
+  "id": "kr-imo",
+  "s": "ok"
+ },
+ {
+  "id": "sea-krakatoa",
+  "s": "ok"
+ },
+ {
+  "id": "af-berlin-conference",
+  "s": "ok"
+ },
+ {
+  "id": "battle-fuzhou",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gapsin",
+  "s": "ok"
+ },
+ {
+  "id": "sa-inc-founded",
+  "s": "ok"
+ },
+ {
+  "id": "af-congo-free-state",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-zhennan-pass",
+  "s": "ok"
+ },
+ {
+  "id": "af-fall-of-khartoum",
+  "s": "ok"
+ },
+ {
+  "id": "na-canadian-pacific-railway",
+  "s": "ok"
+ },
+ {
+  "id": "sea-third-anglo-burmese-war",
+  "s": "ok"
+ },
+ {
+  "id": "na-north-west-rebellion",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1886-benz-motorwagen",
+  "s": "ok"
+ },
+ {
+  "id": "af-witwatersrand",
+  "s": "ok"
+ },
+ {
+  "id": "na-haymarket-affair",
+  "s": "ok"
+ },
+ {
+  "id": "sea-french-indochina",
+  "s": "fixed",
+  "summary": "France joined Cochinchina, Annam, Tonkin and Cambodia into the Indochinese Union; Laos was added in 1899.",
+  "summary_zh": "法国将交趾支那、安南、东京和柬埔寨合组为印度支那联邦，1899年又并入老挝。",
+  "n": "Laos joined in 1899, not 1893, per Wikipedia.",
+  "n_zh": "据维基百科，老挝于1899年而非1893年并入。"
+ },
+ {
+  "id": "sam-lei-aurea",
+  "s": "ok"
+ },
+ {
+  "id": "beiyang-fleet",
+  "s": "ok"
+ },
+ {
+  "id": "ca-transcaspian-railway",
+  "s": "ok"
+ },
+ {
+  "id": "jp-meiji-constitution",
+  "s": "ok"
+ },
+ {
+  "id": "sam-brazil-republic",
+  "s": "ok"
+ },
+ {
+  "id": "na-wounded-knee",
+  "s": "ok"
+ },
+ {
+  "id": "ir-tobacco-protest",
+  "s": "ok"
+ },
+ {
+  "id": "yalu",
+  "s": "ok"
+ },
+ {
+  "id": "kr-donghak-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-yalu-1894",
+  "s": "ok"
+ },
+ {
+  "id": "kr-gabo",
+  "s": "ok"
+ },
+ {
+  "id": "treaty-of-shimonoseki",
+  "s": "ok"
+ },
+ {
+  "id": "gongche-shangshu",
+  "s": "ok"
+ },
+ {
+  "id": "kr-eulmi",
+  "s": "ok"
+ },
+ {
+  "id": "battle-of-weihaiwei",
+  "s": "ok"
+ },
+ {
+  "id": "triple-intervention",
+  "s": "ok"
+ },
+ {
+  "id": "republic-of-formosa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1895-x-rays",
+  "s": "ok"
+ },
+ {
+  "id": "sea-philippine-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "af-adwa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1896-athens-olympics",
+  "s": "ok"
+ },
+ {
+  "id": "kr-independence-club",
+  "s": "ok"
+ },
+ {
+  "id": "na-klondike-gold-rush",
+  "s": "ok"
+ },
+ {
+  "id": "kr-korean-empire",
+  "s": "ok"
+ },
+ {
+  "id": "jiaozhou-bay",
+  "s": "ok"
+ },
+ {
+  "id": "hundred-days",
+  "s": "ok"
+ },
+ {
+  "id": "imperial-university-peking",
+  "s": "ok"
+ },
+ {
+  "id": "na-spanish-american-war",
+  "s": "ok"
+ },
+ {
+  "id": "yan-fu-evolution",
+  "s": "ok"
+ },
+ {
+  "id": "six-gentlemen-executed",
+  "s": "ok"
+ },
+ {
+  "id": "af-omdurman",
+  "s": "ok"
+ },
+ {
+  "id": "oracle-bones-identified",
+  "s": "ok"
+ },
+ {
+  "id": "sea-philippine-american-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-second-boer-war",
+  "s": "ok"
+ },
+ {
+  "id": "mx-united-fruit",
+  "s": "ok"
+ },
+ {
+  "id": "boxers",
+  "s": "ok"
+ },
+ {
+  "id": "library-cave-dunhuang",
+  "s": "ok"
+ },
+ {
+  "id": "southeast-mutual-protection",
+  "s": "ok"
+ },
+ {
+  "id": "late-qing-reforms",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-riyadh-1902",
+  "s": "ok"
+ },
+ {
+  "id": "jp-anglo-japanese-alliance",
+  "s": "ok"
+ },
+ {
+  "id": "na-wright-brothers",
+  "s": "ok"
+ },
+ {
+  "id": "mx-panama-independence",
+  "s": "ok"
+ },
+ {
+  "id": "jp-russo-japanese-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-herero-nama",
+  "s": "ok"
+ },
+ {
+  "id": "british-expedition-tibet",
+  "s": "ok"
+ },
+ {
+  "id": "exam-abolished",
+  "s": "ok"
+ },
+ {
+  "id": "kr-eulsa",
+  "s": "ok"
+ },
+ {
+  "id": "tongmenghui",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1905-special-relativity",
+  "s": "ok"
+ },
+ {
+  "id": "sa-partition-of-bengal",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tsushima",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1905-russian-revolution-1905",
+  "s": "ok"
+ },
+ {
+  "id": "ca-jadids",
+  "s": "ok"
+ },
+ {
+  "id": "af-maji-maji",
+  "s": "ok"
+ },
+ {
+  "id": "ir-constitutional-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "sa-muslim-league",
+  "s": "ok"
+ },
+ {
+  "id": "constitutional-preparation",
+  "s": "ok"
+ },
+ {
+  "id": "na-san-francisco-earthquake",
+  "s": "ok"
+ },
+ {
+  "id": "qiu-jin-executed",
+  "s": "ok"
+ },
+ {
+  "id": "ir-anglo-russian-convention",
+  "s": "ok"
+ },
+ {
+  "id": "kr-debt-movement",
+  "s": "ok"
+ },
+ {
+  "id": "cixi-guangxu-die",
+  "s": "ok"
+ },
+ {
+  "id": "ir-oil-discovered",
+  "s": "ok"
+ },
+ {
+  "id": "me-hejaz-railway",
+  "s": "ok"
+ },
+ {
+  "id": "kr-an-jung-geun",
+  "s": "ok"
+ },
+ {
+  "id": "beijing-zhangjiakou-railway",
+  "s": "ok"
+ },
+ {
+  "id": "na-naacp-founded",
+  "s": "ok"
+ },
+ {
+  "id": "kr-annexation",
+  "s": "ok"
+ },
+ {
+  "id": "mx-mexican-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "manchurian-plague",
+  "s": "ok"
+ },
+ {
+  "id": "wuchang",
+  "s": "ok"
+ },
+ {
+  "id": "huanghuagang-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "mx-plan-of-ayala",
+  "s": "ok"
+ },
+ {
+  "id": "sam-bingham",
+  "s": "ok"
+ },
+ {
+  "id": "railway-protection",
+  "s": "ok"
+ },
+ {
+  "id": "mongolia-independence",
+  "s": "ok"
+ },
+ {
+  "id": "eg-italo-turkish-war",
+  "s": "ok"
+ },
+ {
+  "id": "abdication",
+  "s": "ok"
+ },
+ {
+  "id": "roc-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eg-treaty-of-fez",
+  "s": "ok"
+ },
+ {
+  "id": "af-anc-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sa-tagore-nobel",
+  "s": "ok"
+ },
+ {
+  "id": "na-ford-assembly-line",
+  "s": "ok"
+ },
+ {
+  "id": "jp-taisho-crisis",
+  "s": "ok"
+ },
+ {
+  "id": "mx-decena-tragica",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1914-world-war-i",
+  "s": "ok"
+ },
+ {
+  "id": "mx-panama-canal",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1914-sarajevo-assassination",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tsingtao",
+  "s": "ok"
+ },
+ {
+  "id": "me-armenian-genocide",
+  "s": "ok"
+ },
+ {
+  "id": "jp-twenty-one-demands",
+  "s": "ok"
+ },
+ {
+  "id": "me-gallipoli",
+  "s": "ok"
+ },
+ {
+  "id": "me-sykes-picot",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1916-battle-of-verdun",
+  "s": "ok"
+ },
+ {
+  "id": "me-arab-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "ca-1916-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1917-october-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "me-balfour-declaration",
+  "s": "ok"
+ },
+ {
+  "id": "mx-constitution-1917",
+  "s": "ok"
+ },
+ {
+  "id": "na-us-enters-wwi",
+  "s": "ok"
+ },
+ {
+  "id": "na-vimy-ridge",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1917-february-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "me-british-take-jerusalem",
+  "s": "ok"
+ },
+ {
+  "id": "ca-alash",
+  "s": "ok"
+ },
+ {
+  "id": "jp-rice-riots",
+  "s": "ok"
+ },
+ {
+  "id": "ca-basmachi",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1918-armistice-1918",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kokand-autonomy",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1919-treaty-of-versailles",
+  "s": "ok"
+ },
+ {
+  "id": "sa-jallianwala",
+  "s": "ok"
+ },
+ {
+  "id": "kr-march-first",
+  "s": "ok"
+ },
+ {
+  "id": "eg-egyptian-revolution-1919",
+  "s": "ok"
+ },
+ {
+  "id": "ir-afghan-independence",
+  "s": "ok"
+ },
+ {
+  "id": "me-turkish-war-of-independence",
+  "s": "ok"
+ },
+ {
+  "id": "kr-provisional-government",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1920-league-of-nations",
+  "s": "ok"
+ },
+ {
+  "id": "na-nineteenth-amendment",
+  "s": "ok"
+ },
+ {
+  "id": "me-battle-of-maysalun",
+  "s": "ok"
+ },
+ {
+  "id": "ca-bukhara-1920",
+  "s": "ok"
+ },
+ {
+  "id": "na-prohibition",
+  "s": "ok"
+ },
+ {
+  "id": "na-harlem-renaissance",
+  "s": "ok"
+ },
+ {
+  "id": "eg-rif-war",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1922-march-on-rome",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1922-soviet-union-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eg-egyptian-independence",
+  "s": "ok"
+ },
+ {
+  "id": "eg-tutankhamun-tomb",
+  "s": "ok"
+ },
+ {
+  "id": "mx-muralism",
+  "s": "ok"
+ },
+ {
+  "id": "sam-modern-art-week",
+  "s": "ok"
+ },
+ {
+  "id": "me-republic-of-turkey",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kanto-earthquake",
+  "s": "ok"
+ },
+ {
+  "id": "me-treaty-of-lausanne",
+  "s": "ok"
+ },
+ {
+  "id": "ca-delimitation",
+  "s": "ok"
+ },
+ {
+  "id": "me-abolition-of-caliphate",
+  "s": "ok"
+ },
+ {
+  "id": "af-taung-child",
+  "s": "ok"
+ },
+ {
+  "id": "ir-reza-shah",
+  "s": "ok"
+ },
+ {
+  "id": "jp-peace-preservation",
+  "s": "ok"
+ },
+ {
+  "id": "mx-cristero-war",
+  "s": "ok"
+ },
+ {
+  "id": "ir-trans-iranian-railway",
+  "s": "ok"
+ },
+ {
+  "id": "ca-hujum",
+  "s": "ok"
+ },
+ {
+  "id": "mx-sandino",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1928-penicillin",
+  "s": "ok"
+ },
+ {
+  "id": "eg-muslim-brotherhood",
+  "s": "ok"
+ },
+ {
+  "id": "me-turkish-alphabet",
+  "s": "ok"
+ },
+ {
+  "id": "sa-raman-effect",
+  "s": "ok"
+ },
+ {
+  "id": "sea-sumpah-pemuda",
+  "s": "ok"
+ },
+ {
+  "id": "na-wall-street-crash",
+  "s": "ok"
+ },
+ {
+  "id": "mx-pnr-founded",
+  "s": "ok"
+ },
+ {
+  "id": "sa-salt-march",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kazakh-famine",
+  "s": "ok"
+ },
+ {
+  "id": "sam-vargas",
+  "s": "ok"
+ },
+ {
+  "id": "sea-vietnamese-communist-party",
+  "s": "ok"
+ },
+ {
+  "id": "na-dust-bowl",
+  "s": "ok"
+ },
+ {
+  "id": "jp-mukden-incident",
+  "s": "ok"
+ },
+ {
+  "id": "eg-omar-mukhtar",
+  "s": "ok"
+ },
+ {
+  "id": "na-statute-of-westminster",
+  "s": "ok"
+ },
+ {
+  "id": "me-saudi-arabia-founded",
+  "s": "ok"
+ },
+ {
+  "id": "jp-manchukuo",
+  "s": "ok"
+ },
+ {
+  "id": "sea-siamese-revolution-1932",
+  "s": "ok"
+ },
+ {
+  "id": "sam-chaco-war",
+  "s": "ok"
+ },
+ {
+  "id": "sa-poona-pact",
+  "s": "ok"
+ },
+ {
+  "id": "me-iraq-independence",
+  "s": "ok"
+ },
+ {
+  "id": "kr-yun-bong-gil",
+  "s": "ok"
+ },
+ {
+  "id": "na-new-deal",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1933-hitler-takes-power",
+  "s": "ok"
+ },
+ {
+  "id": "af-italo-ethiopian",
+  "s": "ok"
+ },
+ {
+  "id": "sa-goi-act-1935",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1936-spanish-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "jp-february-26",
+  "s": "ok"
+ },
+ {
+  "id": "ir-kashf-e-hijab",
+  "s": "ok"
+ },
+ {
+  "id": "me-palestine-arab-revolt",
+  "s": "ok"
+ },
+ {
+  "id": "jp-marco-polo-bridge",
+  "s": "ok"
+ },
+ {
+  "id": "jp-nanjing-massacre",
+  "s": "ok"
+ },
+ {
+  "id": "ca-koreans",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1938-munich-agreement",
+  "s": "ok"
+ },
+ {
+  "id": "me-dammam-no-7",
+  "s": "ok"
+ },
+ {
+  "id": "mx-oil-expropriation",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1939-invasion-of-poland",
+  "s": "ok"
+ },
+ {
+  "id": "sa-lahore-resolution",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1940-dunkirk-evacuation",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tripartite-pact",
+  "s": "ok"
+ },
+ {
+  "id": "kr-soshi-kaimei",
+  "s": "ok"
+ },
+ {
+  "id": "kr-liberation-army",
+  "s": "ok"
+ },
+ {
+  "id": "jp-pearl-harbor",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1941-operation-barbarossa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1941-the-holocaust",
+  "s": "ok"
+ },
+ {
+  "id": "ir-anglo-soviet-invasion",
+  "s": "ok"
+ },
+ {
+  "id": "sea-malayan-campaign",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1942-battle-of-stalingrad",
+  "s": "ok"
+ },
+ {
+  "id": "eg-el-alamein",
+  "s": "ok"
+ },
+ {
+  "id": "sa-quit-india",
+  "s": "ok"
+ },
+ {
+  "id": "jp-midway",
+  "s": "ok"
+ },
+ {
+  "id": "na-manhattan-project",
+  "s": "ok"
+ },
+ {
+  "id": "na-japanese-internment",
+  "s": "ok"
+ },
+ {
+  "id": "mx-bracero-program",
+  "s": "ok"
+ },
+ {
+  "id": "ir-tehran-conference",
+  "s": "ok"
+ },
+ {
+  "id": "sa-bengal-famine-1943",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1944-normandy-landings",
+  "s": "ok"
+ },
+ {
+  "id": "jp-atomic-bombings",
+  "s": "ok"
+ },
+ {
+  "id": "jp-surrender",
+  "s": "ok"
+ },
+ {
+  "id": "kr-liberation",
+  "s": "ok"
+ },
+ {
+  "id": "sea-indonesia-independence",
+  "s": "ok"
+ },
+ {
+  "id": "sea-drv-founded",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1945-yalta-conference",
+  "s": "ok"
+ },
+ {
+  "id": "eg-arab-league",
+  "s": "ok"
+ },
+ {
+  "id": "jp-okinawa",
+  "s": "ok"
+ },
+ {
+  "id": "jp-occupation",
+  "s": "ok"
+ },
+ {
+  "id": "na-un-charter",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1945-battle-of-berlin",
+  "s": "ok"
+ },
+ {
+  "id": "sam-peron",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tokyo-trial",
+  "s": "ok"
+ },
+ {
+  "id": "sea-first-indochina-war",
+  "s": "ok"
+ },
+ {
+  "id": "sea-philippines-independence",
+  "s": "ok"
+ },
+ {
+  "id": "sa-independence-partition",
+  "s": "ok"
+ },
+ {
+  "id": "jp-constitution-1947",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kashmir-war-1947",
+  "s": "ok"
+ },
+ {
+  "id": "me-un-partition-plan",
+  "s": "ok"
+ },
+ {
+  "id": "na-truman-doctrine",
+  "s": "ok"
+ },
+ {
+  "id": "me-israel-founded",
+  "s": "ok"
+ },
+ {
+  "id": "kr-rok-founded",
+  "s": "ok"
+ },
+ {
+  "id": "kr-dprk-founded",
+  "s": "ok"
+ },
+ {
+  "id": "af-apartheid",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1948-marshall-plan",
+  "s": "ok"
+ },
+ {
+  "id": "sa-gandhi-assassinated",
+  "s": "ok"
+ },
+ {
+  "id": "me-first-arab-israeli-war",
+  "s": "ok"
+ },
+ {
+  "id": "me-nakba",
+  "s": "ok"
+ },
+ {
+  "id": "sea-burma-independence",
+  "s": "ok"
+ },
+ {
+  "id": "sam-bogotazo",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1948-berlin-blockade",
+  "s": "ok"
+ },
+ {
+  "id": "sa-ceylon-independence",
+  "s": "ok"
+ },
+ {
+  "id": "kr-jeju-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1949-nato-founded",
+  "s": "ok"
+ },
+ {
+  "id": "ca-rds1",
+  "s": "ok"
+ },
+ {
+  "id": "me-lebanese-civil-war",
+  "s": "fixed",
+  "summary": "Christian, Muslim and Palestinian militias, with Syria and Israel involved, fought a war that killed about 120,000 people.",
+  "summary_zh": "基督教、穆斯林和巴勒斯坦各派武装混战，叙利亚和以色列卷入其中，约12万人死亡。",
+  "n": "Wikipedia estimates about 120,000 deaths, not 150,000.",
+  "n_zh": "据维基百科，死亡人数估计约为12万而非15万。"
+ },
+ {
+  "id": "kr-seoul-olympics",
+  "s": "ok"
+ },
+ {
+  "id": "sea-8888-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "sam-chile-plebiscite",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1989-fall-of-the-berlin-wall",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1989-world-wide-web",
+  "s": "ok"
+ },
+ {
+  "id": "me-gulf-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-mandela-release",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1990-german-reunification",
+  "s": "ok"
+ },
+ {
+  "id": "mx-octavio-paz-nobel",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1991-dissolution-of-the-ussr",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1991-yugoslav-wars",
+  "s": "ok"
+ },
+ {
+  "id": "eg-algerian-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "sa-liberalisation",
+  "s": "ok"
+ },
+ {
+  "id": "jp-bubble-burst",
+  "s": "ok"
+ },
+ {
+  "id": "ca-alma-ata-protocol",
+  "s": "ok"
+ },
+ {
+  "id": "af-somali-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "sam-mercosur",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1992-maastricht-treaty",
+  "s": "ok"
+ },
+ {
+  "id": "sa-babri-masjid",
+  "s": "ok"
+ },
+ {
+  "id": "ca-tajik-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "kr-china-rok",
+  "s": "ok"
+ },
+ {
+  "id": "me-oslo-accords",
+  "s": "ok"
+ },
+ {
+  "id": "af-rwandan-genocide",
+  "s": "doubt",
+  "n": "Wikipedia says most scholarly estimates are 500,000-662,000 Tutsi dead; Rwanda's constitution says over 1 million.",
+  "n_zh": "维基百科称多数学者估计图西族死亡人数为50万至66.2万，卢旺达宪法则称超过100万。"
+ },
+ {
+  "id": "af-mandela-president",
+  "s": "ok"
+ },
+ {
+  "id": "mx-nafta",
+  "s": "ok"
+ },
+ {
+  "id": "na-nafta",
+  "s": "ok"
+ },
+ {
+  "id": "mx-zapatista-uprising",
+  "s": "ok"
+ },
+ {
+  "id": "kr-kim-il-sung-dies",
+  "s": "ok"
+ },
+ {
+  "id": "jp-hanshin-earthquake",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1995-schengen",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1995-srebrenica-massacre",
+  "s": "ok"
+ },
+ {
+  "id": "jp-sarin-attack",
+  "s": "ok"
+ },
+ {
+  "id": "na-quebec-referendum-1995",
+  "s": "ok"
+ },
+ {
+  "id": "ir-taliban-kabul-1996",
+  "s": "ok"
+ },
+ {
+  "id": "af-trc",
+  "s": "ok"
+ },
+ {
+  "id": "sea-asian-financial-crisis",
+  "s": "ok"
+ },
+ {
+  "id": "ca-astana",
+  "s": "ok"
+ },
+ {
+  "id": "jp-kyoto-protocol",
+  "s": "ok"
+ },
+ {
+  "id": "sa-nuclear-tests-1998",
+  "s": "ok"
+ },
+ {
+  "id": "sea-fall-of-suharto",
+  "s": "ok"
+ },
+ {
+  "id": "af-second-congo-war",
+  "s": "ok"
+ },
+ {
+  "id": "sam-chavez",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1998-good-friday-agreement",
+  "s": "ok"
+ },
+ {
+  "id": "eu-1999-euro-introduced",
+  "s": "ok"
+ },
+ {
+  "id": "sa-kargil",
+  "s": "ok"
+ },
+ {
+  "id": "na-nunavut",
+  "s": "ok"
+ },
+ {
+  "id": "kr-summit-2000",
+  "s": "ok"
+ },
+ {
+  "id": "mx-fox-elected",
+  "s": "ok"
+ },
+ {
+  "id": "af-focac",
+  "s": "ok"
+ },
+ {
+  "id": "ir-war-in-afghanistan",
+  "s": "ok"
+ },
+ {
+  "id": "na-september-11",
+  "s": "ok"
+ },
+ {
+  "id": "jp-koizumi",
+  "s": "ok"
+ },
+ {
+  "id": "sam-argentina-2001",
+  "s": "ok"
+ },
+ {
+  "id": "af-african-union",
+  "s": "ok"
+ },
+ {
+  "id": "sam-lula",
+  "s": "ok"
+ },
+ {
+  "id": "sea-timor-leste-independence",
+  "s": "ok"
+ },
+ {
+  "id": "me-iraq-war",
+  "s": "ok"
+ },
+ {
+  "id": "af-darfur",
+  "s": "ok"
+ },
+ {
+  "id": "sam-commodity-boom",
+  "s": "ok"
+ },
+ {
+  "id": "sea-indian-ocean-tsunami",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2004-eu-enlargement-2004",
+  "s": "ok"
+ },
+ {
+  "id": "eg-moudawana",
+  "s": "ok"
+ },
+ {
+  "id": "ca-andijan-2005",
+  "s": "ok"
+ },
+ {
+  "id": "ca-tulip",
+  "s": "ok"
+ },
+ {
+  "id": "sam-evo-morales",
+  "s": "ok"
+ },
+ {
+  "id": "kr-nuclear-test",
+  "s": "ok"
+ },
+ {
+  "id": "mx-drug-war",
+  "s": "ok"
+ },
+ {
+  "id": "na-financial-crisis-2008",
+  "s": "ok"
+ },
+ {
+  "id": "sa-mumbai-attacks",
+  "s": "ok"
+ },
+ {
+  "id": "na-obama-elected",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2009-european-debt-crisis",
+  "s": "ok"
+ },
+ {
+  "id": "ir-green-movement",
+  "s": "ok"
+ },
+ {
+  "id": "af-boko-haram",
+  "s": "ok"
+ },
+ {
+  "id": "eg-tunisian-revolution",
+  "s": "ok"
+ },
+ {
+  "id": "na-affordable-care-act",
+  "s": "ok"
+ },
+ {
+  "id": "sam-vargas-llosa",
+  "s": "ok"
+ },
+ {
+  "id": "me-syrian-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tohoku-earthquake",
+  "s": "ok"
+ },
+ {
+  "id": "eg-egyptian-revolution-2011",
+  "s": "ok"
+ },
+ {
+  "id": "eg-libyan-civil-war-2011",
+  "s": "ok"
+ },
+ {
+  "id": "jp-fukushima",
+  "s": "ok"
+ },
+ {
+  "id": "af-south-sudan",
+  "s": "ok"
+ },
+ {
+  "id": "jp-abenomics",
+  "s": "ok"
+ },
+ {
+  "id": "af-mali-war",
+  "s": "ok"
+ },
+ {
+  "id": "ca-silk-road-economic-belt",
+  "s": "ok"
+ },
+ {
+  "id": "eg-sisi-takes-power",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2014-annexation-of-crimea",
+  "s": "ok"
+ },
+ {
+  "id": "me-islamic-state-mosul",
+  "s": "ok"
+ },
+ {
+  "id": "af-ebola",
+  "s": "ok"
+ },
+ {
+  "id": "me-yemeni-civil-war",
+  "s": "ok"
+ },
+ {
+  "id": "sam-venezuela-crisis",
+  "s": "ok"
+ },
+ {
+  "id": "ir-jcpoa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2015-migrant-crisis",
+  "s": "ok"
+ },
+ {
+  "id": "na-truth-and-reconciliation",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2016-brexit",
+  "s": "ok"
+ },
+ {
+  "id": "sam-colombia-peace",
+  "s": "ok"
+ },
+ {
+  "id": "na-trump-elected",
+  "s": "ok"
+ },
+ {
+  "id": "kr-panmunjom-2018",
+  "s": "ok"
+ },
+ {
+  "id": "af-afcfta",
+  "s": "ok"
+ },
+ {
+  "id": "jp-reiwa",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2020-covid-19-europe",
+  "s": "ok"
+ },
+ {
+  "id": "sea-rcep",
+  "s": "ok"
+ },
+ {
+  "id": "af-tigray-war",
+  "s": "ok"
+ },
+ {
+  "id": "na-george-floyd-protests",
+  "s": "ok"
+ },
+ {
+  "id": "ir-fall-of-kabul-2021",
+  "s": "ok"
+ },
+ {
+  "id": "sea-myanmar-coup-2021",
+  "s": "ok"
+ },
+ {
+  "id": "na-capitol-attack",
+  "s": "ok"
+ },
+ {
+  "id": "jp-tokyo-olympics-2020",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2022-russian-invasion-of-ukraine",
+  "s": "ok"
+ },
+ {
+  "id": "ir-mahsa-amini-protests",
+  "s": "ok"
+ },
+ {
+  "id": "jp-abe-assassination",
+  "s": "ok"
+ },
+ {
+  "id": "ca-kazakh-unrest-2022",
+  "s": "ok"
+ },
+ {
+  "id": "kr-nuri",
+  "s": "ok"
+ },
+ {
+  "id": "sea-nusantara",
+  "s": "ok"
+ },
+ {
+  "id": "me-gaza-war",
+  "s": "ok"
+ },
+ {
+  "id": "sa-chandrayaan-3",
+  "s": "ok"
+ },
+ {
+  "id": "af-sudan-war",
+  "s": "ok"
+ },
+ {
+  "id": "me-turkey-syria-earthquake",
+  "s": "ok"
+ },
+ {
+  "id": "sam-milei",
+  "s": "ok"
+ },
+ {
+  "id": "me-fall-of-assad",
+  "s": "ok"
+ },
+ {
+  "id": "kr-martial-law-2024",
+  "s": "ok"
+ },
+ {
+  "id": "eu-2024-ai-act",
+  "s": "ok"
+ },
+ {
+  "id": "sa-hasina-ousted",
+  "s": "ok"
+ },
+ {
+  "id": "jp-slim-moon",
+  "s": "ok"
+ },
+ {
+  "id": "ir-twelve-day-war",
+  "s": "ok"
+ },
+ {
+  "id": "eg-grand-egyptian-museum",
+  "s": "ok"
+ },
+ {
+  "id": "jp-takaichi",
+  "s": "ok"
+ }
+]

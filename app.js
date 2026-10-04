@@ -86,7 +86,8 @@ const UI = {
   zh: {
     title: "历代地图", events: "事件", hide: "收起", show: "展开", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
     other: "English", map: "地图：", count: (n, era) => `${era} · ${n} 件`, countWin: (n) => `本时段 · ${n} 件`,
-    fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", wiki: "维基百科", wikiOther: "English Wikipedia",
+    fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" },
+    sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", wiki: "维基百科", wikiOther: "English Wikipedia",
     more: "阅读详情 →", loading: "正在载入…", noStory: "这件事的详细介绍还在编写中。",
     notePack: "疆域为近似示意，取自开源 historical-basemaps 数据集。地形、海岸线和河流均为现代地理。",
     note: "疆域为近似示意：取自开源 historical-basemaps 数据集，并参照谭其骧《中国历史地图集》人工修订。地形、海岸线和河流均为现代地理。",
@@ -109,7 +110,8 @@ const UI = {
   en: {
     title: "Atlas", events: "Events", hide: "Hide", show: "Show", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
     other: "中文", map: "Map: ", count: (n, era) => `${n} in ${era}`, countWin: (n) => `${n} in view`,
-    fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", wiki: "Wikipedia", wikiOther: "中文维基百科",
+    fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" },
+    sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", wiki: "Wikipedia", wikiOther: "中文维基百科",
     more: "Read the story →", loading: "Loading…", noStory: "The full story for this event is still being written.",
     notePack: "Borders are approximate, from the open historical-basemaps dataset. Terrain, coastlines and rivers are modern.",
     note: "Borders are approximate: from the open historical-basemaps dataset, revised by hand after Tan Qixiang's Historical Atlas of China. Terrain, coastlines and rivers are modern.",
@@ -2553,7 +2555,10 @@ function checkNote(x) {
   const c = x?.check, s = c?.s || "none", L = t("fc");
   const note = c ? tx(c, "n") : "";
   const icon = { ok: "✓", fixed: "✎", doubt: "?", none: "·" }[s];
-  return `<p class="fc fc-${s}"><b>${icon}</b> ${esc(L[s])}${note ? `${zh() ? "：" : ": "}${esc(note)}` : ""}</p>`;
+  const line = (cls, ic, label, n) => `<p class="fc fc-${cls}"><b>${ic}</b> ${esc(label)}${n ? `${zh() ? "：" : ": "}${esc(n)}` : ""}</p>`;
+  // Events also carry the summary review (`sum`).
+  const m = x?.sum;
+  return line(s, icon, L[s], note) + (m ? line(m.s, { ok: "✓", fixed: "✎", doubt: "?" }[m.s], t("sm")[m.s], tx(m, "n")) : "");
 }
 function checkMark(x) {
   const s = x?.check?.s;
