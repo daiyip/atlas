@@ -1,9 +1,11 @@
 """Compare events, people and rulers with the facts tools/fact_fetch.py saved:
-python3 tools/fact_check.py <facts.json> <report.json>
+python3 tools/fact_check.py <facts.json> <report.json> [deep.json]
 
 Each item is `ok` (its years agree with Wikidata or with the article's opening paragraph), `mismatch` (Wikidata
 gives a clearly different year, or the place is far off) or `none` (nothing to check against). The report lists
-every item with its evidence, so mismatches can be reviewed by hand; tools/apply_facts.py writes the verdicts back."""
+every item with its evidence, so mismatches can be reviewed by hand; tools/apply_facts.py writes the verdicts back.
+With deep.json (tools/fact_deep.py), an item left at `none` is `ok` when its years appear in the whole English or
+Chinese article (an event's passage must also share a word with its title); otherwise its passages are kept for review."""
 import glob, json, math, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -114,6 +116,34 @@ for f in sorted(glob.glob(os.path.join(ROOT, "data/layers/*.json"))):
                 r["partial"] = bool(best and best[1] == "partial")
                 if r["status"] != "ok" and best: r["extract"] = pages.get(best[0], {}).get("extract", "")[:900]
                 report.append(r)
+
+# ---- second pass: whole articles
+if len(sys.argv) > 3:
+    deep = json.load(open(sys.argv[3]))
+    events = {e["id"]: e for e in json.load(open(os.path.join(ROOT, "data/events.json")))}
+    STOP = {"the", "and", "of", "in", "at", "to", "a", "an", "his", "her", "its", "with", "from", "for", "on", "by", "into", "begins", "ends"}
+
+    def linked(e, ps):
+        words = {w.lower() for w in re.findall(r"[A-Za-z][A-Za-z'-]{3,}", e["title"])} - STOP
+        zh = e.get("title_zh", "")
+        grams = {zh[i:i + 2] for i in range(len(zh) - 1)}
+        return any(any(w in p.lower() for w in words) or any(g in p for g in grams) for p in ps)
+
+    for r in report:
+        d = deep.get(r["key"])
+        if r["status"] != "none" or not d: continue
+        hits = d["hits"]
+        if r["kind"] == "event":
+            ys = [r["year"]]
+            ok = str(r["year"]) in hits and linked(events[r["key"]], hits[str(r["year"])])
+        elif r["kind"] == "person":
+            ys = [y for y in (r["born"], r["died"]) if y is not None]
+            ok = bool(ys) and all(str(y) in hits for y in ys)
+        else:
+            ys = [r["from"], r["to"]]
+            ok = all(str(y) in hits for y in ys)
+        if ok: r["status"], r["why"] = "ok", "article"
+        r["deep"] = {"en": d.get("en"), "zh": d.get("zh"), "hits": hits, "intro": d.get("intro", "")[:400], "intro_zh": d.get("intro_zh", "")[:300]}
 
 json.dump(report, open(sys.argv[2], "w"), ensure_ascii=False, indent=0)
 from collections import Counter
