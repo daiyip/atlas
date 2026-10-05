@@ -823,10 +823,12 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 
 /* Search: a panel over the top of the map; results grouped by kind. */
 .search {
-  position: absolute; z-index: 20; top: 16px; left: 50%; transform: translateX(-50%);
-  width: min(460px, calc(100% - 16px)); max-height: min(70dvh, 560px); display: flex; flex-direction: column; overflow: hidden;
+  position: absolute; z-index: 20; top: calc(16px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
+  width: min(460px, calc(100% - 16px)); max-height: min(calc(70dvh - env(safe-area-inset-top)), 560px); display: flex; flex-direction: column; overflow: hidden;
   background: var(--panel-solid);
 }
+/* On a phone it opens just below the status bar and notch, where the era panel starts. */
+@media (max-width: 720px) { .search { top: calc(8px + env(safe-area-inset-top)); } }
 .search[hidden] { display: none; }
 .search-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 .search-bar svg { width: 16px; height: 16px; color: var(--muted); flex: none; }
