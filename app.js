@@ -3589,6 +3589,10 @@ function tourCard() {
   box.querySelector(".tour-year").textContent = when || fmtYear(s.year);
   box.querySelector(".tour-text").textContent = rest;
   box.querySelector(".tour-story").hidden = !s.event;
+  // The step's AI picture, when its event has one (hidden with the AI pictures chip like everywhere else).
+  const pic = box.querySelector(".tour-pic");
+  pic.innerHTML = s.event ? illuSlot("a:" + s.event) : "";
+  fillIllus(pic);
   const r = refLink(s.ref), a = box.querySelector(".tour-ref");
   a.hidden = !r;
   if (r) { a.href = r.href; a.title = r.label; a.textContent = `${refLabel(r.ref)} ↗`; }
@@ -4576,7 +4580,9 @@ async function init() {
   tb.querySelector(".tour-prev").addEventListener("click", () => state.tour && tourStep(state.tour.i - 1));
   tb.querySelector(".tour-next").addEventListener("click", tourNext);
   tb.querySelector(".tour-close").addEventListener("click", endTour);
-  tb.querySelector(".tour-story").addEventListener("click", () => { const s = state.tour?.tr.steps[state.tour.i]; if (s?.event) { tourPause(); $("app").classList.add("tour-reading"); openStory(s.event); } });
+  const readStep = () => { const s = state.tour?.tr.steps[state.tour.i]; if (s?.event) { tourPause(); $("app").classList.add("tour-reading"); openStory(s.event); } };
+  tb.querySelector(".tour-story").addEventListener("click", readStep);
+  tb.querySelector(".tour-pic").addEventListener("click", readStep);
   tb.querySelector(".tour-auto").addEventListener("click", () => {
     const tour = state.tour; if (!tour) return;
     if (tour.auto) return tourPause();
