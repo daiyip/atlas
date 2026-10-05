@@ -914,16 +914,16 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 .tour-ctl { display: flex; gap: 6px; flex-wrap: wrap; }
 .tour-ctl .tour-next { margin-left: auto; background: var(--jade); color: #fff; border-color: var(--jade); }
 .tour-ctl .tour-story[hidden] { display: none; }
-.tour-pic .illu { float: right; width: 150px; margin: 8px 0 4px 12px; cursor: pointer; }
-.tour-pic .illu img { max-height: 110px; object-fit: cover; }
-.tour-pic .illu figcaption { display: none; }
+.tour-pic { position: fixed; z-index: 4; cursor: pointer; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.35); background: var(--panel-solid); }
+.tour-pic[hidden], .touring.tour-reading .tour-pic { display: none; }
+.tour-pic .illu { margin: 0; width: 100%; height: 100%; }
+.tour-pic .illu img { width: 100%; height: 100%; max-height: none; object-fit: cover; border-radius: 0; }
+.tour-pic .illu figcaption { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 14px 10px 5px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.6)); }
 @media (max-width: 720px) {
   .tour { bottom: calc(var(--rail-h, 64px) + 12px + env(safe-area-inset-bottom)); width: calc(100% - 16px); padding: 10px 12px; }
   .tour p { font-size: 13.5px; max-height: 30dvh; overflow-y: auto; }
   .touring:not(.tour-reading) .ledger { display: none; }
   .touring.tour-reading .tour { display: none; }
-  .tour-pic .illu { width: 96px; margin-top: 6px; }
-  .tour-pic .illu img { max-height: 72px; }
 }
 @media (max-width: 720px) {
     .era-corner { gap: 4px; }
