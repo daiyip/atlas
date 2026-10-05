@@ -326,6 +326,14 @@ async function satTile(z, x, y) {
   return (await c.convertToBlob({ type: "image/jpeg", quality: 0.9 })).arrayBuffer();
 }
 maplibregl.addProtocol("atlas", async (params) => {
+  // A pack's base map tiles (see buildStyle) go through here too, so they load the same way as Earth's.
+  const pk = params.url.match(/^atlas:\/\/pk-(dem|img)\/(\d+)\/(\d+)\/(\d+)$/);
+  if (pk) {
+    const src = state.basemap[pk[1] === "dem" ? "dem" : "imagery"];
+    const r = await fetch(src.tiles.replace("{z}", pk[2]).replace("{x}", pk[3]).replace("{y}", pk[4]));
+    if (!r.ok) throw new Error(`no tile ${params.url}`);
+    return { data: await r.arrayBuffer() };
+  }
   const sat = params.url.startsWith("atlas://sat/");
   const [z, x, y] = params.url.slice(sat ? "atlas://sat/".length : "atlas://".length).split("/").map(Number);
   const data = await (sat ? satTile(z, x, y) : demTile(z, x, y));
@@ -335,6 +343,8 @@ maplibregl.addProtocol("atlas", async (params) => {
 
 // Two looks: satellite colours with light shading, or the drawn relief map (hypsometric tint, stronger shading).
 const SKY = {
+  space: { "sky-color": "#05060a", "horizon-color": "#2a1d18", "fog-color": "#1a1412",
+           "sky-horizon-blend": 0.5, "horizon-fog-blend": 0.6, "fog-ground-blend": 0.5, "atmosphere-blend": 0.4 },
   sat: { "sky-color": "#3f86c8", "horizon-color": "#cfe4f2", "fog-color": "#d6e6f0",
          "sky-horizon-blend": 0.5, "horizon-fog-blend": 0.7, "fog-ground-blend": 0.3, "atmosphere-blend": 0.8 },
   antique: { "sky-color": "#d8cfb8", "horizon-color": "#efe7d2", "fog-color": "#efe7d2",
@@ -345,9 +355,9 @@ const SKY = {
             "sky-horizon-blend": 0.6, "horizon-fog-blend": 0.6, "fog-ground-blend": 0.4, "atmosphere-blend": 0.5 },
 };
 // Relief is exaggerated more as you zoom in, so hills and ranges keep standing out at close range.
-const terrainExaggeration = (z) => Math.min(5, 2 + Math.max(0, z - 5) * 0.9);
+const terrainExaggeration = (z) => Math.min(5, 2 + Math.max(0, z - 5) * 0.9) * (state.basemap ? state.basemap.exaggeration ?? 1 : 1);
 function setTerrainForZoom() {
-  if (!state.show3d) return;
+  if (!state.show3d || (state.basemap && !state.basemap.dem)) return;
   const e = Math.round(terrainExaggeration(map.getZoom()) * 10) / 10;
   if (e === state.terrainExag) return;
   state.terrainExag = e;
@@ -392,8 +402,21 @@ LOOKS.night = { name: "Simple · dark", name_zh: "简洁·暗色", swatch: "line
 const LOOK_ORDER = ["satellite", "terrain", "dark", "plain", "night", "antique"];
 const OLD_LOOK = { sat: "satellite", relief: "terrain" };
 const lookId = (v) => (LOOKS[v] ? v : OLD_LOOK[v] || null);
+// Under a pack's base map only its own styles exist: its imagery (if any) and its elevation coloured by its `relief`.
+function basemapLooks() {
+  const B = state.basemap, out = {};
+  if (B.imagery) out.satellite = { ...LOOKS.satellite, name: B.imagery.name || "Imagery", name_zh: B.imagery.name_zh || B.imagery.name || "影像",
+    relief: B.relief ? reliefExpr(B.relief) : flatRelief(B.background || "#000", B.background || "#000"), bg: B.background || "#000", sky: "space" };
+  if (B.dem) out.terrain = { ...LOOKS.terrain, name: B.reliefName || "Relief", name_zh: B.reliefName_zh || "地形",
+    swatch: `linear-gradient(135deg,${(B.relief || []).map((r) => r[1]).join(",") || "#888,#ccc"})`,
+    relief: B.relief ? reliefExpr(B.relief) : RELIEF, bg: B.background || "#000", sky: "space" };
+  return out;
+}
+const reliefExpr = (stops) => ["interpolate", ["linear"], ["elevation"], ...stops.flat()];
+const looks = () => (state.basemap ? basemapLooks() : LOOKS);
+const lookOrder = () => (state.basemap ? Object.keys(basemapLooks()) : LOOK_ORDER);
 function applyLook(m = map) {
-  const L = LOOKS[state.look] || LOOKS.satellite;
+  const L = looks()[state.look] || Object.values(looks())[0] || LOOKS.satellite;
   if (m === map) {
     document.documentElement.classList.toggle("sat", !!L.dark);
     document.documentElement.dataset.look = state.look;
@@ -423,13 +446,18 @@ function applyLook(m = map) {
   if (L.lakeColor) m.setPaintProperty("lakes", "fill-color", L.lakeColor);
   for (const id of ["rivers", "rivers-minor", "old-river"]) m.setPaintProperty(id, "line-color", L.river);
   m.setPaintProperty("bg", "background-color", L.bg);
-  m.setSky(SKY[L.sky]);
+  m.setSky(state.basemap?.sky || SKY[L.sky]);
+  if (state.basemap) {
+    // Earth's own water and coast stay off; without elevation there is no relief to shade.
+    if (state.basemap.earth === false) for (const id of ["rivers", "rivers-minor", "lakes", "lakes-line", "land", "coast", "old-river", "old-coast"]) m.setLayoutProperty(id, "visibility", "none");
+    if (!state.basemap.dem) for (const id of ["relief", "hillshade"]) m.setLayoutProperty(id, "visibility", "none");
+  }
 }
 // Picks a map style; a flat style turns 3D off and remembers whether it was on, so leaving it brings 3D back.
 function setLook(id, remember = true) {
   id = lookId(id);
-  if (!id) return false;
-  const was = LOOKS[state.look], now = LOOKS[id];
+  if (!id || !looks()[id]) return false;
+  const was = looks()[state.look], now = looks()[id];
   state.look = id;
   if (remember) try { localStorage.setItem("atlas-look", id); } catch {}
   if (now.flat && !was?.flat && state.show3d) { state.flat3d = true; set3d(false); }
@@ -442,7 +470,7 @@ function setLook(id, remember = true) {
 // The style button in the 地图 row shows the current style; its menu lists them all.
 const lookSwatch = (L) => `<i style="background:${L.swatch}"></i>`;
 function renderLookChips() {
-  const btn = $("look-btn"), L = LOOKS[state.look];
+  const btn = $("look-btn"), L = looks()[state.look] || Object.values(looks())[0];
   if (!btn) return;
   btn.innerHTML = `${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;
   btn.title = t("g_look");
@@ -454,7 +482,7 @@ function toggleLookPop(open) {
   pop.hidden = !open;
   btn.setAttribute("aria-expanded", open);
   if (!open) return;
-  pop.innerHTML = LOOK_ORDER.map((id) => [id, LOOKS[id]]).map(([id, L]) => `<button type="button" role="menuitemradio" aria-checked="${id === state.look}" data-look="${id}"><span>${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
+  pop.innerHTML = lookOrder().map((id) => [id, looks()[id]]).map(([id, L]) => `<button type="button" role="menuitemradio" aria-checked="${id === state.look}" data-look="${id}"><span>${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
   // Fixed to the window (the layers panel clips on phones); opens upward when there is no room below.
   if (pop.parentNode !== document.body) document.body.appendChild(pop);
   const r = btn.getBoundingClientRect(), h = pop.offsetHeight;
@@ -466,13 +494,17 @@ function toggleLookPop(open) {
 }
 
 function buildStyle() {
-  const dem = { type: "raster-dem", tiles: [TILE_URL], tileSize: 256, encoding: "terrarium", maxzoom: 10 };
+  // A pack's own base map (another planet, an invented world) replaces Earth's elevation and imagery.
+  const B = state.basemap;
+  const dem = B?.dem ? { type: "raster-dem", tiles: ["atlas://pk-dem/{z}/{x}/{y}"], tileSize: B.dem.tileSize || 256, encoding: B.dem.encoding || "terrarium", maxzoom: B.dem.maxzoom ?? 6 }
+    : { type: "raster-dem", tiles: [TILE_URL], tileSize: 256, encoding: "terrarium", maxzoom: 10 };
+  const sat = B ? { type: "raster", tiles: B.imagery ? ["atlas://pk-img/{z}/{x}/{y}"] : [], tileSize: B.imagery?.tileSize || 256, maxzoom: B.imagery?.maxzoom ?? 6 }
+    : { type: "raster", tiles: [SAT_URL], tileSize: 256, maxzoom: 10,
+        attribution: "Imagery: Sentinel-2 2020, Copernicus/Sentinel Hub (CC BY 4.0); Sentinel-2 cloudless 2016 by EOX, s2maps.eu (CC BY 4.0)" };
   return {
     version: 8,
     sources: {
-      dem, "dem-terrain": { ...dem },
-      sat: { type: "raster", tiles: [SAT_URL], tileSize: 256, maxzoom: 10,
-             attribution: "Imagery: Sentinel-2 2020, Copernicus/Sentinel Hub (CC BY 4.0); Sentinel-2 cloudless 2016 by EOX, s2maps.eu (CC BY 4.0)" },
+      dem, "dem-terrain": { ...dem }, sat,
       rivers: { type: "geojson", data: BASE + "data/geo/rivers.geojson" },
       lakes: { type: "geojson", data: BASE + "data/geo/lakes.geojson" },
       land: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
@@ -807,7 +839,7 @@ function pluginApi(src) {
     on(name, fn) { (hooks[name] ||= []).push(fn); return () => (hooks[name] = hooks[name].filter((f) => f !== fn)); },
     setYear: (y) => setYear(y),
     get style() { return state.look; },
-    styles: LOOK_ORDER,
+    get styles() { return lookOrder(); },
     setStyle: (id) => setLook(id, false),
     startTour: (id, step = 0) => startTour(id, step),
     openEvent: (id) => state.events.some((e) => e.id === id) && openStory(id),
@@ -1019,7 +1051,7 @@ async function setYear(year, opts = {}) {
   saveView();
   refreshRegionPop();
   const snap = snapshotFor(era, state.year);
-  const label = snap.world ? t("worldMap")(fmtYear(worldAt(state.year)?.from ?? snap.from)) : tx(snap, "label");
+  const label = snap.world && state.basemap?.earth === false ? "" : snap.world ? t("worldMap")(fmtYear(worldAt(state.year)?.from ?? snap.from)) : tx(snap, "label");
   $("era-snap").textContent = label ? t("map") + label : "";
   $("era-snap").hidden = !label;
   document.querySelectorAll(".band.snap").forEach((b) => b.classList.toggle("current", b.dataset.path === snap.borders && +b.dataset.from === snap.from));
@@ -1518,7 +1550,7 @@ function syncAuto() {
   }
   const auto = {};
   if (ctx !== state.autoCtx) { state.autoCtx = ctx; state.autoOff = {}; }
-  if (text) for (const [keys, test] of AUTO_RULES) if (test(cat, text)) for (const k of keys) if (!state.autoOff[k]) auto[k] = true;
+  if (text) for (const [keys, test] of AUTO_RULES) if (test(cat, text)) for (const k of keys) if (!state.autoOff[k] && !$("l-" + k)?.hidden) auto[k] = true;
   for (const k of Object.keys(state.show)) $("l-" + k)?.classList.toggle("auto", !state.show[k] && !!auto[k]);
   renderAutoStrip(auto);
   const key = Object.keys(auto).sort().join();
@@ -3715,6 +3747,14 @@ async function init() {
   if (PACK_URL) {
     state.pack = await openPack(PACK_URL);
     state.selected = null;
+    // A pack shown alone can bring its own base map (manifest `basemap`, see docs/custom-data.md#base-map).
+    const B = state.pack.only && state.pack.manifest.basemap;
+    if (B) {
+      const abs = (p) => p && new URL(p, state.pack.url).href.replace(/%7B/g, "{").replace(/%7D/g, "}");
+      state.basemap = { ...B, dem: B.dem && { ...B.dem, tiles: abs(B.dem.tiles) }, imagery: B.imagery && { ...B.imagery, tiles: abs(B.imagery.tiles) } };
+      if (!looks()[state.look]) state.look = lookOrder()[0];
+      if (!B.dem) state.show3d = false;
+    }
   }
   applyLang();
   const plugins = importPlugins();
@@ -3733,10 +3773,13 @@ async function init() {
     state.walls = await loadJSON("data/walls.json").catch(() => []);
     state.exchange = await loadJSON("data/exchange.json").catch(() => state.exchange);
   }
-  state.geo = await loadJSON("data/geo/features.json").catch(() => []);
-  state.oldGeo = (await loadJSON("data/geo/old-rivers.geojson").catch(() => ({ features: [] }))).features;
+  const offEarth = state.basemap?.earth === false;
+  // Off Earth, the landscape names come from the pack (basemap.labels, same shape as data/geo/features.json).
+  state.geo = offEarth ? (state.basemap.labels ? await fetch(new URL(state.basemap.labels, state.pack.url)).then((r) => r.json()).catch(() => []) : [])
+    : await loadJSON("data/geo/features.json").catch(() => []);
+  state.oldGeo = offEarth ? [] : (await loadJSON("data/geo/old-rivers.geojson").catch(() => ({ features: [] }))).features;
   const [regions, worldIndex] = await Promise.all([
-    loadJSON("data/regions.json").catch(() => ({ regions: [] })), loadJSON("data/world/index.json").catch(() => [])]);
+    loadJSON("data/regions.json").catch(() => ({ regions: [] })), offEarth ? [] : loadJSON("data/world/index.json").catch(() => [])]);
   if (!only) setupRegions(eras, regions.regions, worldIndex);
   state.groups = regions.groups || [];
   if (pack) {
@@ -3749,6 +3792,8 @@ async function init() {
     // The per-period layers (rulers, armies, people...) and the atlas's overlays are not part of a pack yet.
     for (const el of document.querySelectorAll(".era-layers .chip.layer, #tab-rulers, #tab-people")) el.hidden = true;
     if (!places.length) $("t-places").hidden = true;
+    if (offEarth) { $("t-neighbours").hidden = true; if (!state.geo.length) $("t-geo").hidden = true; }
+    if (state.basemap && !state.basemap.dem) $("t-3d").hidden = true;
     for (const g of document.querySelectorAll(".era-layers .lg")) g.hidden = ![...g.querySelectorAll(".chip")].some((c) => !c.hidden);
   }
   state.events = events.sort((a, b) => a.year - b.year || (a.level || 1) - (b.level || 1));
@@ -3756,7 +3801,8 @@ async function init() {
   if (!only) state.countries = await loadJSON("data/countries.json").catch(() => null);
   buildScale();
   const cam = loadView();
-  if (LOOKS[state.look].flat && state.show3d) { state.show3d = false; state.flat3d = true; }
+  if (state.basemap && !state.basemap.dem) state.show3d = false;
+  if (looks()[state.look]?.flat && state.show3d) { state.show3d = false; state.flat3d = true; }
   if (only && !["events", "tours"].includes(state.tab)) state.tab = "events";
 
   map = new maplibregl.Map({
@@ -3774,7 +3820,7 @@ async function init() {
   }
   map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "bottom-left");
   map.addControl(new maplibregl.AttributionControl({ compact: true,
-    customAttribution: `<b>Atlas v${esc(APP_VERSION)}</b>` + (CAN_INSTALL && IOS ? ` · <a href="#" id="attr-install">${esc(t("install").title)}</a>` : "") + " · " + "Terrain: Mapzen/AWS Terrain Tiles · Borders: Cliopatria/Seshat (CC BY 4.0), historical-basemaps (GPL-3.0)" + (pack?.attribution ? ` · ${esc(pack.attribution)}` : "") }), "bottom-left");
+    customAttribution: `<b>Atlas v${esc(APP_VERSION)}</b>` + (CAN_INSTALL && IOS ? ` · <a href="#" id="attr-install">${esc(t("install").title)}</a>` : "") + " · " + (offEarth ? "" : "Terrain: Mapzen/AWS Terrain Tiles · Borders: Cliopatria/Seshat (CC BY 4.0), historical-basemaps (GPL-3.0)") + (state.basemap?.attribution ? ` · ${esc(state.basemap.attribution)}` : "") + (pack?.attribution ? ` · ${esc(pack.attribution)}` : "") }), "bottom-left");
   // MapLibre opens the compact attribution on wide screens; start it folded to the "i" button.
   const foldAttribution = () => document.querySelector(".maplibregl-ctrl-attrib")?.classList.remove("maplibregl-compact-show");
   map.once("load", foldAttribution);

@@ -1,0 +1,129 @@
+[
+ {
+  "id": "landings",
+  "era": "viking",
+  "start": 1971,
+  "end": 2021,
+  "title": "Landing on Mars",
+  "title_zh": "登陆火星",
+  "summary": "From the first soft landing to a helicopter in Jezero: where each lander came down.",
+  "summary_zh": "从第一次软着陆到耶泽罗上空的直升机：每台着陆器落在哪里。",
+  "also": [
+   "flybys",
+   "rovers",
+   "labs"
+  ],
+  "steps": [
+   {
+    "year": 1971,
+    "at": [
+     -158.0,
+     -45.0
+    ],
+    "zoom": 4.2,
+    "event": "mars-3",
+    "text": "The Soviet lander is the first to touch down softly, but falls silent after about 20 seconds.",
+    "text_zh": "苏联着陆器首次实现软着陆，但约20秒后失去信号。"
+   },
+   {
+    "year": 1976,
+    "at": [
+     -47.95,
+     22.27
+    ],
+    "zoom": 4.2,
+    "event": "viking-1",
+    "text": "The first fully successful landing. It sends the first pictures from the surface and tests the soil for life.",
+    "text_zh": "首次完全成功的着陆，发回首张地表照片，并检测土壤中的生命迹象。"
+   },
+   {
+    "year": 1976,
+    "at": [
+     134.29,
+     47.64
+    ],
+    "zoom": 4.2,
+    "event": "viking-2",
+    "text": "Lands on the northern plains and records frost on the ground in winter.",
+    "text_zh": "降落在北方平原，冬季拍到地面结霜。"
+   },
+   {
+    "year": 1997,
+    "at": [
+     -33.22,
+     19.13
+    ],
+    "zoom": 4.2,
+    "event": "pathfinder",
+    "text": "Bounces down on airbags and releases Sojourner, the first wheeled rover on Mars.",
+    "text_zh": "靠气囊弹跳着陆，放出火星上第一辆轮式漫游车旅居者号。"
+   },
+   {
+    "year": 2004,
+    "at": [
+     175.47,
+     -14.57
+    ],
+    "zoom": 4.2,
+    "event": "spirit",
+    "text": "The rover finds silica-rich soil that points to ancient hot springs.",
+    "text_zh": "漫游车发现富含二氧化硅的土壤，指向古代温泉。"
+   },
+   {
+    "year": 2004,
+    "at": [
+     -5.53,
+     -1.95
+    ],
+    "zoom": 4.2,
+    "event": "opportunity",
+    "text": "Finds 'blueberries' of hematite and layered rock laid down in water; drives 45 km over 14 years.",
+    "text_zh": "发现赤铁矿“蓝莓”和水中沉积的层状岩石，14年间行驶45公里。"
+   },
+   {
+    "year": 2008,
+    "at": [
+     -125.75,
+     68.22
+    ],
+    "zoom": 4.2,
+    "event": "phoenix",
+    "text": "The arctic lander scrapes the soil and watches white water ice sublimate.",
+    "text_zh": "北极着陆器刮开土壤，看着白色的水冰升华消失。"
+   },
+   {
+    "year": 2012,
+    "at": [
+     137.44,
+     -4.59
+    ],
+    "zoom": 4.2,
+    "event": "curiosity",
+    "text": "Lowered by a rocket 'sky crane', the car-sized rover finds an ancient lake that could have supported life.",
+    "text_zh": "由火箭“空中吊车”放下，这辆汽车大小的漫游车发现了可能宜居的古湖泊。"
+   },
+   {
+    "year": 2021,
+    "at": [
+     77.45,
+     18.44
+    ],
+    "zoom": 5,
+    "event": "perseverance",
+    "text": "Lands in an old river delta to collect rock samples for a future return to Earth.",
+    "text_zh": "降落在古河流三角洲，采集岩石样本以备日后送回地球。"
+   },
+   {
+    "year": 2021,
+    "at": [
+     109.93,
+     25.07
+    ],
+    "zoom": 4.2,
+    "event": "zhurong",
+    "text": "China's first rover lands at the first attempt and studies buried layers with radar.",
+    "text_zh": "中国首辆火星车首次尝试即成功着陆，用雷达探测地下分层。"
+   }
+  ]
+ }
+]

@@ -46,6 +46,10 @@ The atlas provides the map, terrain, borders, timeline, tours and search. Your p
 layers, and a plugin that animates each leg of a journey. To try it, open
 `/?pack=examples/demo-pack/manifest.json&packonly=1#tour=paul-first&s=1` on a local copy.
 
+A pack can even bring its own world: [`examples/mars-pack/`](examples/mars-pack/) replaces Earth with Mars (its own
+elevation, imagery and place names) and follows the landers from 1971 to today. Open
+`/?pack=examples/mars-pack/manifest.json&packonly=1`. See [Base map](docs/custom-data.md#base-map).
+
 ### Embed it in your app
 
 The atlas is a plain web page, so it embeds with an `iframe`:

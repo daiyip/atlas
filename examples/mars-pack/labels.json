@@ -1,0 +1,173 @@
+[
+ {
+  "name": "Olympus Mons",
+  "name_zh": "奥林匹斯山",
+  "kind": "mountain",
+  "lon": -133.8,
+  "lat": 18.65
+ },
+ {
+  "name": "Arsia Mons",
+  "name_zh": "阿尔西亚山",
+  "kind": "mountain",
+  "lon": -120.09,
+  "lat": -8.26
+ },
+ {
+  "name": "Pavonis Mons",
+  "name_zh": "帕弗尼斯山",
+  "kind": "mountain",
+  "lon": -112.96,
+  "lat": 1.48
+ },
+ {
+  "name": "Ascraeus Mons",
+  "name_zh": "艾斯克雷尔斯山",
+  "kind": "mountain",
+  "lon": -104.08,
+  "lat": 11.92
+ },
+ {
+  "name": "Alba Mons",
+  "name_zh": "亚拔山",
+  "kind": "mountain",
+  "lon": -109.6,
+  "lat": 40.5
+ },
+ {
+  "name": "Elysium Mons",
+  "name_zh": "埃律西昂山",
+  "kind": "mountain",
+  "lon": 146.9,
+  "lat": 24.8
+ },
+ {
+  "name": "Tharsis",
+  "name_zh": "塔尔西斯高原",
+  "kind": "plateau",
+  "lon": -108,
+  "lat": 5
+ },
+ {
+  "name": "Valles Marineris",
+  "name_zh": "水手号峡谷",
+  "kind": "corridor",
+  "lon": -65,
+  "lat": -11.5
+ },
+ {
+  "name": "Hellas Planitia",
+  "name_zh": "希腊平原",
+  "kind": "plain",
+  "lon": 70.5,
+  "lat": -42.4
+ },
+ {
+  "name": "Argyre Planitia",
+  "name_zh": "阿耳古瑞平原",
+  "kind": "plain",
+  "lon": -43.4,
+  "lat": -49.7
+ },
+ {
+  "name": "Utopia Planitia",
+  "name_zh": "乌托邦平原",
+  "kind": "plain",
+  "lon": 118,
+  "lat": 49.7
+ },
+ {
+  "name": "Chryse Planitia",
+  "name_zh": "克律塞平原",
+  "kind": "plain",
+  "lon": -40,
+  "lat": 28.4
+ },
+ {
+  "name": "Acidalia Planitia",
+  "name_zh": "阿西达利亚平原",
+  "kind": "plain",
+  "lon": -22,
+  "lat": 46.7
+ },
+ {
+  "name": "Isidis Planitia",
+  "name_zh": "伊西底斯平原",
+  "kind": "plain",
+  "lon": 87,
+  "lat": 12.9
+ },
+ {
+  "name": "Elysium Planitia",
+  "name_zh": "埃律西昂平原",
+  "kind": "plain",
+  "lon": 154.7,
+  "lat": 3
+ },
+ {
+  "name": "Amazonis Planitia",
+  "name_zh": "亚马逊平原",
+  "kind": "plain",
+  "lon": -163,
+  "lat": 24.8
+ },
+ {
+  "name": "Arabia Terra",
+  "name_zh": "阿拉伯台地",
+  "kind": "plateau",
+  "lon": 6,
+  "lat": 21
+ },
+ {
+  "name": "Noachis Terra",
+  "name_zh": "诺亚台地",
+  "kind": "plateau",
+  "lon": -10,
+  "lat": -45
+ },
+ {
+  "name": "Terra Cimmeria",
+  "name_zh": "辛梅利亚台地",
+  "kind": "plateau",
+  "lon": 145,
+  "lat": -35
+ },
+ {
+  "name": "Syrtis Major",
+  "name_zh": "大瑟提斯",
+  "kind": "plateau",
+  "lon": 69.5,
+  "lat": 8.4
+ },
+ {
+  "name": "Vastitas Borealis",
+  "name_zh": "北方大荒原",
+  "kind": "plain",
+  "lon": -60,
+  "lat": 72
+ },
+ {
+  "name": "Gale crater",
+  "name_zh": "盖尔陨坑",
+  "kind": "desert",
+  "lon": 137.8,
+  "lat": -5.4,
+  "minzoom": 4
+ },
+ {
+  "name": "Jezero crater",
+  "name_zh": "耶泽罗陨坑",
+  "kind": "desert",
+  "lon": 77.6,
+  "lat": 18.4,
+  "minzoom": 4
+ },
+ {
+  "name": "Gusev crater",
+  "name_zh": "古谢夫陨坑",
+  "kind": "desert",
+  "lon": 175.4,
+  "lat": -14.5,
+  "minzoom": 4
+ }
+]

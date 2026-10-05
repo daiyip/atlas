@@ -62,6 +62,7 @@ my-pack/
 | `note`, `note_zh` | When the pack is shown alone, this replaces the borders note in the side panel. |
 | `layers` | Map overlays drawn from GeoJSON. See [plugins.md](plugins.md#layers). |
 | `plugins` | JavaScript modules that extend the atlas. See [plugins.md](plugins.md#plugins). |
+| `basemap` | Your own ground instead of Earth's: another planet or an invented world. Only for a pack shown alone. See [Base map](#base-map). |
 
 Text fields come in pairs: `x` in English and `x_zh` in Chinese. If the Chinese one is missing, the English one is
 shown.
@@ -120,6 +121,41 @@ they need no `snapshots`.
 
 Each step flies the camera to `at` (with optional `zoom`, `pitch` and `bearing`), moves the timeline to `year` and
 shows `text`. `event` links the step to an event's story, and `path: true` draws the journey so far.
+
+## Base map
+
+A pack shown alone (`packonly=1`) can replace Earth with its own ground. The [Mars pack](../examples/mars-pack/)
+is a complete example: open `/?pack=examples/mars-pack/manifest.json&packonly=1`.
+
+```json
+"basemap": {
+  "earth": false,
+  "background": "#0b0b10",
+  "dem": { "tiles": "tiles/dem/{z}/{x}/{y}.png", "encoding": "terrarium", "maxzoom": 3 },
+  "imagery": { "tiles": "tiles/img/{z}/{x}/{y}.jpg", "maxzoom": 4, "name": "Viking colour", "name_zh": "海盗号影像" },
+  "relief": [[-8000, "#1d2a5c"], [0, "#c9d27a"], [5000, "#d0743a"], [21000, "#ffffff"]],
+  "reliefName": "Elevation", "reliefName_zh": "高程",
+  "exaggeration": 0.5,
+  "labels": "labels.json",
+  "attribution": "Mars tiles: OpenPlanetary"
+}
+```
+
+| Key | Meaning |
+| --- | --- |
+| `earth` | `false` hides everything that belongs to Earth: coastlines, rivers, lakes, old river courses, landscape names and the world borders. Leave it out to keep them (for a re-coloured Earth). |
+| `dem` | Elevation tiles (XYZ, Web Mercator) for relief, hill shading and 3D. `encoding` is `terrarium` (default) or `mapbox`. Past `maxzoom` the last zoom is enlarged. Without `dem` there is no relief and no 3D. |
+| `imagery` | Picture tiles (XYZ, Web Mercator). `name`, `name_zh` label it in the style menu. |
+| `relief` | Colours for heights in metres, as `[height, colour]` pairs, used by the relief style. |
+| `reliefName`, `reliefName_zh` | The relief style's name in the menu. |
+| `background` | Colour where there are no tiles. |
+| `exaggeration` | Multiplies the 3D height (default `1`). Lower it for a world with taller mountains than Earth. |
+| `labels` | Place names on the ground, the same shape as `data/geo/features.json`: `{name, name_zh, kind, lon, lat, minzoom?}`, with `kind` one of `mountain`, `plain`, `plateau`, `desert`, `sea`, `lake`, `river`, `corridor`. They show with the Landscape switch. |
+| `sky` | A MapLibre sky object for the 3D horizon (default: a dark sky). |
+| `attribution` | Credits for the tiles. |
+
+Tile paths are relative to the manifest. The style menu offers only the pack's own styles: its imagery and its
+relief. Tiles must use XYZ numbering (row 0 at the north); if your source is TMS, flip the rows.
 
 ## Hosting and the allowlist
 

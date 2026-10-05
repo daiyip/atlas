@@ -1,0 +1,90 @@
+{
+ "atlas": 1,
+ "id": "mars",
+ "name": "Mars exploration",
+ "name_zh": "火星探索",
+ "region": {
+  "view": {
+   "center": [
+    -60,
+    10
+   ],
+   "zoom": 2.2,
+   "year": 1976
+  }
+ },
+ "range": {
+  "start": 1960,
+  "end": 2026
+ },
+ "data": {
+  "eras": "eras.json",
+  "events": "events.json",
+  "tours": "tours.json"
+ },
+ "basemap": {
+  "earth": false,
+  "background": "#0b0b10",
+  "dem": {
+   "tiles": "tiles/dem/{z}/{x}/{y}.png",
+   "encoding": "terrarium",
+   "maxzoom": 3
+  },
+  "imagery": {
+   "tiles": "tiles/img/{z}/{x}/{y}.jpg",
+   "maxzoom": 4,
+   "name": "Viking colour",
+   "name_zh": "海盗号影像"
+  },
+  "relief": [
+   [
+    -8000,
+    "#1d2a5c"
+   ],
+   [
+    -5000,
+    "#2f5ea8"
+   ],
+   [
+    -3000,
+    "#4aa3c4"
+   ],
+   [
+    -1500,
+    "#6fc29a"
+   ],
+   [
+    0,
+    "#c9d27a"
+   ],
+   [
+    2000,
+    "#e3b45a"
+   ],
+   [
+    5000,
+    "#d0743a"
+   ],
+   [
+    9000,
+    "#9c4a35"
+   ],
+   [
+    14000,
+    "#c9b7ad"
+   ],
+   [
+    21000,
+    "#ffffff"
+   ]
+  ],
+  "reliefName": "Elevation (MOLA)",
+  "reliefName_zh": "高程（MOLA）",
+  "exaggeration": 0.5,
+  "labels": "labels.json",
+  "attribution": "Mars tiles: OpenPlanetary (Viking MDIM 2.1 colour mosaic; MOLA shaded relief, approximate heights) · NASA/JPL/USGS"
+ },
+ "attribution": "Mars demo pack: mission dates and landing sites from NASA/ESA/CNSA public records (AI-drafted summaries).",
+ "note": "Mars imagery: Viking colour mosaic. Heights are approximate, converted from MOLA shaded relief. Landing sites from mission records.",
+ "note_zh": "火星影像：海盗号彩色拼图。高度为近似值，由 MOLA 晕渲图换算。着陆点取自各任务公开资料。"
+}
