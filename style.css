@@ -1123,3 +1123,16 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .mk-polity.focus.long { font-size: 19px; letter-spacing: 0.1em; }
 .mk-polity.focus.longer { font-size: 15px; letter-spacing: 0.04em; }
 .mk-polity.focus.long small, .mk-polity.focus.longer small { letter-spacing: 0.06em; }
+/* Install card (Add to Home Screen on iPhone/iPad, the install prompt elsewhere). */
+.install { position: absolute; z-index: 25; left: 50%; bottom: 120px; transform: translateX(-50%); width: min(380px, calc(100% - 24px));
+  display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 14px 16px; background: var(--panel-solid); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25); }
+.install[hidden] { display: none; }
+.install img { border-radius: 9px; }
+.install b { font-size: 14px; }
+.install p { margin: 2px 0 6px; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+.install ol { margin: 0 0 8px; padding-left: 18px; font-size: 13px; line-height: 1.6; }
+.install ol svg { width: 15px; height: 15px; vertical-align: -2px; color: #0a7aff; }
+.in-btns { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.install .chip.on { background: var(--jade); border-color: var(--jade); color: #fff; }
+.in-never { margin-left: auto; border: 0; background: none; padding: 4px 2px; font-size: 12px; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 720px) { .install { bottom: calc(110px + env(safe-area-inset-bottom)); } }

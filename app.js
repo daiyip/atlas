@@ -88,7 +88,7 @@ const $ = (id) => document.getElementById(id);
 
 const UI = {
   zh: {
-    title: "历代地图", events: "事件", hide: "收起", show: "展开", minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
+    title: "历代地图", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
     other: "English", map: "地图：", count: (n, era) => `${era} · ${n} 件`, countWin: (n) => `本时段 · ${n} 件`,
     fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" },
     sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", wiki: "维基百科", wikiOther: "English Wikipedia",
@@ -113,7 +113,7 @@ const UI = {
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
   en: {
-    title: "Atlas", events: "Events", hide: "Hide", show: "Show", minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
+    title: "Atlas", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
     other: "中文", map: "Map: ", count: (n, era) => `${n} in ${era}`, countWin: (n) => `${n} in view`,
     fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" },
     sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", wiki: "Wikipedia", wikiOther: "中文维基百科",
@@ -3542,6 +3542,38 @@ function loadView() {
   return v.cam && Array.isArray(v.cam.center) ? v.cam : null;
 }
 
+// The app's version is the cache-busting number index.html loads this script with (app.js?v=117).
+const APP_VERSION = new URL(document.currentScript?.src || location.href).searchParams.get("v") || "dev";
+// Installing: iPhone and iPad have no install prompt, so a card explains Share → Add to Home Screen. Other
+// browsers that offer one (beforeinstallprompt) get an install button on the same card. Not in embeds, the
+// preview, or when already running as the app; "don't show again" is remembered.
+const IOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const IPAD = IOS && !/iPhone|iPod/.test(navigator.userAgent);
+const STANDALONE = navigator.standalone === true || matchMedia("(display-mode: standalone)").matches;
+const CAN_INSTALL = !STANDALONE && !EMBED && location.protocol === "https:" && !/claude(usercontent)?\.(ai|com)$/.test(location.hostname);
+let installPrompt = null;
+let installReady = false;
+addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); installPrompt = e; if (installReady) maybeInstallCard(); });
+function maybeInstallCard(force) {
+  if (!CAN_INSTALL || !(IOS || installPrompt)) return;
+  if (!force) {
+    try { if (localStorage.getItem("atlas-install") === "0" || sessionStorage.getItem("atlas-install-seen")) return; } catch {}
+  }
+  const card = $("install");
+  if (!card || !card.hidden) return;
+  const I = t("install");
+  const share = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5v8.5M5 4.5l3-3 3 3M4.5 7H3.5v7h9V7h-1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  card.innerHTML = `<img src="docs/img/app-180.png" alt="" width="40" height="40"><div><b>${esc(I.title)}</b><p>${esc(I.why)}</p>` +
+    (IOS ? `<ol><li>${I.step1(IPAD, share, /CriOS|FxiOS|EdgiOS/.test(navigator.userAgent))}</li><li>${esc(I.step2)}</li></ol>` : "") +
+    `<div class="in-btns">${installPrompt ? `<button type="button" class="chip on" id="in-go">${esc(I.go)}</button>` : ""}` +
+    `<button type="button" class="chip" id="in-ok">${esc(I.ok)}</button><button type="button" class="in-never" id="in-never">${esc(I.never)}</button></div></div>`;
+  card.hidden = false;
+  const close = () => { card.hidden = true; try { sessionStorage.setItem("atlas-install-seen", "1"); } catch {} };
+  $("in-ok").onclick = close;
+  $("in-never").onclick = () => { try { localStorage.setItem("atlas-install", "0"); } catch {} close(); };
+  if ($("in-go")) $("in-go").onclick = async () => { close(); installPrompt.prompt(); await installPrompt.userChoice.catch(() => {}); installPrompt = null; };
+}
+
 // Home Screen app: a service worker keeps what has been viewed for offline use (not inside embeds or the preview).
 if ("serviceWorker" in navigator && location.protocol === "https:" && !/[?&]embed=1/.test(location.search) && !location.hostname.endsWith("claude.ai") && !location.hostname.endsWith("claudeusercontent.com"))
   addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
@@ -3617,11 +3649,14 @@ async function init() {
   }
   map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "bottom-left");
   map.addControl(new maplibregl.AttributionControl({ compact: true,
-    customAttribution: "Terrain: Mapzen/AWS Terrain Tiles · Borders: Cliopatria/Seshat (CC BY 4.0), historical-basemaps (GPL-3.0)" + (pack?.attribution ? ` · ${esc(pack.attribution)}` : "") }), "bottom-left");
+    customAttribution: `<b>Atlas v${esc(APP_VERSION)}</b>` + (CAN_INSTALL && IOS ? ` · <a href="#" id="attr-install">${esc(t("install").title)}</a>` : "") + " · " + "Terrain: Mapzen/AWS Terrain Tiles · Borders: Cliopatria/Seshat (CC BY 4.0), historical-basemaps (GPL-3.0)" + (pack?.attribution ? ` · ${esc(pack.attribution)}` : "") }), "bottom-left");
   // MapLibre opens the compact attribution on wide screens; start it folded to the "i" button.
   const foldAttribution = () => document.querySelector(".maplibregl-ctrl-attrib")?.classList.remove("maplibregl-compact-show");
   map.once("load", foldAttribution);
   map.once("idle", foldAttribution);
+  document.addEventListener("click", (e) => { if (e.target.id === "attr-install") { e.preventDefault(); maybeInstallCard(true); } });
+  // The install card waits until the map has been on screen a little while.
+  setTimeout(() => { installReady = true; maybeInstallCard(); }, 8000);
   map.on("move", () => scheduleDeclutter(120));
   map.on("click", "road-hit", (e) => {
     const r = state.roads.find((x) => x.id === e.features[0]?.properties.id);
