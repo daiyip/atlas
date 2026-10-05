@@ -144,12 +144,14 @@
     {
      "id": "xia",
      "start": -2070,
-     "end": -1601
+     "end": -1601,
+     "until": -1600
     },
     {
      "id": "shang",
      "start": -1600,
-     "end": -1047
+     "end": -1047,
+     "until": -1046
     },
     {
      "id": "western-zhou",
@@ -179,12 +181,14 @@
     {
      "id": "xin",
      "start": 9,
-     "end": 24
+     "end": 24,
+     "until": 23
     },
     {
      "id": "eastern-han",
      "start": 25,
-     "end": 219
+     "end": 219,
+     "until": 220
     },
     {
      "id": "three-kingdoms",
@@ -194,7 +198,8 @@
     {
      "id": "jin",
      "start": 266,
-     "end": 419
+     "end": 419,
+     "until": 420
     },
     {
      "id": "north-south",
@@ -204,12 +209,14 @@
     {
      "id": "sui",
      "start": 581,
-     "end": 617
+     "end": 617,
+     "until": 618
     },
     {
      "id": "tang",
      "start": 618,
-     "end": 906
+     "end": 906,
+     "until": 907
     },
     {
      "id": "five-dynasties",
@@ -229,12 +236,14 @@
     {
      "id": "yuan",
      "start": 1271,
-     "end": 1367
+     "end": 1367,
+     "until": 1368
     },
     {
      "id": "ming",
      "start": 1368,
-     "end": 1643
+     "end": 1643,
+     "until": 1644
     },
     {
      "id": "qing",
@@ -260,7 +269,8 @@
       "Mongolia",
       "Tibet",
       "Xinjiang"
-     ]
+     ],
+     "since": 1912
     },
     {
      "id": "cn-prc",
@@ -1483,7 +1493,8 @@
       "Gupta Empire",
       "Satavahanihara"
      ],
-     "layers": true
+     "layers": true,
+     "until": 550
     },
     {
      "id": "sa-early-medieval",
@@ -1544,7 +1555,8 @@
       "Bahmani Kingdom",
       "Orissa"
      ],
-     "layers": true
+     "layers": true,
+     "until": 1526
     },
     {
      "id": "sa-mughal",
@@ -1601,7 +1613,8 @@
       "Ceylon",
       "Nepal"
      ],
-     "layers": true
+     "layers": true,
+     "until": 1947
     },
     {
      "id": "sa-independent",
@@ -1955,7 +1968,8 @@
       "White Horde",
       "Chagatai Khanate"
      ],
-     "layers": true
+     "layers": true,
+     "until": 1507
     },
     {
      "id": "ca-khanates",
@@ -2232,7 +2246,8 @@
      "focus": [
       "Achaemenid Empire"
      ],
-     "layers": true
+     "layers": true,
+     "until": -330
     },
     {
      "id": "ir-seleucid",
@@ -2284,7 +2299,8 @@
       "Persia",
       "Sasanian Empire"
      ],
-     "layers": true
+     "layers": true,
+     "until": 651
     },
     {
      "id": "ir-caliphate",
@@ -2389,7 +2405,8 @@
      "focus": [
       "Safavid Empire"
      ],
-     "layers": true
+     "layers": true,
+     "until": 1736
     },
     {
      "id": "ir-afsharid-zand",
@@ -2849,7 +2866,8 @@
       "Umayyad Caliphate",
       "Byzantine Empire"
      ],
-     "layers": true
+     "layers": true,
+     "until": 750
     },
     {
      "id": "me-abbasid",
@@ -4290,7 +4308,8 @@
       "Hausa States",
       "Benin"
      ],
-     "layers": true
+     "layers": true,
+     "until": 1591
     },
     {
      "id": "ss-slave-trade",

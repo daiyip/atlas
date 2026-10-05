@@ -3,8 +3,12 @@
 A period that is one country's time (唐, the Achaemenid Empire) should start and end with it. For every period of
 data/eras.json (China) and data/regions.json whose main state (the one `focus` map feature, or the focus name whose
 Chinese name the period shares) is dated in the table, it prints the period's years beside the country's when they
-differ. Usage: python3 tools/check_eras.py"""
-import json, os
+differ. Usage: python3 tools/check_eras.py [--apply]
+
+Periods don't overlap, so one ends the year before the next starts: 唐 runs 618–906 on the timeline while the dynasty
+ended in 907. With --apply, a period within a year of its country gets `since`/`until`, the years the era panel shows
+(唐 618–907); larger differences are left for a person to judge (the 高丽 period starts at unification in 936)."""
+import json, os, re, sys
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 P = lambda *a: os.path.join(ROOT, *a)
@@ -43,15 +47,36 @@ def main():
         cs = {id(c): c for c in (country(n, mid) for n in names) if c and c.get("start") is not None}
         cs = list(cs.values())
         # One main state, or the one whose Chinese name the period carries.
-        pick = cs if len(cs) == 1 else [c for c in cs if c["name_zh"] and (c["name_zh"] in e.get("name_zh", "") or e.get("name_zh", "") in c["name_zh"])]
+        # Only a period named after its country (唐 and 唐; not 平安时代 and Japan) should share its years.
+        same = lambda c: c["name_zh"] and e.get("name_zh") and (c["name_zh"] == e["name_zh"] or c["name_zh"].rstrip("王朝帝国") == e["name_zh"].rstrip("王朝帝国"))
+        pick = [c for c in cs if same(c)]
         if len(pick) != 1: continue
         c = pick[0]
         end = c["end"] if c["end"] is not None else 2026
         if (c["start"], end) != (e["start"], e["end"]):
             out.append((reg, e.get("id"), e.get("name_zh"), e["start"], e["end"], c["id"], c["name_zh"], c["start"], end))
+    fix = {}
     for row in out:
-        print("%-20s %-24s %-10s %6d..%-6d  %-24s %-10s %6d..%d" % row)
-    print(len(out), "periods differ from their country")
+        reg, pid, _, a, b, _, _, ca, cb = row
+        if abs(ca - a) <= 1 and abs(cb - b) <= 1:
+            fix[(reg, pid)] = {**({"since": ca} if ca != a else {}), **({"until": cb} if cb != b else {})}
+        else:
+            print("%-20s %-24s %-10s %6d..%-6d  %-24s %-10s %6d..%d" % row)
+    print(len(out), "periods differ from their country;", len(fix), "by a year (shown with the country's years)")
+    if "--apply" in sys.argv:
+        text = open(P("data/eras.json")).read()
+        for (reg, pid), f in fix.items():
+            if reg != "china" or not pid: continue
+            m = re.search(r'"id": "%s".*?"end": -?\d+' % re.escape(pid), text, re.S)
+            if not m or not any(k not in text[m.start():m.end() + 80] for k in f): continue
+            if re.match(r',\s*"(since|until)"', text[m.end():]): continue
+            text = text[:m.end()] + "".join(f',\n   "{k}": {v}' for k, v in f.items()) + text[m.end():]
+        open(P("data/eras.json"), "w").write(text)
+        R = json.load(open(P("data/regions.json")))
+        for r in R["regions"]:
+            for e in r["periods"]:
+                if (r["id"], e.get("id")) in fix and "start" in e: e.update(fix[(r["id"], e["id"])])
+        json.dump(R, open(P("data/regions.json"), "w"), ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":

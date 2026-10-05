@@ -11,6 +11,7 @@
    "glyph": "夏",
    "start": -2070,
    "end": -1601,
+   "until": -1600,
    "snapshots": [
     {
      "from": -2070,
@@ -29,6 +30,7 @@
    "glyph": "商",
    "start": -1600,
    "end": -1047,
+   "until": -1046,
    "snapshots": [
     {
      "from": -1600,
@@ -241,6 +243,7 @@
    "glyph": "新",
    "start": 9,
    "end": 24,
+   "until": 23,
    "snapshots": [
     {
      "from": 9,
@@ -257,6 +260,7 @@
    "glyph": "东汉",
    "start": 25,
    "end": 219,
+   "until": 220,
    "snapshots": [
     {
      "from": 25,
@@ -310,6 +314,7 @@
    "glyph": "两晋",
    "start": 266,
    "end": 419,
+   "until": 420,
    "snapshots": [
     {
      "from": 266,
@@ -538,6 +543,7 @@
    "glyph": "隋",
    "start": 581,
    "end": 617,
+   "until": 618,
    "snapshots": [
     {
      "from": 581,
@@ -568,6 +574,7 @@
    "glyph": "唐",
    "start": 618,
    "end": 906,
+   "until": 907,
    "snapshots": [
     {
      "from": 618,
@@ -774,6 +781,7 @@
    "glyph": "元",
    "start": 1271,
    "end": 1367,
+   "until": 1368,
    "snapshots": [
     {
      "from": 1271,
@@ -794,6 +802,7 @@
    "glyph": "明",
    "start": 1368,
    "end": 1643,
+   "until": 1644,
    "snapshots": [
     {
      "from": 1368,

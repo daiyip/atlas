@@ -934,7 +934,7 @@ function setEra(era, quiet) {
   $("era-name").textContent = zh() ? era.name_zh : era.name;
   // Each piece wraps whole: other-language name, span of years, length.
   const region = state.regionById[era.region];
-  $("era-zh").innerHTML = (region ? [nameOf(region), zh() ? era.name : era.name_zh, `${fmtYear(era.start)} – ${fmtYear(era.end)}`, t("lasted")(eraYears(era))]
+  $("era-zh").innerHTML = (region ? [nameOf(region), zh() ? era.name : era.name_zh, `${fmtYear(era.since ?? era.start)} – ${fmtYear(era.until ?? era.end)}`, t("lasted")(eraYears(era))]
     : [t("worldName"), t("lasted")(eraYears(era))])
     .map((x) => `<span>${esc(x)}</span>`).join(" · ");
   $("era-summary").textContent = tx(era, "summary");
@@ -3050,7 +3050,7 @@ function searchResults(q) {
   const y = parseYear(q);
   if (y != null) out.push({ g: "time", year: y, title: fmtYear(y), sub: `${nameOf(eraFor(y))} · ${t("jumpYear")}`, go: () => jumpToYear(y) });
   for (const r of state.regions) for (const e of r.eras) if (has(e.name, e.name_zh, e.glyph))
-    out.push({ g: "era", year: e.start, title: nameOf(e), sub: `${nameOf(r)} · ${fmtYear(e.start)} – ${fmtYear(e.end)}`, go: () => goToEra(e) });
+    out.push({ g: "era", year: e.start, title: nameOf(e), sub: `${nameOf(r)} · ${fmtYear(e.since ?? e.start)} – ${fmtYear(e.until ?? e.end)}`, go: () => goToEra(e) });
   if (searchIndex) {
     // Tours named in the title first, then by summary, then by any step that mentions it (which the tour opens at).
     const tm = searchIndex.tours.map((tr) => {
@@ -3216,7 +3216,7 @@ function buildRail() {
       b.style.left = pct(s.p0) + "%";
       b.style.width = pct(s.p1 - s.p0) + "%";
       b.innerHTML = `<b>${esc(bandName(e))}</b>`;
-      b.title = `${nameOf(e)} ${fmtYear(e.start)} – ${fmtYear(e.end)} · ${t("lasted")(eraYears(e))}`;
+      b.title = `${nameOf(e)} ${fmtYear(e.since ?? e.start)} – ${fmtYear(e.until ?? e.end)} · ${t("lasted")(eraYears(e))}`;
       b.addEventListener("click", () => goToEra(e));
       bands.appendChild(b);
       // English names are longer than the Chinese glyphs: fall back to the tiny form, then to nothing (the tooltip has it).
@@ -3239,7 +3239,7 @@ function buildRail() {
         b.style.left = pct(yearToPos(from)) + "%";
         b.style.width = pct(yearToPos(to + 1) - yearToPos(from)) + "%";
         b.innerHTML = (i === 0 && s.from >= a ? `<b>${esc(bandName(e))}</b> ` : "") + `<span>${s.from >= a ? "" : "← "}${fmtYear(s.from)}</span>`;
-        b.title = tx(s, "label") || `${nameOf(e)} ${fmtYear(e.start)} – ${fmtYear(e.end)}`;
+        b.title = tx(s, "label") || `${nameOf(e)} ${fmtYear(e.since ?? e.start)} – ${fmtYear(e.until ?? e.end)}`;
         b.addEventListener("click", () => { stop(); setYear(from); });
         bands.appendChild(b);
       });
