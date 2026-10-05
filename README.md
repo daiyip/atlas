@@ -6,7 +6,7 @@
 </p>
 
 <h1 align="center">Atlas</h1>
-<p align="center"><b>Map with Stories · 有故事的地图</b></p>
+<p align="center"><b>Map with Stories · 地图上的故事</b></p>
 
 **An interactive 3D history map, from 3000 BCE to today.** Pick a year and the map shows that moment's borders,
 cities and events. Take guided tours, read the stories behind events, and switch on layers for armies, roads, faith,
