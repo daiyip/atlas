@@ -65,7 +65,7 @@ const state = {
   closedArmies: new Set(),
   win: null,            // [start, end] years shown on the rail when zoomed in
   lang: "zh",
-  show3d: true, showSat: true, showNeighbours: true, showPlaces: true, showGeo: true,
+  show3d: true, look: "satellite", flat3d: false, showNeighbours: true, showPlaces: true, showGeo: true,
   geo: [],              // labels for rivers, lakes, mountains, plains, seas
   layers: {},           // era id -> promise of { rulers, armies, routes }
   exchange: { routes: [], topics: {}, spread: [] }, // cross-civilisation routes and spreads (data/exchange.json)
@@ -99,7 +99,7 @@ const UI = {
     hint: ["点击朝代跳转 · 按 + 放大时间轴", (era) => `${era} · 每一段是一幅地图`, (era) => `${era} · 数十年视图`],
     play: "播放", pause: "暂停", year: "年份", loadError: "地图数据无法载入。",
     detail: "详略", levels: ["大事", "要事", "细目"], allCats: "全部", cat: { war: "战争", politics: "政治", reform: "改革", rebellion: "起义", culture: "文化", economy: "经济", diplomacy: "外交", science: "科技", society: "社会" },
-    layers: "图层", g_map: "地图", g_pol: "政治", g_war: "军事", g_move: "交通", g_cul: "人文", g_pack: "专题", rulers: "君主", armies: "军队", routes: "路线", forces: "参战双方", ruler: "在位：",
+    layers: "图层", g_map: "地图", g_look: "底图", g_pol: "政治", g_war: "军事", g_move: "交通", g_cul: "人文", g_pack: "专题", rulers: "君主", armies: "军队", routes: "路线", forces: "参战双方", ruler: "在位：",
     reign: (a, b) => `${a}–${b}年在位`, troops: "兵力", unknown: "不详", losses: "伤亡",
     result: { won: "胜", lost: "败", draw: "平" },
     units: { infantry: "步兵", cavalry: "骑兵", chariots: "战车", archers: "弓兵", crossbows: "弩兵", navy: "水军", siege: "攻城", firearms: "火器", artillery: "火炮", elephants: "象兵" },
@@ -124,7 +124,7 @@ const UI = {
     hint: ["Click a dynasty to jump · + to zoom in", (era) => `${era} · each segment is one map`, (era) => `${era} · decades view`],
     play: "Play timeline", pause: "Pause timeline", year: "Year", loadError: "The map data could not be loaded. ",
     detail: "Detail", levels: ["Key", "Major", "All"], allCats: "All", cat: { war: "War", politics: "Politics", reform: "Reform", rebellion: "Uprising", culture: "Culture", economy: "Economy", diplomacy: "Diplomacy", science: "Science", society: "Society" },
-    layers: "Layers", g_map: "Map", g_pol: "Power", g_war: "War", g_move: "Travel", g_cul: "Culture", g_pack: "Pack", rulers: "Rulers", armies: "Armies", routes: "Routes", forces: "Forces", ruler: "Ruler: ",
+    layers: "Layers", g_map: "Map", g_look: "Style", g_pol: "Power", g_war: "War", g_move: "Travel", g_cul: "Culture", g_pack: "Pack", rulers: "Rulers", armies: "Armies", routes: "Routes", forces: "Forces", ruler: "Ruler: ",
     reign: (a, b) => `r. ${a}–${b}`, troops: "Troops", unknown: "unknown", losses: "Losses",
     result: { won: "Won", lost: "Lost", draw: "Draw" },
     units: { infantry: "Infantry", cavalry: "Cavalry", chariots: "Chariots", archers: "Archers", crossbows: "Crossbows", navy: "Navy", siege: "Siege", firearms: "Firearms", artillery: "Artillery", elephants: "Elephants" },
@@ -206,6 +206,7 @@ async function setLang(lang) {
   renderPolityLabels(state.borders[state.snapshot]);
   renderPlaces();
   renderGeo();
+  renderLookChips();
   renderLedger();
   updateCompare(true);
   emit("lang", { lang });
@@ -336,6 +337,10 @@ maplibregl.addProtocol("atlas", async (params) => {
 const SKY = {
   sat: { "sky-color": "#3f86c8", "horizon-color": "#cfe4f2", "fog-color": "#d6e6f0",
          "sky-horizon-blend": 0.5, "horizon-fog-blend": 0.7, "fog-ground-blend": 0.3, "atmosphere-blend": 0.8 },
+  antique: { "sky-color": "#d8cfb8", "horizon-color": "#efe7d2", "fog-color": "#efe7d2",
+             "sky-horizon-blend": 0.6, "horizon-fog-blend": 0.6, "fog-ground-blend": 0.4, "atmosphere-blend": 0.4 },
+  dark: { "sky-color": "#0c1219", "horizon-color": "#26313b", "fog-color": "#1c242b",
+          "sky-horizon-blend": 0.6, "horizon-fog-blend": 0.6, "fog-ground-blend": 0.4, "atmosphere-blend": 0.3 },
   relief: { "sky-color": "#a9c4d0", "horizon-color": "#e3ebe8", "fog-color": "#e3ebe8",
             "sky-horizon-blend": 0.6, "horizon-fog-blend": 0.6, "fog-ground-blend": 0.4, "atmosphere-blend": 0.5 },
 };
@@ -350,23 +355,77 @@ function setTerrainForZoom() {
   if (map.terrain) { map.terrain.exaggeration = e; map.triggerRepaint(); }
   else map.setTerrain({ source: "dem-terrain", exaggeration: e });
 }
-function applyLook() {
-  const sat = state.showSat;
-  document.documentElement.classList.toggle("sat", sat);
-  if (!map?.getLayer("satellite")) return;
-  map.setLayoutProperty("satellite", "visibility", sat ? "visible" : "none");
-  // The drawn relief stays underneath, so it shows where the imagery stops (west of about 70°E).
-  map.setLayoutProperty("relief", "visibility", "visible");
-  map.setPaintProperty("hillshade", "hillshade-exaggeration", sat
-    ? ["interpolate", ["linear"], ["zoom"], 3, 0.3, 6, 0.55, 8, 0.8]
-    : ["interpolate", ["linear"], ["zoom"], 3, 0.45, 6, 0.6, 8, 0.7]);
-  map.setPaintProperty("hillshade", "hillshade-highlight-color", sat
-    ? ["rgba(255,244,214,0.5)", "rgba(255,244,214,0.35)", "rgba(255,244,214,0.2)", "rgba(255,244,214,0.35)"] : ["#fffdf5", "#fffdf5", "#fff8e8", "#fffdf5"]);
-  map.setPaintProperty("hillshade", "hillshade-shadow-color", sat
-    ? ["rgba(8,14,6,0.95)", "rgba(8,14,6,0.8)", "rgba(8,14,6,0.6)", "rgba(8,14,6,0.8)"] : ["#3a3328", "#4a3f33", "#3a3328", "#2e2a24"]);
-  map.setPaintProperty("lakes", "fill-opacity", sat ? 0 : 0.9);
-  map.setPaintProperty("bg", "background-color", sat ? "#1d4f86" : "#9db8bf");
-  map.setSky(SKY[sat ? "sat" : "relief"]);
+// Map styles (底图). Each sets the land colours, the hillshade, the water and the sky; `flat` turns 3D off while it is
+// chosen. ?style=<id> picks one on load (for embedders), and plugins can call atlas.setStyle(id).
+const flatRelief = (sea, land) => ["interpolate", ["linear"], ["elevation"], -1, sea, 0, land, 9000, land];
+const shade = (hi, lo) => [[hi, hi, hi, hi], [lo, lo, lo, lo]];
+const LOOKS = {
+  satellite: { name: "Satellite", name_zh: "卫星", swatch: "linear-gradient(135deg,#2c4a2a,#6b6a45 55%,#1d4f86 56%)", dark: true, sat: true,
+    relief: RELIEF, bg: "#1d4f86", lakes: 0, river: "#4f86a3", sky: "sat",
+    shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.3, 6, 0.55, 8, 0.8],
+    hi: ["rgba(255,244,214,0.5)", "rgba(255,244,214,0.35)", "rgba(255,244,214,0.2)", "rgba(255,244,214,0.35)"],
+    lo: ["rgba(8,14,6,0.95)", "rgba(8,14,6,0.8)", "rgba(8,14,6,0.6)", "rgba(8,14,6,0.8)"] },
+  terrain: { name: "Terrain", name_zh: "地形", swatch: "linear-gradient(135deg,#a9c98e,#dccb94 45%,#97795f 70%,#9db8bf 71%)",
+    relief: RELIEF, bg: "#9db8bf", lakes: 0.9, lakeColor: "#86afc2", river: "#4f86a3", sky: "relief",
+    shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.45, 6, 0.6, 8, 0.7],
+    hi: ["#fffdf5", "#fffdf5", "#fff8e8", "#fffdf5"], lo: ["#3a3328", "#4a3f33", "#3a3328", "#2e2a24"] },
+  antique: { name: "Antique", name_zh: "古风", swatch: "linear-gradient(135deg,#efe4c8,#d9c49b 50%,#a98c63 70%,#b9c4b6 71%)",
+    relief: ["interpolate", ["linear"], ["elevation"], -6000, "#a7ad98", -200, "#bdc1aa", -1, "#cfcfb6",
+      0, "#f1e6c6", 300, "#eadbb2", 1000, "#dfc794", 2500, "#c9a874", 4500, "#ad8f68", 6500, "#e6dcc4"],
+    bg: "#cfcfb6", lakes: 0.9, lakeColor: "#bdc1aa", river: "#7d8a72", sky: "antique",
+    shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.35, 6, 0.5, 8, 0.6],
+    hi: ["#fbf5e4", "#fbf5e4", "#f6eed8", "#fbf5e4"], lo: ["#5b4630", "#6a5238", "#5b4630", "#4c3a28"] },
+  plain: { name: "Simple", name_zh: "简洁", swatch: "linear-gradient(135deg,#f3f0e8 55%,#cfe0ea 56%)", flat: true,
+    relief: flatRelief("#cfe0ea", "#f4f1e9"), bg: "#cfe0ea", lakes: 1, lakeColor: "#cfe0ea", river: "#8fb3c9", sky: "relief", noShade: true },
+  dark: { name: "Dark", name_zh: "暗色", swatch: "linear-gradient(135deg,#2a3230,#3d4440 55%,#0f1a24 56%)", dark: true,
+    relief: ["interpolate", ["linear"], ["elevation"], -6000, "#0a121a", -1, "#122030", 0, "#262d2b", 1500, "#2f3532", 4000, "#3c403c", 6500, "#5a5d5a"],
+    bg: "#122030", lakes: 1, lakeColor: "#16283a", river: "#3f6f8c", sky: "dark",
+    shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.4, 6, 0.55, 8, 0.65],
+    hi: ["rgba(255,255,255,0.18)", "rgba(255,255,255,0.12)", "rgba(255,255,255,0.08)", "rgba(255,255,255,0.12)"],
+    lo: ["rgba(0,0,0,0.9)", "rgba(0,0,0,0.75)", "rgba(0,0,0,0.6)", "rgba(0,0,0,0.75)"] },
+};
+const OLD_LOOK = { sat: "satellite", relief: "terrain" };
+const lookId = (v) => (LOOKS[v] ? v : OLD_LOOK[v] || null);
+function applyLook(m = map) {
+  const L = LOOKS[state.look] || LOOKS.satellite;
+  if (m === map) {
+    document.documentElement.classList.toggle("sat", !!L.dark);
+    document.documentElement.dataset.look = state.look;
+  }
+  if (!m?.getLayer("satellite")) return;
+  m.setLayoutProperty("satellite", "visibility", L.sat ? "visible" : "none");
+  // The relief stays underneath the imagery, so it shows where the imagery stops (west of about 70°E).
+  m.setPaintProperty("relief", "color-relief-color", L.relief);
+  m.setLayoutProperty("hillshade", "visibility", L.noShade ? "none" : "visible");
+  if (!L.noShade) {
+    m.setPaintProperty("hillshade", "hillshade-exaggeration", L.shadeEx);
+    m.setPaintProperty("hillshade", "hillshade-highlight-color", L.hi);
+    m.setPaintProperty("hillshade", "hillshade-shadow-color", L.lo);
+  }
+  m.setPaintProperty("lakes", "fill-opacity", L.lakes);
+  if (L.lakeColor) m.setPaintProperty("lakes", "fill-color", L.lakeColor);
+  for (const id of ["rivers", "rivers-minor", "old-river"]) m.setPaintProperty(id, "line-color", L.river);
+  m.setPaintProperty("bg", "background-color", L.bg);
+  m.setSky(SKY[L.sky]);
+}
+// Picks a map style; a flat style turns 3D off and remembers whether it was on, so leaving it brings 3D back.
+function setLook(id, remember = true) {
+  id = lookId(id);
+  if (!id) return false;
+  const was = LOOKS[state.look], now = LOOKS[id];
+  state.look = id;
+  if (remember) try { localStorage.setItem("atlas-look", id); } catch {}
+  if (now.flat && !was?.flat && state.show3d) { state.flat3d = true; set3d(false); }
+  else if (!now.flat && was?.flat && state.flat3d) { state.flat3d = false; set3d(true); }
+  applyLook();
+  if (cmp.map && cmp.loaded) applyLook(cmp.map);
+  renderLookChips();
+  return true;
+}
+function renderLookChips() {
+  const box = $("looks");
+  if (!box) return;
+  box.innerHTML = Object.entries(LOOKS).map(([id, L]) => `<button type="button" class="chip look" role="radio" data-look="${id}" aria-checked="${id === state.look}" aria-pressed="${id === state.look}"><i style="background:${L.swatch}"></i>${esc(zh() ? L.name_zh : L.name)}</button>`).join("");
 }
 
 function buildStyle() {
@@ -705,6 +764,9 @@ function pluginApi(src) {
     text: (a, b) => (typeof a === "object" ? tx(a, b) : zh() && b ? b : a),
     on(name, fn) { (hooks[name] ||= []).push(fn); return () => (hooks[name] = hooks[name].filter((f) => f !== fn)); },
     setYear: (y) => setYear(y),
+    get style() { return state.look; },
+    styles: Object.keys(LOOKS),
+    setStyle: (id) => setLook(id, false),
     startTour: (id, step = 0) => startTour(id, step),
     openEvent: (id) => state.events.some((e) => e.id === id) && openStory(id),
     // Plugin code is trusted (it comes from an allowed site), so its card HTML goes in as is.
@@ -2483,10 +2545,7 @@ function openCompare(id, kind = cmp.kind || "region") {
   if (!cmp.map) {
     cmp.map = new maplibregl.Map({ container: "map2", style: buildStyle(), center: [10, 45], zoom: 3, minZoom: 1.2, maxZoom: 9, attributionControl: false });
     cmp.map.on("load", () => {
-      const sat = state.showSat;
-      cmp.map.setLayoutProperty("satellite", "visibility", sat ? "visible" : "none");
-      cmp.map.setPaintProperty("bg", "background-color", sat ? "#1d4f86" : "#9db8bf");
-      cmp.map.setPaintProperty("lakes", "fill-opacity", sat ? 0 : 0.9);
+      applyLook(cmp.map);
       if (!state.showGeo) for (const l of ["rivers", "rivers-minor", "lakes"]) cmp.map.setLayoutProperty(l, "visibility", "none");
       cmp.loaded = true;
       compareTerrain();
@@ -3469,6 +3528,16 @@ function stop() {
   $("play").setAttribute("aria-label", t("play"));
 }
 
+function set3d(on, already = false) {
+  if (!already) {
+    state.show3d = on;
+    $("t-3d").setAttribute("aria-pressed", String(on));
+  }
+  state.terrainExag = null;
+  if (!map) return;
+  if (on) setTerrainForZoom(); else map.setTerrain(null);
+  map.easeTo({ pitch: on ? 52 : 0, duration: 800 });
+}
 function toggle(btnId, key, fn) {
   $(btnId).setAttribute("aria-pressed", String(state[key]));
   $(btnId).addEventListener("click", () => {
@@ -3592,7 +3661,9 @@ if ("serviceWorker" in navigator && location.protocol === "https:" && !/[?&]embe
 async function init() {
   try { const l = localStorage.getItem("atlas-lang"); if (langOk(l)) state.lang = l; } catch {}
   try { const f = JSON.parse(localStorage.getItem("atlas-events") || "null"); if (f) { state.detail = f.detail || 2; state.cats = f.cats || []; } } catch {}
-  try { state.showSat = localStorage.getItem("atlas-look") !== "relief"; } catch {}
+  try { state.look = lookId(localStorage.getItem("atlas-look")) || state.look; } catch {}
+  const qs = lookId(new URLSearchParams(location.search).get("style"));
+  if (qs) state.look = qs;
   const q = new URLSearchParams(location.search).get("lang");
   if (langOk(q)) state.lang = q;
   const hl = new URLSearchParams(location.hash.slice(1)).get("l");
@@ -3643,6 +3714,7 @@ async function init() {
   if (!only) state.countries = await loadJSON("data/countries.json").catch(() => null);
   buildScale();
   const cam = loadView();
+  if (LOOKS[state.look].flat && state.show3d) { state.show3d = false; state.flat3d = true; }
   if (only && !["events", "tours"].includes(state.tab)) state.tab = "events";
 
   map = new maplibregl.Map({
@@ -3797,15 +3869,9 @@ async function init() {
   document.addEventListener("click", (e) => { if (!$("lang-pop").hidden && !e.target.closest("#lang-pop")) toggleLangPop(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("lang-pop").hidden) { toggleLangPop(false); $("lang").focus(); } });
   addEventListener("resize", () => toggleLangPop(false));
-  toggle("t-3d", "show3d", () => {
-    state.terrainExag = null;
-    if (state.show3d) setTerrainForZoom(); else map.setTerrain(null);
-    map.easeTo({ pitch: state.show3d ? 52 : 0, duration: 800 });
-  });
-  toggle("t-sat", "showSat", () => {
-    try { localStorage.setItem("atlas-look", state.showSat ? "sat" : "relief"); } catch {}
-    applyLook();
-  });
+  toggle("t-3d", "show3d", () => { state.flat3d = false; set3d(state.show3d, true); });
+  renderLookChips();
+  $("looks").addEventListener("click", (e) => { const b = e.target.closest("[data-look]"); if (b) setLook(b.dataset.look); });
   toggle("t-neighbours", "showNeighbours", () => {
     const v = state.showNeighbours ? "visible" : "none";
     map.setLayoutProperty("neighbour-fill", "visibility", v);
