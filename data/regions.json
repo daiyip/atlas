@@ -2,8 +2,8 @@
  "regions": [
   {
    "id": "china",
-   "name": "China",
-   "name_zh": "中国",
+   "name": "China and Mainland East Asia",
+   "name_zh": "中国与东亚大陆",
    "color": "#c0392b",
    "polygon": [
     [
@@ -567,8 +567,8 @@
   },
   {
    "id": "japan",
-   "name": "Japan",
-   "name_zh": "日本",
+   "name": "Japanese Archipelago",
+   "name_zh": "日本列岛",
    "color": "#d35400",
    "seal": "#ad1457",
    "polygon": [

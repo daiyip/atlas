@@ -9,6 +9,8 @@ rulers and people to it. This script prepares the data for that:
    Chinese name (Jin 晋, Jin 金) is two.
    `lineages` is copied from data/lineages.json: countries that change name on the maps but are one country to a
    reader (Wessex → England → Great Britain → United Kingdom); each lists its names in order.
+   `periods` is copied from data/country-periods.json: a country's own periods (都铎, 斯图亚特), keyed by lineage id. They
+   must tile the country's years; while it is selected the timeline runs on them.
 2. Events with no `states` (or states this script set, `statesBy: "geo"`) get the polity whose land holds the
    event's place in its year, plus polities of that year that the title or summary names. China's events keep the
    states tools/link_events.py gave them.
@@ -113,7 +115,15 @@ def main():
         # A name is "Name", or ["Name", from, to] when only some of its years belong to this country.
         miss = [n for n in (x[0] if isinstance(x, list) else x for x in L["names"]) if n not in spans]
         if miss: print("lineage", L["id"], "names not on any map:", miss)
-    json.dump({"spans": spans, "lineages": lineages}, open(P("data/countries.json"), "w"), ensure_ascii=False, separators=(",", ":"))
+    periods = json.load(open(P("data/country-periods.json"))) if os.path.exists(P("data/country-periods.json")) else {}
+    by_id = {L["id"]: L for L in lineages}
+    for k, ps in periods.items():
+        L = by_id.get(k)
+        if not L: print("periods for unknown country", k); continue
+        end = L["end"] if L["end"] is not None else END
+        bad = ps[0]["start"] != L["start"] or ps[-1]["end"] != end or any(b["start"] != a["end"] + 1 for a, b in zip(ps, ps[1:]))
+        if bad: print("periods of", k, "do not tile", L["start"], end)
+    json.dump({"spans": spans, "lineages": lineages, "periods": periods}, open(P("data/countries.json"), "w"), ensure_ascii=False, separators=(",", ":"))
     print("countries:", len(spans), "names,", sum(len(r) for r in spans.values()), "runs")
 
     def map_at(y):

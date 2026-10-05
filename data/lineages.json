@@ -181,7 +181,7 @@
 {"id": "guo-bc770", "name": "Guo", "name_zh": "虢", "region": "china", "names": [["Guo", -770, -601]], "start": -1046, "end": -655},
 {"id": "han-zhao-266", "name": "Han Zhao", "name_zh": "汉赵", "region": "china", "names": [["Han Zhao", 266, 328]], "start": 304, "end": 329},
 {"id": "huang-bc770", "name": "Huang", "name_zh": "黄", "region": "china", "names": [["Huang", -770, -681]], "start": -1046, "end": -648},
-{"id": "india-1945", "name": "India", "name_zh": "印度", "region": "china", "names": [["India", 1945, 2026]], "start": 1947, "end": null},
+{"id": "india-1945", "name": "India", "name_zh": "印度", "region": "south-asia", "names": [["India", 1945, 2026]], "start": 1947, "end": null},
 {"id": "jin-shatuo-li-907", "name": "Jin (Shatuo Li)", "name_zh": "晋", "region": "china", "names": [["Jin (Shatuo Li)", 907, 922]], "start": 907, "end": 923},
 {"id": "jingnan-907", "name": "Jingnan", "name_zh": "荆南", "region": "china", "names": [["Jingnan", 907, 962]], "start": 924, "end": 963},
 {"id": "ju-bc770", "name": "Ju", "name_zh": "莒", "region": "china", "names": [["Ju", -770, -454]], "start": -1046, "end": -431},

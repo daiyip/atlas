@@ -150,6 +150,8 @@ const cmp = { sync: true, on: false, region: null, map: null, marks: [], key: ""
 const tx = (o, k) => (zh() ? o[k + "_zh"] || o[k] : o[k] || o[k + "_zh"]) || "";
 const titleOf = (o) => (zh() ? o.title_zh || o.title : o.title);
 const nameOf = (o) => (zh() ? o.name_zh || o.name : o.name);
+// A region (a geographic area: 欧洲与地中海, 中国与东亚大陆) by its short name: 欧洲, 中国.
+const regionShort = (r) => (zh() ? r.short_zh || r.name_zh : r.short || r.name);
 const bandName = (e) => (zh() ? e.glyph : e.short || e.name); // the period on the timeline
 
 function fmtYear(y, circa) {
@@ -778,10 +780,13 @@ function detectRegion() {
   return best && best[1] >= 0.45 * hit && best[1] >= 1.5 * (second?.[1] || 0) ? best[0] : "world";
 }
 // Switch the timeline to a region's periods (or the calendar years), keeping the year.
-function setMode(id, quiet) {
-  if (id === state.mode || (id !== "world" && !state.regionById[id])) return false;
+// `force` rebuilds the periods when the region stays but the selected country changes.
+function setMode(id, quiet, force) {
+  if (id !== "world" && !state.regionById[id]) return false;
+  const eras = id === "world" ? state.worldEras : erasOf(id);
+  if (id === state.mode && (!force || eras === state.eras)) return false;
   state.mode = id;
-  state.eras = id === "world" ? state.worldEras : state.regionById[id].eras;
+  state.eras = eras;
   state.scope = null;
   buildScale();
   if (state.zoom) state.win = windowFor(state.zoom, state.year);
@@ -943,7 +948,8 @@ function setEra(era, quiet) {
   $("era-name").textContent = zh() ? era.name_zh : era.name;
   // Each piece wraps whole: other-language name, span of years, length.
   const region = state.regionById[era.region];
-  $("era-zh").innerHTML = (region ? [nameOf(region), zh() ? era.name : era.name_zh, `${fmtYear(era.since ?? era.start)} – ${fmtYear(era.until ?? era.end)}`, t("lasted")(eraYears(era))]
+  const L = era.country && (state.countries?.lineages || []).find((l) => l.id === era.country);
+  $("era-zh").innerHTML = (region ? [L ? nameOf(L) : regionShort(region), zh() ? era.name : era.name_zh, `${fmtYear(era.since ?? era.start)} – ${fmtYear(era.until ?? era.end)}`, t("lasted")(eraYears(era))]
     : [t("worldName"), t("lasted")(eraYears(era))])
     .map((x) => `<span>${esc(x)}</span>`).join(" · ") + entityLine(era);
   $("era-summary").textContent = tx(era, "summary");
@@ -1229,11 +1235,29 @@ function applySelMap() {
   map.setFilter("sel-line", ["in", ["get", "name"], ["literal", names]]);
   for (const p of markers.polityEls) p.el.classList.toggle("dim", on && !now.has(p.name));
 }
+// The periods the timeline runs on. A place has periods at whatever level fits it: Europe has 中世纪 and 文艺复兴,
+// England has 都铎 and 斯图亚特. While a country with its own periods (data/country-periods.json, copied into
+// countries.json `periods`) is selected, its periods replace its region's over its years; before and after them the
+// region's periods go on. Rulers and people for a country period come from the region periods it overlaps.
+function erasOf(id) {
+  const R = state.regionById[id].eras, s = state.sel;
+  const L = s?.id.startsWith("L:") && s.region === id && (state.countries?.lineages || []).find((l) => "L:" + l.id === s.id);
+  const P = L && state.countries.periods?.[L.id];
+  if (!P?.length) return R;
+  if (erasOf.key === s.id + id) return erasOf.list;
+  const a = P[0].start, b = P.at(-1).end, names = Object.keys(lineageWin(L));
+  const clip = (e, lo, hi) => (e.start >= lo && e.end <= hi ? e : { ...e, start: Math.max(e.start, lo), end: Math.min(e.end, hi) });
+  const mine = P.map((p) => ({ ...p, region: id, country: L.id, worldMaps: true, layers: true, focus: names,
+    layerFrom: R.filter((e) => e.layers && e.start <= p.end && e.end >= p.start).map((e) => e.id), snapshots: worldSnaps(p.start, p.end) }));
+  erasOf.key = s.id + id;
+  return (erasOf.list = [...R.filter((e) => e.start < a).map((e) => clip(e, -1e9, a - 1)), ...mine,
+    ...R.filter((e) => e.end > b).map((e) => clip(e, b + 1, 1e9))]);
+}
 const selRegion = () => (state.regionById[state.sel?.region] ? state.sel.region : state.mode);
 function selectCountry(name, opts = {}) {
   state.sel = name ? countryEntity(name, opts.year ?? state.year) : null;
   // The timeline moves to the country's region; letting go hands it back to the map.
-  if (state.ready) setMode(state.sel ? selRegion() : detectRegion());
+  if (state.ready) setMode(state.sel ? selRegion() : detectRegion(), false, true);
   // The rulers tab follows the selection; with none it goes back to the period's main country.
   if (!state.sel) state.rulerPolity = null;
   saveView();
@@ -1319,6 +1343,20 @@ function regionCountries(r) {
 const eraYears = (e) => e.end - e.start + 1 - (e.start < 0 && e.end > 0 ? 1 : 0);
 function loadLayers(era) {
   if (!era.layers) return Promise.resolve({});
+  // A country's own period takes the rulers and people of the region periods it overlaps.
+  if (era.layerFrom) return (state.layers[era.id] ||= Promise.all(era.layerFrom.map((id) => loadLayers(regionEras(era.region).find((e) => e.id === id))))
+    .then((ds) => {
+      const out = { polities: {}, rulers: {}, people: [] }, seen = new Set();
+      for (const d of ds) {
+        Object.assign(out.polities, d.polities);
+        for (const [k, rs] of Object.entries(d.rulers || {})) for (const r of rs) {
+          const key = `${k}|${r.name}|${r.from}`;
+          if (!seen.has(key)) { seen.add(key); (out.rulers[k] ||= []).push(r); }
+        }
+        for (const p of d.people || []) if (!seen.has("p" + p.id)) { seen.add("p" + p.id); out.people.push(p); }
+      }
+      return out;
+    }));
   // Periods of the other world regions share one file per region (the artifact caps its file count).
   if (!state.layers[era.id]) state.layers[era.id] = era.worldMaps
     ? (state.layers["world-" + era.region] ||= loadJSON(`data/layers/world-${era.region}.json`).catch(() => ({}))).then((b) => b[era.id] || {})
