@@ -2178,15 +2178,23 @@ function declutter() {
   // and the territory names push away the landscape, road and route names.
   const taken = markers.armies.map((m) => m.getElement().getBoundingClientRect());
   // A label gives way to labels and icons of more important markers; it may cover a less important icon.
+  // The same name twice close together (an event at 咸阳 beside the city 咸阳, or two events there) shows once.
+  const named = [];
   for (const it of kept) {
     const span = it.labelOnly ? it.el : it.el.querySelector("span");
     const r = span?.getBoundingClientRect();
+    const name = !it.labelOnly && span?.textContent.trim();
+    if (r?.width && name && named.some((n) => n.name === name && Math.hypot(n.x - it.cx, n.y - it.cy) < 140)) {
+      it.el.classList.add("dc-nolabel");
+      if (!it.fixed) taken.push(it.icon);
+      continue;
+    }
     if (r?.width) {
       const blocked = budget <= 0 || taken.some((t) => overlaps(r, t, pad)) ||
         ((it.kind === "geo" || it.kind === "road" || it.kind === "route") && polities.some((t) => overlaps(r, t)));
       // The open event's name always shows.
       if (blocked && it.prio < 100) it.el.classList.add("dc-nolabel");
-      else { taken.push(r); budget--; }
+      else { taken.push(r); budget--; if (name) named.push({ name, x: it.cx, y: it.cy }); }
     }
     if (!it.labelOnly && !it.fixed) taken.push(it.icon);
   }
