@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=114">
+<link rel="stylesheet" href="style.css?v=115">
 </head>
 <body>
 <div id="app">
@@ -40,6 +40,7 @@
       <button type="button" class="chip lang-btn" id="lang" aria-haspopup="true" aria-expanded="false" aria-label="Language / 语言" title="Language / 语言"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h7M5.5 2v1.5M3.5 3.5c.6 2.4 2.2 4.3 4.5 5.3M7.5 3.5c-.5 2.6-2.3 4.8-5 6M8.5 14l2.75-6.5L14 14M9.4 12h3.7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="lang-name"></span><svg class="caret" viewBox="0 0 10 10" aria-hidden="true"><path d="M2.5 4l2.5 2.5L7.5 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></button>
       <button type="button" class="chip search-open" id="search-open" aria-label="Search" title="Search"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       <button type="button" class="chip search-open" id="share-open" data-i18n-title="share" aria-label="Share" title="Share"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 9.5l3-3M7 4.5l1.2-1.2a2.5 2.5 0 013.5 3.5L10.5 8M9 11.5l-1.2 1.2a2.5 2.5 0 01-3.5-3.5L5.5 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      <button type="button" class="chip search-open era-min" id="era-min" aria-expanded="true" aria-label="Minimise" title="Minimise"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </div>
     <div class="region-pop" id="region-pop" role="menu" hidden></div>
     <div class="lang-pop" id="lang-pop" role="menu" aria-label="Language / 语言" hidden></div>
@@ -107,6 +108,7 @@
       </div>
       <span id="ev-count"></span>
       <button class="chip ledger-toggle" id="ledger-toggle" aria-expanded="true">Hide</button>
+      <button type="button" class="chip search-open ledger-min" id="ledger-min" aria-expanded="true" aria-label="Minimise" title="Minimise"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </div>
     <div class="sel-card" id="sel-card" aria-live="polite" hidden></div>
     <div class="ev-filter" id="ev-filter" hidden></div>
@@ -119,9 +121,12 @@
   </aside>
 
   <section class="rail panel" aria-label="Timeline">
+    <div class="play-box">
     <button class="play" id="play" aria-label="Play timeline">
       <svg viewBox="0 0 16 16" id="play-icon"><path d="M4 2l10 6-10 6z"/></svg>
     </button>
+    <button type="button" class="speed" id="speed" data-i18n-title="speed" title="Speed">1×</button>
+    </div>
     <div class="track-view" id="track-view">
       <div class="track">
         <div class="bands" id="bands"></div>
@@ -140,6 +145,6 @@
   </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=114"></script>
+<script src="app.js?v=115"></script>
 </body>
 </html>

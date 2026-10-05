@@ -236,8 +236,8 @@ html:lang(zh-CN) .story-body p, html:lang(zh-CN) .story-lede { font-size: 15px; 
   align-items: center;
   z-index: 3;
 }
+.play-box { grid-row: span 2; position: relative; }
 .play {
-  grid-row: span 2;
   width: 40px; height: 40px;
   border-radius: 50%;
   border: 1px solid var(--rule);
@@ -392,7 +392,8 @@ html:lang(en) .mk-polity.minor small { display: none; }
     left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom));
     padding: 6px 10px 8px; gap: 2px 8px; grid-template-columns: auto 1fr auto;
   }
-  .play { width: 36px; height: 36px; grid-row: 1; }
+  .play { width: 36px; height: 36px; }
+  .play-box { grid-row: 1; }
   .band b { font-size: 11px; }
   .scale { display: none; }
   .zoom { grid-column: 3; grid-row: 1; gap: 2px; }
@@ -1086,3 +1087,27 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .wd-countries.open .extra { display: inline-flex; }
 .wd-more { border: 0; background: none; font-size: 11px; color: var(--jade); cursor: pointer; padding: 2px 4px; }
 .era-zh .era-entity { display: block; margin-top: 3px; font-size: 12px; white-space: normal; }
+
+/* Minimised panels: the era panel keeps its seal, name and year; the side panel its tabs. */
+.ledger-min { display: grid; flex: none; align-self: center; }
+.ledger-head { align-items: center; }
+.ledger.collapsed > :not(.ledger-head) { display: none !important; }
+.ledger.collapsed .ledger-head { border-bottom: 0; }
+.era.min { width: auto; max-width: calc(100% - 32px); padding: 8px 10px; gap: 0 10px; grid-template-columns: auto auto auto auto; grid-template-rows: auto; align-items: center; }
+.era.min > * { grid-row: 1 !important; }
+.era.min > :not(.seal, .era-name, .era-year, .era-corner) { display: none !important; }
+.era.min > .seal { grid-area: auto; grid-row: auto; width: 38px; height: 38px; font-size: 24px; }
+.era.min > .seal.double { font-size: 14px; }
+.era.min > .era-name { grid-area: auto; font-size: 15px; white-space: nowrap; }
+.era.min > .era-year { grid-area: auto; font-size: 18px; }
+.era.min > .era-corner { grid-area: auto; order: 0; margin: 0 0 0 4px; }
+.era.min .era-corner > :not(.era-min) { display: none; }
+/* Playback speed, under the play button. */
+.speed { position: absolute; right: -10px; bottom: -6px; padding: 0 5px; background: var(--panel-solid); border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--muted);
+  font: 600 11px/1.4 var(--font-data); cursor: pointer; font-variant-numeric: tabular-nums; }
+.speed:hover, .speed:focus-visible { color: inherit; border-color: currentColor; }
+@media (max-width: 720px) {
+  .ledger-min { display: none; }
+  .speed { font-size: 10px; padding: 0 4px; }
+  .era.min { max-width: calc(100% - 16px); }
+}

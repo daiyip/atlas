@@ -51,6 +51,8 @@ const state = {
   selected: "an-lushan",
   reading: false,       // story view open in the ledger
   tab: "events",        // ledger tab: "events" or "rulers"
+  speed: 1,             // playback speed (SPEEDS)
+  eraMin: false,        // era panel minimised
   rulerPolity: null,    // country shown in the ruler list
   countries: null,      // data/countries.json: when each polity is on the map, and lineages joining renamed ones
   sel: null,            // the selected country: { id, names: Set, name, name_zh, spans, from, to } (selectCountry)
@@ -86,7 +88,7 @@ const $ = (id) => document.getElementById(id);
 
 const UI = {
   zh: {
-    title: "历代地图", events: "事件", hide: "收起", show: "展开", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
+    title: "历代地图", events: "事件", hide: "收起", show: "展开", minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
     other: "English", map: "地图：", count: (n, era) => `${era} · ${n} 件`, countWin: (n) => `本时段 · ${n} 件`,
     fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" },
     sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", wiki: "维基百科", wikiOther: "English Wikipedia",
@@ -111,7 +113,7 @@ const UI = {
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
   en: {
-    title: "Atlas", events: "Events", hide: "Hide", show: "Show", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
+    title: "Atlas", events: "Events", hide: "Hide", show: "Show", minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
     other: "中文", map: "Map: ", count: (n, era) => `${n} in ${era}`, countWin: (n) => `${n} in view`,
     fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" },
     sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", wiki: "Wikipedia", wikiOther: "中文维基百科",
@@ -174,6 +176,8 @@ function applyLang() {
   // A pack's own note replaces the China borders note.
   if (state.pack?.only) document.querySelector('[data-i18n="note"]').textContent = tx(state.pack.manifest, "note") || t("notePack");
   document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); el.setAttribute("aria-label", el.title); });
+  setMinButton($("era-min"), !!state.eraMin);
+  setMinButton($("ledger-min"), $("ledger").classList.contains("collapsed"));
   $("lang-name").textContent = L.short;
   $("zoom-in").setAttribute("aria-label", t("zoomIn"));
   $("zoom-out").setAttribute("aria-label", t("zoomOut"));
@@ -3398,7 +3402,32 @@ function play() {
     const hit = state.events.filter((e) => shownEvent(e) && e.year > state.year && e.year <= next).pop();
     if (hit) state.selected = hit.id;
     setYear(next).then(() => { if (hit) renderLedger(); });
-  }, state.zoom === 2 ? 450 : 260);
+  }, (state.zoom === 2 ? 450 : 260) / state.speed);
+}
+// Playback speed: the speed chip under the play button steps through these.
+const SPEEDS = [0.5, 1, 2, 4];
+function setSpeed(v, remember) {
+  state.speed = SPEEDS.includes(v) ? v : 1;
+  $("speed").textContent = `${state.speed}×`.replace("0.5", "½");
+  if (remember) try { localStorage.setItem("atlas-speed", String(state.speed)); } catch {}
+  if (state.playing) { stop(); play(); }
+}
+// Minimised panels leave the map to itself: the era panel shrinks to its seal, name and year; the side panel to its
+// tabs. The button turns into a restore button.
+const MIN_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+const MAX_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+function setMinButton(btn, min) {
+  btn.innerHTML = min ? MAX_ICON : MIN_ICON;
+  btn.setAttribute("aria-expanded", String(!min));
+  btn.title = t(min ? "restore" : "minimise");
+  btn.setAttribute("aria-label", btn.title);
+}
+function setEraMin(on, remember) {
+  state.eraMin = on;
+  document.querySelector(".era").classList.toggle("min", on);
+  setMinButton($("era-min"), on);
+  if (on) { toggleRegionPop(false); toggleLangPop(false); }
+  if (remember) try { localStorage.setItem("atlas-era-min", on ? "1" : "0"); } catch {}
 }
 function stop() {
   clearInterval(state.playing);
@@ -3558,6 +3587,12 @@ async function init() {
     maxPitch: 65, minZoom: 1.6, maxZoom: 9.5,
     attributionControl: false,
   });
+  // Full screen takes the whole app (panels included); browsers without the Fullscreen API (iPhone Safari) get none.
+  if (document.fullscreenEnabled) {
+    const fs = new maplibregl.FullscreenControl({ container: $("app") });
+    map.addControl(fs, "bottom-left");
+    fs._fullscreenButton?.setAttribute("title", t("fullscreen"));
+  }
   map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), "bottom-left");
   map.addControl(new maplibregl.AttributionControl({ compact: true,
     customAttribution: "Terrain: Mapzen/AWS Terrain Tiles · Borders: Cliopatria/Seshat (CC BY 4.0), historical-basemaps (GPL-3.0)" + (pack?.attribution ? ` · ${esc(pack.attribution)}` : "") }), "bottom-left");
@@ -3740,6 +3775,7 @@ async function init() {
     $("ledger").classList.toggle("collapsed", c);
     $("ledger-toggle").textContent = c ? t("show") : t("hide");
     $("ledger-toggle").setAttribute("aria-expanded", String(!c));
+    setMinButton($("ledger-min"), c);
   };
   for (const k of TABS) $("tab-" + k).addEventListener("click", () => {
     // The open story survives a look at the other tabs; the events tab clicked again goes back to the list.
@@ -3779,6 +3815,13 @@ async function init() {
     $("search-results").querySelectorAll("[data-i]").forEach((b) => b.classList.toggle("on", +b.dataset.i === searchOn));
     $("search-results").querySelector(".on")?.scrollIntoView({ block: "nearest" });
   });
+  $("ledger-min").addEventListener("click", () => collapseLedger(!$("ledger").classList.contains("collapsed")));
+  $("era-min").addEventListener("click", (e) => { e.stopPropagation(); setEraMin(!state.eraMin, true); });
+  $("speed").addEventListener("click", () => setSpeed(SPEEDS[(SPEEDS.indexOf(state.speed) + 1) % SPEEDS.length], true));
+  let speed = 1;
+  try { speed = +localStorage.getItem("atlas-speed") || 1; } catch {}
+  setSpeed(speed);
+  try { if (localStorage.getItem("atlas-era-min") === "1") setEraMin(true); } catch {}
   $("ledger-toggle").addEventListener("click", () => $("app").classList.contains("tour-reading") ? $("app").classList.remove("tour-reading") : collapseLedger(!$("ledger").classList.contains("collapsed")));
   const phone = matchMedia("(max-width: 720px)");
   if (phone.matches) collapseLedger(true);
