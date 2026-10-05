@@ -2378,12 +2378,12 @@ function toggleRegionPop(open) {
   if (!open) return;
   const y = state.year;
   const row = (id, color, name, sub, full = name) => `<button type="button" role="menuitem" data-r="${esc(id)}" title="${esc(full)}" class="${id === state.mode ? "here" : ""}" style="--rc:${esc(color)}"><i></i><b>${esc(name)}</b><span>${esc(sub)}</span></button>`;
-  pop.innerHTML = regionGroups().map(([g, rs]) => (g ? `<h6>${esc(nameOf(g))}</h6>` : "") + rs.map((r) => {
+  // Compare and 全球 come first: the grouped list runs past one screen.
+  pop.innerHTML = `<button type="button" role="menuitem" class="rp-cmp" id="rp-cmp"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="5.5" height="10" rx="1"/><rect x="9" y="3" width="5.5" height="10" rx="1"/></svg>${esc(t("cmp").one)}</button>`
+    + row("world", "#777", t("allWorld"), fmtYear(y)) + regionGroups().map(([g, rs]) => (g ? `<h6>${esc(nameOf(g))}</h6>` : "") + rs.map((r) => {
     const era = regionEra(r, y);
     return row(r.id, r.color || "#888", regionShort(r), era ? nameOf(era) : "", nameOf(r));
-  }).join("")).join("")
-    + row("world", "#777", t("allWorld"), fmtYear(y))
-    + `<button type="button" role="menuitem" class="rp-cmp" id="rp-cmp"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="5.5" height="10" rx="1"/><rect x="9" y="3" width="5.5" height="10" rx="1"/></svg>${esc(t("cmp").one)}</button>`;
+  }).join("")).join("");
   $("rp-cmp").addEventListener("click", () => { toggleRegionPop(false); openCompare(); });
   pop.querySelectorAll("[data-r]").forEach((b) => b.addEventListener("click", () => {
     toggleRegionPop(false);
