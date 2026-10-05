@@ -325,6 +325,7 @@ async function satTile(z, x, y) {
   c.getContext("2d").drawImage(bmp, (x & 1) * 128, (y & 1) * 128, 128, 128, 0, 0, 256, 256);
   return (await c.convertToBlob({ type: "image/jpeg", quality: 0.9 })).arrayBuffer();
 }
+const demJobs = new Map();
 maplibregl.addProtocol("atlas", async (params) => {
   // A pack's base map tiles (see buildStyle) go through here too, so they load the same way as Earth's.
   const pk = params.url.match(/^atlas:\/\/pk-(dem|img)\/(\d+)\/(\d+)\/(\d+)$/);
@@ -336,10 +337,151 @@ maplibregl.addProtocol("atlas", async (params) => {
   }
   const sat = params.url.startsWith("atlas://sat/");
   const [z, x, y] = params.url.slice(sat ? "atlas://sat/".length : "atlas://".length).split("/").map(Number);
-  const data = await (sat ? satTile(z, x, y) : demTile(z, x, y));
+  // The hillshade and the 3D terrain read the same elevation tiles from two sources; fetch (or enlarge) each tile once.
+  let job = sat ? null : demJobs.get(params.url);
+  if (!job) {
+    job = sat ? satTile(z, x, y) : demTile(z, x, y);
+    if (!sat) {
+      demJobs.set(params.url, job);
+      const url = params.url, drop = () => demJobs.get(url) === job && demJobs.delete(url);
+      job.then((d) => d || drop(), drop);
+      if (demJobs.size > 64) demJobs.delete(demJobs.keys().next().value);
+    }
+  }
+  const data = await job;
   if (!data) throw new Error(`no ${sat ? "imagery" : "elevation"} tile ${z}/${x}/${y}`);
-  return { data };
+  // MapLibre hands the buffer to a worker, which takes it over, so each caller gets its own copy.
+  return { data: sat ? data : data.slice(0) };
 });
+
+// With 3D terrain a marker fades when a hill hides it. MapLibre checks that by reading pixels back from the GPU, one
+// marker at a time, every 100 ms while the map moves; with a few hundred markers those reads stall every frame of a
+// flight (each read waits for the GPU). Here markers keep their look while the map moves, and once it comes to rest
+// all of them are checked from one read of the depth image.
+const markerDepth = { queue: new Set(), timer: 0 };
+{
+  const P = maplibregl.Marker.prototype, own = P._updateOpacity;
+  if (own) P._updateOpacity = function (force = false) {
+    const m = this._map, terrain = m?.terrain;
+    if (!terrain?.depthAtPoint || !terrain.painter || m.transform.isLocationOccluded(this._lngLat)) return own.call(this, force);
+    if (!force && m.isMoving()) return;
+    markerDepth.queue.add(this);
+    markerDepth.timer ||= setTimeout(markerDepthCheck, 0);
+  };
+}
+// Placing a marker on the terrain looks up its height, and MapLibre first works out which elevation tiles cover the
+// view, once per marker and twice per frame. That answer is the same for every marker in a frame, so keep it per view.
+function shareTerrainZoom(terrain) {
+  const T = Object.getPrototypeOf(terrain);
+  if (T.__sharedZoom || !T.getElevationForLngLat || !T.getElevationForLngLatZoom) return;
+  T.__sharedZoom = true;
+  const own = T.getElevationForLngLat;
+  T.getElevationForLngLat = function (lnglat, tr) {
+    const c = tr.center, key = `${tr.zoom} ${c.lng} ${c.lat} ${tr.pitch} ${tr.bearing} ${tr.width} ${tr.height} ${tr.elevation}`;
+    const memo = this.__zoomMemo;
+    if (memo?.key === key && memo.tr === tr && performance.now() - memo.t < 100) return this.getElevationForLngLatZoom(lnglat, memo.zoom);
+    // Ask MapLibre once for this view and note the zoom it settles on.
+    let zoom = null, v;
+    this.getElevationForLngLatZoom = (ll, z) => { zoom = z; return T.getElevationForLngLatZoom.call(this, ll, z); };
+    try { v = own.call(this, lnglat, tr); } finally { delete this.getElevationForLngLatZoom; }
+    this.__zoomMemo = zoom === null ? null : { key, tr, zoom, t: performance.now() };
+    return v;
+  };
+}
+// With 3D terrain MapLibre paints the flat layers into one texture per terrain tile and keeps those textures while
+// nothing changes. It decides that from a fingerprint per source, but also takes one for sources whose layers are all
+// hidden (the flat styles' land, a switched-off overlay), which is then never matched, so every texture was painted
+// again on every frame. This is MapLibre 5.24's preparation step with hidden layers left out. Style changes (showing a
+// layer, a new filter) still clear the textures through MapLibre's own "style" data event.
+const RTT_TYPES = { background: 1, fill: 1, line: 1, raster: 1, hillshade: 1, "color-relief": 1 };
+function keepTerrainTextures(m) {
+  const rt = m.painter?.renderToTexture, RT = rt && Object.getPrototypeOf(rt);
+  if (!RT || RT.__keep || maplibregl.getVersion?.() !== "5.24.0") return;
+  RT.__keep = true;
+  // The texture pool reused an older free texture before making a new one, so with more than one stack of layers
+  // (anything drawn live, like dots, splits the stack) each stack painted over the other's textures every frame.
+  // Grow the pool first; reuse the least recently used texture only once it is full.
+  const P = Object.getPrototypeOf(rt.pool), take = P.getOrCreateFreeObject;
+  P.getOrCreateFreeObject = function () {
+    if (this._objects.length < this._size) {
+      const obj = this._createObject(this._objects.length);
+      this._objects.push(obj);
+      return obj;
+    }
+    return take.call(this);
+  };
+  RT.prepareForRender = function (style, zoom) {
+    this._stacks = [];
+    this._prevType = null;
+    this._rttTiles = [];
+    this._renderableTiles = this.terrain.tileManager.getRenderableTiles();
+    this._renderableLayerIds = style._order.filter((id) => !style._layers[id].isHidden(zoom));
+    this._coordsAscending = {};
+    for (const id in style.tileManagers) {
+      const asc = (this._coordsAscending[id] = {});
+      const tm = style.tileManagers[id], ranges = tm.getSource().terrainTileRanges || null;
+      for (const tileID of tm.getVisibleCoordinates()) {
+        const keys = this.terrain.tileManager.getTerrainCoords(tileID, ranges);
+        for (const key in keys) (asc[key] ||= []).push(keys[key]);
+      }
+    }
+    this._rttFingerprints = {};
+    for (const id of this._renderableLayerIds) {
+      const source = style._layers[id].source;
+      if (!RTT_TYPES[style._layers[id].type] || this._rttFingerprints[source]) continue;
+      const fp = (this._rttFingerprints[source] = {});
+      const revision = style.tileManagers[source]?.getState().revision ?? 0;
+      for (const key in this._coordsAscending[source]) fp[key] = `${this._coordsAscending[source][key].map((c) => c.key).sort().join()}#${revision}`;
+    }
+    for (const tile of this._renderableTiles) {
+      for (const source in this._rttFingerprints) {
+        const fp = this._rttFingerprints[source][tile.tileID.key];
+        if (fp && fp !== tile.rttFingerprint[source]) tile.rtt = [];
+      }
+    }
+  };
+}
+function markerDepthCheck() {
+  markerDepth.timer = 0;
+  const list = [...markerDepth.queue].filter((mk) => mk._map?.terrain);
+  markerDepth.queue.clear();
+  if (!list.length) return;
+  const m = list[0]._map, terrain = m.terrain, tr = m.transform, painter = terrain.painter, ctx = painter.context, gl = ctx.gl;
+  const W = Math.floor(painter.width / devicePixelRatio), H = Math.floor(painter.height / devicePixelRatio);
+  // Each marker is looked at where it stands and, if that is hidden, at its middle.
+  const pts = list.map((mk) => [mk._pos, new maplibregl.Point(mk._pos.x, mk._pos.y - mk._offset.y)]);
+  let x0 = W, y0 = H, x1 = -1, y1 = -1;
+  for (const p of pts.flat()) {
+    const x = Math.floor(p.x), y = Math.floor(p.y);
+    if (x < 0 || y < 0 || x >= W || y >= H) continue;
+    x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y);
+  }
+  const w = x1 - x0 + 1, h = y1 - y0 + 1, buf = new Uint8Array(Math.max(0, w * h * 4));
+  if (w > 0) {
+    ctx.bindFramebuffer.set(terrain.getFramebuffer("depth").framebuffer);
+    gl.readPixels(x0, H - y1 - 1, w, h, gl.RGBA, gl.UNSIGNED_BYTE, buf);
+    ctx.bindFramebuffer.set(null);
+  }
+  // Depth as MapLibre encodes it (terrain_depth.fragment.glsl); off screen counts as hidden.
+  const depthAt = (p) => {
+    const x = Math.floor(p.x), y = Math.floor(p.y);
+    if (x < x0 || x > x1 || y < y0 || y > y1) return 0;
+    const k = ((y1 - y) * w + (x - x0)) * 4;
+    return (buf[k] / 16777216 + buf[k + 1] / 65536 + buf[k + 2] / 256 + buf[k + 3]) / 256;
+  };
+  const near = 0.006;
+  list.forEach((mk, i) => {
+    const elev = terrain.getElevationForLngLat(mk._lngLat, tr);
+    let hidden = tr.lngLatToCameraDepth(mk._lngLat, elev) - depthAt(pts[i][0]) >= near;
+    if (hidden) {
+      const up = (Math.sin((m.getPitch() * Math.PI) / 180) * -mk._offset.y) / tr.pixelsPerMeter;
+      hidden = tr.lngLatToCameraDepth(mk._lngLat, elev + up) - depthAt(pts[i][1]) > near;
+      if (hidden && mk._popup?.isOpen()) mk._popup.remove();
+    }
+    mk._element.style.opacity = hidden ? mk._opacityWhenCovered : mk._opacity;
+    mk._element.classList.toggle("maplibregl-marker-covered", hidden);
+  });
+}
 
 // Two looks: satellite colours with light shading, or the drawn relief map (hypsometric tint, stronger shading).
 const SKY = {
@@ -364,6 +506,7 @@ function setTerrainForZoom() {
   // Calling setTerrain again would rebuild the terrain and stall tile loading; adjust the live terrain instead.
   if (map.terrain) { map.terrain.exaggeration = e; map.triggerRepaint(); }
   else map.setTerrain({ source: "dem-terrain", exaggeration: e });
+  if (map.terrain) { shareTerrainZoom(map.terrain); keepTerrainTextures(map); }
 }
 // Map styles (底图). Each sets the land colours, the hillshade, the water and the sky; `flat` turns 3D off while it is
 // chosen. ?style=<id> picks one on load (for embedders), and plugins can call atlas.setStyle(id).
@@ -423,7 +566,9 @@ function applyLook(m = map) {
   }
   if (!m?.getLayer("satellite")) return;
   m.setLayoutProperty("satellite", "visibility", L.sat ? "visible" : "none");
-  // The relief stays underneath the imagery, so it shows where the imagery stops (west of about 70°E).
+  // Earth's imagery covers the whole world, so under it the relief would only cost drawing time (a third of each
+  // frame in 3D); a pack's own imagery may stop short, so the relief stays under that.
+  m.setLayoutProperty("relief", "visibility", L.sat && !state.basemap ? "none" : "visible");
   m.setPaintProperty("relief", "color-relief-color", L.relief);
   m.setLayoutProperty("hillshade", "visibility", L.noShade ? "none" : "visible");
   if (!L.noShade) {
@@ -3371,18 +3516,29 @@ async function tourStep(i) {
   state.selected = s.event || null;
   state.reading = false;
   if (state.zoom && !inWindow(s.year)) { state.scope = null; state.win = windowFor(state.zoom, s.year); refreshTimeline(); }
-  if (s.at) map.flyTo({ center: s.at, zoom: s.zoom ?? 4.8, pitch: state.show3d ? s.pitch ?? 48 : 0, bearing: s.bearing ?? -8,
-    padding: tourPadding(), duration: 2600, essential: true });
   emit("tour-step", { id: tour.id, index: i, step: s, steps: tr.steps, path: !!tr.path });
-  await setYear(s.year);
+  // Redrawing the map and lists for the new year takes a moment; doing it in the flight's first frames made the camera
+  // stall and then jump. So the year, battle cards and list change first and the flight starts after, unless the year's data is still
+  // loading, in which case the flight leaves without waiting for it.
+  const year = setYear(s.year).then(() => {
+    if (state.tour !== tour || tour.i !== i) return;
+    tourHighlight(s);
+    renderArmies();
+    renderLedger();
+  });
+  if (s.at) {
+    const padding = tourPadding();
+    await Promise.race([year, new Promise((r) => setTimeout(r, 400))]);
+    if (state.tour !== tour || tour.i !== i) return;
+    map.flyTo({ center: s.at, zoom: s.zoom ?? 4.8, pitch: state.show3d ? s.pitch ?? 48 : 0, bearing: s.bearing ?? -8,
+      padding, duration: 2600, essential: true });
+  }
+  await year;
   // A step with `fit` frames the selected country as the map draws it that year (a country's story opens and closes so).
   if (s.fit && state.tour === tour && tour.i === i) {
     const b = [...selNames()].map(countryBounds).find(Boolean);
     if (b) map.fitBounds(b, { padding: tourPadding(), maxZoom: 6, pitch: state.show3d ? 30 : 0, bearing: 0, duration: 2200 });
   }
-  if (state.tour === tour && tour.i === i) tourHighlight(s);
-  renderArmies();
-  renderLedger();
   saveView();
   if (tour.auto) map.once("moveend", () => { if (state.tour === tour && tour.auto) tour.timer = setTimeout(() => tourNext(), 3000 + tx(s, "text").length * (zh() ? 110 : 45)); });
 }
@@ -3554,7 +3710,7 @@ function addTourLayers() {
   const line = (kind) => ["==", ["get", "kind"], kind];
   map.addLayer({ id: "tour-past", type: "line", source: "tour", filter: line("past"),
     layout: { "line-cap": "round", "line-join": "round" },
-    paint: { "line-color": "#b93a26", "line-width": 3, "line-dasharray": [0, 2], "line-opacity": 0.75 } });
+    paint: { "line-color": "#b93a26", "line-width": 3, "line-dasharray": [0, 2], "line-opacity": 0.75 } }, map.getLayer("spread-dot") ? "spread-dot" : undefined);
   map.addLayer({ id: "tour-stops", type: "circle", source: "tour", filter: line("stop"),
     paint: { "circle-radius": ["case", ["==", ["get", "now"], 1], 8, 4.5], "circle-color": ["case", ["==", ["get", "now"], 1], "#b93a26", "#fff6f2"],
       "circle-stroke-color": ["case", ["==", ["get", "now"], 1], "#fff6f2", "#b93a26"], "circle-stroke-width": ["case", ["==", ["get", "now"], 1], 2.5, 2] } });
