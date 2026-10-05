@@ -909,6 +909,7 @@ async function setYear(year, opts = {}) {
   if (!opts.fromSlider) $("slider").value = yearToPos(state.year);
   revealYear(true);
   saveView();
+  refreshRegionPop();
   const snap = snapshotFor(era, state.year);
   const label = snap.world ? t("worldMap")(fmtYear(worldAt(state.year)?.from ?? snap.from)) : tx(snap, "label");
   $("era-snap").textContent = label ? t("map") + label : "";
@@ -2385,21 +2386,45 @@ function toggleRegionPop(open) {
     b.setAttribute("aria-expanded", "true");
     const r = state.regionById[b.dataset.x], d = document.createElement("div");
     d.className = "rp-detail";
+    d.dataset.region = r.id;
     d.style.setProperty("--rc", r.color || "#888");
-    d.innerHTML = regionDetail(r, y);
     b.parentElement.after(d);
-    fillRegionRulers(d.querySelector(".wd-rulers"), r, y);
-    d.querySelectorAll("[data-country]").forEach((c) => c.addEventListener("click", () => {
-      toggleRegionPop(false);
-      state.sel?.names.has(c.dataset.country) ? selectCountry(null) : selectCountry(c.dataset.country, { fly: true });
-    }));
-    d.querySelector(".wd-more")?.addEventListener("click", (e) => {
-      const ul = e.target.closest(".wd-countries"), on = ul.classList.toggle("open");
-      e.target.textContent = on ? t("sel").less : t("sel").more(+e.target.dataset.n);
-    });
-    d.querySelectorAll("[data-ev]").forEach((c) => c.addEventListener("click", () => { toggleRegionPop(false); openStory(c.dataset.ev); }));
+    fillRegionDetail(d, r);
     d.scrollIntoView({ block: "nearest" });
   }));
+}
+// An open region's box in the menu for the current year.
+function fillRegionDetail(d, r) {
+  const y = state.year;
+  d.innerHTML = regionDetail(r, y);
+  fillRegionRulers(d.querySelector(".wd-rulers"), r, y);
+  d.querySelectorAll("[data-country]").forEach((c) => c.addEventListener("click", () => {
+    toggleRegionPop(false);
+    state.sel?.names.has(c.dataset.country) ? selectCountry(null) : selectCountry(c.dataset.country, { fly: true });
+  }));
+  d.querySelector(".wd-more")?.addEventListener("click", (e) => {
+    const ul = e.target.closest(".wd-countries"), on = ul.classList.toggle("open");
+    e.target.textContent = on ? t("sel").less : t("sel").more(+e.target.dataset.n);
+  });
+  d.querySelectorAll("[data-ev]").forEach((c) => c.addEventListener("click", () => { toggleRegionPop(false); openStory(c.dataset.ev); }));
+}
+// While the menu is open the timeline can move under it: each region's period, the year and the open box follow.
+function refreshRegionPop() {
+  const pop = $("region-pop");
+  if (pop.hidden) return;
+  const y = state.year;
+  const w = pop.querySelector('.rp-world span');
+  if (w) w.textContent = fmtYear(y);
+  pop.querySelectorAll(".rp-reg [data-r]").forEach((b) => {
+    const era = regionEra(state.regionById[b.dataset.r], y);
+    b.querySelector("span").textContent = era ? nameOf(era) : "";
+  });
+  // The box is rebuilt once the year rests, not on every step of a drag.
+  clearTimeout(refreshRegionPop.timer);
+  refreshRegionPop.timer = setTimeout(() => {
+    const d = pop.querySelector(".rp-detail");
+    if (d && !pop.hidden) fillRegionDetail(d, state.regionById[d.dataset.region]);
+  }, 200);
 }
 
 function setLean(on, remember) {
@@ -3725,7 +3750,8 @@ async function init() {
     renderLedger();
   });
   $("region-btn").addEventListener("click", (e) => { e.stopPropagation(); toggleRegionPop(); });
-  document.addEventListener("click", (e) => { if (!$("region-pop").hidden && !e.target.closest("#region-pop")) toggleRegionPop(false); });
+  // The menu stays open while the timeline is used, so its periods can be watched changing.
+  document.addEventListener("click", (e) => { if (!$("region-pop").hidden && !e.target.closest("#region-pop, .rail")) toggleRegionPop(false); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("region-pop").hidden) toggleRegionPop(false); });
   $("search-open").addEventListener("click", openSearch);
   $("share-open").addEventListener("click", shareView);
