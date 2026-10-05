@@ -422,10 +422,30 @@ function setLook(id, remember = true) {
   renderLookChips();
   return true;
 }
+// The style button in the 地图 row shows the current style; its menu lists them all.
+const lookSwatch = (L) => `<i style="background:${L.swatch}"></i>`;
 function renderLookChips() {
-  const box = $("looks");
-  if (!box) return;
-  box.innerHTML = Object.entries(LOOKS).map(([id, L]) => `<button type="button" class="chip look" role="radio" data-look="${id}" aria-checked="${id === state.look}" aria-pressed="${id === state.look}"><i style="background:${L.swatch}"></i>${esc(zh() ? L.name_zh : L.name)}</button>`).join("");
+  const btn = $("look-btn"), L = LOOKS[state.look];
+  if (!btn) return;
+  btn.innerHTML = `${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>`;
+  btn.title = t("g_look");
+  if (!$("look-pop").hidden) toggleLookPop(true);
+}
+function toggleLookPop(open) {
+  const pop = $("look-pop"), btn = $("look-btn");
+  open ??= pop.hidden;
+  pop.hidden = !open;
+  btn.setAttribute("aria-expanded", open);
+  if (!open) return;
+  pop.innerHTML = Object.entries(LOOKS).map(([id, L]) => `<button type="button" role="menuitemradio" aria-checked="${id === state.look}" data-look="${id}"><span>${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
+  // Fixed to the window (the layers panel clips on phones); opens upward when there is no room below.
+  if (pop.parentNode !== document.body) document.body.appendChild(pop);
+  const r = btn.getBoundingClientRect(), h = pop.offsetHeight;
+  pop.style.position = "fixed";
+  pop.style.top = `${r.bottom + 6 + h > innerHeight - 8 ? Math.max(8, r.top - 6 - h) : r.bottom + 6}px`;
+  pop.style.left = `${Math.min(r.left, innerWidth - pop.offsetWidth - 8)}px`;
+  pop.style.right = "auto";
+  pop.querySelector('[aria-checked="true"]')?.focus();
 }
 
 function buildStyle() {
@@ -3871,7 +3891,11 @@ async function init() {
   addEventListener("resize", () => toggleLangPop(false));
   toggle("t-3d", "show3d", () => { state.flat3d = false; set3d(state.show3d, true); });
   renderLookChips();
-  $("looks").addEventListener("click", (e) => { const b = e.target.closest("[data-look]"); if (b) setLook(b.dataset.look); });
+  $("look-btn").addEventListener("click", (e) => { e.stopPropagation(); toggleLookPop(); });
+  $("look-pop").addEventListener("click", (e) => { const b = e.target.closest("[data-look]"); toggleLookPop(false); if (b) setLook(b.dataset.look); });
+  document.addEventListener("click", (e) => { if (!$("look-pop").hidden && !e.target.closest("#look-pop")) toggleLookPop(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("look-pop").hidden) { toggleLookPop(false); $("look-btn").focus(); } });
+  addEventListener("resize", () => toggleLookPop(false));
   toggle("t-neighbours", "showNeighbours", () => {
     const v = state.showNeighbours ? "visible" : "none";
     map.setLayoutProperty("neighbour-fill", "visibility", v);

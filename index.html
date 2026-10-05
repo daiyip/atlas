@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=121">
+<link rel="stylesheet" href="style.css?v=122">
 </head>
 <body>
 <div id="app">
@@ -43,13 +43,14 @@
       <button type="button" class="chip search-open era-min" id="era-min" aria-expanded="true" aria-label="Minimise" title="Minimise"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </div>
     <div class="region-pop" id="region-pop" role="menu" hidden></div>
+    <div class="lang-pop look-pop" id="look-pop" role="menu" hidden></div>
     <div class="lang-pop" id="lang-pop" role="menu" aria-label="Language / 语言" hidden></div>
     <div class="share-box" id="share-box" hidden><span></span><input type="text" readonly aria-label="Link"></div>
     <div class="era-layers" role="group" aria-labelledby="layers-label">
       <span id="layers-label" class="sr-only" data-i18n="layers">Layers</span>
       <div class="auto-row"><button type="button" class="switch" id="t-auto" aria-pressed="true"><i aria-hidden="true"></i><span data-i18n="autoLayers">Auto layers</span></button><small data-i18n="autoHint"></small></div>
-      <div class="lg"><span data-i18n="g_look">Style</span><div class="looks" id="looks" role="radiogroup" aria-label="Map style"></div></div>
       <div class="lg"><span data-i18n="g_map">Map</span>
+        <button type="button" class="chip look" id="look-btn" aria-haspopup="menu" aria-expanded="false"></button>
         <button class="chip" id="t-3d" aria-pressed="true" data-i18n="t3d">3D terrain</button>
         <button class="chip" id="t-geo" aria-pressed="true" data-i18n="geo">Landscape</button>
       </div>
@@ -148,6 +149,6 @@
   </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=121"></script>
+<script src="app.js?v=122"></script>
 </body>
 </html>
