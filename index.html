@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=115">
+<link rel="stylesheet" href="style.css?v=116">
 </head>
 <body>
 <div id="app">
@@ -125,7 +125,8 @@
     <button class="play" id="play" aria-label="Play timeline">
       <svg viewBox="0 0 16 16" id="play-icon"><path d="M4 2l10 6-10 6z"/></svg>
     </button>
-    <button type="button" class="speed" id="speed" data-i18n-title="speed" title="Speed">1×</button>
+    <button type="button" class="speed" id="speed" data-i18n-title="speed" title="Speed" aria-haspopup="true" aria-expanded="false">1×</button>
+    <div class="speed-pop" id="speed-pop" role="menu" hidden></div>
     </div>
     <div class="track-view" id="track-view">
       <div class="track">
@@ -145,6 +146,6 @@
   </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=115"></script>
+<script src="app.js?v=116"></script>
 </body>
 </html>

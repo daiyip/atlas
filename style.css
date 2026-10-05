@@ -1111,3 +1111,11 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
   .speed { font-size: 10px; padding: 0 4px; }
   .era.min { max-width: calc(100% - 16px); }
 }
+.speed-pop { position: absolute; left: -4px; bottom: calc(100% + 10px); z-index: 30; display: flex; flex-direction: column; gap: 1px; min-width: 76px; padding: 6px;
+  background: var(--panel-solid); border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); }
+.speed-pop[hidden] { display: none; }
+.speed-pop b { padding: 2px 6px 4px; font-size: 11px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.speed-pop button { padding: 5px 8px; border: 0; border-radius: 6px; background: none; color: inherit; text-align: left; cursor: pointer;
+  font: 500 13px/1.2 var(--font-data); font-variant-numeric: tabular-nums; }
+.speed-pop button:hover, .speed-pop button:focus-visible { background: color-mix(in srgb, currentColor 8%, transparent); }
+.speed-pop button[aria-checked="true"] { background: color-mix(in srgb, var(--jade) 16%, transparent); color: var(--jade); font-weight: 700; }

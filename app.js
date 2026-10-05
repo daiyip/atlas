@@ -3392,23 +3392,26 @@ function play() {
   state.reading = false;
   $("play-icon").innerHTML = '<path d="M3 2h4v12H3zM9 2h4v12H9z"/>';
   $("play").setAttribute("aria-label", t("pause"));
+  const base = state.zoom === 2 ? 450 : 260, tick = Math.max(120, base / state.speed);
   state.playing = setInterval(() => {
     if (state.year >= state.range.end) return stop();
     const era = state.era;
     const len = state.zoom === 2 ? state.win[1] - state.win[0] + 1 : era.end - era.start + 1;
-    const step = Math.max(1, Math.round(len / 50));
+    // Fast speeds take bigger steps rather than ticking faster than the map can redraw.
+    const step = Math.max(1, Math.round((len / 50) * Math.max(1, (tick * state.speed) / base)));
     let next = Math.min(state.year + step, state.range.end);
     if (next > era.end && era.end >= state.year) next = era.end + 1; // land on the next era's first year
     const hit = state.events.filter((e) => shownEvent(e) && e.year > state.year && e.year <= next).pop();
     if (hit) state.selected = hit.id;
     setYear(next).then(() => { if (hit) renderLedger(); });
-  }, (state.zoom === 2 ? 450 : 260) / state.speed);
+  }, tick);
 }
-// Playback speed: the speed chip under the play button steps through these.
-const SPEEDS = [0.5, 1, 2, 4];
+// Playback speed: the badge on the play button opens a menu of these.
+const SPEEDS = [0.125, 0.25, 0.5, 1, 2, 4, 8];
+const speedText = (v) => ({ 0.125: "⅛", 0.25: "¼", 0.5: "½" }[v] || String(v)) + "×";
 function setSpeed(v, remember) {
   state.speed = SPEEDS.includes(v) ? v : 1;
-  $("speed").textContent = `${state.speed}×`.replace("0.5", "½");
+  $("speed").textContent = speedText(state.speed);
   if (remember) try { localStorage.setItem("atlas-speed", String(state.speed)); } catch {}
   if (state.playing) { stop(); play(); }
 }
@@ -3421,6 +3424,16 @@ function setMinButton(btn, min) {
   btn.setAttribute("aria-expanded", String(!min));
   btn.title = t(min ? "restore" : "minimise");
   btn.setAttribute("aria-label", btn.title);
+}
+function toggleSpeedPop(open) {
+  const pop = $("speed-pop");
+  open ??= pop.hidden;
+  pop.hidden = !open;
+  $("speed").setAttribute("aria-expanded", String(open));
+  if (!open) return;
+  pop.innerHTML = `<b>${esc(t("speed"))}</b>` + [...SPEEDS].reverse().map((v) =>
+    `<button type="button" role="menuitemradio" data-speed="${v}" aria-checked="${v === state.speed}">${speedText(v)}</button>`).join("");
+  pop.querySelector('[aria-checked="true"]')?.focus();
 }
 function setEraMin(on, remember) {
   state.eraMin = on;
@@ -3817,7 +3830,14 @@ async function init() {
   });
   $("ledger-min").addEventListener("click", () => collapseLedger(!$("ledger").classList.contains("collapsed")));
   $("era-min").addEventListener("click", (e) => { e.stopPropagation(); setEraMin(!state.eraMin, true); });
-  $("speed").addEventListener("click", () => setSpeed(SPEEDS[(SPEEDS.indexOf(state.speed) + 1) % SPEEDS.length], true));
+  $("speed").addEventListener("click", (e) => { e.stopPropagation(); toggleSpeedPop(); });
+  $("speed-pop").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-speed]");
+    if (!b) return;
+    setSpeed(+b.dataset.speed, true);
+    toggleSpeedPop(false);
+  });
+  document.addEventListener("click", (e) => { if (!$("speed-pop").hidden && !e.target.closest("#speed-pop")) toggleSpeedPop(false); });
   let speed = 1;
   try { speed = +localStorage.getItem("atlas-speed") || 1; } catch {}
   setSpeed(speed);
