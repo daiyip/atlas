@@ -491,13 +491,6 @@ html:lang(en) .mk-polity .ruler { font-family: var(--font-body); font-weight: 60
 .mk-route.k-spread { max-width: 160px; font-size: 10px; }
 
 /* Same year in every region */
-.wd-list { list-style: none; margin: 0; padding: 0 0 8px; }
-.wd-row { padding: 8px 16px 8px 13px; border-left: 3px solid var(--rc); border-bottom: 1px solid var(--rule); }
-.wd-row.here { background: rgba(192,57,43,.06); }
-.wd-head { display: flex; align-items: baseline; gap: 8px; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; font: inherit; color: inherit; }
-.wd-head b { font: 600 14px/1.3 var(--font-display); }
-.wd-head span { font-size: 12px; color: var(--muted); }
-.wd-head:hover b { color: var(--cinnabar); }
 .wd-rulers { margin: 2px 0 0; font-size: 11px; color: var(--muted); }
 .wd-rulers:empty { display: none; }
 .wd-ev { list-style: none; margin: 4px 0 0; padding: 0; }
@@ -913,15 +906,15 @@ a.chip[hidden] { display: none; }
   background: var(--panel-solid); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 .region-pop[hidden] { display: none; }
-.region-pop button {
+.region-pop :is([data-r], .rp-pill, .rp-x) {
   display: grid; grid-template-columns: 8px minmax(0, 1fr); column-gap: 6px; align-items: center; text-align: left; min-width: 0;
   padding: 4px 6px; border: 0; border-radius: 7px; background: none; color: inherit; font: inherit; cursor: pointer;
 }
-.region-pop button:hover, .region-pop button:focus-visible { background: color-mix(in srgb, currentColor 7%, transparent); }
-.region-pop button.here { background: color-mix(in srgb, var(--rc) 20%, transparent); }
-.region-pop i { width: 8px; height: 8px; border-radius: 50%; background: var(--rc); grid-row: span 2; }
-.region-pop b { font-size: 13px; font-weight: 600; line-height: 1.2; }
-.region-pop span { grid-column: 2; font-size: 11px; color: var(--muted); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.region-pop :is([data-r], .rp-x):hover, .region-pop :is([data-r], .rp-x):focus-visible { background: color-mix(in srgb, currentColor 7%, transparent); }
+.region-pop [data-r].here { background: color-mix(in srgb, var(--rc) 20%, transparent); }
+.region-pop [data-r] i { width: 8px; height: 8px; border-radius: 50%; background: var(--rc); grid-row: span 2; }
+.region-pop [data-r] b { font-size: 13px; font-weight: 600; line-height: 1.2; }
+.region-pop [data-r] span { grid-column: 2; font-size: 11px; color: var(--muted); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* 全球 and compare: two pills on one line. */
 .rp-top { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 2px 2px 8px; margin-bottom: 2px; border-bottom: 1px solid var(--rule); }
 .region-pop .rp-pill { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; white-space: nowrap; }
@@ -935,7 +928,19 @@ a.chip[hidden] { display: none; }
 .rp-grp + .rp-grp { border-top: 1px solid color-mix(in srgb, var(--rule) 60%, transparent); }
 .region-pop h6 { margin: 0; padding: 7px 2px 0 6px; font-size: 11px; font-weight: 600; line-height: 1.3; letter-spacing: 0.04em; color: var(--muted); }
 html[lang="en"] .rp-grp { grid-template-columns: 5.4em minmax(0, 1fr); }
-.rp-items { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 2px; }
+.rp-items { display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: row dense; gap: 1px 2px; }
+/* A region: the row (go there) and its ▸ (open this year's rulers, events and countries underneath). */
+.rp-reg { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; min-width: 0; }
+.region-pop .rp-x { display: grid; place-items: center; width: 22px; height: 30px; padding: 0; color: var(--muted); }
+.rp-x svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.15s; }
+.rp-x[aria-expanded="true"] { color: inherit; }
+.rp-x[aria-expanded="true"] svg { transform: rotate(90deg); }
+.rp-detail { grid-column: 1 / -1; margin: 2px 4px 6px; padding: 6px 10px 8px; border-left: 3px solid var(--rc); border-radius: 0 8px 8px 0; background: color-mix(in srgb, var(--rc) 8%, transparent); }
+.rp-detail .wd-ev span { min-width: 52px; }
+.rp-detail .wd-rulers { margin: 0; }
+.rp-detail .wd-countries:first-of-type { margin-top: 4px; }
+.rp-foot { margin: 6px 6px 0; font-size: 11px; line-height: 1.4; color: var(--muted); }
+.region-pop .ws-on { margin: 6px 6px 0; }
 @media (max-width: 720px) {
   .region-btn { padding-inline: 6px; height: 30px; }
   .region-btn span { max-width: 4.5em; font-size: 12px; }
@@ -1081,5 +1086,3 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .wd-countries.open .extra { display: inline-flex; }
 .wd-more { border: 0; background: none; font-size: 11px; color: var(--jade); cursor: pointer; padding: 2px 4px; }
 .era-zh .era-entity { display: block; margin-top: 3px; font-size: 12px; white-space: normal; }
-/* Region groups (东亚, 欧洲…) in the 世界 tab. */
-.wd-group { padding: 12px 16px 4px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--rule); }
