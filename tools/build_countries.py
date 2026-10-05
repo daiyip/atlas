@@ -110,7 +110,8 @@ def main():
                 runs.append([a, b, p.get("name_zh") or "", region_of(p.get("label"))])
     lineages = json.load(open(P("data/lineages.json"))) if os.path.exists(P("data/lineages.json")) else []
     for L in lineages:
-        miss = [n for n in L["names"] if n not in spans]
+        # A name is "Name", or ["Name", from, to] when only some of its years belong to this country.
+        miss = [n for n in (x[0] if isinstance(x, list) else x for x in L["names"]) if n not in spans]
         if miss: print("lineage", L["id"], "names not on any map:", miss)
     json.dump({"spans": spans, "lineages": lineages}, open(P("data/countries.json"), "w"), ensure_ascii=False, separators=(",", ":"))
     print("countries:", len(spans), "names,", sum(len(r) for r in spans.values()), "runs")

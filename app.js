@@ -1148,52 +1148,64 @@ function renderPolityLabels(gj) {
 // and events, people, rulers and cities narrow to it. data/countries.json (tools/build_countries.py) says when each
 // name is on the map; the same name centuries apart is another country, and `lineages` join a country's names
 // (Wessex → England → Great Britain). Events and people carry `states`, the polities they belong to.
+// A lineage's names may carry their own years, ["China", 1945, 1948]; the rest take the lineage's from/to.
+function lineageWin(L) {
+  if (!L.win) {
+    L.win = {};
+    for (const x of L.names) { const [n, a, b] = Array.isArray(x) ? x : [x]; L.win[n] = [a ?? L.from ?? -1e9, b ?? L.to ?? 1e9]; }
+  }
+  return L.win;
+}
+const lineageAt = (name, year) => (state.countries?.lineages || []).find((l) => { const w = lineageWin(l)[name]; return w && year >= w[0] && year <= w[1]; });
 function countryEntity(name, year) {
   const C = state.countries || { spans: {}, lineages: [] };
   const runs = C.spans[name] || [];
   const near = (r) => (year < r[0] ? r[0] - year : year > r[1] ? year - r[1] : 0);
   const run = [...runs].sort((a, b) => near(a) - near(b))[0];
-  const L = C.lineages.find((l) => l.names.includes(name) && (l.from == null || year >= l.from) && (l.to == null || year <= l.to));
-  let spans, names, label;
+  const L = lineageAt(name, year);
+  let spans, win, label;
   if (L) {
-    names = L.names;
+    win = lineageWin(L);
     label = { name: L.name, name_zh: L.name_zh };
-    const lo = L.from ?? -1e9, hi = L.to ?? 1e9;
     spans = [];
-    for (const r of names.flatMap((n) => C.spans[n] || []).filter((r) => r[1] >= lo && r[0] <= hi).sort((a, b) => a[0] - b[0])) {
-      const a = Math.max(lo, r[0]), b = Math.min(hi, r[1]), last = spans.at(-1);
+    for (const [a, b] of Object.entries(win).flatMap(([n, [lo, hi]]) => (C.spans[n] || []).filter((r) => r[1] >= lo && r[0] <= hi)
+      .map((r) => [Math.max(lo, r[0]), Math.min(hi, r[1])])).sort((x, y) => x[0] - y[0])) {
+      const last = spans.at(-1);
       if (last && a <= last[1] + 1) last[1] = Math.max(last[1], b); else spans.push([a, b]);
     }
   } else {
-    names = [name];
     const f = state.shownBorders?.features.find((f) => f.properties.name === name);
     label = { name, name_zh: run?.[2] || f?.properties.name_zh || "" };
     spans = run ? [[run[0], run[1]]] : [];
+    win = { [name]: run ? [run[0], run[1]] : [-1e9, 1e9] };
   }
-  return { id: L ? "L:" + L.id : `${name}@${run?.[0] ?? ""}`, names: new Set(names), ...label, spans, region: L?.region || run?.[3] || "",
+  return { id: L ? "L:" + L.id : `${name}@${run?.[0] ?? ""}`, names: new Set(Object.keys(win)), win, ...label, spans, region: L?.region || run?.[3] || "",
     from: spans[0]?.[0] ?? -1e9, to: spans.at(-1)?.[1] ?? 1e9 };
 }
+// The selected country's names on the map in a year (中华民国 is "China" only until 1948).
+const selNames = (y = state.year) => new Set(state.sel ? Object.entries(state.sel.win).filter(([, [a, b]]) => y >= a && y <= b).map(([n]) => n) : []);
 const selName = (s = state.sel) => (zh() ? s.name_zh || s.name : s.name);
 // Something tagged with these states over these years belongs to the selected country.
 function selHas(states, a, b) {
   const s = state.sel;
-  return !!s && b >= s.from && a <= s.to && (states || []).some((n) => s.names.has(n));
+  return !!s && (states || []).some((n) => s.win[n] && b >= s.win[n][0] && a <= s.win[n][1]);
 }
 const selPerson = (p) => !state.sel || selHas(p.states, ...personSpan(p));
 const selOnMap = () => !!state.sel && state.sel.spans.some(([a, b]) => state.year >= a && state.year <= b) &&
-  !!state.shownBorders?.features.some((f) => state.sel.names.has(f.properties.name));
+  !!state.shownBorders?.features.some((f) => selNames().has(f.properties.name));
 // The selected country's land on the map now, for cities inside it.
 function selContains(lon, lat) {
   if (!selOnMap()) return false;
+  const now = selNames();
   return state.shownBorders.features.some((f) => {
-    if (!state.sel.names.has(f.properties.name)) return false;
+    if (!now.has(f.properties.name)) return false;
     const g = f.geometry, polys = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
     return polys.some((p) => inPoly(lon, lat, p[0]) && !p.slice(1).some((h) => inPoly(lon, lat, h)));
   });
 }
 function applySelMap() {
   if (!map?.getLayer("sel-dim")) return;
-  const on = selOnMap(), names = on ? [...state.sel.names] : [];
+  const on = selOnMap(), now = selNames(), names = on ? [...now] : [];
   const key = on ? `${state.snapshot}|${state.sel.id}` : "";
   if (key === applySelMap.key) return;
   applySelMap.key = key;
@@ -1202,7 +1214,7 @@ function applySelMap() {
   map.setLayoutProperty("sel-dim", "visibility", on ? "visible" : "none");
   map.setFilter("sel-dim", ["!", ["in", ["get", "name"], ["literal", names]]]);
   map.setFilter("sel-line", ["in", ["get", "name"], ["literal", names]]);
-  for (const p of markers.polityEls) p.el.classList.toggle("dim", on && !state.sel.names.has(p.name));
+  for (const p of markers.polityEls) p.el.classList.toggle("dim", on && !now.has(p.name));
 }
 const selRegion = () => (state.regionById[state.sel?.region] ? state.sel.region : state.mode);
 function selectCountry(name, opts = {}) {
@@ -1243,7 +1255,7 @@ function renderSelCard() {
   if (!s) return;
   const on = selOnMap();
   const span = s.spans.length ? `${fmtYear(s.from)} – ${s.to >= 2026 ? t("sel").now : fmtYear(s.to)}` : "";
-  const name = [...s.names].find((n) => rulerAt(n, state.year));
+  const name = [...selNames()].find((n) => rulerAt(n, state.year));
   const r = name && rulerAt(name, state.year);
   const nEv = state.events.filter((ev) => selHas(ev.states, ev.year, ev.year)).length;
   const nPp = (state.layerData?.people || []).filter((p) => state.sel && selPerson(p)).length;
@@ -1253,7 +1265,7 @@ function renderSelCard() {
   const near = !on && s.spans.length ? (state.year < s.from ? s.from : s.spans.findLast(([a]) => a <= state.year)?.[1] ?? s.to) : null;
   const S = t("sel");
   // Scrolled away from the country: a button flies back to it (the timeline keeps following it meanwhile).
-  const b = on && countryBounds([...s.names].find((n) => state.shownBorders.features.some((f) => f.properties.name === n)));
+  const b = on && countryBounds([...selNames()].find((n) => state.shownBorders.features.some((f) => f.properties.name === n)));
   const v = map.getBounds();
   const away = b && (b[1][0] < v.getWest() || b[0][0] > v.getEast() || b[1][1] < v.getSouth() || b[0][1] > v.getNorth());
   box.innerHTML = `<div class="sc-head"><span class="sc-dot"></span><b>${esc(selName(s))}</b>${!zh() && s.name_zh ? `<small lang="zh-CN">${esc(s.name_zh)}</small>` : zh() && s.name !== s.name_zh ? `<small lang="en">${esc(s.name)}</small>` : ""}
@@ -1263,7 +1275,7 @@ function renderSelCard() {
     <p class="sc-meta">${r ? `<span>${esc(t("ruler"))}${esc(rulerText(r)[0])}</span>` : ""}<button type="button" data-tab="events">${esc(S.events(nEv))}</button>${nPp ? `<button type="button" data-tab="people">${esc(S.people(nPp))}</button>` : ""}</p>
     ${cities.length ? `<p class="sc-cities"><span>${esc(S.cities)}</span>${cities.map((c) => `<button type="button" data-c="${esc(c.id)}"${c.rank === "capital" ? ' class="cap"' : ""}>${esc(zh() ? c.name_zh : c.name)}</button>`).join("")}</p>` : ""}`;
   box.querySelector(".sc-x").addEventListener("click", () => selectCountry(null));
-  box.querySelector("[data-back]")?.addEventListener("click", () => flyToCountry([...s.names].find((n) => countryBounds(n))));
+  box.querySelector("[data-back]")?.addEventListener("click", () => flyToCountry([...selNames()].find((n) => countryBounds(n))));
   box.querySelector("[data-y]")?.addEventListener("click", (e) => { stop(); setYear(+e.currentTarget.dataset.y); });
   box.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { $("tab-" + b.dataset.tab).click(); }));
   box.querySelectorAll("[data-c]").forEach((b) => b.addEventListener("click", () => {
@@ -1281,8 +1293,8 @@ function regionCountries(r) {
     const x = ((((p.label[0] + 180) % 360) + 360) % 360) - 180;
     if (!(r.polygon?.length > 2 && inPoly(x, p.label[1], r.polygon))) continue;
     // One chip per country: names joined in a lineage (Kingdom of France, France) count once.
-    const L = state.countries?.lineages.find((l) => l.names.includes(p.name) && (l.from == null || state.year >= l.from) && (l.to == null || state.year <= l.to));
-    for (const n of L ? L.names : [p.name]) seen.add(n);
+    const L = lineageAt(p.name, state.year);
+    for (const n of L ? Object.keys(lineageWin(L)) : [p.name]) seen.add(n);
     out.push(L ? { ...p, name_zh: L.name_zh, label_en: L.name } : p);
   }
   return out.sort((a, b) => !!b.focus - !!a.focus || (b.area || 0) - (a.area || 0));
@@ -2261,7 +2273,7 @@ function renderWorldTab() {
 function countryChips(r) {
   const cs = regionCountries(r);
   if (!cs.length) return "";
-  const chip = (p, i) => `<button type="button" class="chip${i >= 8 ? " extra" : ""}" data-country="${esc(p.name)}" aria-pressed="${!!state.sel?.names.has(p.name)}">${esc(zh() ? p.name_zh || p.name : p.label_en || p.name)}</button>`;
+  const chip = (p, i) => `<button type="button" class="chip${i >= 8 ? " extra" : ""}" data-country="${esc(p.name)}" aria-pressed="${selNames().has(p.name)}">${esc(zh() ? p.name_zh || p.name : p.label_en || p.name)}</button>`;
   return `<div class="wd-countries">${cs.map(chip).join("")}${cs.length > 8 ? `<button type="button" class="wd-more" data-n="${cs.length - 8}">${esc(t("sel").more(cs.length - 8))}</button>` : ""}</div>`;
 }
 function goRegion(id) {
@@ -2528,7 +2540,7 @@ function renderRulers() {
     return;
   }
   // A selected country shows its own rulers.
-  const own = state.sel && ps.find((p) => state.sel.names.has(p.n));
+  const own = state.sel && ps.find((p) => selNames().has(p.n));
   if (own && state.rulerPolity !== own.n && box.dataset.sel !== state.sel.id) state.rulerPolity = own.n;
   box.dataset.sel = state.sel?.id || "";
   if (!ps.some((p) => p.n === state.rulerPolity)) {
@@ -3312,7 +3324,7 @@ function saveView() {
   saveTimer = setTimeout(() => {
     if (!map) return;
     const c = map.getCenter();
-    const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab, country: state.sel ? [[...state.sel.names][0], state.year] : null,
+    const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab, country: state.sel ? [[...selNames(), ...state.sel.names][0], state.year] : null,
       cam: { center: [+c.lng.toFixed(3), +c.lat.toFixed(3)], zoom: +map.getZoom().toFixed(2), pitch: Math.round(map.getPitch()), bearing: Math.round(map.getBearing()) } };
     try { localStorage.setItem(viewKey(), JSON.stringify(view)); } catch {}
   }, 500);
@@ -3684,7 +3696,7 @@ async function init() {
     if (hadCard || e.originalEvent.target !== map.getCanvas() || state.tour) return;
     const f = map.queryRenderedFeatures(e.point, { layers: ["focus-fill", "neighbour-fill"] }).find((f) => f.properties.name);
     if (!f) return;
-    if (state.sel?.names.has(f.properties.name) && selOnMap()) selectCountry(null); else selectCountry(f.properties.name);
+    if (selNames().has(f.properties.name) && selOnMap()) selectCountry(null); else selectCountry(f.properties.name);
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.sel && e.target.tagName !== "INPUT" && !state.reading && $("search").hidden) selectCountry(null); });
   new ResizeObserver(() => {
