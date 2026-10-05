@@ -560,7 +560,7 @@ const looks = () => (state.basemap ? basemapLooks() : LOOKS);
 const lookOrder = () => (state.basemap ? Object.keys(basemapLooks()) : LOOK_ORDER);
 function applyLook(m = map) {
   const L = looks()[state.look] || Object.values(looks())[0] || LOOKS.satellite;
-  if (m === map) {
+  if (m === map || m === null) {
     document.documentElement.classList.toggle("sat", !!L.dark);
     document.documentElement.dataset.look = state.look;
   }
@@ -597,6 +597,20 @@ function applyLook(m = map) {
     if (state.basemap.earth === false) for (const id of ["rivers", "rivers-minor", "lakes", "lakes-line", "land", "coast", "old-river", "old-coast"]) m.setLayoutProperty(id, "visibility", "none");
     if (!state.basemap.dem) for (const id of ["relief", "hillshade"]) m.setLayoutProperty(id, "visibility", "none");
   }
+}
+// The map's style already dressed in the chosen look, so a reload doesn't first draw the default terrain colours and
+// switch over once the map has loaded: applyLook is run against the style description instead of a live map.
+function buildStyle() {
+  const style = baseStyle(), layer = (id) => style.layers.find((l) => l.id === id);
+  const shim = {
+    getLayer: layer,
+    setLayoutProperty: (id, k, v) => { const l = layer(id); if (l) (l.layout ||= {})[k] = v; },
+    setPaintProperty: (id, k, v) => { const l = layer(id); if (l) (l.paint ||= {})[k] = v; },
+    setSky: (sky) => { style.sky = sky; },
+    getSource: (id) => ({ setData: (data) => { style.sources[id].data = data; } }),
+  };
+  applyLook(shim);
+  return style;
 }
 // Picks a map style; a flat style turns 3D off and remembers whether it was on, so leaving it brings 3D back.
 function setLook(id, remember = true) {
@@ -638,7 +652,7 @@ function toggleLookPop(open) {
   pop.querySelector('[aria-checked="true"]')?.focus();
 }
 
-function buildStyle() {
+function baseStyle() {
   // A pack's own base map (another planet, an invented world) replaces Earth's elevation and imagery.
   const B = state.basemap;
   const dem = B?.dem ? { type: "raster-dem", tiles: ["atlas://pk-dem/{z}/{x}/{y}"], tileSize: B.dem.tileSize || 256, encoding: B.dem.encoding || "terrarium", maxzoom: B.dem.maxzoom ?? 6 }
@@ -4253,13 +4267,17 @@ async function init() {
   if (looks()[state.look]?.flat && state.show3d) { state.show3d = false; state.flat3d = true; }
   if (only && !["events", "tours"].includes(state.tab)) state.tab = "events";
 
+  const style = buildStyle();
+  applyLook(null);
   map = new maplibregl.Map({
     container: "map",
-    style: buildStyle(),
+    style,
     center: cam?.center || pack?.region?.view?.center || [108, 33.5], zoom: cam?.zoom ?? pack?.region?.view?.zoom ?? 3.7, pitch: state.show3d ? cam?.pitch ?? 52 : 0, bearing: cam?.bearing ?? -8,
     maxPitch: 65, minZoom: 1.6, maxZoom: 9.5,
     attributionControl: false,
   });
+  // The flat styles' coast is already in the style; don't fetch it again when the look is applied on load.
+  if (typeof style.sources.land.data === "string") map._landLoaded = true;
   // Full screen takes the whole app (panels included); browsers without the Fullscreen API (iPhone Safari) get none.
   if (document.fullscreenEnabled) {
     const fs = new maplibregl.FullscreenControl({ container: $("app") });
