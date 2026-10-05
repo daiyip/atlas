@@ -1071,3 +1071,4 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .wd-countries .extra { display: none; }
 .wd-countries.open .extra { display: inline-flex; }
 .wd-more { border: 0; background: none; font-size: 11px; color: var(--jade); cursor: pointer; padding: 2px 4px; }
+.era-zh .era-entity { display: block; margin-top: 3px; font-size: 12px; white-space: normal; }

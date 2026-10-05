@@ -201,6 +201,7 @@
    "glyph": "秦",
    "start": -221,
    "end": -207,
+   "entity": "qin-bc770",
    "snapshots": [
     {
      "from": -221,
