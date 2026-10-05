@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=101">
+<link rel="stylesheet" href="style.css?v=102">
 </head>
 <body>
 <div id="app">
@@ -109,6 +109,7 @@
       <span id="ev-count"></span>
       <button class="chip ledger-toggle" id="ledger-toggle" aria-expanded="true">Hide</button>
     </div>
+    <div class="sel-card" id="sel-card" aria-live="polite" hidden></div>
     <div class="ev-filter" id="ev-filter" hidden></div>
     <ol class="ev-list" id="ev-list"></ol>
     <div class="rulers" id="rulers" hidden></div>
@@ -141,6 +142,6 @@
   </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=101"></script>
+<script src="app.js?v=102"></script>
 </body>
 </html>

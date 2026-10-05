@@ -52,6 +52,8 @@ const state = {
   reading: false,       // story view open in the ledger
   tab: "events",        // ledger tab: "events" or "rulers"
   rulerPolity: null,    // country shown in the ruler list
+  countries: null,      // data/countries.json: when each polity is on the map, and lineages joining renamed ones
+  sel: null,            // the selected country: { id, names: Set, name, name_zh, spans, from, to } (selectCountry)
   scope: null,          // the reign the timeline is narrowed to: { polity, i, label }
   borders: {},          // borders path -> GeoJSON
   bundles: {},          // border bundle file -> promise of {map id: GeoJSON}
@@ -100,6 +102,7 @@ const UI = {
     result: { won: "胜", lost: "败", draw: "平" },
     units: { infantry: "步兵", cavalry: "骑兵", chariots: "战车", archers: "弓兵", crossbows: "弩兵", navy: "水军", siege: "攻城", firearms: "火器", artillery: "火炮", elephants: "象兵" },
     kinds: { campaign: "进军", journey: "行程", trade: "商路", canal: "运河", wall: "长城" }, exchange: "交流", spread: "传播", spreadGroups: { faith: "宗教传播", tech: "技术传播", crop: "作物传播" }, arrived: (y) => `${y}传到`, set_out: (y) => `${y}起`, world_t: "世界", worldHead: "同一年的世界", goRegion: "切换地区", allWorld: "全球", worldHint: "点击地区，地图和时间轴切换过去；点击事件阅读详情", noWorldEv: "前后几十年没有收录的大事", elsewhere: "同时期的世界", hideStrip: "隐藏", showStrip: "在时间轴上方显示同时期的世界",
+    sel: { hint: "点击地图上的国家即可选中，地图和各栏只显示与它相关的内容；再点一次取消", off: "这一年不在地图上", jump: (y) => `跳到${y}`, events: (n) => `事件 ${n}`, people: (n) => `本时期人物 ${n}`, cities: "城市", clear: "取消选中", now: "今", more: (n) => `另 ${n} 国`, less: "收起" },
     people_l: "人物", cmp: { one: "对比", open: "两地对比", sync: "同步视角", openTime: "两时对比", place: "两地", time: "两时", period: "时期", year: "年份", close: "关闭对比", pick: "对比地区", rulers: "君主", events: "前后大事", none: "前后几十年没有收录的大事" }, lasted: (n) => `共${n}年`, close: "关闭", search: "搜索", share: "分享这个视图", tours: "导览", toursHead: "导览 · 跟着地图读历史", tourStory: "读这段故事", tourBack: "返回导览", tourPrev: "上一步", tourNext: "下一步", tourPlay: "自动播放", tourPause: "暂停", tourEnd: "结束导览", tourDone: "导览结束", tourSteps: (n) => `${n} 站`, tourCount: (n) => `${n} 条导览`, tourAt: (n) => `第${n}站`, toursHere: "本时期导览", toursOther: "其他时期", noTours: "本时期还没有导览", tourHint: "点击一条导览，地图会跟着故事移动", linkCopied: "链接已复制，可以发给别人", linkCopy: "复制这个链接：", searchPh: "搜索导览、事件、人物、君主、城市或年份（如 755、前221）", autoLayers: "自动图层", autoHint: "打开事件或导览时，自动显示相关图层，自动打开的图层标为虚线", autoOn: "已自动显示", autoAlso: "相关图层", sgroups: { time: "时间", era: "朝代", tour: "导览", event: "事件", person: "人物", ruler: "君主", city: "城市" }, noResults: "没有找到相关内容", jumpYear: "跳到这一年", capitals: "都城·人口", faith: "宗教思想", inventions: "发明", passes: "关隘", roads: "官道", walls: "长城", wallBy: "修筑", wallLen: (n) => `约${n.toLocaleString()}公里`, ruin: "已废弃，现为遗迹", clans: "豪族", ckinds: { gentry: "门阀士族", bloc: "地域集团", military: "军事集团", faction: "朋党", merchant: "商帮" }, seats: "郡望/根据地", families: "代表家族", members: "代表人物", drafted: "AI 整理，未经核对", cityEvents: (n) => `城中大事（${n}）· 点击跳转`,  personEvents: (n) => `相关事件（${n}）· 点击跳转`, pranks: { capital: "都城", secondary: "陪都", major: "重要城市", port: "港口", frontier: "军事重镇" }, rkinds: { imperial: "驰道", post: "驿道", trade: "商道" }, via: "途经", inUse: "使用年代",
     fields: { general: "军事家", statesman: "政治家", thinker: "思想家", poet: "诗人", writer: "文学家", historian: "史学家", scientist: "科学家", physician: "医学家", engineer: "工程师", artist: "艺术家", religious: "宗教人物", explorer: "旅行家", scholar: "学者" },
     faiths: { buddhist: "佛教", daoist: "道教", confucian: "儒家", islam: "伊斯兰教", christian: "基督教", thought: "思想", other: "其他" },
@@ -124,6 +127,7 @@ const UI = {
     result: { won: "Won", lost: "Lost", draw: "Draw" },
     units: { infantry: "Infantry", cavalry: "Cavalry", chariots: "Chariots", archers: "Archers", crossbows: "Crossbows", navy: "Navy", siege: "Siege", firearms: "Firearms", artillery: "Artillery", elephants: "Elephants" },
     kinds: { campaign: "Campaign", journey: "Journey", trade: "Trade route", canal: "Canal", wall: "Wall" }, exchange: "Exchange", spread: "Spread", spreadGroups: { faith: "Faith spreads", tech: "Technique spreads", crop: "Crop spreads" }, arrived: (y) => `arrived ${y}`, set_out: (y) => `from ${y}`, world_t: "World", worldHead: "The world this year", goRegion: "Go to region", allWorld: "Whole world", worldHint: "Click a region to move the map and timeline there; click an event to read it", noWorldEv: "No major events recorded within a few decades", elsewhere: "Elsewhere", hideStrip: "Hide", showStrip: "Show other regions above the timeline",
+    sel: { hint: "Click a country on the map to select it: the map and panels then show only what concerns it. Click it again to clear", off: "Not on the map in this year", jump: (y) => `Go to ${y}`, events: (n) => `${n} events`, people: (n) => `${n} people this period`, cities: "Cities", clear: "Clear selection", now: "today", more: (n) => `${n} more`, less: "Fewer" },
     people_l: "People", cmp: { one: "Compare", open: "Compare regions", sync: "Sync view", openTime: "Compare times", place: "Two places", time: "Two times", period: "Period", year: "Year", close: "Close compare", pick: "Compare with", rulers: "Rulers", events: "Around this year", none: "No major events recorded within a few decades" }, lasted: (n) => `${n} years`, close: "Close", search: "Search", share: "Share this view", tours: "Tours", toursHead: "Guided tours", tourStory: "Read the story", tourBack: "Back to the tour", tourPrev: "Back", tourNext: "Next", tourPlay: "Play", tourPause: "Pause", tourEnd: "End tour", tourDone: "End of tour", tourSteps: (n) => `${n} stops`, tourCount: (n) => `${n} tour${n === 1 ? "" : "s"}`, tourAt: (n) => `Stop ${n}`, toursHere: "Tours for this period", toursOther: "Other periods", noTours: "No tours for this period yet", tourHint: "Pick a tour and the map follows the story", linkCopied: "Link copied", linkCopy: "Copy this link:", searchPh: "Search tours, events, people, rulers, cities or a year (755, 221 BC)", autoLayers: "Auto layers", autoHint: "Reading an event or a tour stop switches on the layers it needs; those get a dashed outline", autoOn: "Switched on for this", autoAlso: "Related layers", sgroups: { time: "Year", era: "Periods", tour: "Tours", event: "Events", person: "People", ruler: "Rulers", city: "Cities" }, noResults: "Nothing found", jumpYear: "Go to this year", capitals: "Capitals", faith: "Faith", inventions: "Inventions", passes: "Passes", roads: "Roads", walls: "Great Walls", wallBy: "Built by", wallLen: (n) => `about ${n.toLocaleString()} km`, ruin: "Abandoned; ruins remain", clans: "Elites", ckinds: { gentry: "Great clans", bloc: "Regional bloc", military: "Military clique", faction: "Court faction", merchant: "Merchant guild" }, seats: "Home seats", families: "Families", members: "Key figures", drafted: "AI-drafted, not source-checked", cityEvents: (n) => `Events here (${n}) · click to jump`, personEvents: (n) => `Related events (${n}) · click to jump`, pranks: { capital: "Capital", secondary: "Secondary capital", major: "Major city", port: "Port", frontier: "Military stronghold" }, rkinds: { imperial: "Imperial highway", post: "Post road", trade: "Trade road" }, via: "Via", inUse: "In use",
     fields: { general: "Military", statesman: "Statesman", thinker: "Thinker", poet: "Poet", writer: "Writer", historian: "Historian", scientist: "Scientist", physician: "Physician", engineer: "Engineer", artist: "Artist", religious: "Religious figure", explorer: "Traveller", scholar: "Scholar" },
     faiths: { buddhist: "Buddhism", daoist: "Daoism", confucian: "Confucianism", islam: "Islam", christian: "Christianity", thought: "Thought", other: "Other" },
@@ -421,6 +425,10 @@ function buildStyle() {
         paint: { "line-color": "#f6f3e8", "line-width": 5, "line-opacity": 0.7, "line-blur": 1 } },
       { id: "focus-line", type: "line", source: "borders", filter: ["get", "focus"],
         paint: { "line-color": "#b93a26", "line-width": ["case", ["has", "color"], 1.4, 2.2] } },
+      // The selected country: every other state dimmed, its own edge in gold (applySelMap sets the filters).
+      { id: "sel-dim", type: "fill", source: "borders", layout: { visibility: "none" }, paint: { "fill-color": "#141a1e", "fill-opacity": 0.45 } },
+      { id: "sel-line", type: "line", source: "borders", filter: ["==", ["get", "name"], "\u0000"], layout: { "line-join": "round" },
+        paint: { "line-color": "#f0b429", "line-width": ["interpolate", ["linear"], ["zoom"], 3, 2.5, 8, 5] } },
       // The states a tour step talks about (tourHighlight sets the filter).
       { id: "hl-fill", type: "fill", source: "borders", filter: ["==", ["get", "name_zh"], "\u0000"],
         paint: { "fill-color": "#f2c14e", "fill-opacity": 0.42 } },
@@ -775,7 +783,6 @@ function setMode(id, quiet) {
   state.mode = id;
   state.eras = id === "world" ? state.worldEras : state.regionById[id].eras;
   state.scope = null;
-  state.country = null;
   buildScale();
   if (state.zoom) state.win = windowFor(state.zoom, state.year);
   state.era = null;
@@ -903,6 +910,8 @@ async function setYear(year, opts = {}) {
   $("era-snap").hidden = !label;
   document.querySelectorAll(".band.snap").forEach((b) => b.classList.toggle("current", b.dataset.path === snap.borders && +b.dataset.from === snap.from));
   await setMaps(era, state.year);
+  applySelMap();
+  renderSelCard();
   updateCompare();
   renderEventStates();
   renderPlaces();
@@ -937,7 +946,7 @@ function setEra(era, quiet) {
   loadDetails(era);
   state.layerData = null;
   popup?.remove();
-  loadLayers(era).then((d) => { if (state.era === era) { state.layerData = d; renderOverlays(); if (state.tab === "events" && !state.reading) renderLedger(); } });
+  loadLayers(era).then((d) => { if (state.era === era) { state.layerData = d; renderOverlays(); renderSelCard(); if (state.tab === "events" && !state.reading) renderLedger(); } });
   if (!quiet) {
     buildEventMarkers();
     if (!state.reading) renderLedger();
@@ -975,6 +984,7 @@ async function setMaps(era, year) {
   const prev = state.shownBorders;
   state.shownBorders = state.borders[key];
   renderPolityLabels(state.borders[key]);
+  applySelMap();
   // While playing, the old map turns into the new one; otherwise it simply switches.
   if (state.playing && prev && !matchMedia("(prefers-reduced-motion: reduce)").matches && morphBorders(prev, state.borders[key])) return;
   endMorph();
@@ -1133,6 +1143,142 @@ function renderPolityLabels(gj) {
   updateRulers();
 }
 
+/* ---------- one country selected: the map, the panels and the timeline follow it ---------- */
+// Click a state on the map (or pick it in the 世界 tab or the event filter) to select it: every other state dims,
+// and events, people, rulers and cities narrow to it. data/countries.json (tools/build_countries.py) says when each
+// name is on the map; the same name centuries apart is another country, and `lineages` join a country's names
+// (Wessex → England → Great Britain). Events and people carry `states`, the polities they belong to.
+function countryEntity(name, year) {
+  const C = state.countries || { spans: {}, lineages: [] };
+  const runs = C.spans[name] || [];
+  const near = (r) => (year < r[0] ? r[0] - year : year > r[1] ? year - r[1] : 0);
+  const run = [...runs].sort((a, b) => near(a) - near(b))[0];
+  const L = C.lineages.find((l) => l.names.includes(name) && (l.from == null || year >= l.from) && (l.to == null || year <= l.to));
+  let spans, names, label;
+  if (L) {
+    names = L.names;
+    label = { name: L.name, name_zh: L.name_zh };
+    const lo = L.from ?? -1e9, hi = L.to ?? 1e9;
+    spans = [];
+    for (const r of names.flatMap((n) => C.spans[n] || []).filter((r) => r[1] >= lo && r[0] <= hi).sort((a, b) => a[0] - b[0])) {
+      const a = Math.max(lo, r[0]), b = Math.min(hi, r[1]), last = spans.at(-1);
+      if (last && a <= last[1] + 1) last[1] = Math.max(last[1], b); else spans.push([a, b]);
+    }
+  } else {
+    names = [name];
+    const f = state.shownBorders?.features.find((f) => f.properties.name === name);
+    label = { name, name_zh: run?.[2] || f?.properties.name_zh || "" };
+    spans = run ? [[run[0], run[1]]] : [];
+  }
+  return { id: L ? "L:" + L.id : `${name}@${run?.[0] ?? ""}`, names: new Set(names), ...label, spans,
+    from: spans[0]?.[0] ?? -1e9, to: spans.at(-1)?.[1] ?? 1e9 };
+}
+const selName = (s = state.sel) => (zh() ? s.name_zh || s.name : s.name);
+// Something tagged with these states over these years belongs to the selected country.
+function selHas(states, a, b) {
+  const s = state.sel;
+  return !!s && b >= s.from && a <= s.to && (states || []).some((n) => s.names.has(n));
+}
+const selPerson = (p) => !state.sel || selHas(p.states, ...personSpan(p));
+const selOnMap = () => !!state.sel && state.sel.spans.some(([a, b]) => state.year >= a && state.year <= b) &&
+  !!state.shownBorders?.features.some((f) => state.sel.names.has(f.properties.name));
+// The selected country's land on the map now, for cities inside it.
+function selContains(lon, lat) {
+  if (!selOnMap()) return false;
+  return state.shownBorders.features.some((f) => {
+    if (!state.sel.names.has(f.properties.name)) return false;
+    const g = f.geometry, polys = g.type === "Polygon" ? [g.coordinates] : g.type === "MultiPolygon" ? g.coordinates : [];
+    return polys.some((p) => inPoly(lon, lat, p[0]) && !p.slice(1).some((h) => inPoly(lon, lat, h)));
+  });
+}
+function applySelMap() {
+  if (!map?.getLayer("sel-dim")) return;
+  const on = selOnMap(), names = on ? [...state.sel.names] : [];
+  const key = on ? `${state.snapshot}|${state.sel.id}` : "";
+  if (key === applySelMap.key) return;
+  applySelMap.key = key;
+  // Every other state is dimmed. (A world-sized mask with the country cut out would also dim the sea, but the
+  // maps' rounded rings can cross themselves, and as holes they tear the mask.)
+  map.setLayoutProperty("sel-dim", "visibility", on ? "visible" : "none");
+  map.setFilter("sel-dim", ["!", ["in", ["get", "name"], ["literal", names]]]);
+  map.setFilter("sel-line", ["in", ["get", "name"], ["literal", names]]);
+  for (const p of markers.polityEls) p.el.classList.toggle("dim", on && !state.sel.names.has(p.name));
+}
+function selectCountry(name, opts = {}) {
+  state.sel = name ? countryEntity(name, opts.year ?? state.year) : null;
+  // The rulers tab follows the selection; with none it goes back to the period's main country.
+  if (!state.sel) state.rulerPolity = null;
+  saveView();
+  applySelMap();
+  renderPlaces();
+  renderOverlays();
+  refreshTimeline();
+  renderSelCard();
+  if (state.reading) renderLedger();
+  if (opts.fly) flyToCountry(name);
+}
+function countryBounds(name) {
+  let x0 = 180, y0 = 90, x1 = -180, y1 = -90;
+  for (const f of state.shownBorders?.features || []) {
+    if (f.properties.name !== name) continue;
+    const g = f.geometry;
+    for (const poly of g.type === "Polygon" ? [g.coordinates] : g.coordinates) for (const [x, y] of poly[0]) {
+      x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
+    }
+  }
+  return x1 > x0 ? [[x0, y0], [x1, y1]] : null;
+}
+function flyToCountry(name) {
+  const b = countryBounds(name);
+  if (b) map.fitBounds(b, { padding: { top: 120, bottom: 150, left: 60, right: innerWidth > 720 ? 400 : 60 }, maxZoom: 6, duration: 1400 });
+}
+// The card over the ledger: the selected country's years, ruler now, counts and its cities on the map this year.
+function renderSelCard() {
+  const box = $("sel-card"), s = state.sel;
+  box.hidden = !s;
+  $("ledger").classList.toggle("has-sel", !!s);
+  if (!s) return;
+  const on = selOnMap();
+  const span = s.spans.length ? `${fmtYear(s.from)} – ${s.to >= 2026 ? t("sel").now : fmtYear(s.to)}` : "";
+  const name = [...s.names].find((n) => rulerAt(n, state.year));
+  const r = name && rulerAt(name, state.year);
+  const nEv = state.events.filter((ev) => selHas(ev.states, ev.year, ev.year)).length;
+  const nPp = (state.layerData?.people || []).filter((p) => state.sel && selPerson(p)).length;
+  const cities = on ? state.places.filter((p) => state.year >= p.from && state.year <= p.to && selContains(p.lon, p.lat))
+    .sort((a, b) => (b.rank === "capital") - (a.rank === "capital")).slice(0, 14) : [];
+  // Not on the map this year: offer the nearest year it is.
+  const near = !on && s.spans.length ? (state.year < s.from ? s.from : s.spans.findLast(([a]) => a <= state.year)?.[1] ?? s.to) : null;
+  const S = t("sel");
+  box.innerHTML = `<div class="sc-head"><span class="sc-dot"></span><b>${esc(selName(s))}</b>${!zh() && s.name_zh ? `<small lang="zh-CN">${esc(s.name_zh)}</small>` : zh() && s.name !== s.name_zh ? `<small lang="en">${esc(s.name)}</small>` : ""}
+      <span class="sc-years">${esc(span)}</span><button type="button" class="sc-x" aria-label="${esc(S.clear)}" title="${esc(S.clear)}">×</button></div>
+    ${on ? "" : `<p class="sc-off">${esc(S.off)}${near != null ? ` <button type="button" class="chip" data-y="${near}">${esc(S.jump(fmtYear(near)))}</button>` : ""}</p>`}
+    <p class="sc-meta">${r ? `<span>${esc(t("ruler"))}${esc(rulerText(r)[0])}</span>` : ""}<button type="button" data-tab="events">${esc(S.events(nEv))}</button>${nPp ? `<button type="button" data-tab="people">${esc(S.people(nPp))}</button>` : ""}</p>
+    ${cities.length ? `<p class="sc-cities"><span>${esc(S.cities)}</span>${cities.map((c) => `<button type="button" data-c="${esc(c.id)}"${c.rank === "capital" ? ' class="cap"' : ""}>${esc(zh() ? c.name_zh : c.name)}</button>`).join("")}</p>` : ""}`;
+  box.querySelector(".sc-x").addEventListener("click", () => selectCountry(null));
+  box.querySelector("[data-y]")?.addEventListener("click", (e) => { stop(); setYear(+e.currentTarget.dataset.y); });
+  box.querySelectorAll("[data-tab]").forEach((b) => b.addEventListener("click", () => { $("tab-" + b.dataset.tab).click(); }));
+  box.querySelectorAll("[data-c]").forEach((b) => b.addEventListener("click", () => {
+    const c = state.places.find((p) => p.id === b.dataset.c);
+    map.flyTo({ center: [c.lon, c.lat], zoom: Math.max(map.getZoom(), 6), duration: 1200, essential: true });
+    map.once("moveend", () => showCard([c.lon, c.lat], placeCard(c)));
+  }));
+}
+// The countries on the map now whose label lies in a region, main states first, then by size.
+function regionCountries(r) {
+  const out = [], seen = new Set();
+  for (const f of state.shownBorders?.features || []) {
+    const p = f.properties;
+    if (!p.label || seen.has(p.name) || (!p.focus && (p.area || 0) < 1.5)) continue;
+    const x = ((((p.label[0] + 180) % 360) + 360) % 360) - 180;
+    if (!(r.polygon?.length > 2 && inPoly(x, p.label[1], r.polygon))) continue;
+    // One chip per country: names joined in a lineage (Kingdom of France, France) count once.
+    const L = state.countries?.lineages.find((l) => l.names.includes(p.name) && (l.from == null || state.year >= l.from) && (l.to == null || state.year <= l.to));
+    for (const n of L ? L.names : [p.name]) seen.add(n);
+    out.push(L ? { ...p, name_zh: L.name_zh, label_en: L.name } : p);
+  }
+  return out.sort((a, b) => !!b.focus - !!a.focus || (b.area || 0) - (a.area || 0));
+}
+
 /* ---------- overlay layers: rulers, armies, routes ---------- */
 
 // Length of a period in years; there is no year 0, so a span across it is one year shorter.
@@ -1278,7 +1424,7 @@ function pointMarkers(key, items, make) {
 function renderPeople() {
   const list = shown("people") ? (state.layerData?.people || []) : [];
   // Alive this year; a person with no birth year shows for the 40 years before death.
-  const alive = list.filter((p) => state.year >= personSpan(p)[0] && state.year <= personSpan(p)[1]);
+  const alive = list.filter((p) => state.year >= personSpan(p)[0] && state.year <= personSpan(p)[1] && selPerson(p));
   pointMarkers("people", alive, (p) => {
     const el = document.createElement("div");
     el.className = "mk-person f-" + p.field;
@@ -1807,9 +1953,8 @@ function shownEvent(ev) {
   // Each region shows its own events; the world view shows all.
   if (state.mode !== "world" && (ev.region || state.home) !== state.mode && !ev.also?.includes(state.mode)) return false;
   if (ev.id === state.selected) return true;
-  // The country filter belongs to one period; events of other periods ignore it.
-  const c = state.country;
-  if (c && ev.year >= c.start && ev.year <= c.end && !(ev.states || []).includes(c.key)) return false;
+  // With a country selected, only its events.
+  if (state.sel && !selHas(ev.states, ev.year, ev.year)) return false;
   return (ev.level || 1) <= state.detail && (!state.cats.length || state.cats.includes(ev.category));
 }
 // Countries of this period that have events (from each event's `states`), main dynasties first, then by event count.
@@ -1824,22 +1969,23 @@ const CATS = ["war", "politics", "reform", "rebellion", "diplomacy", "economy", 
 function renderEventFilter() {
   const box = $("ev-filter");
   box.hidden = false;
-  const cur = state.country && state.country.start === state.era.start ? state.country.key : "";
-  const key = `${state.detail}|${state.cats.join()}|${state.lang}|${state.era.id}|${cur}|${state.layerData ? 1 : 0}`;
+  const cur = state.sel ? eventCountries().find((c) => state.sel.names.has(c.key))?.key || "" : "";
+  const key = `${state.detail}|${state.cats.join()}|${state.lang}|${state.era.id}|${cur}|${state.sel?.id || ""}|${state.layerData ? 1 : 0}`;
   if (box.dataset.key === key) return;
   box.dataset.key = key;
   const cs = eventCountries();
   // Row 1: level of detail and (in multi-state periods) the country; row 2: the categories.
+  // A country selected on the map that this period's list doesn't name still shows as the choice.
+  if (state.sel && !cur) cs.unshift({ key: [...state.sel.names][0], name: selName(), count: state.events.filter((ev) => ev.year >= state.era.start && ev.year <= state.era.end && selHas(ev.states, ev.year, ev.year)).length, picked: true });
   const country = cs.length > 1 ? `<select id="ef-country" class="ef-country" aria-label="${t("country")}"><option value="">${zh() ? "全部国家" : "All countries"}</option>${cs.map((c) =>
-      `<option value="${esc(c.key)}" ${c.key === cur ? "selected" : ""}>${esc(c.name)}${zh() ? `（${c.count}）` : ` (${c.count})`}</option>`).join("")}</select>` : "";
+      `<option value="${esc(c.key)}" ${c.key === cur || c.picked ? "selected" : ""}>${esc(c.name)}${zh() ? `（${c.count}）` : ` (${c.count})`}</option>`).join("")}</select>` : "";
   box.innerHTML = `<div class="ef-top"><div class="ef-levels" role="group" aria-label="${t("detail")}">${t("levels").map((l, i) =>
       `<button data-lv="${i + 1}" aria-pressed="${state.detail === i + 1}">${l}</button>`).join("")}</div>${country}</div>
     <div class="ef-cats"><button class="chip" data-cat="" aria-pressed="${!state.cats.length}">${t("allCats")}</button>${CATS.map((c) =>
       `<button class="chip cat-${c}" data-cat="${c}" aria-pressed="${state.cats.includes(c)}">${t("cat")[c]}</button>`).join("")}</div>`;
   box.querySelectorAll("[data-lv]").forEach((b) => b.addEventListener("click", () => setEventFilter(+b.dataset.lv, state.cats)));
   $("ef-country")?.addEventListener("change", (e) => {
-    state.country = e.target.value ? { key: e.target.value, start: state.era.start, end: state.era.end } : null;
-    setEventFilter(state.detail, state.cats);
+    if (!state.sel?.names.has(e.target.value)) selectCountry(e.target.value || null);
   });
   box.querySelectorAll("[data-cat]").forEach((b) => b.addEventListener("click", () => {
     const c = b.dataset.cat;
@@ -1988,7 +2134,7 @@ function renderPlaces() {
   markers.places = [];
   if (!state.showPlaces) return;
   for (const p of state.places) {
-    if (state.year < p.from || state.year > p.to) continue;
+    if (state.year < p.from || state.year > p.to || (state.sel && !selContains(p.lon, p.lat))) continue;
     const el = document.createElement("div");
     el.className = "mk-place r-" + p.rank + (p.rank === "capital" ? " capital" : "");
     el.innerHTML = zh() ? `<i></i><span>${esc(p.name_zh)}</span>` : `<i></i><span>${esc(p.name)} <em>${esc(p.name_zh)}</em></span>`;
@@ -2054,7 +2200,7 @@ function renderWorldStrip() {
 function regionEra(r, y) { return r.eras.find((e) => y >= e.start && y <= e.end); }
 function renderWorldTab() {
   const box = $("world"), y = state.year;
-  const key = `${y}|${state.lang}|${state.mode}`;
+  const key = `${y}|${state.lang}|${state.mode}|${state.snapshot}|${state.sel?.id || ""}`;
   $("ev-count").textContent = fmtYear(y);
   if (box.dataset.key === key) return;
   box.dataset.key = key;
@@ -2065,18 +2211,24 @@ function renderWorldTab() {
       .sort((a, b) => Math.abs(a.year - y) - Math.abs(b.year - y) || a.level - b.level).slice(0, 3).sort((a, b) => a.year - b.year);
     return `<li class="wd-row${r.id === state.mode ? " here" : ""}" style="--rc:${esc(r.color || "#888")}">
       <button type="button" class="wd-head" data-r="${esc(r.id)}"><b>${esc(nameOf(r))}</b><span>${era ? esc(nameOf(era)) : ""}</span></button>
-      <p class="wd-rulers" data-era="${era?.layers ? esc(era.id) : ""}"></p>
+      <p class="wd-rulers" data-era="${era?.layers ? esc(era.id) : ""}"></p>${countryChips(r)}
       ${evs.length ? `<ul class="wd-ev">${evs.map((ev) => `<li><button type="button" data-ev="${esc(ev.id)}"><span>${fmtYear(ev.year)}</span> ${esc(zh() ? ev.title_zh || ev.title : ev.title)}</button></li>`).join("")}</ul>`
         : `<p class="wd-none">${t("noWorldEv")}</p>`}</li>`;
   });
   let stripOff = false;
   try { stripOff = localStorage.getItem("atlas-wstrip") === "0"; } catch {}
-  box.innerHTML = `<p class="rl-hint">${t("worldHint")}</p>` + (stripOff ? `<button type="button" class="chip ws-on" id="ws-on">${esc(t("showStrip"))}</button>` : "") + `<ol class="wd-list">${rows.join("")}</ol>`;
+  box.innerHTML = `<p class="rl-hint">${t("worldHint")}</p><p class="rl-hint">${esc(t("sel").hint)}</p>` + (stripOff ? `<button type="button" class="chip ws-on" id="ws-on">${esc(t("showStrip"))}</button>` : "") + `<ol class="wd-list">${rows.join("")}</ol>`;
   $("ws-on")?.addEventListener("click", () => {
     try { localStorage.removeItem("atlas-wstrip"); } catch {}
     box.dataset.key = ""; renderWorldTab(); renderWorldStrip();
   });
   box.querySelectorAll(".wd-head").forEach((b) => b.addEventListener("click", () => goRegion(b.dataset.r)));
+  box.querySelectorAll("[data-country]").forEach((b) => b.addEventListener("click", () =>
+    state.sel?.names.has(b.dataset.country) ? selectCountry(null) : selectCountry(b.dataset.country, { fly: true })));
+  box.querySelectorAll(".wd-more").forEach((b) => b.addEventListener("click", () => {
+    const ul = b.closest(".wd-countries"), open = ul.classList.toggle("open");
+    b.textContent = open ? t("sel").less : t("sel").more(+b.dataset.n);
+  }));
   box.querySelectorAll("[data-ev]").forEach((b) => b.addEventListener("click", () => openStory(b.dataset.ev)));
   // Who ruled where: the main countries with a ruler this year, filled in as each region's layer file arrives.
   box.querySelectorAll(".wd-rulers").forEach((p, i) => {
@@ -2095,6 +2247,13 @@ function renderWorldTab() {
       p.innerHTML = out.join(" · ");
     });
   });
+}
+// A region's countries this year as chips: the first eight, the rest behind a "more" button.
+function countryChips(r) {
+  const cs = regionCountries(r);
+  if (!cs.length) return "";
+  const chip = (p, i) => `<button type="button" class="chip${i >= 8 ? " extra" : ""}" data-country="${esc(p.name)}" aria-pressed="${!!state.sel?.names.has(p.name)}">${esc(zh() ? p.name_zh || p.name : p.label_en || p.name)}</button>`;
+  return `<div class="wd-countries">${cs.map(chip).join("")}${cs.length > 8 ? `<button type="button" class="wd-more" data-n="${cs.length - 8}">${esc(t("sel").more(cs.length - 8))}</button>` : ""}</div>`;
 }
 function goRegion(id) {
   const reg = state.regionById[id];
@@ -2357,6 +2516,10 @@ function renderRulers() {
     $("ev-count").textContent = "";
     return;
   }
+  // A selected country shows its own rulers.
+  const own = state.sel && ps.find((p) => state.sel.names.has(p.n));
+  if (own && state.rulerPolity !== own.n && box.dataset.sel !== state.sel.id) state.rulerPolity = own.n;
+  box.dataset.sel = state.sel?.id || "";
   if (!ps.some((p) => p.n === state.rulerPolity)) {
     // Default: the main country ruling this year, as in the Five Dynasties the dynasty of the moment.
     state.rulerPolity = (ps.find((p) => p.focus && rulerAt(p.n, state.year)) || ps.find((p) => rulerAt(p.n, state.year)) || ps[0]).n;
@@ -2399,12 +2562,12 @@ const PGROUP = { general: "mil", statesman: "pol", thinker: "cul", poet: "cul", 
   artist: "art", scientist: "sci", physician: "sci", engineer: "sci", explorer: "sci" };
 function renderPeopleTab() {
   const box = $("people");
-  const all = [...(state.layerData?.people || [])].sort((a, b) => personSpan(a)[0] - personSpan(b)[0]);
+  const all = (state.layerData?.people || []).filter(selPerson).sort((a, b) => personSpan(a)[0] - personSpan(b)[0]);
   const g = state.peopleGroup || "all";
   const list = g === "all" ? all : all.filter((p) => PGROUP[p.field] === g);
   $("ev-count").textContent = all.length ? t("rulerCount")(list.length) : "";
   if (!all.length) { box.innerHTML = `<p class="rl-empty">${t("noPeople")}</p>`; box.dataset.key = ""; return; }
-  const key = `${state.era.id}|${state.lang}|${g}`;
+  const key = `${state.era.id}|${state.lang}|${g}|${state.sel?.id || ""}`;
   if (box.dataset.key !== key || box._data !== state.layerData) {
     box.dataset.key = key;
     box._data = state.layerData;
@@ -3053,6 +3216,18 @@ function buildRail() {
       });
     }
   }
+  // The selected country's years, as a gold bar under the bands.
+  for (const [a, b] of state.sel?.spans || []) {
+    const [lo, hi] = state.zoom ? state.win : [state.eras[0]?.start, state.eras.at(-1)?.end];
+    if (b < lo || a > hi) continue;
+    const bar = document.createElement("div");
+    bar.className = "sel-span";
+    const p0 = yearToPos(Math.max(a, lo)), p1 = yearToPos(Math.min(b, hi) + 1);
+    bar.style.left = pct(p0) + "%";
+    bar.style.width = Math.max(0.3, pct(p1 - p0)) + "%";
+    bar.title = `${selName()} ${fmtYear(a)} – ${fmtYear(b)}`;
+    bands.appendChild(bar);
+  }
   const ticks = $("ticks");
   ticks.innerHTML = "";
   for (const ev of state.events) {
@@ -3124,7 +3299,7 @@ function saveView() {
   saveTimer = setTimeout(() => {
     if (!map) return;
     const c = map.getCenter();
-    const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab,
+    const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab, country: state.sel ? [[...state.sel.names][0], state.year] : null,
       cam: { center: [+c.lng.toFixed(3), +c.lat.toFixed(3)], zoom: +map.getZoom().toFixed(2), pitch: Math.round(map.getPitch()), bearing: Math.round(map.getBearing()) } };
     try { localStorage.setItem(viewKey(), JSON.stringify(view)); } catch {}
   }, 500);
@@ -3187,6 +3362,7 @@ function loadView() {
   state.year = Math.max(state.range.start, Math.min(state.range.end, Math.round(v.year)));
   if ([1, 2].includes(v.zoom) && Array.isArray(v.win) && v.win[0] <= state.year && state.year <= v.win[1]) { state.zoom = v.zoom; state.win = v.win; }
   if (TABS.includes(v.tab)) state.tab = v.tab;
+  if (Array.isArray(v.country) && typeof v.country[0] === "string") state.pendingCountry = v.country;
   return v.cam && Array.isArray(v.cam.center) ? v.cam : null;
 }
 
@@ -3244,6 +3420,7 @@ async function init() {
   }
   state.events = events.sort((a, b) => a.year - b.year || (a.level || 1) - (b.level || 1));
   state.places = places;
+  if (!only) state.countries = await loadJSON("data/countries.json").catch(() => null);
   buildScale();
   const cam = loadView();
   if (only && !["events", "tours"].includes(state.tab)) state.tab = "events";
@@ -3290,6 +3467,7 @@ async function init() {
     renderRegionBtn();
     state.ready = true;
     await setYear(state.year);
+    if (state.pendingCountry && state.countries) selectCountry(state.pendingCountry[0], { year: state.pendingCountry[1] });
     buildRail();
     renderLedger();
     if (state.pendingTour) startTour(...state.pendingTour);
@@ -3483,6 +3661,17 @@ async function init() {
   $("era-more").addEventListener("click", () => phone.matches ? openEra(!document.querySelector(".era").classList.contains("open")) : setLean(!state.lean, true));
   try { setLean(localStorage.getItem("atlas-lean") === "1"); } catch { setLean(false); }
   map.on("click", () => { if (phone.matches) openEra(false); });
+  // Click a country to select it, click it again to let go. A click that closes an open card only closes it.
+  let hadCard = false;
+  map.on("mousedown", () => { hadCard = !!document.querySelector(".maplibregl-popup"); });
+  map.on("touchstart", () => { hadCard = !!document.querySelector(".maplibregl-popup"); });
+  map.on("click", (e) => {
+    if (hadCard || e.originalEvent.target !== map.getCanvas() || state.tour) return;
+    const f = map.queryRenderedFeatures(e.point, { layers: ["focus-fill", "neighbour-fill"] }).find((f) => f.properties.name);
+    if (!f) return;
+    if (state.sel?.names.has(f.properties.name) && selOnMap()) selectCountry(null); else selectCountry(f.properties.name);
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.sel && e.target.tagName !== "INPUT" && !state.reading && $("search").hidden) selectCountry(null); });
   new ResizeObserver(() => {
     document.documentElement.style.setProperty("--rail-h", document.querySelector(".rail").offsetHeight + "px");
     sizeTrack();

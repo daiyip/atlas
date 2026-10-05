@@ -1045,3 +1045,29 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .world-strip .ws-x { width: 24px; height: 24px; padding: 0; justify-content: center; color: var(--muted); font-size: 15px; flex: none; }
 @media (max-width: 1100px) { .world-strip { display: none; } }
 .ws-on { margin: 0 0 8px; }
+
+/* The selected country: a card over the ledger, a gold bar on the timeline, dimmed labels of the other states. */
+.sel-card { padding: 10px 16px 10px; border-bottom: 1px solid var(--rule); background: rgba(240, 180, 41, 0.1); box-shadow: inset 3px 0 0 #f0b429; }
+.sel-card[hidden] { display: none; }
+.sc-head { display: flex; align-items: baseline; gap: 8px; }
+.sc-dot { width: 9px; height: 9px; border-radius: 2px; background: #f0b429; flex: none; align-self: center; }
+.sc-head b { font: 600 17px/1.2 var(--font-display); }
+.sc-head small { font-size: 11px; color: var(--muted); }
+.sc-years { margin-left: auto; font: 500 11px var(--font-mono); color: var(--muted); white-space: nowrap; }
+.sc-x { border: 0; background: none; font-size: 18px; line-height: 1; padding: 0 2px; color: var(--muted); cursor: pointer; }
+.sc-x:hover { color: var(--cinnabar); }
+.sc-off { margin: 6px 0 0; font-size: 12px; color: var(--cinnabar); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sc-meta { margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); }
+.sc-meta button, .sc-cities button { border: 0; background: none; padding: 0; font: inherit; color: var(--jade); cursor: pointer; }
+.sc-meta button:hover, .sc-cities button:hover { text-decoration: underline; }
+.sc-cities { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 2px 10px; font-size: 12px; }
+.sc-cities span { color: var(--muted); }
+.sc-cities .cap { font-weight: 600; }
+.mk-polity.dim { opacity: 0.35; }
+.sel-span { position: absolute; bottom: -1px; height: 4px; border-radius: 2px; background: #f0b429; pointer-events: none; }
+.wd-countries { display: flex; flex-wrap: wrap; gap: 4px; margin: 6px 0 0; }
+.wd-countries .chip { font-size: 11px; padding: 2px 8px; }
+.wd-countries .chip[aria-pressed="true"] { background: #f0b429; border-color: #f0b429; color: #1b2226; }
+.wd-countries .extra { display: none; }
+.wd-countries.open .extra { display: inline-flex; }
+.wd-more { border: 0; background: none; font-size: 11px; color: var(--jade); cursor: pointer; padding: 2px 4px; }
