@@ -1,4 +1,69 @@
 {
+ "groups": [
+  {
+   "id": "east-asia",
+   "name": "East Asia",
+   "name_zh": "东亚",
+   "regions": [
+    "china",
+    "korea",
+    "japan"
+   ]
+  },
+  {
+   "id": "inner-asia",
+   "name": "Central Asia",
+   "name_zh": "中亚",
+   "regions": [
+    "central-asia-steppe"
+   ]
+  },
+  {
+   "id": "south-southeast-asia",
+   "name": "South and Southeast Asia",
+   "name_zh": "南亚与东南亚",
+   "regions": [
+    "south-asia",
+    "southeast-asia"
+   ]
+  },
+  {
+   "id": "west-asia-north-africa",
+   "name": "West Asia and North Africa",
+   "name_zh": "西亚与北非",
+   "regions": [
+    "iran",
+    "middle-east",
+    "egypt-north-africa"
+   ]
+  },
+  {
+   "id": "europe",
+   "name": "Europe",
+   "name_zh": "欧洲",
+   "regions": [
+    "europe"
+   ]
+  },
+  {
+   "id": "africa",
+   "name": "Africa",
+   "name_zh": "非洲",
+   "regions": [
+    "sub-saharan-africa"
+   ]
+  },
+  {
+   "id": "americas",
+   "name": "The Americas",
+   "name_zh": "美洲",
+   "regions": [
+    "north-america",
+    "mesoamerica",
+    "south-america"
+   ]
+  }
+ ],
  "regions": [
   {
    "id": "china",

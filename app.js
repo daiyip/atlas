@@ -2269,6 +2269,18 @@ function renderWorldStrip() {
   }).join("") + `<button type="button" class="ws-x" aria-label="${esc(t("hideStrip"))}" title="${esc(t("hideStrip"))}">×</button>`;
 }
 
+// Regions in their groups (东亚: 中国, 朝鲜半岛, 日本; 欧洲: 欧洲), as data/regions.json `groups` lists them; regions in
+// no group (a data pack's) come last under none. A group is only for finding regions: the timeline belongs to regions.
+function regionGroups() {
+  const used = new Set(), out = [];
+  for (const g of state.groups || []) {
+    const rs = g.regions.map((id) => state.regionById[id]).filter(Boolean);
+    rs.forEach((r) => used.add(r.id));
+    if (rs.length) out.push([g, rs]);
+  }
+  const rest = state.regions.filter((r) => !used.has(r.id));
+  return rest.length ? [[null, rest], ...out] : out;
+}
 function regionEra(r, y) { return r.eras.find((e) => y >= e.start && y <= e.end); }
 function renderWorldTab() {
   const box = $("world"), y = state.year;
@@ -2276,7 +2288,7 @@ function renderWorldTab() {
   $("ev-count").textContent = fmtYear(y);
   if (box.dataset.key === key) return;
   box.dataset.key = key;
-  const rows = state.regions.map((r) => {
+  const row = (r) => {
     const era = regionEra(r, y);
     // The biggest events within 30 years, nearest first.
     const evs = state.events.filter((ev) => ((ev.region || "china") === r.id || ev.also?.includes(r.id)) && Math.abs(ev.year - y) <= 30)
@@ -2286,7 +2298,8 @@ function renderWorldTab() {
       <p class="wd-rulers" data-era="${era?.layers ? esc(era.id) : ""}"></p>${countryChips(r)}
       ${evs.length ? `<ul class="wd-ev">${evs.map((ev) => `<li><button type="button" data-ev="${esc(ev.id)}"><span>${fmtYear(ev.year)}</span> ${esc(zh() ? ev.title_zh || ev.title : ev.title)}</button></li>`).join("")}</ul>`
         : `<p class="wd-none">${t("noWorldEv")}</p>`}</li>`;
-  });
+  };
+  const rows = regionGroups().map(([g, rs]) => (g ? `<li class="wd-group">${esc(nameOf(g))}</li>` : "") + rs.map(row).join(""));
   let stripOff = false;
   try { stripOff = localStorage.getItem("atlas-wstrip") === "0"; } catch {}
   box.innerHTML = `<p class="rl-hint">${t("worldHint")}</p><p class="rl-hint">${esc(t("sel").hint)}</p>` + (stripOff ? `<button type="button" class="chip ws-on" id="ws-on">${esc(t("showStrip"))}</button>` : "") + `<ol class="wd-list">${rows.join("")}</ol>`;
@@ -2365,7 +2378,10 @@ function toggleRegionPop(open) {
   if (!open) return;
   const y = state.year;
   const row = (id, color, name, sub, full = name) => `<button type="button" role="menuitem" data-r="${esc(id)}" title="${esc(full)}" class="${id === state.mode ? "here" : ""}" style="--rc:${esc(color)}"><i></i><b>${esc(name)}</b><span>${esc(sub)}</span></button>`;
-  pop.innerHTML = state.regions.map((r) => { const era = regionEra(r, y); return row(r.id, r.color || "#888", zh() ? r.short_zh || r.name_zh : r.short || r.name, era ? nameOf(era) : "", nameOf(r)); }).join("")
+  pop.innerHTML = regionGroups().map(([g, rs]) => (g ? `<h6>${esc(nameOf(g))}</h6>` : "") + rs.map((r) => {
+    const era = regionEra(r, y);
+    return row(r.id, r.color || "#888", regionShort(r), era ? nameOf(era) : "", nameOf(r));
+  }).join("")).join("")
     + row("world", "#777", t("allWorld"), fmtYear(y))
     + `<button type="button" role="menuitem" class="rp-cmp" id="rp-cmp"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="5.5" height="10" rx="1"/><rect x="9" y="3" width="5.5" height="10" rx="1"/></svg>${esc(t("cmp").one)}</button>`;
   $("rp-cmp").addEventListener("click", () => { toggleRegionPop(false); openCompare(); });
@@ -3482,6 +3498,7 @@ async function init() {
   const [regions, worldIndex] = await Promise.all([
     loadJSON("data/regions.json").catch(() => ({ regions: [] })), loadJSON("data/world/index.json").catch(() => [])]);
   if (!only) setupRegions(eras, regions.regions, worldIndex);
+  state.groups = regions.groups || [];
   if (pack) {
     addPack(pack, packEras, worldIndex, only);
     for (const ev of packEvents) ev.region = pack.id;

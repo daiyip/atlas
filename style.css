@@ -1072,3 +1072,7 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .wd-countries.open .extra { display: inline-flex; }
 .wd-more { border: 0; background: none; font-size: 11px; color: var(--jade); cursor: pointer; padding: 2px 4px; }
 .era-zh .era-entity { display: block; margin-top: 3px; font-size: 12px; white-space: normal; }
+/* Region groups (东亚, 欧洲…): headings in the region menu and the 世界 tab. */
+.region-pop h6 { grid-column: 1 / -1; margin: 8px 8px 2px; font-size: 11px; font-weight: 600; line-height: 1.2; letter-spacing: 0.06em; color: var(--muted); }
+.region-pop h6:first-child { margin-top: 2px; }
+.wd-group { padding: 12px 16px 4px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--rule); }
