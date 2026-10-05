@@ -1180,6 +1180,12 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .tour-line .tl-glow { stroke: rgba(255, 246, 242, .55); stroke-width: 7; filter: blur(1px); }
 .tour-line .tl-line { stroke: #b93a26; stroke-width: 3.2; }
 .tour-line .tl-arrow { fill: #b93a26; stroke: #fff6f2; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.35)); }
+.tour-line .tl-place { font: 600 14px/1 var(--font-body); fill: #b93a26; text-anchor: middle;
+  stroke: #fff6f2; stroke-width: 3.5px; stroke-linejoin: round; paint-order: stroke; letter-spacing: .02em; }
+.tour-line .tl-place.from { fill: #6b5148; font-weight: 500; font-size: 13px; }
+.tour-labels { z-index: 4; }
+.tour-line .tl-span { font: 500 12px/1 var(--font-body); fill: #3b2a24; text-anchor: middle;
+  stroke: rgba(255, 246, 242, .92); stroke-width: 4px; stroke-linejoin: round; paint-order: stroke; }
 .sc-story { margin: 8px 0 2px; padding: 4px 12px; border: 1px solid var(--cinnabar); border-radius: 999px; background: none; color: var(--cinnabar); font: 600 12px inherit; cursor: pointer; }
 .sc-story:hover { background: var(--cinnabar); color: #fff; }
 /* A current event names its place beside the diamond; it sits on the city, whose own label gives way to it. */

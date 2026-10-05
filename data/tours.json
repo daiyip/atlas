@@ -1127,7 +1127,9 @@
     "text_zh": "前551年，孔丘出生于鲁国陬邑（今山东曲阜东南）。他幼年丧父，家境贫寒，却好学不倦。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "陬邑",
+    "place": "Zouyi"
    },
    {
     "year": -498,
@@ -1141,7 +1143,9 @@
     "text_zh": "前498年，任鲁国大司寇的孔子主张拆毁三桓私邑的城墙，以加强国君权力，结果半途而废，孔子在鲁国处境日难。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "曲阜",
+    "place": "Qufu"
    },
    {
     "year": -497,
@@ -1155,7 +1159,9 @@
     "text_zh": "前497年，孔子对鲁国执政失望，带领弟子离开鲁国前往卫国都城帝丘（今河南濮阳）。卫国成为他周游时停留最久的地方。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "帝丘",
+    "place": "Diqiu"
    },
    {
     "year": -496,
@@ -1169,7 +1175,9 @@
     "layers": [
      "routes",
      "people"
-    ]
+    ],
+    "place_zh": "匡",
+    "place": "Kuang"
    },
    {
     "year": -492,
@@ -1183,7 +1191,9 @@
     "layers": [
      "routes",
      "people"
-    ]
+    ],
+    "place_zh": "宋",
+    "place": "Song"
    },
    {
     "year": -489,
@@ -1197,7 +1207,9 @@
     "layers": [
      "routes",
      "people"
-    ]
+    ],
+    "place_zh": "陈蔡之间",
+    "place": "Between Chen and Cai"
    },
    {
     "year": -484,
@@ -1211,7 +1223,9 @@
     "layers": [
      "people",
      "faith"
-    ]
+    ],
+    "place_zh": "曲阜",
+    "place": "Qufu"
    },
    {
     "year": -479,
@@ -1226,7 +1240,9 @@
     "layers": [
      "people",
      "faith"
-    ]
+    ],
+    "place_zh": "曲阜",
+    "place": "Qufu"
    }
   ]
  },
@@ -2024,7 +2040,9 @@
     "text_zh": "前313年，在郢都，曾受楚怀王信任的屈原遭上官大夫谗害而被疏远。秦相张仪趁机诱使怀王与齐国断交，屈原主张的联齐抗秦之策落空。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "郢都",
+    "place": "Ying"
    },
    {
     "year": -311,
@@ -2038,7 +2056,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "临淄",
+    "place": "Linzi"
    },
    {
     "year": -305,
@@ -2052,7 +2072,9 @@
     "text_zh": "约前305年，屈原被疏远后住在汉水以北。他的长诗《离骚》倾诉忠而被谤的悲愤，一般认为写于这一时期前后。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "汉北",
+    "place": "North of the Han"
    },
    {
     "year": -299,
@@ -2066,7 +2088,9 @@
     "text_zh": "前299年，秦王约楚怀王会面，屈原劝谏说“秦虎狼之国，不可信”。怀王不听，入武关后被扣留，最终死在秦国。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "郢都",
+    "place": "Ying"
    },
    {
     "year": -296,
@@ -2080,7 +2104,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "洞庭",
+    "place": "Dongting"
    },
    {
     "year": -290,
@@ -2094,7 +2120,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "溆浦",
+    "place": "Xupu"
    },
    {
     "year": -278,
@@ -2108,7 +2136,9 @@
     "text_zh": "前278年，秦将白起攻破郢都，焚烧楚王陵墓所在的夷陵，楚国被迫迁都于陈。屈原写下《哀郢》，哀悼故都沦陷。",
     "layers": [
      "capitals"
-    ]
+    ],
+    "place_zh": "郢都",
+    "place": "Ying"
    },
    {
     "year": -278,
@@ -2122,7 +2152,9 @@
     "text_zh": "前278年，故国沦丧，屈原怀抱石头投入湘江支流汨罗江而死。后世相传，端午节划龙舟、包粽子，就是为了纪念他。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "汨罗江",
+    "place": "Miluo River"
    }
   ]
  },
@@ -2396,7 +2428,9 @@
     "text_zh": "前220年，秦始皇首次出巡，向西视察秦人故地陇西、北地两郡，出鸡头山，经回中返回咸阳。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "陇西",
+    "place": "Longxi"
    },
    {
     "year": -219,
@@ -2410,7 +2444,9 @@
     "text_zh": "前219年，秦始皇东巡，在邹峄山刻石后登上泰山，举行封禅大典祭告天地，并立石刻辞颂扬秦的功德。",
     "layers": [
      "faith"
-    ]
+    ],
+    "place_zh": "泰山",
+    "place": "Mount Tai"
    },
    {
     "year": -219,
@@ -2424,7 +2460,9 @@
     "text_zh": "前219年，秦始皇到海边的琅琊，停留三个月，筑琅琊台、立石刻，又派徐福带数千童男童女出海寻仙。",
     "layers": [
      "faith"
-    ]
+    ],
+    "place_zh": "琅琊",
+    "place": "Langya"
    },
    {
     "year": -218,
@@ -2438,7 +2476,9 @@
     "text_zh": "前218年，秦始皇第三次出巡，行至博浪沙，韩国贵族后代张良安排的力士用大铁椎袭击车队，误中副车。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "博浪沙",
+    "place": "Bolangsha"
    },
    {
     "year": -215,
@@ -2451,7 +2491,9 @@
     "text_zh": "前215年，秦始皇第四次出巡到渤海边的碣石，刻石记功，派人求仙。回程巡视北边后，派蒙恬北击匈奴。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "碣石",
+    "place": "Jieshi"
    },
    {
     "year": -210,
@@ -2464,7 +2506,9 @@
     "text_zh": "前210年，秦始皇最后一次出巡，经云梦南下会稽，祭祀大禹并立石刻辞，然后沿海北上到琅琊、之罘。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "会稽",
+    "place": "Kuaiji"
    },
    {
     "year": -210,
@@ -2478,7 +2522,9 @@
     "text_zh": "前210年，秦始皇在归途中病倒，死于沙丘。赵高、李斯秘不发丧，伪造遗诏立胡亥，逼长子扶苏自杀。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "沙丘",
+    "place": "Shaqiu"
    },
    {
     "year": -210,
@@ -2490,7 +2536,9 @@
     "event": "terracotta-army",
     "text": "210 BC: the body returns to Xianyang hidden in a carriage of salted fish. The First Emperor is buried at Mount Li, guarded by the terracotta army.",
     "text_zh": "前210年，车队用鲍鱼掩盖尸臭回到咸阳。秦始皇葬于骊山陵墓，陵东的兵马俑军阵守护着他。",
-    "layers": []
+    "layers": [],
+    "place_zh": "骊山",
+    "place": "Mount Li"
    }
   ]
  },
@@ -3039,7 +3087,9 @@
     "text_zh": "约前139年，汉武帝派张骞率一百多人从长安出发，去寻找被匈奴赶走的大月氏，约其共击匈奴。",
     "layers": [
      "roads"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": -138,
@@ -3053,7 +3103,9 @@
     "layers": [
      "routes",
      "walls"
-    ]
+    ],
+    "place_zh": "河西走廊",
+    "place": "Hexi Corridor"
    },
    {
     "year": -129,
@@ -3067,7 +3119,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "大宛",
+    "place": "Dayuan"
    },
    {
     "year": -128,
@@ -3081,7 +3135,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "大月氏",
+    "place": "Yuezhi"
    },
    {
     "year": -127,
@@ -3095,7 +3151,9 @@
     "layers": [
      "routes",
      "walls"
-    ]
+    ],
+    "place_zh": "昆仑山北麓",
+    "place": "North of the Kunlun"
    },
    {
     "year": -126,
@@ -3110,7 +3168,9 @@
     "layers": [
      "exchange",
      "routes"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": -115,
@@ -3125,7 +3185,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "乌孙",
+    "place": "Wusun"
    }
   ]
  },
@@ -3281,7 +3343,9 @@
     "layers": [
      "routes",
      "people"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": -126,
@@ -3295,7 +3359,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "淮阴",
+    "place": "Huaiyin"
    },
    {
     "year": -126,
@@ -3308,7 +3374,9 @@
     "text_zh": "约前126年，他从江淮继续南下，登上会稽山探访禹穴。相传治水的大禹曾在这里大会诸侯，死后也葬在这里。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "会稽山",
+    "place": "Mount Kuaiji"
    },
    {
     "year": -126,
@@ -3322,7 +3390,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "长沙",
+    "place": "Changsha"
    },
    {
     "year": -126,
@@ -3336,7 +3406,9 @@
     "layers": [
      "faith",
      "routes"
-    ]
+    ],
+    "place_zh": "曲阜",
+    "place": "Qufu"
    },
    {
     "year": -126,
@@ -3350,7 +3422,9 @@
     "layers": [
      "routes",
      "people"
-    ]
+    ],
+    "place_zh": "彭城",
+    "place": "Pengcheng"
    },
    {
     "year": -111,
@@ -3364,7 +3438,9 @@
     "text_zh": "前111年，已任郎中的司马迁奉命随军出使西南，到达巴、蜀以南的邛、笮、昆明等地，参与安置新设的郡县。",
     "layers": [
      "roads"
-    ]
+    ],
+    "place_zh": "西南夷",
+    "place": "Southwest"
    },
    {
     "year": -110,
@@ -3377,7 +3453,9 @@
     "text_zh": "前110年，他回来复命时，父亲司马谈因未能随武帝封禅而病重滞留洛阳。司马谈临终嘱托儿子继任太史令，完成自己未竟的史书。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "洛阳",
+    "place": "Luoyang"
    },
    {
     "year": -91,
@@ -3391,7 +3469,9 @@
     "text_zh": "约前91年，因替李陵辩护而受宫刑的司马迁忍辱发愤，在长安完成《史记》一百三十篇，记事上起黄帝，下至汉武帝时代。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    }
   ]
  },
@@ -3921,7 +4001,9 @@
     "layers": [
      "routes",
      "walls"
-    ]
+    ],
+    "place_zh": "蒲类海",
+    "place": "Lake Barkol"
    },
    {
     "year": 73,
@@ -3935,7 +4017,9 @@
     "layers": [
      "exchange",
      "routes"
-    ]
+    ],
+    "place_zh": "鄯善",
+    "place": "Shanshan"
    },
    {
     "year": 73,
@@ -3949,7 +4033,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "于阗",
+    "place": "Khotan"
    },
    {
     "year": 74,
@@ -3965,7 +4051,9 @@
      "armies",
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "疏勒",
+    "place": "Kashgar"
    },
    {
     "year": 87,
@@ -3979,7 +4067,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "莎车",
+    "place": "Yarkand"
    },
    {
     "year": 91,
@@ -3993,7 +4083,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "龟兹",
+    "place": "Kucha"
    },
    {
     "year": 94,
@@ -4008,7 +4100,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "焉耆",
+    "place": "Karashahr"
    },
    {
     "year": 97,
@@ -4023,7 +4117,9 @@
     "layers": [
      "exchange",
      "routes"
-    ]
+    ],
+    "place_zh": "条支",
+    "place": "Tiaozhi"
    }
   ]
  },
@@ -4848,7 +4944,9 @@
     "layers": [
      "armies",
      "routes"
-    ]
+    ],
+    "place_zh": "南中",
+    "place": "Nanzhong"
    },
    {
     "year": 227,
@@ -4862,7 +4960,9 @@
     "text_zh": "227年，诸葛亮向后主刘禅呈上《出师表》，随后率主力进驻汉中，把这里作为北伐魏国的前进基地。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "汉中",
+    "place": "Hanzhong"
    },
    {
     "year": 228,
@@ -4875,7 +4975,9 @@
     "text_zh": "228年春，诸葛亮扬言从斜谷攻郿县，自己却率主力出祁山。南安、天水、安定三郡响应蜀汉，关中震动。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "祁山",
+    "place": "Mount Qi"
    },
    {
     "year": 228,
@@ -4890,7 +4992,9 @@
     "layers": [
      "armies",
      "routes"
-    ]
+    ],
+    "place_zh": "街亭",
+    "place": "Jieting"
    },
    {
     "year": 228,
@@ -4905,7 +5009,9 @@
     "layers": [
      "passes",
      "routes"
-    ]
+    ],
+    "place_zh": "陈仓",
+    "place": "Chencang"
    },
    {
     "year": 229,
@@ -4919,7 +5025,9 @@
     "text_zh": "229年，诸葛亮派陈式攻取武都、阴平二郡，并亲自出兵击退魏将郭淮，这是历次北伐中少有的实际收获。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "武都",
+    "place": "Wudu"
    },
    {
     "year": 231,
@@ -4934,7 +5042,9 @@
     "layers": [
      "roads",
      "inventions"
-    ]
+    ],
+    "place_zh": "祁山",
+    "place": "Mount Qi"
    },
    {
     "year": 234,
@@ -4949,7 +5059,9 @@
     "layers": [
      "armies",
      "routes"
-    ]
+    ],
+    "place_zh": "五丈原",
+    "place": "Wuzhang Plains"
    }
   ]
  },
@@ -5488,7 +5600,9 @@
     "layers": [
      "routes",
      "faith"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": 400,
@@ -5502,7 +5616,9 @@
     "layers": [
      "routes",
      "faith"
-    ]
+    ],
+    "place_zh": "张掖",
+    "place": "Zhangye"
    },
    {
     "year": 400,
@@ -5515,7 +5631,9 @@
     "text_zh": "400年，法显到达敦煌，太守李暠资助他们穿越沙河。沙漠中“上无飞鸟，下无走兽”，只能以死人枯骨作为路标。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "敦煌",
+    "place": "Dunhuang"
    },
    {
     "year": 401,
@@ -5529,7 +5647,9 @@
     "layers": [
      "routes",
      "spread"
-    ]
+    ],
+    "place_zh": "于阗",
+    "place": "Khotan"
    },
    {
     "year": 402,
@@ -5542,7 +5662,9 @@
     "text_zh": "402年，法显翻越终年积雪的葱岭，沿着悬崖上的栈道和绳桥渡过印度河，进入北天竺。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "葱岭",
+    "place": "Pamirs"
    },
    {
     "year": 405,
@@ -5555,7 +5677,9 @@
     "text_zh": "约405年，法显到达中天竺摩揭提国的巴连弗邑，在这里学习梵语、抄写戒律经典三年。同伴或死或留，只剩他一人。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "巴连弗邑",
+    "place": "Pataliputra"
    },
    {
     "year": 410,
@@ -5569,7 +5693,9 @@
     "layers": [
      "routes",
      "spread"
-    ]
+    ],
+    "place_zh": "狮子国",
+    "place": "Sri Lanka"
    },
    {
     "year": 412,
@@ -5582,7 +5708,9 @@
     "text_zh": "412年，法显搭乘商船东归，途中屡遇大风，在耶婆提国转船后本应驶往广州，却在海上漂流了两个多月，偏离了航向。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "耶婆提",
+    "place": "Yavadvipa"
    },
    {
     "year": 412,
@@ -5597,7 +5725,9 @@
     "layers": [
      "routes",
      "faith"
-    ]
+    ],
+    "place_zh": "牢山",
+    "place": "Laoshan"
    }
   ]
  },
@@ -6542,7 +6672,9 @@
     "layers": [
      "capitals",
      "routes"
-    ]
+    ],
+    "place_zh": "洛阳",
+    "place": "Luoyang"
    },
    {
     "year": 605,
@@ -6556,7 +6688,9 @@
     "text_zh": "605年，炀帝征发河南、淮北民众百余万开通济渠，从板渚引黄河水，经汴水入淮河。南方的粮食从此可以直达中原。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "通济渠",
+    "place": "Tongji Canal"
    },
    {
     "year": 605,
@@ -6569,7 +6703,9 @@
     "text_zh": "605年，又征发淮南民众十余万疏浚邗沟，从山阳（今淮安）直到江都（今扬州）入长江，把淮河与长江连在一起。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "山阳",
+    "place": "Shanyang"
    },
    {
     "year": 605,
@@ -6582,7 +6718,9 @@
     "text_zh": "605年秋，运河刚刚开通，炀帝便乘龙舟从洛阳南巡江都，随行船队首尾相接二百余里。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "江都",
+    "place": "Jiangdu"
    },
    {
     "year": 608,
@@ -6596,7 +6734,9 @@
     "text_zh": "608年，征发河北民众百余万开永济渠，引沁水南达黄河，北通涿郡（今北京）。这条运河是为东征高句丽运兵运粮而修的。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "涿郡",
+    "place": "Zhuojun"
    },
    {
     "year": 610,
@@ -6609,7 +6749,9 @@
     "text_zh": "610年，开江南河，从京口（今镇江）到余杭（今杭州），长八百余里。至此运河北起涿郡、南到余杭，连通五大水系。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "余杭",
+    "place": "Yuhang"
    },
    {
     "year": 616,
@@ -6623,7 +6765,9 @@
     "text_zh": "616年，北方已陷入大乱，炀帝不顾劝阻，第三次乘龙舟南下江都，从此再也没有回到北方。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "江都",
+    "place": "Jiangdu"
    }
   ]
  },
@@ -6910,7 +7054,9 @@
      "routes",
      "faith",
      "exchange"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": 629,
@@ -6924,7 +7070,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "莫贺延碛",
+    "place": "Gashun Gobi"
    },
    {
     "year": 630,
@@ -6938,7 +7086,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "高昌",
+    "place": "Gaochang"
    },
    {
     "year": 630,
@@ -6952,7 +7102,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "素叶城",
+    "place": "Suyab"
    },
    {
     "year": 631,
@@ -6966,7 +7118,9 @@
     "layers": [
      "routes",
      "spread"
-    ]
+    ],
+    "place_zh": "那烂陀寺",
+    "place": "Nalanda"
    },
    {
     "year": 642,
@@ -6979,7 +7133,9 @@
     "text_zh": "642年，戒日王在曲女城召开大会，玄奘为论主，十八天无人能驳倒他，声名远播。",
     "layers": [
      "spread"
-    ]
+    ],
+    "place_zh": "曲女城",
+    "place": "Kannauj"
    },
    {
     "year": 644,
@@ -6993,7 +7149,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "于阗",
+    "place": "Khotan"
    },
    {
     "year": 645,
@@ -7007,7 +7165,9 @@
     "layers": [
      "faith",
      "people"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    }
   ]
  },
@@ -7033,7 +7193,9 @@
     "text_zh": "640年，吐蕃大相禄东赞带着黄金珍宝来到长安求婚，唐太宗答应把宗室女文成公主嫁给赞普松赞干布。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": 641,
@@ -7046,7 +7208,9 @@
     "text_zh": "641年正月，公主由江夏王李道宗护送离开长安，经陇右西行，来到唐朝西部边城鄯州（今青海乐都）。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "鄯州",
+    "place": "Shanzhou"
    },
    {
     "year": 641,
@@ -7059,7 +7223,9 @@
     "text_zh": "641年，公主一行翻过赤岭（今青海日月山），这里是农区和牧区的分界。据传说，公主在山上摔碎了日月宝镜。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "赤岭",
+    "place": "Chiling Pass"
    },
    {
     "year": 641,
@@ -7072,7 +7238,9 @@
     "text_zh": "641年，松赞干布亲自率兵到河源附近的柏海（今青海玛多一带的湖泊）迎接，以女婿之礼拜见李道宗。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "柏海",
+    "place": "Baihai"
    },
    {
     "year": 641,
@@ -7087,7 +7255,9 @@
     "layers": [
      "spread",
      "routes"
-    ]
+    ],
+    "place_zh": "逻些",
+    "place": "Lhasa"
    },
    {
     "year": 680,
@@ -7100,7 +7270,9 @@
     "text_zh": "680年，文成公主在吐蕃去世。她在那里生活了近四十年，唐蕃之间的使节、物产和佛教往来常与她的名字联系在一起。",
     "layers": [
      "spread"
-    ]
+    ],
+    "place_zh": "逻些",
+    "place": "Lhasa"
    }
   ]
  },
@@ -7535,7 +7707,9 @@
     "layers": [
      "people",
      "exchange"
-    ]
+    ],
+    "place_zh": "碎叶",
+    "place": "Suyab"
    },
    {
     "year": 705,
@@ -7548,7 +7722,9 @@
     "text_zh": "705年前后，李白随父亲迁居绵州昌隆（今四川江油）。他在这里读书、学剑，常到山中寻访道士，度过了青少年时代。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "昌隆",
+    "place": "Changlong"
    },
    {
     "year": 725,
@@ -7562,7 +7738,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "江陵",
+    "place": "Jiangling"
    },
    {
     "year": 726,
@@ -7575,7 +7753,9 @@
     "text_zh": "726年，李白东游金陵、扬州。据他自述，在扬州不到一年便散金三十余万，多用来接济落魄的文士，豪侠之名由此传开。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "扬州",
+    "place": "Yangzhou"
    },
    {
     "year": 742,
@@ -7588,7 +7768,9 @@
     "text_zh": "742年，在安陆成家、漫游多年的李白奉诏入长安。贺知章读其诗文称他为“谪仙人”，唐玄宗命他供奉翰林。但不到两年他便被“赐金放还”。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": 744,
@@ -7603,7 +7785,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "洛阳",
+    "place": "Luoyang"
    },
    {
     "year": 757,
@@ -7617,7 +7801,9 @@
     "text_zh": "757年，安史之乱中李白加入永王李璘的幕府。永王被肃宗视为叛乱而遭剿灭，李白在浔阳（今九江）下狱，次年被判流放夜郎。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "浔阳",
+    "place": "Xunyang"
    },
    {
     "year": 759,
@@ -7631,7 +7817,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "白帝城",
+    "place": "Baidicheng"
    },
    {
     "year": 762,
@@ -7644,7 +7832,9 @@
     "text_zh": "762年，年老多病的李白投奔任当涂县令的族叔李阳冰，不久在当涂去世。临终前他把诗稿托付给李阳冰，后者编成《草堂集》。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "当涂",
+    "place": "Dangtu"
    }
   ]
  },
@@ -7670,7 +7860,9 @@
     "text_zh": "712年，杜甫生于河南巩县（今巩义）的官宦之家，祖父杜审言是武则天时期的著名诗人。他少年时便能作诗，青年时漫游吴越、齐赵。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "巩县",
+    "place": "Gong County"
    },
    {
     "year": 746,
@@ -7683,7 +7875,9 @@
     "text_zh": "746年，杜甫来到长安谋求仕进，一住就是十年。科举落第，献赋求官，过着“朝扣富儿门，暮随肥马尘”的困顿生活，看清了盛世背后的贫富悬殊。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": 755,
@@ -7696,7 +7890,9 @@
     "text_zh": "755年冬，杜甫从长安去奉先县（今陕西蒲城）探家，途经骊山，写下“朱门酒肉臭，路有冻死骨”。到家时幼子已经饿死。不久安史之乱爆发。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "奉先",
+    "place": "Fengxian"
    },
    {
     "year": 757,
@@ -7709,7 +7905,9 @@
     "text_zh": "757年春，杜甫在投奔肃宗途中被叛军俘获，困在沦陷的长安，写下《春望》：“国破山河在，城春草木深。”",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "长安",
+    "place": "Chang'an"
    },
    {
     "year": 757,
@@ -7722,7 +7920,9 @@
     "text_zh": "757年四月，杜甫冒险逃出长安，穿着麻鞋破衣赶到凤翔行在拜见唐肃宗，被授为左拾遗。不久因上疏营救房琯触怒肃宗。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "凤翔",
+    "place": "Fengxiang"
    },
    {
     "year": 759,
@@ -7736,7 +7936,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "秦州",
+    "place": "Qinzhou"
    },
    {
     "year": 760,
@@ -7749,7 +7951,9 @@
     "text_zh": "760年，在亲友资助下，杜甫在成都浣花溪畔建起草堂，过了几年较安定的生活，写下《茅屋为秋风所破歌》等名篇。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "成都",
+    "place": "Chengdu"
    },
    {
     "year": 766,
@@ -7762,7 +7966,9 @@
     "text_zh": "766年，杜甫沿长江东下，寓居夔州（今重庆奉节）。不到两年写诗四百多首，《登高》《秋兴八首》都作于此时。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "夔州",
+    "place": "Kuizhou"
    },
    {
     "year": 770,
@@ -7775,7 +7981,9 @@
     "text_zh": "770年冬，贫病交加的杜甫漂泊在湘江上，往来于潭州（今长沙）和岳州之间，最终病逝在船中，终年五十九岁。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "潭州",
+    "place": "Tanzhou"
    }
   ]
  },
@@ -7802,7 +8010,9 @@
     "layers": [
      "routes",
      "faith"
-    ]
+    ],
+    "place_zh": "扬州",
+    "place": "Yangzhou"
    },
    {
     "year": 744,
@@ -7815,7 +8025,9 @@
     "text_zh": "744年，此前的头几次东渡接连受挫：有的因被人告发而中止，有的船在明州（今宁波）附近海面遇风触礁。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "明州",
+    "place": "Mingzhou"
    },
    {
     "year": 748,
@@ -7828,7 +8040,9 @@
     "text_zh": "748年第五次东渡，船在海上遇到大风，漂流十四天，竟到了海南岛南端的振州（今三亚）。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "振州",
+    "place": "Zhenzhou"
    },
    {
     "year": 750,
@@ -7841,7 +8055,9 @@
     "text_zh": "750年，鉴真一行辗转经广西、广州北返。日本弟子荣睿在端州病逝，鉴真因长途劳顿和暑热，双目失明。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "广州",
+    "place": "Guangzhou"
    },
    {
     "year": 753,
@@ -7855,7 +8071,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "黄泗浦",
+    "place": "Huangsipu"
    },
    {
     "year": 753,
@@ -7870,7 +8088,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "萨摩",
+    "place": "Satsuma"
    },
    {
     "year": 754,
@@ -7883,7 +8103,9 @@
     "text_zh": "754年，鉴真到达奈良，在东大寺设立戒坛，为圣武太上天皇等人授戒，日本从此有了正规的受戒制度。",
     "layers": [
      "spread"
-    ]
+    ],
+    "place_zh": "奈良",
+    "place": "Nara"
    },
    {
     "year": 759,
@@ -7896,7 +8118,9 @@
     "text_zh": "759年，鉴真在奈良建唐招提寺，传授律学，也带去了建筑、雕塑和医药知识。763年他在寺中圆寂。",
     "layers": [
      "spread"
-    ]
+    ],
+    "place_zh": "唐招提寺",
+    "place": "Tōshōdai-ji"
    }
   ]
  },
@@ -9035,7 +9259,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "眉山",
+    "place": "Meishan"
    },
    {
     "year": 1057,
@@ -9049,7 +9275,9 @@
     "text_zh": "1057年，苏轼、苏辙兄弟同榜考中进士。主考官欧阳修读了苏轼的文章大为赞赏，说自己应当让此人出人头地。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "开封",
+    "place": "Kaifeng"
    },
    {
     "year": 1076,
@@ -9062,7 +9290,9 @@
     "text_zh": "1076年，因反对新法自请外任的苏轼已先后任杭州通判、密州知州。这年中秋，他在密州写下《水调歌头·明月几时有》，怀念弟弟苏辙。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "密州",
+    "place": "Mizhou"
    },
    {
     "year": 1079,
@@ -9076,7 +9306,9 @@
     "text_zh": "1079年，苏轼在徐州任满后调任湖州，到任仅三个月，就被御史指控在诗文中讥讽新法，押解到开封御史台关押，史称乌台诗案，险些丧命。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "湖州",
+    "place": "Huzhou"
    },
    {
     "year": 1082,
@@ -9090,7 +9322,9 @@
     "text_zh": "1082年，苏轼贬居黄州已近三年，在城东坡地开荒种田，自号东坡居士。他泛舟赤壁，写下前后《赤壁赋》和《念奴娇·赤壁怀古》。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "黄州",
+    "place": "Huangzhou"
    },
    {
     "year": 1089,
@@ -9103,7 +9337,9 @@
     "text_zh": "1089年，旧党执政，苏轼以知州身份重回杭州。西湖淤塞严重，他组织疏浚，用挖出的淤泥和葑草筑成一道长堤，就是今天的苏堤。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "杭州",
+    "place": "Hangzhou"
    },
    {
     "year": 1094,
@@ -9117,7 +9353,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "惠州",
+    "place": "Huizhou"
    },
    {
     "year": 1097,
@@ -9130,7 +9368,9 @@
     "text_zh": "1097年，六十二岁的苏轼再被贬到海南儋州，这在当时几乎是流放的尽头。他住在简陋的茅屋里，与当地黎族、汉族百姓往来，并办学讲学，培养了不少学生。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "儋州",
+    "place": "Danzhou"
    },
    {
     "year": 1101,
@@ -9144,7 +9384,9 @@
     "text_zh": "1101年，宋徽宗即位后大赦，苏轼得以北归，但在途中染病，七月在常州去世。他留下的诗、词、文、书、画，几乎在每个领域都是宋代的高峰。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "常州",
+    "place": "Changzhou"
    }
   ]
  },
@@ -9870,7 +10112,9 @@
     "text_zh": "1236年，文天祥生于吉州庐陵（今江西吉安）。少年时在学宫看到欧阳修等乡贤的画像，立志将来也要名列其中。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "庐陵",
+    "place": "Luling"
    },
    {
     "year": 1256,
@@ -9883,7 +10127,9 @@
     "text_zh": "1256年，二十岁的文天祥在临安参加殿试，对策万言，被宋理宗亲自擢为状元。此后他多次因直言触怒权臣而被罢官。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "临安",
+    "place": "Lin'an"
    },
    {
     "year": 1275,
@@ -9896,7 +10142,9 @@
     "text_zh": "1275年，元军沿长江东下，朝廷下诏各地勤王。时任赣州知州的文天祥捐出家财，招募义军万余人，率军赶赴临安。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "赣州",
+    "place": "Ganzhou"
    },
    {
     "year": 1276,
@@ -9911,7 +10159,9 @@
     "layers": [
      "routes",
      "armies"
-    ]
+    ],
+    "place_zh": "临安",
+    "place": "Lin'an"
    },
    {
     "year": 1276,
@@ -9924,7 +10174,9 @@
     "text_zh": "1276年，文天祥被押解北上，在镇江夜里设法逃脱，历经艰险，从海路南下，到福建投奔新立的流亡朝廷。这段经历被他写成诗集《指南录》。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "镇江",
+    "place": "Zhenjiang"
    },
    {
     "year": 1277,
@@ -9937,7 +10189,9 @@
     "text_zh": "1277年，文天祥从福建进军江西，一度收复赣南多个州县，各地纷纷响应。但在空坑被元军击败，妻子儿女被俘，他只身逃脱。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "空坑",
+    "place": "Kongkeng"
    },
    {
     "year": 1278,
@@ -9950,7 +10204,9 @@
     "text_zh": "1278年冬，文天祥率残部转战广东，在海丰五坡岭吃饭时被元军突袭俘虏。他吞下冰片想要自尽，却没有死成。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "五坡岭",
+    "place": "Wupoling"
    },
    {
     "year": 1279,
@@ -9965,7 +10221,9 @@
     "layers": [
      "armies",
      "routes"
-    ]
+    ],
+    "place_zh": "零丁洋",
+    "place": "Lingding Sea"
    },
    {
     "year": 1283,
@@ -9979,7 +10237,9 @@
     "text_zh": "1283年初，在大都狱中被囚三年多、写下《正气歌》的文天祥，拒绝了忽必烈的劝降，在柴市从容就义，终年四十七岁。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "大都",
+    "place": "Dadu"
    }
   ]
  },
@@ -10407,7 +10667,9 @@
     "layers": [
      "exchange",
      "routes"
-    ]
+    ],
+    "place_zh": "甘州",
+    "place": "Ganzhou"
    },
    {
     "year": 1275,
@@ -10421,7 +10683,9 @@
     "text_zh": "1275年，据他自述，他们来到上都朝见忽必烈。游记中关于这段经历的许多细节，至今在学者中仍有争议。",
     "layers": [
      "exchange"
-    ]
+    ],
+    "place_zh": "上都",
+    "place": "Shangdu"
    },
    {
     "year": 1276,
@@ -10434,7 +10698,9 @@
     "text_zh": "1276年前后，据游记描述，大都（他称为汗八里）城墙方正，街道笔直如棋盘。忽必烈冬季住在大都，夏季前往上都。",
     "layers": [
      "capitals"
-    ]
+    ],
+    "place_zh": "大都",
+    "place": "Dadu"
    },
    {
     "year": 1280,
@@ -10447,7 +10713,9 @@
     "text_zh": "约1280年，他自称受忽必烈派遣出使西南，经四川到达哈剌章（云南），记载了当地用贝壳作货币等风俗。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "哈剌章",
+    "place": "Karajang"
    },
    {
     "year": 1282,
@@ -10460,7 +10728,9 @@
     "text_zh": "约1282年，游记说他曾在扬州任职三年，但中文史料中找不到相关记载，这是他的经历受到质疑最多的地方之一。",
     "layers": [
      "exchange"
-    ]
+    ],
+    "place_zh": "扬州",
+    "place": "Yangzhou"
    },
    {
     "year": 1285,
@@ -10473,7 +10743,9 @@
     "text_zh": "约1285年，他把南宋旧都杭州称为“行在”，形容它是世界上最美丽华贵的城市，城中有大湖、无数石桥和繁忙的市场。",
     "layers": [
      "exchange"
-    ]
+    ],
+    "place_zh": "杭州",
+    "place": "Hangzhou"
    },
    {
     "year": 1291,
@@ -10487,7 +10759,9 @@
     "layers": [
      "exchange",
      "routes"
-    ]
+    ],
+    "place_zh": "刺桐",
+    "place": "Zayton"
    }
   ]
  },
@@ -10793,7 +11067,9 @@
     "text_zh": "1399年夏，建文帝推行削藩，燕王朱棣以诛杀齐泰、黄子澄、“清君侧”为名在北平起兵，称为“靖难”。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "北平",
+    "place": "Beiping"
    },
    {
     "year": 1400,
@@ -10806,7 +11082,9 @@
     "text_zh": "1400年春，燕军在北平以南的白沟河大败李景隆率领的南军主力，李景隆一路溃退到德州、济南。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "白沟河",
+    "place": "Baigou River"
    },
    {
     "year": 1400,
@@ -10819,7 +11097,9 @@
     "text_zh": "1400年，铁铉、盛庸坚守济南约三个月，燕军屡攻不下，只得撤回北平，这是朱棣起兵后的第一次重大受挫。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "济南",
+    "place": "Jinan"
    },
    {
     "year": 1400,
@@ -10833,7 +11113,9 @@
     "text_zh": "1400年冬，盛庸在东昌大败燕军，燕军大将张玉战死。此后两年，双方在山东、河北一带反复拉锯。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "东昌",
+    "place": "Dongchang"
    },
    {
     "year": 1402,
@@ -10846,7 +11128,9 @@
     "text_zh": "1402年，朱棣改变战略，绕开山东坚城直插南方。夏天燕军在瓜洲渡过长江，镇江守将开城投降。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "镇江",
+    "place": "Zhenjiang"
    },
    {
     "year": 1402,
@@ -10861,7 +11145,9 @@
     "layers": [
      "armies",
      "routes"
-    ]
+    ],
+    "place_zh": "南京",
+    "place": "Nanjing"
    },
    {
     "year": 1402,
@@ -10875,7 +11161,9 @@
     "text_zh": "1402年，大儒方孝孺拒绝为永乐帝起草即位诏书，被处死，亲族门生多受株连，新朝以血腥清洗开场。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "南京",
+    "place": "Nanjing"
    },
    {
     "year": 1421,
@@ -10889,7 +11177,9 @@
     "text_zh": "1421年，永乐帝营建北京和紫禁城多年后，正式迁都北京，南京改为留都。此后明清两朝都以北京为都城。",
     "layers": [
      "capitals"
-    ]
+    ],
+    "place_zh": "北京",
+    "place": "Beijing"
    }
   ]
  },
@@ -10916,7 +11206,9 @@
     "text_zh": "1405年，宦官郑和奉永乐帝之命，率二百多艘船、两万七千余人，从长江口的刘家港出发。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "刘家港",
+    "place": "Liujiagang"
    },
    {
     "year": 1405,
@@ -10929,7 +11221,9 @@
     "text_zh": "船队在福建等候东北季风，然后南下，第一站是今越南中部的占城。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "占城",
+    "place": "Champa"
    },
    {
     "year": 1407,
@@ -10942,7 +11236,9 @@
     "text_zh": "满剌加（马六甲）成为船队的中转基地，在此设立仓库，各分队在这里会合，等待季风转向。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "满剌加",
+    "place": "Malacca"
    },
    {
     "year": 1411,
@@ -10955,7 +11251,9 @@
     "text_zh": "在锡兰（斯里兰卡）立下汉文、泰米尔文、波斯文三语石碑；第三次航行时与当地国王交战并将其俘获。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "锡兰",
+    "place": "Ceylon"
    },
    {
     "year": 1413,
@@ -10968,7 +11266,9 @@
     "text_zh": "印度西南岸的古里（卡利卡特）是胡椒贸易大港，前三次航行都以此为终点。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "古里",
+    "place": "Calicut"
    },
    {
     "year": 1414,
@@ -10982,7 +11282,9 @@
     "layers": [
      "routes",
      "exchange"
-    ]
+    ],
+    "place_zh": "忽鲁谟斯",
+    "place": "Hormuz"
    },
    {
     "year": 1433,
@@ -10996,7 +11298,9 @@
     "text_zh": "1433年，第七次下西洋返航途中，郑和在古里一带去世。此后明朝停止远航，相关档案也散失。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "古里",
+    "place": "Calicut"
    }
   ]
  },
@@ -11133,7 +11437,9 @@
     "text_zh": "1472年，王守仁出生在浙江余姚一个官宦人家，后人称他阳明先生。他少年时就立志要做“圣贤”，而不只是考取功名。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "余姚",
+    "place": "Yuyao"
    },
    {
     "year": 1492,
@@ -11146,7 +11452,9 @@
     "text_zh": "约1492年，在京师父亲官署中，他按朱熹“格物致知”的教导，对着竹子苦思七天，一无所得，反而病倒，开始怀疑向外求理的路子。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "京师",
+    "place": "Beijing"
    },
    {
     "year": 1508,
@@ -11161,7 +11469,9 @@
     "layers": [
      "people",
      "faith"
-    ]
+    ],
+    "place_zh": "龙场",
+    "place": "Longchang"
    },
    {
     "year": 1510,
@@ -11174,7 +11484,9 @@
     "text_zh": "1510年，刘瑾倒台，王阳明出任江西庐陵知县。他在任七个月，清理积案、减轻摊派，开始把自己的学说用于治民。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "庐陵",
+    "place": "Luling"
    },
    {
     "year": 1517,
@@ -11187,7 +11499,9 @@
     "text_zh": "1517年，他以巡抚身份坐镇赣州，在赣、闽、粤、湘交界的山区剿平盘踞多年的盗匪，并推行十家牌法和乡约，安定地方。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "赣州",
+    "place": "Ganzhou"
    },
    {
     "year": 1519,
@@ -11201,7 +11515,9 @@
     "text_zh": "1519年，宁王朱宸濠在南昌起兵，沿江东下进攻安庆。王阳明在吉安招集兵马，趁南昌空虚一举攻克，切断叛军后路。",
     "layers": [
      "people"
-    ]
+    ],
+    "place_zh": "南昌",
+    "place": "Nanchang"
    },
    {
     "year": 1519,
@@ -11215,7 +11531,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "鄱阳湖",
+    "place": "Lake Poyang"
    },
    {
     "year": 1522,
@@ -11229,7 +11547,9 @@
     "layers": [
      "people",
      "faith"
-    ]
+    ],
+    "place_zh": "绍兴",
+    "place": "Shaoxing"
    },
    {
     "year": 1529,
@@ -11243,7 +11563,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "南安",
+    "place": "Nan'an"
    }
   ]
  },
@@ -11635,7 +11957,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "太湖",
+    "place": "Lake Tai"
    },
    {
     "year": 1613,
@@ -11649,7 +11973,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "天台山",
+    "place": "Mount Tiantai"
    },
    {
     "year": 1616,
@@ -11663,7 +11989,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "黄山",
+    "place": "Mount Huang"
    },
    {
     "year": 1618,
@@ -11677,7 +12005,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "庐山",
+    "place": "Mount Lu"
    },
    {
     "year": 1623,
@@ -11691,7 +12021,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "华山",
+    "place": "Mount Hua"
    },
    {
     "year": 1637,
@@ -11705,7 +12037,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "湘江",
+    "place": "Xiang River"
    },
    {
     "year": 1637,
@@ -11719,7 +12053,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "桂林",
+    "place": "Guilin"
    },
    {
     "year": 1638,
@@ -11733,7 +12069,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "黄果树",
+    "place": "Huangguoshu"
    },
    {
     "year": 1639,
@@ -11747,7 +12085,9 @@
     "layers": [
      "people",
      "routes"
-    ]
+    ],
+    "place_zh": "鸡足山",
+    "place": "Mount Jizu"
    }
   ]
  },
@@ -12285,7 +12625,9 @@
     "text_zh": "1751年正月，乾隆帝奉皇太后从北京出发，开始第一次南巡。他效仿祖父康熙的六次南巡，名义上是视察河工、了解民情。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "北京",
+    "place": "Beijing"
    },
    {
     "year": 1751,
@@ -12298,7 +12640,9 @@
     "text_zh": "1751年，南巡队伍经直隶进入山东，经过德州、济南南下。乾隆下令减免沿途所经地方的钱粮，以示恩惠。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "济南",
+    "place": "Jinan"
    },
    {
     "year": 1751,
@@ -12311,7 +12655,9 @@
     "text_zh": "1751年，御舟到达黄河、淮河和运河交汇的清口。乾隆亲自察看高家堰等堤防，治理黄河、保障漕运是他历次南巡最重要的事务。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "清口",
+    "place": "Qingkou"
    },
    {
     "year": 1751,
@@ -12325,7 +12671,9 @@
     "layers": [
      "clans",
      "routes"
-    ]
+    ],
+    "place_zh": "扬州",
+    "place": "Yangzhou"
    },
    {
     "year": 1751,
@@ -12338,7 +12686,9 @@
     "text_zh": "1751年，他到达繁华的苏州。几年后宫廷画家徐扬绘成《姑苏繁华图》，又画《乾隆南巡图》，描绘了这一时期江南的富庶。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "苏州",
+    "place": "Suzhou"
    },
    {
     "year": 1751,
@@ -12351,7 +12701,9 @@
     "text_zh": "1751年，乾隆抵达杭州，游览西湖并题诗刻石。后来几次南巡他还到海宁察看钱塘江海塘，下令把土塘改建为坚固的鱼鳞石塘。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "杭州",
+    "place": "Hangzhou"
    },
    {
     "year": 1751,
@@ -12364,7 +12716,9 @@
     "text_zh": "1751年，回程途中他到达江宁（今南京），祭拜明孝陵，又检阅驻防八旗，以此笼络江南士人、展示武力。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "江宁",
+    "place": "Jiangning"
    },
    {
     "year": 1751,
@@ -12377,7 +12731,9 @@
     "text_zh": "1751年夏，乾隆回到北京。此后他又五次南巡，最后一次在1784年。六次南巡耗费巨大，据说他晚年也承认劳民伤财。",
     "layers": [
      "routes"
-    ]
+    ],
+    "place_zh": "北京",
+    "place": "Beijing"
    }
   ]
  },
@@ -15811,7 +16167,9 @@
     "event": "mx-cortes-lands",
     "text": "1519: Hernán Cortés lands on the Gulf coast with about 500 men, founds Veracruz and scuttles his ships so no one can turn back.",
     "text_zh": "1519年，埃尔南·科尔特斯率约五百人在墨西哥湾沿岸登陆，建立韦拉克鲁斯，并凿沉船只，断绝退路。",
-    "layers": []
+    "layers": [],
+    "place_zh": "韦拉克鲁斯",
+    "place": "Veracruz"
    },
    {
     "year": 1519,
@@ -15822,7 +16180,9 @@
     "zoom": 6.0,
     "text": "1519: after fierce battles, Tlaxcala, the bitter enemy of the Aztecs, makes an alliance with the Spaniards. Its warriors become the backbone of the conquest.",
     "text_zh": "1519年，经过几场激战，阿兹特克人的宿敌特拉斯卡拉与西班牙人结盟，其战士成为征服战争的主力。",
-    "layers": []
+    "layers": [],
+    "place_zh": "特拉斯卡拉",
+    "place": "Tlaxcala"
    },
    {
     "year": 1519,
@@ -15833,7 +16193,9 @@
     "zoom": 6.5,
     "text": "1519: at Cholula, the holy city of the feathered serpent, Cortés and his allies massacre thousands of unarmed people, fearing an ambush.",
     "text_zh": "1519年，在供奉羽蛇神的圣城乔卢拉，科尔特斯和盟军以防伏击为名屠杀了数千名手无寸铁的居民。",
-    "layers": []
+    "layers": [],
+    "place_zh": "乔卢拉",
+    "place": "Cholula"
    },
    {
     "year": 1519,
@@ -15846,7 +16208,9 @@
     "text_zh": "1519年11月，蒙特祖马二世迎接科尔特斯进入特诺奇蒂特兰。没过几天，西班牙人便在王宫中将他扣为人质。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "特诺奇蒂特兰",
+    "place": "Tenochtitlan"
    },
    {
     "year": 1520,
@@ -15858,7 +16222,9 @@
     "event": "mx-noche-triste",
     "text": "1520: after a massacre at a festival, the city rises. Moctezuma is killed, and on the 'Night of Sorrows' the Spaniards flee across the causeway, losing hundreds of men.",
     "text_zh": "1520年，西班牙人在节庆中屠杀贵族后，全城起义。蒙特祖马死去，西班牙人在“悲痛之夜”沿堤道突围，损失数百人。",
-    "layers": []
+    "layers": [],
+    "place_zh": "特诺奇蒂特兰",
+    "place": "Tenochtitlan"
    },
    {
     "year": 1520,
@@ -15872,7 +16238,9 @@
     "text_zh": "1520年，西班牙人带来的天花在墨西哥谷地肆虐，大批居民死亡，新君奎特拉瓦克也未能幸免。",
     "layers": [
      "spread"
-    ]
+    ],
+    "place_zh": "特诺奇蒂特兰",
+    "place": "Tenochtitlan"
    },
    {
     "year": 1521,
@@ -15884,7 +16252,9 @@
     "event": "mx-fall-of-tenochtitlan",
     "text": "1521: after a siege of nearly three months by Spanish boats and Native armies, Tenochtitlan falls and its last ruler, Cuauhtémoc, is captured. Mexico City rises on its ruins.",
     "text_zh": "1521年，在西班牙战船和原住民大军近三个月的围攻下，特诺奇蒂特兰陷落，末代君主夸乌特莫克被俘。墨西哥城在废墟上建立起来。",
-    "layers": []
+    "layers": [],
+    "place_zh": "特诺奇蒂特兰",
+    "place": "Tenochtitlan"
    },
    {
     "year": 1524,
@@ -15896,7 +16266,9 @@
     "event": "mx-conquest-of-guatemala",
     "text": "1524: Cortés's captain Pedro de Alvarado marches south and defeats the K'iche' Maya, beginning the Spanish conquest of Guatemala.",
     "text_zh": "1524年，科尔特斯的部将阿尔瓦拉多南下击败基切玛雅人，开始了西班牙对危地马拉的征服。",
-    "layers": []
+    "layers": [],
+    "place_zh": "伊希姆切",
+    "place": "Iximche"
    }
   ]
  },
@@ -20214,7 +20586,9 @@
     "text_zh": "前336年，马其顿国王腓力二世遇刺，二十岁的亚历山大在佩拉继位，接过了一支为远征波斯而打造的军队。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "佩拉",
+    "place": "Pella"
    },
    {
     "year": -334,
@@ -20226,7 +20600,9 @@
     "event": "eu-alexander-campaign",
     "text": "334 BC: Alexander crosses the Hellespont into Asia and defeats the Persian governors at the Granicus River.",
     "text_zh": "前334年，亚历山大渡过赫勒斯滂海峡进入亚洲，在格拉尼库斯河击败波斯诸总督。",
-    "layers": []
+    "layers": [],
+    "place_zh": "格拉尼库斯河",
+    "place": "Granicus"
    },
    {
     "year": -333,
@@ -20238,7 +20614,9 @@
     "event": "me-battle-of-issus",
     "text": "333 BC: at Issus, Alexander routs King Darius III himself, who flees and leaves his family behind.",
     "text_zh": "前333年，亚历山大在伊苏斯大败大流士三世，波斯国王仓皇出逃，家眷被俘。",
-    "layers": []
+    "layers": [],
+    "place_zh": "伊苏斯",
+    "place": "Issus"
    },
    {
     "year": -332,
@@ -20249,7 +20627,9 @@
     "zoom": 6,
     "text": "332 BC: Alexander takes the island city of Tyre after a seven-month siege, building a causeway out to its walls.",
     "text_zh": "前332年，亚历山大修筑通往海岛的长堤，围攻七个月后攻陷推罗。",
-    "layers": []
+    "layers": [],
+    "place_zh": "推罗",
+    "place": "Tyre"
    },
    {
     "year": -331,
@@ -20261,7 +20641,9 @@
     "event": "eg-alexandria-founded",
     "text": "331 BC: welcomed in Egypt as pharaoh, Alexander founds Alexandria on the coast, soon the greatest Greek city of the age.",
     "text_zh": "前331年，亚历山大在埃及被奉为法老，并在海岸建立亚历山大城，这座城市日后成为希腊化世界最大的都会。",
-    "layers": []
+    "layers": [],
+    "place_zh": "亚历山大城",
+    "place": "Alexandria"
    },
    {
     "year": -331,
@@ -20273,7 +20655,9 @@
     "event": "me-battle-of-gaugamela",
     "text": "331 BC: on the plain of Gaugamela, Alexander breaks Darius's main army. The Achaemenid Empire collapses.",
     "text_zh": "前331年，亚历山大在高加米拉平原击溃大流士三世的主力，阿契美尼德帝国随之崩溃。",
-    "layers": []
+    "layers": [],
+    "place_zh": "高加米拉",
+    "place": "Gaugamela"
    },
    {
     "year": -330,
@@ -20285,7 +20669,9 @@
     "event": "ir-persepolis-burned",
     "text": "330 BC: Alexander burns the palace of Persepolis, the ceremonial heart of the Persian kings.",
     "text_zh": "前330年，亚历山大焚毁波斯诸王的礼仪之都波斯波利斯。",
-    "layers": []
+    "layers": [],
+    "place_zh": "波斯波利斯",
+    "place": "Persepolis"
    },
    {
     "year": -326,
@@ -20297,7 +20683,9 @@
     "event": "sa-hydaspes",
     "text": "326 BC: at the Hydaspes in India, Alexander defeats King Porus and his war elephants, but his exhausted soldiers refuse to march any further.",
     "text_zh": "前326年，亚历山大在印度的希达斯皮斯河击败波鲁斯王及其战象，但疲惫的士兵拒绝继续东进。",
-    "layers": []
+    "layers": [],
+    "place_zh": "希达斯皮斯河",
+    "place": "Hydaspes"
    },
    {
     "year": -323,
@@ -20310,7 +20698,9 @@
     "text_zh": "前323年，亚历山大在巴比伦去世，年仅三十二岁。他的部将瓜分帝国，形成相互争雄的希腊化诸王国。",
     "layers": [
      "rulers"
-    ]
+    ],
+    "place_zh": "巴比伦",
+    "place": "Babylon"
    }
   ]
  },

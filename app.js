@@ -3653,7 +3653,9 @@ function arcLeg(a, b, n = 40) {
 // itself while the camera flies, with an arrowhead at its tip, and the stops as rings (this one filled).
 // The trail and stops are map layers, set once per stop. The leg being drawn is an SVG overlay re-projected on every
 // rendered frame, so line and arrow move exactly with the map instead of waiting for the map to re-tile new data.
-const tourLine = { svg: null, leg: null, f: 0, hooked: false };
+const tourLine = { svg: null, top: null, leg: null, f: 0, hooked: false, places: [], span: "" };
+// The place a stop is at (its `place`/`place_zh`), shown by the stop while the tour is there.
+const stopPlace = (s) => s && (zh() ? s.place_zh || s.place : s.place || s.place_zh);
 function drawTourPath(tour, i) {
   const src = map.getSource("tour");
   if (!src) return;
@@ -3666,6 +3668,13 @@ function drawTourPath(tour, i) {
   src.setData({ type: "FeatureCollection", features: [...past, ...stops] });
   const leg = legs[legs.length - 1];
   tourLine.leg = leg && unwrapLine(leg);
+  // Name the leg's two ends (or just the stop, on a tour without a trail).
+  const prev = leg && steps[i - 1], cur = steps[i];
+  tourLine.places = [prev && { at: prev.at, name: stopPlace(prev), from: true }, cur.at && { at: cur.at, name: stopPlace(cur) }]
+    .filter((p) => p?.name && p.at);
+  if (tourLine.places.length === 2 && tourLine.places[0].name === tourLine.places[1].name) tourLine.places.shift();
+  // How long the leg took: the stop's own `took`/`took_zh` (e.g. "4个月") if it has one, else the years between the stops.
+  tourLine.span = prev ? legSpan(prev, cur) : "";
   if (!leg || matchMedia("(prefers-reduced-motion: reduce)").matches) { tourLine.f = 1; return drawTourLine(); }
   const t0 = performance.now(), dur = 2200;
   const tick = (now) => {
@@ -3691,18 +3700,64 @@ function unwrapLine(pts) {
   }
   return out;
 }
+function legSpan(a, b) {
+  const took = zh() ? b.took_zh || b.took : b.took || b.took_zh;
+  const n = b.year - a.year;
+  if (n === 0) return took || (zh() ? `${fmtYear(b.year)} · 同年` : `${fmtYear(b.year)} · same year`);
+  const yrs = took || (zh() ? `${n}年` : `${n} year${n === 1 ? "" : "s"}`);
+  return `${fmtYear(a.year)} → ${fmtYear(b.year)} · ${yrs}`;
+}
 function drawTourLine() {
-  const { leg, f } = tourLine;
-  let svg = tourLine.svg;
-  if (!leg || !state.tour) { if (svg) svg.style.display = "none"; return; }
+  const { leg, f, places, span } = tourLine;
+  let svg = tourLine.svg, top = tourLine.top;
+  if ((!leg && !places.length) || !state.tour) { for (const el of [svg, top]) if (el) el.style.display = "none"; return; }
   if (!svg) {
     svg = tourLine.svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("class", "tour-line");
     svg.innerHTML = `<path class="tl-glow"/><path class="tl-line"/><path class="tl-arrow" d="M0 -10 8 7 0 3 -8 7Z"/>`;
     const box = map.getCanvasContainer();
     box.insertBefore(svg, map.getCanvas().nextSibling);
+    // The names and the time go on a layer of their own above the map's markers, so a city or event marker can't hide them.
+    top = tourLine.top = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    top.setAttribute("class", "tour-line tour-labels");
+    top.innerHTML = `<text class="tl-place"/><text class="tl-place"/><text class="tl-span"/>`;
+    box.appendChild(top);
   }
-  svg.style.display = "";
+  svg.style.display = top.style.display = "";
+  // A city marker that already shows the same name right there keeps the map from saying it twice (checked a few
+  // times a second, not every frame).
+  const now = performance.now();
+  if (!(now - (tourLine.dupAt || 0) < 300)) {
+    tourLine.dupAt = now;
+    const mk = [...document.querySelectorAll(".maplibregl-marker:not(.dc-hide)")].filter((el) => !el.classList.contains("dc-nolabel"));
+    for (const p of places) {
+      const q = map.project(p.at), box = map.getContainer().getBoundingClientRect();
+      p.dup = mk.some((el) => {
+        const span = el.querySelector("span");
+        if (!span || span.textContent.trim() !== p.name) return false;
+        const r = el.getBoundingClientRect();
+        return Math.hypot((r.left + r.right) / 2 - box.left - q.x, (r.top + r.bottom) / 2 - box.top - q.y) < 60;
+      });
+    }
+  }
+  top.querySelectorAll(".tl-place").forEach((el, k) => {
+    const p = places[k];
+    el.style.display = p && !p.dup ? "" : "none";
+    if (!p) return;
+    const q = map.project(p.at);
+    el.textContent = p.name;
+    el.classList.toggle("from", !!p.from);
+    el.setAttribute("x", q.x.toFixed(1));
+    el.setAttribute("y", (q.y - 14).toFixed(1));
+  });
+  const arrow = svg.querySelector(".tl-arrow"), spanEl = top.querySelector(".tl-span");
+  spanEl.style.display = "none";
+  if (!leg) {
+    svg.querySelector(".tl-glow").setAttribute("d", "");
+    svg.querySelector(".tl-line").setAttribute("d", "");
+    arrow.style.display = "none";
+    return;
+  }
   const at = (g) => {
     const p = Math.min(1, Math.max(0, g)) * (leg.length - 1), j = Math.min(leg.length - 2, Math.floor(p)), t = p - j;
     return [leg[j][0] + (leg[j + 1][0] - leg[j][0]) * t, leg[j][1] + (leg[j + 1][1] - leg[j][1]) * t];
@@ -3713,7 +3768,25 @@ function drawTourLine() {
   svg.querySelector(".tl-glow").setAttribute("d", d);
   svg.querySelector(".tl-line").setAttribute("d", d);
   // While drawing, the arrowhead leads the line; once there it rests halfway along, clear of the stop's ring.
-  const g = f >= 1 ? 0.55 : f, arrow = svg.querySelector(".tl-arrow");
+  // The time sits beside the middle of the leg once the line has passed it; when the middle is off screen (a long leg
+  // seen close up), under the destination's name.
+  if (span && f >= 0.5) {
+    const m = map.project(at(0.5)), a = map.project(at(0.45)), b = map.project(at(0.55));
+    const c = map.getContainer(), onScreen = m.x > 60 && m.y > 40 && m.x < c.clientWidth - 60 && m.y < c.clientHeight - 40;
+    let x, y;
+    if (onScreen) {
+      const len = Math.hypot(b.x - a.x, b.y - a.y) || 1, nx = -(b.y - a.y) / len, ny = (b.x - a.x) / len, side = ny > 0 ? -1 : 1;
+      x = m.x + nx * side * 16; y = m.y + ny * side * 16 + 4;
+    } else {
+      const d = map.project(leg[leg.length - 1]);
+      x = d.x; y = d.y + 26;
+    }
+    spanEl.textContent = span;
+    spanEl.style.display = "";
+    spanEl.setAttribute("x", x.toFixed(1));
+    spanEl.setAttribute("y", y.toFixed(1));
+  }
+  const g = f >= 1 ? 0.55 : f;
   if (g <= 0.01) { arrow.style.display = "none"; return; }
   const pa = map.project(at(Math.max(0, g - 0.02))), pb = map.project(at(g));
   arrow.style.display = "";
@@ -3728,7 +3801,7 @@ function addTourLayers() {
   map.addLayer({ id: "tour-stops", type: "circle", source: "tour", filter: line("stop"),
     paint: { "circle-radius": ["case", ["==", ["get", "now"], 1], 8, 4.5], "circle-color": ["case", ["==", ["get", "now"], 1], "#b93a26", "#fff6f2"],
       "circle-stroke-color": ["case", ["==", ["get", "now"], 1], "#fff6f2", "#b93a26"], "circle-stroke-width": ["case", ["==", ["get", "now"], 1], 2.5, 2] } });
-  if (!tourLine.hooked) { tourLine.hooked = true; map.on("render", () => { if (tourLine.leg) drawTourLine(); }); }
+  if (!tourLine.hooked) { tourLine.hooked = true; map.on("render", () => { if (tourLine.leg || tourLine.places.length) drawTourLine(); }); }
 }
 
 /* ---------- search: events, people, rulers, cities, periods and years ---------- */
