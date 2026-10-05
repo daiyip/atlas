@@ -32,7 +32,12 @@ ALIASES = {"Khwarezmid Dynasty": "Khwarazmian dynasty", "Emirate of Bukhara": "B
            "Kingdom of Pergamon": "Pergamon", "Kingdom of the Franks": "Franks", "French Algeria": "Algeria (FR)",
            "Grand Principality of Moscow": "Grand Duchy of Moscow", "British Cape Colony": "Cape Colony",
            "Zanzibar": "Sultanate of Zanzibar", "Tunis": "Tunisia", "United States": "United States of America",
-           "New France": "Quebec"}
+           "New France": "Quebec", "French Fifth Republic": "France", "Republic of Indonesia": "Indonesia",
+           "Republic of China": "Republic of China"}
+# Colonies whose land is most of an empire's (by square degrees, where Canada looms large): the empire spread over
+# several continents keeps its own name rather than taking the colony's.
+COLONIES = {"Canada", "Angola", "Algeria", "Philippines", "Bengal", "Guyana", "New South Wales", "Australia", "India",
+            "Brazil", "Mozambique", "Indonesia", "Dutch East Indies", "Siberia", "Angola (Portugal)"}
 CLIP = box(60, 5, 150, 58)          # same window as tools/build_borders.py
 TOL = 0.03                          # degrees
 MIN_AREA = 0.02                     # square degrees
@@ -81,6 +86,12 @@ def known_zh():
     extra = P("data/world/names_zh.json")
     if os.path.exists(extra): zh.update(json.load(open(extra)))
     return zh
+
+
+def spread(g):
+    """Width plus height of a shape's bounding box, in degrees."""
+    x0, y0, x1, y1 = g.bounds
+    return (x1 - x0) + (y1 - y0)
 
 
 def dump(obj):
@@ -138,13 +149,17 @@ def main():
             name = ALIASES.get(p["Name"], p["Name"])
             if name in wanted or p["Name"] in ALIASES:
                 feats.append((name, g, p.get("Wikipedia") or "")); continue
-            best, score = None, 0
+            best, score, hb_g = None, 0, {}
             for i in tree.query(g):
                 hname, hg = hb[i]
+                hb_g[hname] = hg
                 inter = g.intersection(hg).area
                 s = min(inter / g.area, inter / hg.area)
                 if s > score: best, score = hname, s
-            if best and (score >= 0.45 or score >= 0.25 and best in wanted): name = best
+            # An empire spread over several continents keeps its own name even when one colony is most of its land
+            # (the British Empire is not "Canada", the French one not "Algeria").
+            if best and (score >= 0.45 or score >= 0.25 and best in wanted) and not (best in COLONIES and spread(g) > spread(hb_g[best]) * 1.5 + 15):
+                name = best
             feats.append((name, g, p.get("Wikipedia") or ""))
         # Land outside every Cliopatria polity keeps historical-basemaps' peoples and states.
         held = shapely.union_all([g for _, g, _ in feats]) if feats else None

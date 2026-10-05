@@ -81392,8 +81392,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Bundelkhand",
-   "Bengal"
+   "Bundelkhand"
   ],
   "check": {
    "s": "ok"
@@ -86261,7 +86260,7 @@
   "places": [],
   "people": [],
   "states": [
-   "New South Wales",
+   "British Colonial Empire",
    "Canada"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%8A%A0%E6%8B%BF%E5%A4%A7%E8%81%94%E9%82%A6%E5%8C%96",
@@ -91346,7 +91345,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Manchu Empire"
+   "Republic of China"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8D%81%E4%B8%80%E6%9D%A1",
   "check": {
@@ -92074,7 +92073,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Manchu Empire"
+   "Republic of China"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E9%9F%A9%E6%B0%91%E5%9B%BD%E4%B8%B4%E6%97%B6%E6%94%BF%E5%BA%9C",
   "check": {
@@ -93214,7 +93213,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Canada"
+   "British Colonial Empire"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E8%B6%8A%E5%8D%97%E5%85%B1%E4%BA%A7%E5%85%9A",
   "check": {
@@ -93336,6 +93335,7 @@
   "places": [],
   "people": [],
   "states": [
+   "British Colonial Empire",
    "Canada"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/1931%E5%B9%B4%E8%A5%BF%E6%95%8F%E6%B3%95%E8%A6%8F",
@@ -93853,7 +93853,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Chinese Warlords"
+   "Republic of China"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%83%E4%B8%83%E4%BA%8B%E5%8F%98",
   "check": {
@@ -93883,7 +93883,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Chinese Warlords"
+   "Republic of China"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%8D%97%E4%BA%AC%E5%A4%A7%E5%B1%A0%E6%AE%BA",
   "check": {
@@ -94189,7 +94189,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Chinese Warlords"
+   "Republic of China"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E9%9F%93%E5%9C%8B%E5%85%89%E5%BE%A9%E8%BB%8D",
   "check": {
@@ -98619,7 +98619,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Angola",
+   "Estado Novo",
    "Mozambique"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%AE%89%E5%93%A5%E6%8B%89%E5%86%85%E6%88%98",
@@ -99790,7 +99790,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Algeria",
+   "France",
    "East Germany"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%9F%8F%E6%9E%97%E5%A2%99%E5%80%92%E5%A1%8C",
@@ -99913,7 +99913,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Algeria",
+   "France",
    "East Germany"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%85%A9%E5%BE%B7%E7%B5%B1%E4%B8%80",
@@ -100617,7 +100617,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Algeria"
+   "France"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%94%B3%E6%A0%B9%E5%85%AC%E7%BA%A6",
   "check": {

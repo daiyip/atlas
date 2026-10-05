@@ -1959,11 +1959,11 @@ function visibleEvents() {
 // The detail switch (大事 / 要事 / 细目) sets the finest level shown; tags narrow to some categories.
 // The open event always stays visible.
 function shownEvent(ev) {
-  // Each region shows its own events; the world view shows all.
-  if (state.mode !== "world" && (ev.region || state.home) !== state.mode && !ev.also?.includes(state.mode)) return false;
+  // With a country selected, only its events, from whichever region's list they come (the Korean War for China).
+  if (state.sel) { if (!selHas(ev.states, ev.year, ev.year) && ev.id !== state.selected) return false; }
+  // Otherwise each region shows its own events; the world view shows all.
+  else if (state.mode !== "world" && (ev.region || state.home) !== state.mode && !ev.also?.includes(state.mode)) return false;
   if (ev.id === state.selected) return true;
-  // With a country selected, only its events.
-  if (state.sel && !selHas(ev.states, ev.year, ev.year)) return false;
   return (ev.level || 1) <= state.detail && (!state.cats.length || state.cats.includes(ev.category));
 }
 // Countries of this period that have events (from each event's `states`), main dynasties first, then by event count.
