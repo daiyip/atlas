@@ -1056,6 +1056,14 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .world-strip .ws-head { display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; border: 0; border-radius: 999px; background: rgba(20, 24, 26, 0.72); color: #fff; font: 600 11px/1.2 var(--font-body); white-space: nowrap; flex: none; cursor: pointer; box-shadow: none; }
 .world-strip .ws-head:hover { background: rgba(20, 24, 26, 0.88); box-shadow: none; }
 .world-strip .ws-head svg { width: 9px; height: 9px; opacity: 0.8; }
+/* The reach menu: one row per level, dots on a thin line from the world down to the neighbours. */
+.ws-pop { min-width: 168px; gap: 0; padding: 6px; }
+.ws-pop button { position: relative; justify-content: flex-start; gap: 10px; padding: 7px 10px; }
+.ws-pop button > i { position: relative; width: 9px; height: 9px; border-radius: 50%; flex: none; border: 1.5px solid var(--muted); background: var(--panel-solid); z-index: 1; }
+.ws-pop button:not(:last-child)::after { content: ""; position: absolute; left: 14px; top: calc(50% + 5px); height: calc(100% - 10px); border-left: 1.5px solid color-mix(in srgb, var(--muted) 45%, transparent); }
+.ws-pop button[aria-checked="true"] > i { border-color: var(--jade); background: var(--jade); }
+.ws-pop button[aria-checked="true"] b { color: var(--jade); }
+.ws-pop button svg { display: none; }
 .ws-none { padding: 5px 9px; border-radius: 999px; background: var(--panel); color: var(--muted); font: 500 11px var(--font-body); white-space: nowrap; }
 .world-strip button {
   display: inline-flex; align-items: center; gap: 5px; min-width: 0; max-width: 260px; padding: 5px 9px; border: 0; border-radius: 999px;
