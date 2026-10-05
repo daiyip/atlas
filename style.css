@@ -1159,3 +1159,8 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .atlas-pop .pc-life { display: inline-block; margin: 2px 0 6px; padding: 4px 10px; border: 1px solid var(--cinnabar); border-radius: 999px; background: none; color: var(--cinnabar); font: 600 12px inherit; cursor: pointer; }
 .atlas-pop .pc-life:hover { background: var(--cinnabar); color: #fff; }
 .pp-life { font-style: normal; color: var(--cinnabar); margin-right: 4px; font-size: 9px; }
+.tour-line { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.tour-line path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.tour-line .tl-glow { stroke: rgba(255, 246, 242, .55); stroke-width: 7; filter: blur(1px); }
+.tour-line .tl-line { stroke: #b93a26; stroke-width: 3.2; }
+.tour-line .tl-arrow { fill: #b93a26; stroke: #fff6f2; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.35)); }

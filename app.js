@@ -3342,6 +3342,7 @@ function endTour() {
   $("app").classList.remove("touring", "tour-reading");
   if (state.tab === "tours") renderToursTab();
   map.getSource("tour")?.setData({ type: "FeatureCollection", features: [] });
+  tourLine.leg = null; drawTourLine();
   tourHighlight(null);
   emit("tour-end", {});
   syncAuto();
@@ -3369,6 +3370,9 @@ function arcLeg(a, b, n = 40) {
 }
 // The journey so far: legs already travelled as a dotted trail, the leg into this stop as a solid line that draws
 // itself while the camera flies, with an arrowhead at its tip, and the stops as rings (this one filled).
+// The trail and stops are map layers, set once per stop. The leg being drawn is an SVG overlay re-projected on every
+// rendered frame, so line and arrow move exactly with the map instead of waiting for the map to re-tile new data.
+const tourLine = { svg: null, leg: null, f: 0, hooked: false };
 function drawTourPath(tour, i) {
   const src = map.getSource("tour");
   if (!src) return;
@@ -3378,53 +3382,71 @@ function drawTourPath(tour, i) {
   const stops = steps.map((x, k) => ({ type: "Feature", properties: { kind: "stop", now: k === i ? 1 : 0, n: k + 1 }, geometry: { type: "Point", coordinates: x.at } }));
   const legs = tr.path ? steps.slice(1).map((x, k) => arcLeg(steps[k].at, x.at)) : [];
   const past = legs.slice(0, -1).map((pts) => ({ type: "Feature", properties: { kind: "past" }, geometry: lineGeom(pts) }));
+  src.setData({ type: "FeatureCollection", features: [...past, ...stops] });
   const leg = legs[legs.length - 1];
-  const frame = (f) => {
-    const feats = [...past];
-    if (leg && f > 0) {
-      const m = Math.max(2, Math.round(f * (leg.length - 1)) + 1), pts = leg.slice(0, m);
-      feats.push({ type: "Feature", properties: { kind: "path" }, geometry: lineGeom(pts) });
-      // While drawing, the arrowhead leads the line; once there it rests halfway along, clear of the stop's ring.
-      const h = f < 1 ? pts.length - 1 : Math.round((pts.length - 1) * 0.55), a = pts[Math.max(0, h - 1)], b = pts[h];
-      feats.push({ type: "Feature", properties: { kind: "arrow", rot: bearing(a, b) }, geometry: { type: "Point", coordinates: b } });
-    }
-    src.setData({ type: "FeatureCollection", features: [...feats, ...stops] });
-  };
-  if (!leg || matchMedia("(prefers-reduced-motion: reduce)").matches) return frame(1);
+  tourLine.leg = leg && unwrapLine(leg);
+  if (!leg || matchMedia("(prefers-reduced-motion: reduce)").matches) { tourLine.f = 1; return drawTourLine(); }
   const t0 = performance.now(), dur = 2200;
   const tick = (now) => {
     if (state.tour !== tour || tour.i !== i) return;
     const f = Math.min(1, (now - t0) / dur);
-    frame(1 - (1 - f) ** 3);
+    tourLine.f = 1 - (1 - f) ** 3;
+    drawTourLine();
     if (f < 1) tour.anim = requestAnimationFrame(tick);
   };
-  frame(0);
+  tourLine.f = 0;
+  drawTourLine();
   tour.anim = requestAnimationFrame(tick);
+}
+// Longitudes made continuous (no jump at the dateline) so a point can be interpolated along the leg.
+function unwrapLine(pts) {
+  const out = [pts[0].slice()];
+  for (let j = 1; j < pts.length; j++) {
+    let x = pts[j][0];
+    while (x - out[j - 1][0] > 180) x -= 360;
+    while (out[j - 1][0] - x > 180) x += 360;
+    out.push([x, pts[j][1]]);
+  }
+  return out;
+}
+function drawTourLine() {
+  const { leg, f } = tourLine;
+  let svg = tourLine.svg;
+  if (!leg || !state.tour) { if (svg) svg.style.display = "none"; return; }
+  if (!svg) {
+    svg = tourLine.svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "tour-line");
+    svg.innerHTML = `<path class="tl-glow"/><path class="tl-line"/><path class="tl-arrow" d="M0 -10 8 7 0 3 -8 7Z"/>`;
+    const box = map.getCanvasContainer();
+    box.insertBefore(svg, map.getCanvas().nextSibling);
+  }
+  svg.style.display = "";
+  const at = (g) => {
+    const p = g * (leg.length - 1), j = Math.min(leg.length - 2, Math.floor(p)), t = p - j;
+    return [leg[j][0] + (leg[j + 1][0] - leg[j][0]) * t, leg[j][1] + (leg[j + 1][1] - leg[j][1]) * t];
+  };
+  const n = Math.floor(f * (leg.length - 1));
+  const pts = [...leg.slice(0, n + 1), at(f)].map((q) => map.project(q));
+  const d = pts.length > 1 && f > 0 ? "M" + pts.map((q) => `${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join("L") : "";
+  svg.querySelector(".tl-glow").setAttribute("d", d);
+  svg.querySelector(".tl-line").setAttribute("d", d);
+  // While drawing, the arrowhead leads the line; once there it rests halfway along, clear of the stop's ring.
+  const g = f >= 1 ? 0.55 : f, arrow = svg.querySelector(".tl-arrow");
+  if (g <= 0.01) { arrow.style.display = "none"; return; }
+  const pa = map.project(at(Math.max(0, g - 0.02))), pb = map.project(at(g));
+  arrow.style.display = "";
+  arrow.setAttribute("transform", `translate(${pb.x.toFixed(1)} ${pb.y.toFixed(1)}) rotate(${((Math.atan2(pb.x - pa.x, pa.y - pb.y) * 180) / Math.PI).toFixed(1)})`);
 }
 function addTourLayers() {
   map.addSource("tour", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-  if (!map.hasImage("tour-arrow")) {
-    const c = document.createElement("canvas"); c.width = c.height = 40;
-    const g = c.getContext("2d");
-    g.beginPath(); g.moveTo(20, 5); g.lineTo(34, 33); g.lineTo(20, 26); g.lineTo(6, 33); g.closePath();
-    g.lineJoin = "round"; g.lineWidth = 4; g.strokeStyle = "#fff6f2"; g.stroke(); g.fillStyle = "#b93a26"; g.fill();
-    map.addImage("tour-arrow", g.getImageData(0, 0, 40, 40), { pixelRatio: 2 });
-  }
   const line = (kind) => ["==", ["get", "kind"], kind];
   map.addLayer({ id: "tour-past", type: "line", source: "tour", filter: line("past"),
     layout: { "line-cap": "round", "line-join": "round" },
     paint: { "line-color": "#b93a26", "line-width": 3, "line-dasharray": [0, 2], "line-opacity": 0.75 } });
-  map.addLayer({ id: "tour-glow", type: "line", source: "tour", filter: line("path"),
-    layout: { "line-cap": "round", "line-join": "round" },
-    paint: { "line-color": "#fff6f2", "line-width": 7, "line-opacity": 0.55, "line-blur": 2 } });
-  map.addLayer({ id: "tour-path", type: "line", source: "tour", filter: line("path"),
-    layout: { "line-cap": "round", "line-join": "round" },
-    paint: { "line-color": "#b93a26", "line-width": 3.2, "line-opacity": 0.95 } });
   map.addLayer({ id: "tour-stops", type: "circle", source: "tour", filter: line("stop"),
     paint: { "circle-radius": ["case", ["==", ["get", "now"], 1], 8, 4.5], "circle-color": ["case", ["==", ["get", "now"], 1], "#b93a26", "#fff6f2"],
       "circle-stroke-color": ["case", ["==", ["get", "now"], 1], "#fff6f2", "#b93a26"], "circle-stroke-width": ["case", ["==", ["get", "now"], 1], 2.5, 2] } });
-  map.addLayer({ id: "tour-arrow", type: "symbol", source: "tour", filter: line("arrow"),
-    layout: { "icon-image": "tour-arrow", "icon-rotate": ["get", "rot"], "icon-rotation-alignment": "map", "icon-allow-overlap": true, "icon-ignore-placement": true } });
+  if (!tourLine.hooked) { tourLine.hooked = true; map.on("render", () => { if (tourLine.leg) drawTourLine(); }); }
 }
 
 /* ---------- search: events, people, rulers, cities, periods and years ---------- */
