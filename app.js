@@ -1229,6 +1229,14 @@ function selContains(lon, lat) {
     return polys.some((p) => inPoly(lon, lat, p[0]) && !p.slice(1).some((h) => inPoly(lon, lat, h)));
   });
 }
+// Layer items for the selected country: one with a point or a line on its land (or within ~30 km of its border,
+// for ports and frontier passes) belongs to it. With no country selected everything shows.
+function selNear(lon, lat) {
+  if (selContains(lon, lat)) return true;
+  const d = 0.3;
+  return [[d, 0], [-d, 0], [0, d], [0, -d]].some(([x, y]) => selContains(lon + x, lat + y));
+}
+const selKeep = (pts) => !state.sel || pts.some((p) => p && selNear(p[0], p[1]));
 function applySelMap() {
   if (!map?.getLayer("sel-dim")) return;
   const on = selOnMap(), now = selNames(), names = on ? [...now] : [];
@@ -1536,7 +1544,7 @@ const personSpan = (p) => p.show ? p.show : [p.born ?? p.died - 40, p.died ?? st
 
 function renderCapitals() {
   const list = shown("capitals") ? (state.layerData?.capitals || []) : [];
-  const now = list.filter((c) => state.year >= c.from && state.year <= c.to);
+  const now = list.filter((c) => state.year >= c.from && state.year <= c.to && (!state.sel || selNames().has(c.polity) || selKeep([[c.lon, c.lat]])));
   pointMarkers("capitals", now, (c) => {
     const el = document.createElement("div");
     el.className = "mk-capital";
@@ -1550,7 +1558,7 @@ function renderCapitals() {
 // Faith sites and inventions: those of the current era up to this year (in the decades view, of the window).
 function cumulative(key, items, cls, glyph, kindLabel) {
   const start = state.zoom === 2 ? state.win[0] : state.era.start;
-  const shown = items.filter((x) => x.year <= state.year && x.year >= start);
+  const shown = items.filter((x) => x.year <= state.year && x.year >= start && selKeep([[x.lon, x.lat]]));
   pointMarkers(key, shown, (x) => {
     const recent = x.year >= state.era.start;
     const el = document.createElement("div");
@@ -1569,7 +1577,7 @@ function renderFaith() {
 }
 // Passes stand from their founding year until abandoned; battles already fought there are listed on the card.
 function renderPasses() {
-  const list = shown("passes") ? state.passes.filter((x) => state.year >= x.from && (x.to == null || state.year <= x.to)) : [];
+  const list = shown("passes") ? state.passes.filter((x) => state.year >= x.from && (x.to == null || state.year <= x.to) && selKeep([[x.lon, x.lat]])) : [];
   pointMarkers("passes", list, (x) => {
     const el = document.createElement("div");
     el.className = "mk-pass k-" + x.kind;
@@ -1594,7 +1602,7 @@ function roadCard(r) {
     <p class="pc-meta">${wikiA(r.source)}</p>`;
 }
 function renderRoads() {
-  const list = shown("roads") ? state.roads.filter((r) => state.year >= r.from && (r.to == null || state.year <= r.to)) : [];
+  const list = shown("roads") ? state.roads.filter((r) => state.year >= r.from && (r.to == null || state.year <= r.to) && selKeep(r.via)) : [];
   map.getSource("roads")?.setData({ type: "FeatureCollection", features: list.map((r) => ({
     type: "Feature", properties: { id: r.id, kind: r.kind }, geometry: { type: "LineString", coordinates: r.via.map((v) => [v[0], v[1]]) } })) });
   (markers.roads || []).forEach((m) => m.remove());
@@ -1622,7 +1630,7 @@ function clanCard(g) {
     <p class="pc-meta">${t("drafted")} ${wikiA(g.source)}</p>`;
 }
 function renderClans() {
-  const list = shown("clans") ? state.clans.filter((g) => state.year >= g.from && state.year <= g.to) : [];
+  const list = shown("clans") ? state.clans.filter((g) => state.year >= g.from && state.year <= g.to && selKeep(g.seats)) : [];
   map.getSource("clans")?.setData({ type: "FeatureCollection", features: list.map((g) => ({
     type: "Feature", properties: { id: g.id, color: CLAN[g.kind][0] }, geometry: g.geometry })) });
   pointMarkers("clans", list.map((g) => ({ ...g, lon: g.label[0], lat: g.label[1] })), (g) => {
@@ -1643,7 +1651,7 @@ function wallCard(w) {
     <p class="pc-meta">${t("drafted")} ${wikiA(w.source)}</p>`;
 }
 function renderWalls() {
-  const list = shown("walls") ? state.walls.filter((w) => state.year >= w.from) : [];
+  const list = shown("walls") ? state.walls.filter((w) => state.year >= w.from && (!state.sel || w.paths.some(selKeep))) : [];
   const feats = [];
   for (const w of list) for (const p of w.paths)
     feats.push({ type: "Feature", properties: { id: w.id, ruin: state.year > w.to }, geometry: { type: "LineString", coordinates: p } });
@@ -1690,7 +1698,7 @@ function updateRulers() {
   const focus = [];
   for (const p of markers.polityEls) {
     p.el.querySelector(".ruler")?.remove();
-    const r = shown("rulers") && rulerAt(p.name, state.year);
+    const r = shown("rulers") && (!state.sel || selNames().has(p.name)) && rulerAt(p.name, state.year);
     if (!r) continue;
     if (p.focus) focus.push(r);
     const [title, name] = rulerText(r);
@@ -1829,6 +1837,8 @@ function renderRoutes() {
   const feats = [];
   for (const r of routes) {
     if (state.year < r.from || state.year > r.to || r.path.length < 2 || r.kind === "wall") continue;
+    // A campaign or journey belongs to the country its event names, or whose land it crosses.
+    if (state.sel && !(r.event && selHas(state.events.find((ev) => ev.id === r.event)?.states, r.from, r.to)) && !selKeep(r.path)) continue;
     const moving = r.kind === "campaign" || r.kind === "journey";
     const f = moving && r.to > r.from ? Math.max(0.08, (state.year - r.from + 1) / (r.to - r.from + 1)) : 1;
     const path = moving ? partialPath(r.path, f) : r.path;
@@ -1860,6 +1870,7 @@ function renderSpread() {
   if (shown("spread")) for (const s of state.exchange.spread) {
     // Gone from the map three centuries after it arrived, so the late centuries don't fill with old lines.
     if (state.year < s.start || state.year > s.year + 300) continue;
+    if (!selKeep(s.path)) continue;
     const tp = state.exchange.topics[s.topic] || {};
     const f = s.year > s.start ? Math.min(1, Math.max(0.08, (state.year - s.start + 1) / (s.year - s.start + 1))) : 1;
     const growing = state.year < s.year;
