@@ -2100,7 +2100,8 @@ function dcItems() {
   const add = (m, kind, prio, opts = {}) => { const el = m.getElement(); if (el.isConnected) out.push({ m, el, kind, prio, ...opts }); };
   for (const m of markers.events.values()) {
     const el = m.getElement();
-    add(m, "event", el.classList.contains("active") ? 100 : el.classList.contains("minor") ? 50 : 60);
+    // The open event's name always shows; other current events' names take their turn with the rest.
+    add(m, "event", el.classList.contains("open") ? 100 : el.classList.contains("active") ? 90 : el.classList.contains("minor") ? 50 : 60);
   }
   (markers.capitals || []).forEach((m) => add(m, "capital", 80));
   (markers.people || []).forEach((m) => add(m, "person", 70));
@@ -2283,6 +2284,10 @@ function buildEventMarkers() {
     const el = document.createElement("div");
     el.className = "mk-event" + ((ev.level || 1) > 1 ? " minor" : "");
     el.appendChild(document.createElement("i"));
+    // While current, the marker names its place (马邑, not 马邑（今山西朔州）): it sits on the city, whose own label it hides.
+    const where = document.createElement("span");
+    where.textContent = (tx(ev, "place") || "").split(/[（(,，]/)[0].trim();
+    if (where.textContent) el.appendChild(where);
     el.title = `${fmtYear(ev.year, ev.circa)} · ${titleOf(ev)}`;
     el.dataset.name = `${fmtYear(ev.year, ev.circa)} ${titleOf(ev)}`;
     el.addEventListener("click", (e) => { e.stopPropagation(); openStory(ev.id); });
@@ -2299,6 +2304,8 @@ function isActive(ev, y) {
 
 function renderEventStates() {
   scheduleDeclutter();
+  // The open event has a marker even when the detail filter leaves it out of the list (a level-3 story opened from a city).
+  if (state.selected && !markers.events.has(state.selected) && state.events.some((e) => e.id === state.selected)) buildEventMarkers();
   for (const [id, m] of markers.events) {
     const ev = state.events.find((x) => x.id === id);
     const happened = ev.year <= state.year;
@@ -2307,6 +2314,7 @@ function renderEventStates() {
     const el = m.getElement();
     const active = isActive(ev, state.year) || ev.id === state.selected;
     el.classList.toggle("active", active);
+    el.classList.toggle("open", ev.id === state.selected);
     el.classList.toggle("past", happened && !active);
   }
   document.querySelectorAll(".ev").forEach((btn) => {

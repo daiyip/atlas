@@ -1166,3 +1166,10 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .tour-line .tl-arrow { fill: #b93a26; stroke: #fff6f2; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.35)); }
 .sc-story { margin: 8px 0 2px; padding: 4px 12px; border: 1px solid var(--cinnabar); border-radius: 999px; background: none; color: var(--cinnabar); font: 600 12px inherit; cursor: pointer; }
 .sc-story:hover { background: var(--cinnabar); color: #fff; }
+/* A current event names its place beside the diamond; it sits on the city, whose own label gives way to it. */
+.mk-event { position: relative; }
+.mk-event span { display: none; position: absolute; left: 19px; top: 50%; transform: translateY(-50%);
+  font: 600 12px/1.1 var(--font-display); color: #1b2226; white-space: nowrap; pointer-events: none;
+  text-shadow: 0 0 3px #f4f2ea, 0 0 3px #f4f2ea, 0 0 6px #f4f2ea; }
+.mk-event.active span { display: block; }
+.mk-event.open span { color: #8f2a1b; font-size: 13px; }
