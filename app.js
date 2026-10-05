@@ -769,7 +769,7 @@ function addPackLayer(def, base) {
     line: { "line-color": color, "line-width": def.width ?? 2.5, "line-opacity": 0.9, ...(def.dash ? { "line-dasharray": def.dash } : {}) },
     circle: { "circle-color": color, "circle-radius": def.radius ?? 5, "circle-stroke-color": "#fff8ee", "circle-stroke-width": 1.5 },
   };
-  const before = map.getLayer("tour-path") ? "tour-path" : undefined;
+  const before = map.getLayer("tour-past") ? "tour-past" : undefined;
   const ids = [];
   for (const kind of def.type ? [def.type] : ["fill", "line", "circle"]) {
     const id = `${src}-${kind}`;
@@ -3260,15 +3260,7 @@ async function tourStep(i) {
   $("app").classList.remove("tour-reading");
   tour.i = i;
   const s = tr.steps[i];
-  // Draw the journey so far.
-  const src = map.getSource("tour");
-  if (src) {
-    const pts = tr.path ? tr.steps.slice(0, i + 1).map((x) => x.at) : [];
-    src.setData({ type: "FeatureCollection", features: [
-      ...(pts.length > 1 ? [{ type: "Feature", properties: { kind: "path" }, geometry: { type: "LineString", coordinates: pts } }] : []),
-      ...tr.steps.slice(0, i + 1).map((x, k) => ({ type: "Feature", properties: { kind: "stop", now: k === i ? 1 : 0, n: k + 1 }, geometry: { type: "Point", coordinates: x.at } })),
-    ] });
-  }
+  drawTourPath(tour, i);
   tourCard();
   state.selected = s.event || null;
   state.reading = false;
@@ -3357,14 +3349,82 @@ function endTour() {
   map.setPadding({ top: 0, bottom: 0, left: 0, right: 0 });
   saveView();
 }
+// A leg of a journey is drawn as a gentle bow, not a ruler line: a quadratic curve bent to the left of travel by
+// about a seventh of its length (at most 6°), taking the short way round the dateline.
+function arcLeg(a, b, n = 40) {
+  let bx = b[0];
+  if (bx - a[0] > 180) bx -= 360; else if (a[0] - bx > 180) bx += 360;
+  const k = Math.max(0.2, Math.cos(((a[1] + b[1]) / 2) * Math.PI / 180));
+  const dx = (bx - a[0]) * k, dy = b[1] - a[1], len = Math.hypot(dx, dy);
+  if (len < 0.02) return [a, b];
+  const bend = Math.min(len / 7, 6);
+  const cx = (a[0] + bx) / 2 - (dy / len) * bend / k, cy = (a[1] + b[1]) / 2 + (dx / len) * bend;
+  const pts = [];
+  for (let j = 0; j <= n; j++) {
+    const t = j / n, u = 1 - t;
+    const x = u * u * a[0] + 2 * u * t * cx + t * t * bx;
+    pts.push([((x + 540) % 360) - 180, u * u * a[1] + 2 * u * t * cy + t * t * b[1]]);
+  }
+  return pts;
+}
+// The journey so far: legs already travelled as a dotted trail, the leg into this stop as a solid line that draws
+// itself while the camera flies, with an arrowhead at its tip, and the stops as rings (this one filled).
+function drawTourPath(tour, i) {
+  const src = map.getSource("tour");
+  if (!src) return;
+  const { tr } = tour;
+  cancelAnimationFrame(tour.anim);
+  const steps = tr.steps.slice(0, i + 1);
+  const stops = steps.map((x, k) => ({ type: "Feature", properties: { kind: "stop", now: k === i ? 1 : 0, n: k + 1 }, geometry: { type: "Point", coordinates: x.at } }));
+  const legs = tr.path ? steps.slice(1).map((x, k) => arcLeg(steps[k].at, x.at)) : [];
+  const past = legs.slice(0, -1).map((pts) => ({ type: "Feature", properties: { kind: "past" }, geometry: lineGeom(pts) }));
+  const leg = legs[legs.length - 1];
+  const frame = (f) => {
+    const feats = [...past];
+    if (leg && f > 0) {
+      const m = Math.max(2, Math.round(f * (leg.length - 1)) + 1), pts = leg.slice(0, m);
+      feats.push({ type: "Feature", properties: { kind: "path" }, geometry: lineGeom(pts) });
+      // While drawing, the arrowhead leads the line; once there it rests halfway along, clear of the stop's ring.
+      const h = f < 1 ? pts.length - 1 : Math.round((pts.length - 1) * 0.55), a = pts[Math.max(0, h - 1)], b = pts[h];
+      feats.push({ type: "Feature", properties: { kind: "arrow", rot: bearing(a, b) }, geometry: { type: "Point", coordinates: b } });
+    }
+    src.setData({ type: "FeatureCollection", features: [...feats, ...stops] });
+  };
+  if (!leg || matchMedia("(prefers-reduced-motion: reduce)").matches) return frame(1);
+  const t0 = performance.now(), dur = 2200;
+  const tick = (now) => {
+    if (state.tour !== tour || tour.i !== i) return;
+    const f = Math.min(1, (now - t0) / dur);
+    frame(1 - (1 - f) ** 3);
+    if (f < 1) tour.anim = requestAnimationFrame(tick);
+  };
+  frame(0);
+  tour.anim = requestAnimationFrame(tick);
+}
 function addTourLayers() {
   map.addSource("tour", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-  map.addLayer({ id: "tour-path", type: "line", source: "tour", filter: ["==", ["get", "kind"], "path"],
+  if (!map.hasImage("tour-arrow")) {
+    const c = document.createElement("canvas"); c.width = c.height = 40;
+    const g = c.getContext("2d");
+    g.beginPath(); g.moveTo(20, 5); g.lineTo(34, 33); g.lineTo(20, 26); g.lineTo(6, 33); g.closePath();
+    g.lineJoin = "round"; g.lineWidth = 4; g.strokeStyle = "#fff6f2"; g.stroke(); g.fillStyle = "#b93a26"; g.fill();
+    map.addImage("tour-arrow", g.getImageData(0, 0, 40, 40), { pixelRatio: 2 });
+  }
+  const line = (kind) => ["==", ["get", "kind"], kind];
+  map.addLayer({ id: "tour-past", type: "line", source: "tour", filter: line("past"),
     layout: { "line-cap": "round", "line-join": "round" },
-    paint: { "line-color": "#b93a26", "line-width": 3, "line-dasharray": [2, 1.5], "line-opacity": 0.9 } });
-  map.addLayer({ id: "tour-stops", type: "circle", source: "tour", filter: ["==", ["get", "kind"], "stop"],
+    paint: { "line-color": "#b93a26", "line-width": 3, "line-dasharray": [0, 2], "line-opacity": 0.75 } });
+  map.addLayer({ id: "tour-glow", type: "line", source: "tour", filter: line("path"),
+    layout: { "line-cap": "round", "line-join": "round" },
+    paint: { "line-color": "#fff6f2", "line-width": 7, "line-opacity": 0.55, "line-blur": 2 } });
+  map.addLayer({ id: "tour-path", type: "line", source: "tour", filter: line("path"),
+    layout: { "line-cap": "round", "line-join": "round" },
+    paint: { "line-color": "#b93a26", "line-width": 3.2, "line-opacity": 0.95 } });
+  map.addLayer({ id: "tour-stops", type: "circle", source: "tour", filter: line("stop"),
     paint: { "circle-radius": ["case", ["==", ["get", "now"], 1], 8, 4.5], "circle-color": ["case", ["==", ["get", "now"], 1], "#b93a26", "#fff6f2"],
-      "circle-stroke-color": "#b93a26", "circle-stroke-width": 2 } });
+      "circle-stroke-color": ["case", ["==", ["get", "now"], 1], "#fff6f2", "#b93a26"], "circle-stroke-width": ["case", ["==", ["get", "now"], 1], 2.5, 2] } });
+  map.addLayer({ id: "tour-arrow", type: "symbol", source: "tour", filter: line("arrow"),
+    layout: { "icon-image": "tour-arrow", "icon-rotate": ["get", "rot"], "icon-rotation-alignment": "map", "icon-allow-overlap": true, "icon-ignore-placement": true } });
 }
 
 /* ---------- search: events, people, rulers, cities, periods and years ---------- */
