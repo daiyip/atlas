@@ -1781,6 +1781,8 @@ function showCard(lngLat, html) {
 // always captioned as AI-generated.
 const illuSets = {};
 const illuBuckets = {};
+const illuSet = (set) => illuSets[set] ||= loadJSON(set === "ai" ? "data/ai-illustrations.json" : "data/illustrations.json")
+  .catch(() => ({ keys: {}, images: {} })).then((idx) => (illuSets[set + "Ready"] = idx));
 function illuSlot(key) {
   return `<figure class="illu" data-illu="${esc(key)}" hidden></figure>`;
 }
@@ -1789,8 +1791,7 @@ async function fillIllus(root) {
   for (const fig of slots) {
     fig.classList.add("done");
     const set = fig.dataset.illu.startsWith("a:") ? "ai" : "img";
-    illuSets[set] ||= loadJSON(set === "ai" ? "data/ai-illustrations.json" : "data/illustrations.json").catch(() => ({ keys: {}, images: {} }));
-    const idx = await illuSets[set];
+    const idx = await illuSet(set);
     const id = idx.keys[fig.dataset.illu], im = idx.images[id];
     if (!im) continue;
     illuBuckets[set + im.b] ||= loadJSON(`data/${set}/${im.b}.json`).catch(() => ({}));
@@ -3510,6 +3511,7 @@ async function startTour(id, i = 0, auto = false) {
   const tr = id === state.genTour?.id ? state.genTour : (await loadTours()).find((x) => x.id === id);
   if (!tr) return;
   stop(); closeSearch();
+  await illuSet("ai");
   state.tour = { id, tr, i: 0, auto };
   setMode(tourRegion(tr));
   $("tour").hidden = false;
@@ -3589,10 +3591,6 @@ function tourCard() {
   box.querySelector(".tour-year").textContent = when || fmtYear(s.year);
   box.querySelector(".tour-text").textContent = rest;
   box.querySelector(".tour-story").hidden = !s.event;
-  // The step's AI picture, when its event has one (hidden with the AI pictures chip like everywhere else).
-  const pic = box.querySelector(".tour-pic");
-  pic.innerHTML = s.event ? illuSlot("a:" + s.event) : "";
-  fillIllus(pic);
   const r = refLink(s.ref), a = box.querySelector(".tour-ref");
   a.hidden = !r;
   if (r) { a.href = r.href; a.title = r.label; a.textContent = `${refLabel(r.ref)} ↗`; }
@@ -3600,12 +3598,47 @@ function tourCard() {
   box.querySelector(".tour-next").textContent = i === tr.steps.length - 1 ? t("tourEnd") : t("tourNext");
   box.querySelector(".tour-auto").textContent = tour.auto ? t("tourPause") : t("tourPlay");
   box.querySelector(".tour-bar i").style.width = ((i + 1) / tr.steps.length) * 100 + "%";
+  placeTourPic();
+}
+// The step's AI picture floats above the tour card, as large as the free space allows: either in the column between the
+// side panels, or across the full width below them, whichever fits the bigger picture. It takes at most about half
+// the height above the card, and tourPadding() keeps the map's focus in the space left over.
+function placeTourPic() {
+  const box = $("tour-pic"), tour = state.tour, s = tour?.tr.steps[tour.i];
+  const key = "a:" + s?.event, idx = illuSets.aiReady;
+  const im = idx?.images[idx.keys[key]];
+  if (EMBED || !s?.event || !state.showAI || !im) { box.hidden = true; box.innerHTML = ""; return; }
+  if (box.dataset.key !== key) { box.dataset.key = key; box.innerHTML = illuSlot(key); fillIllus(box); }
+  const card = $("tour").getBoundingClientRect(), gap = 10, edge = 8, ratio = im.w / im.h;
+  let top = edge, colL = edge, colR = innerWidth - edge, below = edge;
+  for (const el of [document.querySelector(".era"), $("ledger")]) {
+    const r = el?.getBoundingClientRect();
+    if (!r || !r.width || !r.height || getComputedStyle(el).display === "none" || r.top >= card.top) continue;
+    if (r.width > innerWidth * 0.6) top = Math.max(top, r.bottom + gap); // a bar across the screen (phones)
+    else {
+      below = Math.max(below, r.bottom + gap);
+      if (r.left + r.width / 2 < innerWidth / 2) colL = Math.max(colL, r.right + gap); else colR = Math.min(colR, r.left - gap);
+    }
+  }
+  const bottom = card.top - gap;
+  const fit = (l, r, t) => { const H = Math.min((bottom - t) * 0.5, 360), w = Math.min(r - l, H * ratio, 560); return { l, r, w, h: w / ratio }; };
+  const a = fit(colL, colR, top), b = fit(edge, innerWidth - edge, Math.max(top, below));
+  const p = a.h >= b.h ? a : b;
+  if (p.h < 80) { box.hidden = true; return; }
+  const mid = Math.min(Math.max(card.left + card.width / 2, p.l + p.w / 2), p.r - p.w / 2);
+  Object.assign(box.style, { left: mid - p.w / 2 + "px", top: bottom - p.h + "px", width: p.w + "px", height: p.h + "px" });
+  box.hidden = false;
 }
 // Keep the spot clear of the tour card at the bottom and the ledger on the right.
 function tourPadding() {
   if (EMBED) return { top: 50, bottom: 30, left: 30, right: 30 };
   const phone = innerWidth <= 720;
   const card = $("tour").offsetHeight || 160;
+  const pic = $("tour-pic");
+  if (!pic.hidden) {
+    const b = innerHeight - pic.getBoundingClientRect().top + 30;
+    return phone ? { top: 60, bottom: b, left: 20, right: 20 } : { top: 60, bottom: b, left: Math.min(380, innerWidth * 0.26), right: Math.min(380, innerWidth * 0.26) };
+  }
   return phone ? { top: 60, bottom: card + 40, left: 20, right: 20 } : { top: 60, bottom: card + 60, left: Math.min(380, innerWidth * 0.26), right: Math.min(380, innerWidth * 0.26) };
 }
 function tourNext() {
@@ -3624,6 +3657,7 @@ function endTour() {
   clearTimeout(state.tour.timer);
   state.tour = null;
   $("tour").hidden = true;
+  $("tour-pic").hidden = true; $("tour-pic").dataset.key = "";
   $("app").classList.remove("touring", "tour-reading");
   if (state.tab === "tours") renderToursTab();
   map.getSource("tour")?.setData({ type: "FeatureCollection", features: [] });
@@ -4526,7 +4560,7 @@ async function init() {
   });
   toggle("t-places", "showPlaces", renderPlaces);
   // AI-generated event pictures are loaded either way and only hidden, so switching back needs no reload.
-  const syncAI = () => document.body.classList.toggle("no-ai", !state.showAI);
+  const syncAI = () => { document.body.classList.toggle("no-ai", !state.showAI); if (state.tour) placeTourPic(); };
   toggle("t-ai", "showAI", syncAI);
   syncAI();
   toggle("t-geo", "showGeo", () => {
@@ -4582,7 +4616,8 @@ async function init() {
   tb.querySelector(".tour-close").addEventListener("click", endTour);
   const readStep = () => { const s = state.tour?.tr.steps[state.tour.i]; if (s?.event) { tourPause(); $("app").classList.add("tour-reading"); openStory(s.event); } };
   tb.querySelector(".tour-story").addEventListener("click", readStep);
-  tb.querySelector(".tour-pic").addEventListener("click", readStep);
+  $("tour-pic").addEventListener("click", () => { readStep(); placeTourPic(); });
+  addEventListener("resize", () => state.tour && placeTourPic());
   tb.querySelector(".tour-auto").addEventListener("click", () => {
     const tour = state.tour; if (!tour) return;
     if (tour.auto) return tourPause();
