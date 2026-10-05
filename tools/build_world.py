@@ -26,14 +26,15 @@ KEYS = ["bc3000", "bc2000", "bc1500", "bc1000", "bc700", "bc500", "bc400", "bc32
         "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200", "1279", "1300", "1400",
         "1492", "1500", "1530", "1600", "1650", "1700", "1715", "1783", "1800", "1815", "1880", "1900", "1914", "1920",
         "1930", "1938", "1945", "1960", "1994", "2000", "2010"]
-EXTRA = [-323, 1492, 1914, 1945]   # years worth a map of their own
+EXTRA = [-323, 1492, 1914, 1945, 1946, 1950]   # years worth a map of their own (1946: after the war; 1950: the PRC)
 # Cliopatria names spelled differently from the ones the app's data uses.
 ALIASES = {"Khwarezmid Dynasty": "Khwarazmian dynasty", "Emirate of Bukhara": "Bokhara Khanate",
            "Kingdom of Pergamon": "Pergamon", "Kingdom of the Franks": "Franks", "French Algeria": "Algeria (FR)",
            "Grand Principality of Moscow": "Grand Duchy of Moscow", "British Cape Colony": "Cape Colony",
            "Zanzibar": "Sultanate of Zanzibar", "Tunis": "Tunisia", "United States": "United States of America",
            "New France": "Quebec", "French Fifth Republic": "France", "Republic of Indonesia": "Indonesia",
-           "Republic of China": "Republic of China"}
+           "Republic of China": "Republic of China", "Communist Party of China": "Communist Party of China",
+           "People's Republic of China": "China"}
 # Colonies whose land is most of an empire's (by square degrees, where Canada looms large): the empire spread over
 # several continents keeps its own name rather than taking the colony's.
 COLONIES = {"Canada", "Angola", "Algeria", "Philippines", "Bengal", "Guyana", "New South Wales", "Australia", "India",

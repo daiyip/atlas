@@ -575,28 +575,32 @@
   "full": "data/world/1945.json"
  },
  {
-  "from": 1956,
-  "full": "data/world/1956.json"
+  "from": 1946,
+  "full": "data/world/1946.json"
  },
  {
-  "from": 1967,
-  "full": "data/world/1967.json"
+  "from": 1950,
+  "full": "data/world/1950.json"
  },
  {
-  "from": 1979,
-  "full": "data/world/1979.json"
+  "from": 1960,
+  "full": "data/world/1960.json"
  },
  {
-  "from": 1990,
-  "full": "data/world/1990.json"
+  "from": 1973,
+  "full": "data/world/1973.json"
  },
  {
-  "from": 2000,
-  "full": "data/world/2000.json"
+  "from": 1983,
+  "full": "data/world/1983.json"
  },
  {
-  "from": 2014,
-  "full": "data/world/2014.json"
+  "from": 1996,
+  "full": "data/world/1996.json"
+ },
+ {
+  "from": 2006,
+  "full": "data/world/2006.json"
  },
  {
   "from": 2024,

@@ -2743,7 +2743,9 @@ function linkTags(ev, layer) {
   const people = (ev.people || []).map((id) => (layer.people || []).find((p) => p.id === id)).filter(Boolean);
   const cities = (ev.places || []).map((id) => {
     const all = state.places.filter((p) => cityId(p) === id);
-    return all.find((p) => ev.year >= p.from && ev.year <= p.to) || all[0];
+    // The name in use that year, else the nearest in time (Beijing after 1912 is 北京, not 蓟).
+    const gap = (p) => (ev.year < p.from ? p.from - ev.year : ev.year > p.to ? ev.year - p.to : 0);
+    return [...all].sort((a, b) => gap(a) - gap(b))[0];
   }).filter(Boolean);
   if (!people.length && !cities.length) return "";
   linkTags.items = [...cities, ...people];

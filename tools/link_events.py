@@ -92,6 +92,8 @@ for ev in events:
     if ev.get("region", "china") != "china": continue  # cities, people and maps are China's only
     if ALL or "places" not in ev: ev["places"] = city_of(ev); n += 1
     if ALL or "people" not in ev: ev["people"] = people_of(ev)
+    # After the last dynasty map (1912) the world maps hold China; tools/build_countries.py tags those events.
+    if ev["year"] > eras[-1]["end"]: continue
     if ALL or "states" not in ev: ev["states"] = states_of(ev)
 json.dump(events, open(P("data/events.json"), "w"), ensure_ascii=False, indent=1)
 print(n, "events linked;", sum(bool(e["places"]) for e in events), "with a city,",

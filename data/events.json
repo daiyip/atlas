@@ -1,5 +1,40 @@
 [
  {
+  "id": "eg-hieroglyphs",
+  "region": "egypt-north-africa",
+  "year": -3200,
+  "circa": true,
+  "level": 2,
+  "category": "culture",
+  "title": "Hieroglyphic writing comes into use",
+  "title_zh": "象形文字的形成",
+  "place": "Abydos, Upper Egypt",
+  "place_zh": "阿拜多斯（今埃及索哈杰省）",
+  "lat": 26.18,
+  "lon": 31.92,
+  "summary": "Egyptian hieroglyphs, first seen on labels from Abydos, developed into a full writing system used for royal records and religion.",
+  "summary_zh": "埃及象形文字最早见于阿拜多斯的标签，逐步发展为完整的文字体系，用于王室记录和宗教。",
+  "source": "https://en.wikipedia.org/wiki/Egyptian_hieroglyphs",
+  "places": [],
+  "people": [],
+  "states": [
+   "Egypt"
+  ],
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9C%A3%E4%B9%A6%E4%BD%93",
+  "check": {
+   "s": "fixed",
+   "was": {
+    "year": -2900
+   },
+   "n": "Was c. 2900 BC; earliest hieroglyphs (Abydos tomb U-j, Narmer era) date to c. 3250-3200 BC per Wikipedia/Wikidata.",
+   "n_zh": "原作约公元前2900年，据维基百科（阿拜多斯U-j墓等最早铭文约前3250—前3200年）改为前3200年。"
+  },
+  "sum": {
+   "s": "ok"
+  },
+  "statesBy": "geo"
+ },
+ {
   "id": "eu-stonehenge",
   "region": "europe",
   "year": -3000,
@@ -543,41 +578,6 @@
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%AD%9F%E8%8F%B2%E6%96%AF_(%E5%9F%83%E5%8F%8A)",
   "check": {
    "s": "ok"
-  },
-  "sum": {
-   "s": "ok"
-  },
-  "statesBy": "geo"
- },
- {
-  "id": "eg-hieroglyphs",
-  "region": "egypt-north-africa",
-  "year": -3200,
-  "circa": true,
-  "level": 2,
-  "category": "culture",
-  "title": "Hieroglyphic writing comes into use",
-  "title_zh": "象形文字的形成",
-  "place": "Abydos, Upper Egypt",
-  "place_zh": "阿拜多斯（今埃及索哈杰省）",
-  "lat": 26.18,
-  "lon": 31.92,
-  "summary": "Egyptian hieroglyphs, first seen on labels from Abydos, developed into a full writing system used for royal records and religion.",
-  "summary_zh": "埃及象形文字最早见于阿拜多斯的标签，逐步发展为完整的文字体系，用于王室记录和宗教。",
-  "source": "https://en.wikipedia.org/wiki/Egyptian_hieroglyphs",
-  "places": [],
-  "people": [],
-  "states": [
-   "Egypt"
-  ],
-  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9C%A3%E4%B9%A6%E4%BD%93",
-  "check": {
-   "s": "fixed",
-   "was": {
-    "year": -2900
-   },
-   "n": "Was c. 2900 BC; earliest hieroglyphs (Abydos tomb U-j, Narmer era) date to c. 3250-3200 BC per Wikipedia/Wikidata.",
-   "n_zh": "原作约公元前2900年，据维基百科（阿拜多斯U-j墓等最早铭文约前3250—前3200年）改为前3200年。"
   },
   "sum": {
    "s": "ok"
@@ -91173,6 +91173,35 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-second-revolution",
+  "year": 1913,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Second Revolution",
+  "title_zh": "二次革命",
+  "place": "Nanjing",
+  "place_zh": "南京",
+  "lat": 32.06,
+  "lon": 118.8,
+  "summary": "After the assassination of Kuomintang leader Song Jiaoren, southern provinces rose against President Yuan Shikai in July 1913. Yuan's Beiyang forces crushed the revolt within two months, and Sun Yat-sen and Huang Xing fled to Japan.",
+  "summary_zh": "宋教仁遇刺后，国民党人于1913年7月在南方数省起兵讨伐袁世凯，两个月内即被北洋军击败，孙中山、黄兴流亡日本。",
+  "source": "https://en.wikipedia.org/wiki/Second_Revolution",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%8C%E6%AC%A1%E9%9D%A9%E5%91%BD",
+  "places": [
+   "nanjing"
+  ],
+  "people": [
+   "sun-yat-sen",
+   "yuan-shikai"
+  ],
+  "states": [
+   "Manchu Empire",
+   "Imperial Japan"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "eu-1914-world-war-i",
   "region": "europe",
   "year": 1914,
@@ -91388,6 +91417,87 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-hongxian-monarchy",
+  "year": 1915,
+  "endYear": 1916,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Yuan Shikai proclaims himself emperor",
+  "title_zh": "洪宪帝制",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.4,
+  "summary": "President Yuan Shikai accepted the throne in December 1915, declaring the Hongxian era. Facing provincial revolts and foreign disapproval, he abandoned the monarchy in March 1916 and died that June.",
+  "summary_zh": "1915年12月袁世凯接受帝位，改元洪宪。各省反对、列强不支持，他于1916年3月被迫取消帝制，同年6月病逝。",
+  "source": "https://en.wikipedia.org/wiki/Empire_of_China_(1915%E2%80%931916)",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B4%AA%E5%AE%AA%E5%B8%9D%E5%88%B6",
+  "places": [
+   "beijing"
+  ],
+  "people": [
+   "yuan-shikai"
+  ],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-national-protection-war",
+  "year": 1915,
+  "endYear": 1916,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "National Protection War",
+  "title_zh": "护国战争",
+  "place": "Kunming",
+  "place_zh": "昆明",
+  "lat": 25.04,
+  "lon": 102.71,
+  "summary": "Yunnan declared independence in December 1915 and Cai E led the National Protection Army against Yuan Shikai's monarchy. Other southern provinces joined, forcing Yuan to restore the republic.",
+  "summary_zh": "1915年12月云南宣布独立，蔡锷率护国军讨伐袁世凯帝制，南方多省相继响应，迫使袁世凯恢复共和。",
+  "source": "https://en.wikipedia.org/wiki/National_Protection_War",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%8A%A4%E5%9B%BD%E6%88%98%E4%BA%89",
+  "places": [
+   "kunming"
+  ],
+  "people": [
+   "yuan-shikai"
+  ],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-new-culture-movement",
+  "year": 1915,
+  "circa": false,
+  "level": 2,
+  "category": "culture",
+  "title": "New Culture Movement",
+  "title_zh": "新文化运动",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.23,
+  "lon": 121.47,
+  "summary": "Beginning with Chen Duxiu's magazine New Youth, intellectuals attacked Confucian tradition and promoted science, democracy and writing in vernacular Chinese.",
+  "summary_zh": "以陈独秀创办《新青年》为开端，知识分子批判儒家传统礼教，提倡民主与科学，推广白话文。",
+  "source": "https://en.wikipedia.org/wiki/New_Culture_Movement",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%96%B0%E6%96%87%E5%8C%96%E8%BF%90%E5%8A%A8",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "me-sykes-picot",
   "region": "middle-east",
   "year": 1916,
@@ -91507,6 +91617,34 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-warlord-era",
+  "year": 1916,
+  "endYear": 1928,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Warlord Era",
+  "title_zh": "北洋军阀割据",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.4,
+  "summary": "After Yuan Shikai's death, rival military cliques such as the Anhui, Zhili and Fengtian factions fought for control of the Beijing government, while regional warlords ruled much of the country.",
+  "summary_zh": "袁世凯死后，皖系、直系、奉系等军阀派系争夺北京政府控制权，各地军阀割据一方，战乱频仍。",
+  "source": "https://en.wikipedia.org/wiki/Warlord_Era",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8C%97%E6%B4%8B%E5%86%9B%E9%98%80",
+  "places": [
+   "beijing"
+  ],
+  "people": [
+   "yuan-shikai"
+  ],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -91751,6 +91889,56 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-manchu-restoration",
+  "year": 1917,
+  "circa": false,
+  "level": 3,
+  "category": "politics",
+  "title": "Zhang Xun's restoration of Puyi",
+  "title_zh": "张勋复辟",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.4,
+  "summary": "In July 1917 the loyalist general Zhang Xun occupied Beijing and restored the deposed emperor Puyi to the throne. Troops under Duan Qirui ended the restoration after about twelve days.",
+  "summary_zh": "1917年7月，效忠清室的张勋率辫子军进京，拥立溥仪复位。段祺瑞率军讨伐，复辟仅约十二天即告失败。",
+  "source": "https://en.wikipedia.org/wiki/Manchu_Restoration",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%BC%A0%E5%8B%8B%E5%A4%8D%E8%BE%9F",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-cai-yuanpei-peking-university",
+  "year": 1917,
+  "circa": false,
+  "level": 3,
+  "category": "culture",
+  "title": "Cai Yuanpei leads Peking University",
+  "title_zh": "蔡元培执掌北大",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.4,
+  "summary": "Cai Yuanpei became president of Peking University in 1917 and promoted academic freedom, hiring scholars of differing views such as Chen Duxiu, Hu Shi and Li Dazhao.",
+  "summary_zh": "1917年蔡元培出任北京大学校长，倡导“思想自由，兼容并包”，聘请陈独秀、胡适、李大钊等学者任教。",
+  "source": "https://en.wikipedia.org/wiki/Cai_Yuanpei",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E8%94%A1%E5%85%83%E5%9F%B9",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-rice-riots",
   "region": "japan",
   "year": 1918,
@@ -91869,6 +92057,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-madman-diary",
+  "year": 1918,
+  "circa": false,
+  "level": 3,
+  "category": "culture",
+  "title": "Lu Xun's A Madman's Diary",
+  "title_zh": "《狂人日记》发表",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.4,
+  "summary": "Lu Xun published A Madman's Diary in New Youth in 1918. Written in vernacular Chinese, the story condemned traditional society as 'cannibalistic' and became a landmark of modern Chinese literature.",
+  "summary_zh": "1918年鲁迅在《新青年》发表白话小说《狂人日记》，以“吃人”批判旧礼教，成为中国现代文学的里程碑。",
+  "source": "https://en.wikipedia.org/wiki/A_Madman's_Diary",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%8B%82%E4%BA%BA%E6%97%A5%E8%AE%B0",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -92082,6 +92295,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-may-fourth-movement",
+  "year": 1919,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "May Fourth Movement",
+  "title_zh": "五四运动",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.4,
+  "summary": "On 4 May 1919 students in Beijing protested the Paris Peace Conference's decision to give Germany's rights in Shandong to Japan. Protests and strikes spread nationwide, and China's delegation refused to sign the Treaty of Versailles.",
+  "summary_zh": "1919年5月4日，北京学生抗议巴黎和会将德国在山东的权益转让日本，运动扩展至全国罢工罢市，中国代表团最终拒签和约。",
+  "source": "https://en.wikipedia.org/wiki/May_Fourth_Movement",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%94%E5%9B%9B%E8%BF%90%E5%8A%A8",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -92321,6 +92559,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-ccp-founded",
+  "year": 1921,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Chinese Communist Party founded",
+  "title_zh": "中国共产党成立",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.23,
+  "lon": 121.47,
+  "summary": "In July 1921 a small group of delegates, with Comintern representatives present, held the First National Congress of the Chinese Communist Party in Shanghai; the final session moved to a boat on South Lake in Jiaxing.",
+  "summary_zh": "1921年7月，中国共产党第一次全国代表大会在上海召开，共产国际代表列席，最后一天会议转至嘉兴南湖游船上举行。",
+  "source": "https://en.wikipedia.org/wiki/1st_National_Congress_of_the_Chinese_Communist_Party",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%85%B1%E4%BA%A7%E5%85%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%85%A8%E5%9B%BD%E4%BB%A3%E8%A1%A8%E5%A4%A7%E4%BC%9A",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -92709,6 +92972,32 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-first-united-front",
+  "year": 1924,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "First United Front",
+  "title_zh": "第一次国共合作",
+  "place": "Guangzhou",
+  "place_zh": "广州",
+  "lat": 23.13,
+  "lon": 113.26,
+  "summary": "With Soviet support, Sun Yat-sen's Kuomintang admitted Communists as individual members at its 1924 congress in Guangzhou. The alliance founded the Whampoa Military Academy, with Chiang Kai-shek as commandant.",
+  "summary_zh": "1924年国民党在广州召开第一次全国代表大会，在苏联支持下接纳共产党人以个人身份加入，并创办黄埔军校，蒋介石任校长。",
+  "source": "https://en.wikipedia.org/wiki/First_United_Front",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%9B%BD%E5%85%B1%E5%90%88%E4%BD%9C",
+  "places": [
+   "guangzhou"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords",
+   "USSR"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "ir-reza-shah",
   "region": "iran",
   "year": 1925,
@@ -92769,6 +93058,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-may-thirtieth-movement",
+  "year": 1925,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "May Thirtieth Movement",
+  "title_zh": "五卅运动",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.23,
+  "lon": 121.47,
+  "summary": "On 30 May 1925 police of Shanghai's International Settlement fired on demonstrators, killing several. The shootings set off nationwide strikes and anti-foreign boycotts.",
+  "summary_zh": "1925年5月30日，上海公共租界巡捕向示威群众开枪，造成多人死亡，引发全国性罢工和抵制外货运动。",
+  "source": "https://en.wikipedia.org/wiki/May_Thirtieth_Movement",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%94%E5%8D%85%E8%BF%90%E5%8A%A8",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "mx-cristero-war",
   "region": "mesoamerica",
   "year": 1926,
@@ -92797,6 +93111,32 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-northern-expedition",
+  "year": 1926,
+  "endYear": 1928,
+  "circa": false,
+  "level": 1,
+  "category": "war",
+  "title": "Northern Expedition",
+  "title_zh": "北伐战争",
+  "place": "Guangzhou",
+  "place_zh": "广州",
+  "lat": 23.13,
+  "lon": 113.26,
+  "summary": "The Nationalist National Revolutionary Army under Chiang Kai-shek marched north from Guangzhou in 1926 to defeat the warlords. It took Beijing in 1928, and China was nominally reunified when Zhang Xueliang's Northeast accepted Nationalist rule that December.",
+  "summary_zh": "1926年国民革命军在蒋介石率领下自广州出师北伐，讨伐北洋军阀，1928年攻克北京；同年底张学良东北易帜，全国形式上统一。",
+  "source": "https://en.wikipedia.org/wiki/Northern_Expedition",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%BD%E6%B0%91%E9%9D%A9%E5%91%BD%E5%86%9B%E5%8C%97%E4%BC%90",
+  "places": [
+   "guangzhou"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
   "statesBy": "geo"
  },
  {
@@ -92890,6 +93230,81 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-shanghai-purge",
+  "year": 1927,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "April 12 purge in Shanghai",
+  "title_zh": "四一二事件",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.23,
+  "lon": 121.47,
+  "summary": "On 12 April 1927 Chiang Kai-shek's forces, aided by the Green Gang, attacked Communists and labour unions in Shanghai, killing many. The purge spread to other cities and ended the First United Front.",
+  "summary_zh": "1927年4月12日，蒋介石部队联合青帮在上海镇压共产党人和工会，大批人员遇害，清党波及各地，第一次国共合作破裂。",
+  "source": "https://en.wikipedia.org/wiki/Shanghai_massacre",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%9B%E4%B8%80%E4%BA%8C%E4%BA%8B%E4%BB%B6",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-nanjing-government",
+  "year": 1927,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Nationalist government in Nanjing",
+  "title_zh": "南京国民政府成立",
+  "place": "Nanjing",
+  "place_zh": "南京",
+  "lat": 32.06,
+  "lon": 118.8,
+  "summary": "Chiang Kai-shek's faction established a Nationalist government in Nanjing in April 1927. After 1928 it was internationally recognised as China's government, beginning the so-called Nanjing Decade.",
+  "summary_zh": "1927年4月，蒋介石一派在南京成立国民政府；1928年后获国际承认为中国中央政府，开启所谓“南京十年”。",
+  "source": "https://en.wikipedia.org/wiki/Nationalist_government",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%BD%E6%B0%91%E6%94%BF%E5%BA%9C",
+  "places": [
+   "nanjing"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-nanchang-uprising",
+  "year": 1927,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Nanchang Uprising",
+  "title_zh": "南昌起义",
+  "place": "Nanchang",
+  "place_zh": "南昌",
+  "lat": 28.68,
+  "lon": 115.86,
+  "summary": "On 1 August 1927 Communist-led troops under Zhou Enlai, He Long, Ye Ting and Zhu De seized Nanchang, holding it for several days. The PRC later marked the date as the founding of its army.",
+  "summary_zh": "1927年8月1日，周恩来、贺龙、叶挺、朱德等领导部队在南昌起义，占领该城数日；后来这一天被定为解放军建军节。",
+  "source": "https://en.wikipedia.org/wiki/Nanchang_uprising",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8D%97%E6%98%8C%E8%B5%B7%E4%B9%89",
+  "places": [
+   "nanchang"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
   "statesBy": "geo"
  },
  {
@@ -93043,6 +93458,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-academia-sinica",
+  "year": 1928,
+  "circa": false,
+  "level": 3,
+  "category": "science",
+  "title": "Academia Sinica founded",
+  "title_zh": "中央研究院成立",
+  "place": "Nanjing",
+  "place_zh": "南京",
+  "lat": 32.06,
+  "lon": 118.8,
+  "summary": "The Nationalist government founded Academia Sinica in Nanjing in 1928 as China's national research academy, with Cai Yuanpei as its first president. It moved to Taiwan after 1949.",
+  "summary_zh": "1928年国民政府在南京成立中央研究院，作为国家最高学术研究机构，蔡元培任首任院长；1949年后迁往台湾。",
+  "source": "https://en.wikipedia.org/wiki/Academia_Sinica",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E7%A0%94%E7%A9%B6%E9%99%A2",
+  "places": [
+   "nanjing"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "na-wall-street-crash",
   "region": "north-america",
   "year": 1929,
@@ -93101,6 +93541,29 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-peking-man",
+  "year": 1929,
+  "circa": false,
+  "level": 3,
+  "category": "science",
+  "title": "Peking Man skull discovered",
+  "title_zh": "北京猿人头盖骨发现",
+  "place": "Zhoukoudian",
+  "place_zh": "周口店",
+  "lat": 39.69,
+  "lon": 115.93,
+  "summary": "In December 1929 Pei Wenzhong unearthed a nearly complete skullcap of Peking Man, an early Homo erectus, at Zhoukoudian near Beijing. The original fossils were lost in 1941.",
+  "summary_zh": "1929年12月，裴文中在北京周口店发掘出第一个较完整的北京猿人头盖骨，属直立人化石；原件于1941年下落不明。",
+  "source": "https://en.wikipedia.org/wiki/Peking_Man",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8C%97%E4%BA%AC%E7%8C%BF%E4%BA%BA",
+  "places": [],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
   "statesBy": "geo"
  },
  {
@@ -93256,6 +93719,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-central-plains-war",
+  "year": 1930,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "Central Plains War",
+  "title_zh": "中原大战",
+  "place": "Zhengzhou",
+  "place_zh": "郑州",
+  "lat": 34.75,
+  "lon": 113.65,
+  "summary": "Yan Xishan, Feng Yuxiang and Li Zongren's forces fought Chiang Kai-shek across Henan and Shandong in 1930. Chiang won after Zhang Xueliang's Northeastern Army sided with him.",
+  "summary_zh": "1930年阎锡山、冯玉祥、李宗仁等联合反蒋，与蒋介石在河南、山东等地激战；张学良东北军入关助蒋，蒋方获胜。",
+  "source": "https://en.wikipedia.org/wiki/Central_Plains_War",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8E%9F%E5%A4%A7%E6%88%98",
+  "places": [
+   "zhengzhou"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-mukden-incident",
   "region": "japan",
   "year": 1931,
@@ -93345,6 +93833,30 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-chinese-soviet-republic",
+  "year": 1931,
+  "endYear": 1934,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Chinese Soviet Republic",
+  "title_zh": "中华苏维埃共和国成立",
+  "place": "Ruijin",
+  "place_zh": "瑞金",
+  "lat": 25.89,
+  "lon": 116.03,
+  "summary": "The Communists proclaimed the Chinese Soviet Republic at Ruijin, Jiangxi, in November 1931, with Mao Zedong as chairman. Nationalist encirclement campaigns forced them to abandon the base in 1934.",
+  "summary_zh": "1931年11月，中共在江西瑞金成立中华苏维埃共和国临时中央政府，毛泽东任主席；1934年在国民党军“围剿”下撤离。",
+  "source": "https://en.wikipedia.org/wiki/Chinese_Soviet_Republic",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E8%8B%8F%E7%BB%B4%E5%9F%83%E5%85%B1%E5%92%8C%E5%9B%BD",
+  "places": [],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
   "statesBy": "geo"
  },
  {
@@ -93650,6 +94162,30 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-long-march",
+  "year": 1934,
+  "endYear": 1935,
+  "circa": false,
+  "level": 1,
+  "category": "war",
+  "title": "Long March",
+  "title_zh": "长征",
+  "place": "Ruijin",
+  "place_zh": "瑞金",
+  "lat": 25.89,
+  "lon": 116.03,
+  "summary": "Driven from Jiangxi in October 1934, the Communist Red Army retreated thousands of kilometres through southwest and northwest China, reaching northern Shaanxi in October 1935. Only a small fraction of those who set out arrived.",
+  "summary_zh": "1934年10月，红军被迫撤离江西根据地，转战西南、西北数千公里，于1935年10月抵达陕北，出发人员中仅少数到达。",
+  "source": "https://en.wikipedia.org/wiki/Long_March",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%95%BF%E5%BE%81",
+  "places": [],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "af-italo-ethiopian",
   "region": "sub-saharan-africa",
   "year": 1935,
@@ -93709,6 +94245,54 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-zunyi-conference",
+  "year": 1935,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Zunyi Conference",
+  "title_zh": "遵义会议",
+  "place": "Zunyi",
+  "place_zh": "遵义",
+  "lat": 27.7,
+  "lon": 106.93,
+  "summary": "Meeting at Zunyi in January 1935 during the Long March, Communist leaders criticised the military leadership of Bo Gu and Otto Braun. Mao Zedong gained a leading voice in military affairs.",
+  "summary_zh": "1935年1月长征途中，中共中央在遵义召开会议，批评博古、李德的军事指挥，毛泽东在军事上取得领导地位。",
+  "source": "https://en.wikipedia.org/wiki/Zunyi_Conference",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%81%B5%E4%B9%89%E4%BC%9A%E8%AE%AE",
+  "places": [],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-fabi-reform",
+  "year": 1935,
+  "circa": false,
+  "level": 3,
+  "category": "economy",
+  "title": "Fabi currency reform",
+  "title_zh": "法币改革",
+  "place": "Nanjing",
+  "place_zh": "南京",
+  "lat": 32.06,
+  "lon": 118.8,
+  "summary": "In November 1935 the Nationalist government took China off the silver standard, nationalising silver and making notes of designated government banks the sole legal tender, known as fabi.",
+  "summary_zh": "1935年11月，国民政府实行币制改革，放弃银本位，白银收归国有，以指定国家银行发行的钞票为法定货币，称“法币”。",
+  "source": "https://en.wikipedia.org/wiki/Fabi_(currency)",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B3%95%E5%B8%81",
+  "places": [
+   "nanjing"
+  ],
+  "people": [],
+  "states": [
+   "Chinese Warlords"
+  ],
   "statesBy": "geo"
  },
  {
@@ -93835,6 +94419,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-xian-incident",
+  "year": 1936,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Xi'an Incident",
+  "title_zh": "西安事变",
+  "place": "Xi'an",
+  "place_zh": "西安",
+  "lat": 34.34,
+  "lon": 108.94,
+  "summary": "On 12 December 1936 generals Zhang Xueliang and Yang Hucheng detained Chiang Kai-shek in Xi'an to demand an end to the civil war and united resistance to Japan. His release led to the Second United Front.",
+  "summary_zh": "1936年12月12日，张学良、杨虎城在西安扣押蒋介石，要求停止内战、一致抗日。事变和平解决，促成第二次国共合作。",
+  "source": "https://en.wikipedia.org/wiki/Xi'an_Incident",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E8%A5%BF%E5%AE%89%E4%BA%8B%E5%8F%98",
+  "places": [
+   "xian"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-marco-polo-bridge",
   "region": "japan",
   "year": 1937,
@@ -93922,6 +94531,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-battle-of-shanghai",
+  "year": 1937,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Battle of Shanghai",
+  "title_zh": "淞沪会战",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.23,
+  "lon": 121.47,
+  "summary": "From August to November 1937 Chinese and Japanese armies fought for Shanghai in one of the largest battles of the war. Heavy Chinese losses ended in retreat, opening the way to Nanjing.",
+  "summary_zh": "1937年8月至11月，中日两军在上海展开大规模会战，中国军队伤亡惨重后撤退，日军随即进逼南京。",
+  "source": "https://en.wikipedia.org/wiki/Battle_of_Shanghai",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B7%9E%E6%B2%AA%E4%BC%9A%E6%88%98",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -94013,6 +94647,130 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-taierzhuang",
+  "year": 1938,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Battle of Taierzhuang",
+  "title_zh": "台儿庄战役",
+  "place": "Taierzhuang",
+  "place_zh": "台儿庄",
+  "lat": 34.56,
+  "lon": 117.73,
+  "summary": "In spring 1938 Chinese forces under Li Zongren defeated Japanese units at Taierzhuang in southern Shandong, the first major Chinese victory of the war.",
+  "summary_zh": "1938年春，李宗仁指挥中国军队在山东南部台儿庄击败日军，是抗战以来中国军队取得的第一次重大胜利。",
+  "source": "https://en.wikipedia.org/wiki/Battle_of_Taierzhuang",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8F%B0%E5%84%BF%E5%BA%84%E6%88%98%E5%BD%B9",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-yellow-river-flood",
+  "year": 1938,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "Yellow River dikes breached",
+  "title_zh": "花园口决堤",
+  "place": "Huayuankou",
+  "place_zh": "花园口（今郑州北）",
+  "lat": 34.91,
+  "lon": 113.66,
+  "summary": "In June 1938 Nationalist forces breached the Yellow River dikes at Huayuankou to slow the Japanese advance. The flood killed hundreds of thousands of civilians and displaced millions.",
+  "summary_zh": "1938年6月，国民政府军为阻滞日军，在郑州花园口掘开黄河大堤，洪水致数十万平民死亡，数百万人流离失所。",
+  "source": "https://en.wikipedia.org/wiki/1938_Yellow_River_flood",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E8%8A%B1%E5%9B%AD%E5%8F%A3%E5%86%B3%E5%A0%A4",
+  "places": [
+   "zhengzhou"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-battle-of-wuhan",
+  "year": 1938,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Battle of Wuhan",
+  "title_zh": "武汉会战",
+  "place": "Wuhan",
+  "place_zh": "武汉",
+  "lat": 30.59,
+  "lon": 114.3,
+  "summary": "Chinese armies defended Wuhan, the wartime centre of government, from June to October 1938 before withdrawing. The Nationalist government moved its capital to Chongqing.",
+  "summary_zh": "1938年6月至10月，中国军队保卫战时政治中心武汉，后主动撤出；国民政府迁至重庆。",
+  "source": "https://en.wikipedia.org/wiki/Battle_of_Wuhan",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%AD%A6%E6%B1%89%E4%BC%9A%E6%88%98",
+  "places": [
+   "wuhan"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-chongqing-bombing",
+  "year": 1938,
+  "endYear": 1943,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "Bombing of Chongqing",
+  "title_zh": "重庆大轰炸",
+  "place": "Chongqing",
+  "place_zh": "重庆",
+  "lat": 29.56,
+  "lon": 106.55,
+  "summary": "Japanese aircraft repeatedly bombed the wartime capital Chongqing from 1938 to 1943, causing heavy civilian casualties, especially in the raids of May 1939.",
+  "summary_zh": "1938年至1943年，日军对战时首都重庆进行长期轰炸，造成大量平民伤亡，1939年5月的空袭尤为惨烈。",
+  "source": "https://en.wikipedia.org/wiki/Bombing_of_Chongqing",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%87%8D%E5%BA%86%E5%A4%A7%E8%BD%B0%E7%82%B8",
+  "places": [
+   "chongqing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-burma-road",
+  "year": 1938,
+  "circa": false,
+  "level": 3,
+  "category": "economy",
+  "title": "Burma Road opens",
+  "title_zh": "滇缅公路通车",
+  "place": "Kunming",
+  "place_zh": "昆明",
+  "lat": 25.04,
+  "lon": 102.71,
+  "summary": "Built largely by hand by some 200,000 labourers, the Burma Road from Kunming to Lashio opened in 1938 as China's supply lifeline. After Japan took Burma in 1942, Allied supplies were flown over the Himalayan 'Hump'.",
+  "summary_zh": "约二十万民工以人力修筑的滇缅公路于1938年通车，自昆明通往缅甸腊戍，成为中国对外运输生命线；1942年缅甸失陷后改由驼峰航线空运。",
+  "source": "https://en.wikipedia.org/wiki/Burma_Road",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%BB%87%E7%BC%85%E5%85%AC%E8%B7%AF",
+  "places": [
+   "kunming"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -94201,6 +94959,29 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-hundred-regiments-offensive",
+  "year": 1940,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "Hundred Regiments Offensive",
+  "title_zh": "百团大战",
+  "place": "Yangquan",
+  "place_zh": "阳泉",
+  "lat": 37.86,
+  "lon": 113.58,
+  "summary": "From August to December 1940 the Communist Eighth Route Army under Peng Dehuai attacked Japanese-held railways and strongpoints across North China. Japan responded with harsh reprisals.",
+  "summary_zh": "1940年8月至12月，彭德怀指挥八路军在华北破袭日军占据的铁路和据点，日军随后实施残酷报复性“扫荡”。",
+  "source": "https://en.wikipedia.org/wiki/Hundred_Regiments_Offensive",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%99%BE%E5%9B%A2%E5%A4%A7%E6%88%98",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-pearl-harbor",
   "region": "japan",
   "year": 1941,
@@ -94356,6 +95137,29 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-new-fourth-army-incident",
+  "year": 1941,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "New Fourth Army Incident",
+  "title_zh": "皖南事变",
+  "place": "Jing County",
+  "place_zh": "泾县",
+  "lat": 30.69,
+  "lon": 118.41,
+  "summary": "In January 1941 Nationalist troops attacked the headquarters column of the Communist New Fourth Army in southern Anhui. Ye Ting was captured and Xiang Ying killed, and cooperation between the two parties effectively collapsed.",
+  "summary_zh": "1941年1月，新四军军部在皖南遭国民党军围攻，叶挺被扣押，项英遇害，国共合作名存实亡。",
+  "source": "https://en.wikipedia.org/wiki/New_Fourth_Army_incident",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%9A%96%E5%8D%97%E4%BA%8B%E5%8F%98",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -94663,6 +95467,28 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-cairo-conference",
+  "year": 1943,
+  "circa": false,
+  "level": 3,
+  "category": "diplomacy",
+  "title": "Cairo Conference",
+  "title_zh": "开罗会议",
+  "place": "Cairo",
+  "place_zh": "开罗（今埃及）",
+  "lat": 30.04,
+  "lon": 31.24,
+  "summary": "Chiang Kai-shek met Roosevelt and Churchill in Cairo in November 1943. Their declaration stated that Manchuria, Taiwan and the Penghu Islands should be restored to the Republic of China.",
+  "summary_zh": "1943年11月，蒋介石与罗斯福、丘吉尔在开罗会晤，所发宣言称东北、台湾及澎湖列岛应归还中华民国。",
+  "source": "https://en.wikipedia.org/wiki/Cairo_Conference",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%BC%80%E7%BD%97%E4%BC%9A%E8%AE%AE",
+  "states": [
+   "Republic of China"
+  ],
+  "places": [],
+  "people": []
+ },
+ {
   "id": "eu-1944-normandy-landings",
   "region": "europe",
   "year": 1944,
@@ -94691,6 +95517,29 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-operation-ichigo",
+  "year": 1944,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Operation Ichi-Go",
+  "title_zh": "豫湘桂战役",
+  "place": "Hengyang",
+  "place_zh": "衡阳",
+  "lat": 26.89,
+  "lon": 112.57,
+  "summary": "Japan's largest offensive of the war, launched in April 1944, overran Henan, Hunan and Guangxi and captured Hengyang after a long siege, dealing severe losses to Nationalist armies.",
+  "summary_zh": "1944年4月起，日军发动战争中规模最大的攻势，相继攻占河南、湖南、广西大片地区，衡阳经长期坚守后失陷，国军损失惨重。",
+  "source": "https://en.wikipedia.org/wiki/Operation_Ichi-Go",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E8%B1%AB%E6%B9%98%E6%A1%82%E6%88%98%E5%BD%B9",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -95028,6 +95877,56 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-taiwan-retrocession",
+  "year": 1945,
+  "circa": false,
+  "level": 3,
+  "category": "politics",
+  "title": "Taiwan handed to the Republic of China",
+  "title_zh": "台湾光复",
+  "place": "Taipei",
+  "place_zh": "台北",
+  "lat": 25.03,
+  "lon": 121.56,
+  "summary": "On 25 October 1945 Chen Yi accepted the surrender of Japanese forces in Taiwan at Taipei, ending fifty years of Japanese rule and beginning Republic of China administration of the island.",
+  "summary_zh": "1945年10月25日，陈仪在台北接受驻台日军投降，日本对台湾五十年的统治结束，中华民国开始治理台湾。",
+  "source": "https://en.wikipedia.org/wiki/Retrocession_Day",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E5%85%89%E5%A4%8D",
+  "places": [],
+  "people": [],
+  "states": [
+   "Empire of Japan",
+   "Republic of China",
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-chongqing-negotiations",
+  "year": 1945,
+  "circa": false,
+  "level": 2,
+  "category": "diplomacy",
+  "title": "Chongqing Negotiations",
+  "title_zh": "重庆谈判",
+  "place": "Chongqing",
+  "place_zh": "重庆",
+  "lat": 29.56,
+  "lon": 106.55,
+  "summary": "After Japan's surrender, Mao Zedong and Chiang Kai-shek negotiated in Chongqing from August to October 1945. They signed the Double Tenth Agreement, but it failed to prevent renewed civil war.",
+  "summary_zh": "日本投降后，毛泽东与蒋介石于1945年8月至10月在重庆谈判，签订《双十协定》，但未能阻止内战再起。",
+  "source": "https://en.wikipedia.org/wiki/Chongqing_Negotiations",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%87%8D%E5%BA%86%E8%B0%88%E5%88%A4",
+  "places": [
+   "chongqing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "sam-peron",
   "region": "south-america",
   "year": 1946,
@@ -95077,7 +95976,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "United States of America"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E8%BF%9C%E4%B8%9C%E5%9B%BD%E9%99%85%E5%86%9B%E4%BA%8B%E6%B3%95%E5%BA%AD",
   "check": {
@@ -95108,7 +96007,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan",
+   "French Indochina",
    "France",
    "India"
   ],
@@ -95151,6 +96050,34 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-civil-war",
+  "year": 1946,
+  "endYear": 1949,
+  "circa": false,
+  "level": 1,
+  "category": "war",
+  "title": "Chinese Civil War resumes",
+  "title_zh": "国共内战全面爆发",
+  "place": "Nanjing",
+  "place_zh": "南京",
+  "lat": 32.06,
+  "lon": 118.8,
+  "summary": "After U.S. mediation by George Marshall failed, full-scale war between the Nationalists and Communists broke out in 1946. Communist forces gained the upper hand and won control of mainland China by 1949.",
+  "summary_zh": "美国马歇尔调处失败后，国共两党于1946年爆发全面内战，中共军队逐渐占据优势，至1949年控制中国大陆。",
+  "source": "https://en.wikipedia.org/wiki/Chinese_Civil_War",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%BD%E5%85%B1%E5%86%85%E6%88%98",
+  "places": [
+   "nanjing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China",
+   "China",
+   "United States"
+  ],
   "statesBy": "geo"
  },
  {
@@ -95203,7 +96130,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "United States of America"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E5%9B%BD%E5%AE%AA%E6%B3%95",
   "check": {
@@ -95308,6 +96235,29 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-228-incident",
+  "year": 1947,
+  "circa": false,
+  "level": 2,
+  "category": "society",
+  "title": "February 28 Incident",
+  "title_zh": "二二八事件",
+  "place": "Taipei",
+  "place_zh": "台北",
+  "lat": 25.03,
+  "lon": 121.56,
+  "summary": "A clash over contraband cigarettes in Taipei on 27 February 1947 sparked an island-wide uprising against the Nationalist administration. Troops sent from the mainland suppressed it, killing thousands of people.",
+  "summary_zh": "1947年2月27日台北查缉私烟引发冲突，次日起演变为全岛反抗国民政府行政当局的事件，大陆增援部队镇压，数以千计民众遇害。",
+  "source": "https://en.wikipedia.org/wiki/February_28_incident",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%8C%E4%BA%8C%E5%85%AB%E4%BA%8B%E4%BB%B6",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "me-israel-founded",
   "region": "middle-east",
   "year": 1948,
@@ -95326,7 +96276,7 @@
   "places": [],
   "people": [],
   "states": [
-   "British Africa",
+   "British Colonial Empire",
    "United Kingdom"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%BB%A5%E8%89%B2%E5%88%97%E7%8B%AC%E7%AB%8B%E5%AE%A3%E8%A8%80",
@@ -95357,7 +96307,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "United States of America"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%B8%80%E5%85%B1%E5%92%8C%E5%9C%8B_(%E5%A4%A7%E9%9F%93%E6%B0%91%E5%9C%8B)",
   "check": {
@@ -95387,7 +96337,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "USSR"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%9C%9D%E9%B2%9C%E6%B0%91%E4%B8%BB%E4%B8%BB%E4%B9%89%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD",
   "check": {
@@ -95511,7 +96461,7 @@
   "places": [],
   "people": [],
   "states": [
-   "British Africa",
+   "British Colonial Empire",
    "Egypt"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/1948%E5%B9%B4%E9%98%BF%E6%8B%89%E4%BC%AF-%E4%BB%A5%E8%89%B2%E5%88%97%E6%88%B0%E7%88%AD",
@@ -95542,7 +96492,7 @@
   "places": [],
   "people": [],
   "states": [
-   "British Africa"
+   "British Colonial Empire"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6%E4%BA%BA%E5%A4%A7%E9%80%83%E4%BA%A1",
   "check": {
@@ -95696,7 +96646,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "United States of America"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%BF%9F%E5%B7%9E%E5%9B%9B%C2%B7%E4%B8%89%E4%BA%8B%E4%BB%B6",
   "check": {
@@ -95732,6 +96682,109 @@
   "check": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-gold-yuan",
+  "year": 1948,
+  "circa": false,
+  "level": 3,
+  "category": "economy",
+  "title": "Gold yuan currency collapses",
+  "title_zh": "金圆券改革",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.23,
+  "lon": 121.47,
+  "summary": "In August 1948 the Nationalist government replaced the fabi with the gold yuan and ordered citizens to hand over gold and foreign currency. Within months the new notes collapsed in hyperinflation, eroding public support.",
+  "summary_zh": "1948年8月，国民政府发行金圆券取代法币，强制民众兑换黄金外币；数月内金圆券急剧贬值，恶性通货膨胀使政府失去民心。",
+  "source": "https://en.wikipedia.org/wiki/Gold_yuan",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%87%91%E5%9C%86%E5%88%B8",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-liaoshen-campaign",
+  "year": 1948,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Liaoshen Campaign",
+  "title_zh": "辽沈战役",
+  "place": "Jinzhou",
+  "place_zh": "锦州",
+  "lat": 41.1,
+  "lon": 121.13,
+  "summary": "From September to November 1948 Communist forces under Lin Biao took Jinzhou, Changchun and Shenyang, gaining control of all of Northeast China.",
+  "summary_zh": "1948年9月至11月，林彪等指挥的东北解放军攻克锦州、长春、沈阳，夺取整个东北。",
+  "source": "https://en.wikipedia.org/wiki/Liaoshen_campaign",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E8%BE%BD%E6%B2%88%E6%88%98%E5%BD%B9",
+  "places": [
+   "jinzhou"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China",
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-huaihai-campaign",
+  "year": 1948,
+  "endYear": 1949,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Huaihai Campaign",
+  "title_zh": "淮海战役",
+  "place": "Xuzhou",
+  "place_zh": "徐州",
+  "lat": 34.26,
+  "lon": 117.18,
+  "summary": "Centred on Xuzhou from November 1948 to January 1949, this campaign destroyed the Nationalists' main armies north of the Yangtze, leaving Nanjing exposed.",
+  "summary_zh": "1948年11月至1949年1月，以徐州为中心的淮海战役歼灭国民党军长江以北主力，南京门户洞开。",
+  "source": "https://en.wikipedia.org/wiki/Huaihai_campaign",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B7%AE%E6%B5%B7%E6%88%98%E5%BD%B9",
+  "places": [
+   "xuzhou"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-pingjin-campaign",
+  "year": 1948,
+  "endYear": 1949,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "Pingjin Campaign",
+  "title_zh": "平津战役",
+  "place": "Tianjin",
+  "place_zh": "天津",
+  "lat": 39.13,
+  "lon": 117.2,
+  "summary": "Communist armies captured Tianjin by assault in January 1949, and Nationalist general Fu Zuoyi then surrendered Beiping, sparing the old capital from battle.",
+  "summary_zh": "1949年1月解放军攻克天津，国民党华北“剿总”司令傅作义随后接受和平改编，北平免于战火。",
+  "source": "https://en.wikipedia.org/wiki/Pingjin_campaign",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%B9%B3%E6%B4%A5%E6%88%98%E5%BD%B9",
+  "places": [
+   "tianjin"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -95798,6 +96851,81 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-yangtze-crossing",
+  "year": 1949,
+  "circa": false,
+  "level": 2,
+  "category": "war",
+  "title": "Crossing of the Yangtze",
+  "title_zh": "渡江战役",
+  "place": "Nanjing",
+  "place_zh": "南京",
+  "lat": 32.06,
+  "lon": 118.8,
+  "summary": "After peace talks failed, Communist armies crossed the Yangtze River on 20–21 April 1949 and took Nanjing, the Nationalist capital, on 23 April.",
+  "summary_zh": "和谈破裂后，解放军于1949年4月20日至21日渡过长江，4月23日占领国民政府首都南京。",
+  "source": "https://en.wikipedia.org/wiki/Yangtze_River_Crossing_campaign",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B8%A1%E6%B1%9F%E6%88%98%E5%BD%B9",
+  "places": [
+   "nanjing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-retreat-to-taiwan",
+  "year": 1949,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "ROC government retreats to Taiwan",
+  "title_zh": "中华民国政府迁台",
+  "place": "Taipei",
+  "place_zh": "台北",
+  "lat": 25.03,
+  "lon": 121.56,
+  "summary": "Defeated on the mainland, the Nationalist government moved to Taipei in December 1949, followed by roughly a million or more soldiers and civilians, along with gold reserves and Palace Museum treasures. The Republic of China continued on Taiwan.",
+  "summary_zh": "国民政府在大陆失利后，于1949年12月迁往台北，约百万以上军民随行，并运去黄金储备与故宫文物，中华民国政府自此在台湾延续。",
+  "source": "https://en.wikipedia.org/wiki/Retreat_of_the_government_of_the_Republic_of_China_to_Taiwan",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E6%B0%91%E5%9B%BD%E6%94%BF%E5%BA%9C%E8%BF%81%E5%8F%B0",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China",
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-prc-founded",
+  "year": 1949,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Founding of the People's Republic of China",
+  "title_zh": "开国大典",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "On 1 October 1949 Mao Zedong proclaimed the People's Republic of China from Tiananmen Gate after the Communists' victory in the civil war. The Nationalist government retreated to Taiwan that December.",
+  "summary_zh": "1949年10月1日，毛泽东在天安门城楼宣告中华人民共和国成立。同年12月，国民政府撤往台湾。",
+  "source": "https://en.wikipedia.org/wiki/Proclamation_of_the_People's_Republic_of_China",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%BC%80%E5%9B%BD%E5%A4%A7%E5%85%B8",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "Republic of China",
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "sa-constitution-of-india",
   "region": "south-asia",
   "year": 1950,
@@ -95816,7 +96944,6 @@
   "places": [],
   "people": [],
   "states": [
-   "British Raj",
    "India"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%8D%B0%E5%BA%A6%E5%AE%AA%E6%B3%95",
@@ -95845,7 +96972,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan",
+   "Korea (USA)",
    "China",
    "United States"
   ],
@@ -95874,7 +97001,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "Korea (USA)"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%BB%81%E5%B7%9D%E7%99%BB%E9%99%86",
   "check": {
@@ -95911,6 +97038,81 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-land-reform",
+  "year": 1950,
+  "endYear": 1953,
+  "circa": false,
+  "level": 2,
+  "category": "reform",
+  "title": "Land reform",
+  "title_zh": "土地改革运动",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Under the 1950 Agrarian Reform Law, land was confiscated from landlords and redistributed to peasants. The campaign included mass struggle sessions; estimates of the number killed range from hundreds of thousands to several million.",
+  "summary_zh": "依据1950年《土地改革法》，地主土地被没收并分给农民。运动伴随大规模批斗，死亡人数估计从数十万到数百万不等。",
+  "source": "https://en.wikipedia.org/wiki/Land_reform_movement",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9C%9F%E5%9C%B0%E6%94%B9%E9%9D%A9%E8%BF%90%E5%8A%A8",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-volunteers-enter-korea",
+  "year": 1950,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "China enters the Korean War",
+  "title_zh": "中国人民志愿军入朝",
+  "place": "Dandong",
+  "place_zh": "丹东",
+  "lat": 40.12,
+  "lon": 124.38,
+  "summary": "In October 1950, as UN forces advanced towards the Yalu River, Chinese troops under Peng Dehuai crossed into Korea as the People's Volunteer Army and drove UN forces back south.",
+  "summary_zh": "1950年10月，联合国军逼近鸭绿江，彭德怀率中国人民志愿军跨过鸭绿江入朝参战，将联合国军击退。",
+  "source": "https://en.wikipedia.org/wiki/People's_Volunteer_Army",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E4%BA%BA%E6%B0%91%E5%BF%97%E6%84%BF%E5%86%9B",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-tibet-1951",
+  "year": 1950,
+  "endYear": 1951,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "PRC takes control of Tibet",
+  "title_zh": "十七条协议与解放军进藏",
+  "place": "Lhasa",
+  "place_zh": "拉萨",
+  "lat": 29.65,
+  "lon": 91.13,
+  "summary": "After defeating the Tibetan army at Chamdo in October 1950, the PRC had Tibetan delegates sign the Seventeen Point Agreement in Beijing in May 1951. The People's Liberation Army entered Lhasa that October.",
+  "summary_zh": "1950年10月解放军在昌都击败藏军，1951年5月西藏地方政府代表在北京签订《十七条协议》，同年10月解放军进入拉萨。",
+  "source": "https://en.wikipedia.org/wiki/Seventeen_Point_Agreement",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8D%81%E4%B8%83%E6%9D%A1%E5%8D%8F%E8%AE%AE",
+  "places": [
+   "lhasa"
+  ],
+  "people": [],
+  "states": [
+   "Tibet"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "ir-oil-nationalisation",
   "region": "iran",
   "year": 1951,
@@ -95929,7 +97131,7 @@
   "places": [],
   "people": [],
   "states": [
-   "British Africa",
+   "Iraq",
    "Iran",
    "United Kingdom"
   ],
@@ -96098,7 +97300,7 @@
   "places": [],
   "people": [],
   "states": [
-   "British Raj"
+   "Pakistan"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%AD%9F%E5%8A%A0%E6%8B%89%E8%AA%9E%E8%A8%80%E9%81%8B%E5%8B%95",
   "check": {
@@ -96125,7 +97327,6 @@
   "places": [],
   "people": [],
   "states": [
-   "British Colonial Empire",
    "Iran",
    "United Kingdom",
    "United States"
@@ -96182,12 +97383,39 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "Korea (USA)"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%9C%9D%E9%B2%9C%E5%81%9C%E6%88%98%E5%8D%8F%E5%AE%9A",
   "check": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-first-five-year-plan",
+  "year": 1953,
+  "endYear": 1957,
+  "circa": false,
+  "level": 2,
+  "category": "economy",
+  "title": "First Five-Year Plan",
+  "title_zh": "第一个五年计划",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Modelled on the Soviet economy and backed by Soviet loans and engineers, the first plan concentrated investment in heavy industry, including 156 major projects, and nationalised most private business.",
+  "summary_zh": "仿照苏联模式并借助苏联贷款与专家，一五计划集中投资重工业（包括156项重点工程），并基本完成对私营工商业的改造。",
+  "source": "https://en.wikipedia.org/wiki/Five-year_plans_of_China",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%94%E5%B9%B4%E8%AE%A1%E5%88%92",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China",
+   "USSR"
+  ],
   "statesBy": "geo"
  },
  {
@@ -96238,8 +97466,8 @@
   "people": [],
   "states": [
    "French Indochina",
-   "France",
-   "India"
+   "India",
+   "France"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%A5%A0%E9%82%8A%E5%BA%9C%E6%88%B0%E5%BD%B9",
   "check": {
@@ -96330,6 +97558,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-1954-constitution",
+  "year": 1954,
+  "circa": false,
+  "level": 3,
+  "category": "politics",
+  "title": "First constitution of the PRC",
+  "title_zh": "1954年宪法",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "On 20 September 1954 the first National People's Congress adopted the PRC's first constitution and elected Mao Zedong chairman of the state.",
+  "summary_zh": "1954年9月20日，第一届全国人民代表大会通过中华人民共和国第一部宪法，并选举毛泽东为国家主席。",
+  "source": "https://en.wikipedia.org/wiki/Constitution_of_China",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E5%AE%AA%E6%B3%95",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-economic-miracle",
   "region": "japan",
   "year": 1955,
@@ -96349,7 +97602,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "United States of America"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E6%88%98%E5%90%8E%E7%BB%8F%E6%B5%8E%E5%A5%87%E8%BF%B9",
   "check": {
@@ -96376,7 +97629,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "Indonesia"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E8%90%AC%E9%9A%86%E6%9C%83%E8%AD%B0",
   "check": {
@@ -96487,7 +97740,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Empire of Japan"
+   "Korea (USSR)"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%BB%E4%BD%93%E6%80%9D%E6%83%B3",
   "check": {
@@ -96540,8 +97793,8 @@
   "places": [],
   "people": [],
   "states": [
-   "Israel",
    "Egypt",
+   "Israel",
    "France"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89",
@@ -96569,8 +97822,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Morocco",
-   "Tunisia",
+   "French Africa",
    "France"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%91%A9%E6%B4%9B%E5%93%A5%E5%8E%86%E5%8F%B2",
@@ -96626,7 +97878,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Tunisia"
+   "French Africa"
   ],
   "check": {
    "s": "ok"
@@ -96652,7 +97904,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Japan"
+   "United States of America"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%B0%B4%E4%BF%81%E7%97%85",
   "check": {
@@ -96770,6 +98022,32 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-anti-rightist",
+  "year": 1957,
+  "endYear": 1959,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Hundred Flowers and the Anti-Rightist Campaign",
+  "title_zh": "百花运动与反右运动",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "After Mao invited open criticism of the Party in the Hundred Flowers Campaign, a backlash in mid-1957 labelled over 550,000 people, many of them intellectuals, as 'rightists', sending many to labour camps.",
+  "summary_zh": "毛泽东在“百花齐放”中号召向党提意见，1957年中转为反右运动，超过55万人被划为“右派”，许多人被下放劳改。",
+  "source": "https://en.wikipedia.org/wiki/Anti-Rightist_Campaign",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%8F%B3%E8%BF%90%E5%8A%A8",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "af-things-fall-apart",
   "region": "sub-saharan-africa",
   "year": 1958,
@@ -96821,6 +98099,82 @@
   "check": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-great-leap-forward",
+  "year": 1958,
+  "endYear": 1962,
+  "circa": false,
+  "level": 1,
+  "category": "economy",
+  "title": "Great Leap Forward",
+  "title_zh": "大跃进",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Mao launched a drive to overtake Western industrial output through people's communes, backyard steel furnaces and inflated grain targets. The campaign disrupted agriculture and ended in economic collapse.",
+  "summary_zh": "毛泽东发动大跃进，试图通过人民公社、土法炼钢和高指标赶超西方工业产量，结果严重破坏农业，导致经济崩溃。",
+  "source": "https://en.wikipedia.org/wiki/Great_Leap_Forward",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%B7%83%E8%BF%9B",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-great-famine",
+  "year": 1959,
+  "endYear": 1961,
+  "circa": false,
+  "level": 1,
+  "category": "society",
+  "title": "Great Chinese Famine",
+  "title_zh": "三年大饥荒",
+  "place": "Xinyang",
+  "place_zh": "信阳",
+  "lat": 32.13,
+  "lon": 114.07,
+  "summary": "Policies of the Great Leap Forward, excessive grain procurement and natural disasters caused one of the deadliest famines in history; estimates of excess deaths range from about 15 to 55 million.",
+  "summary_zh": "大跃进政策、过度征购粮食和自然灾害造成史上最严重的饥荒之一，非正常死亡人数估计约1500万至5500万。",
+  "source": "https://en.wikipedia.org/wiki/Great_Chinese_Famine",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%89%E5%B9%B4%E5%A4%A7%E9%A5%A5%E8%8D%92",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-tibetan-uprising-1959",
+  "year": 1959,
+  "circa": false,
+  "level": 2,
+  "category": "rebellion",
+  "title": "1959 Tibetan uprising",
+  "title_zh": "1959年西藏起事",
+  "place": "Lhasa",
+  "place_zh": "拉萨",
+  "lat": 29.65,
+  "lon": 91.13,
+  "summary": "In March 1959 an uprising against Chinese rule broke out in Lhasa and was suppressed by the People's Liberation Army. The 14th Dalai Lama fled to India, where he later set up a government-in-exile.",
+  "summary_zh": "1959年3月拉萨爆发反抗中共统治的起事，遭解放军镇压。第十四世达赖喇嘛出走印度，其后建立流亡政府。",
+  "source": "https://en.wikipedia.org/wiki/1959_Tibetan_uprising",
+  "source_zh": "https://zh.wikipedia.org/wiki/1959%E5%B9%B4%E8%97%8F%E5%8C%BA%E9%AA%9A%E4%B9%B1",
+  "places": [
+   "lhasa"
+  ],
+  "people": [],
+  "states": [
+   "Tibet",
+   "India"
+  ],
   "statesBy": "geo"
  },
  {
@@ -96954,7 +98308,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Korea (USA)"
+   "Korea, Republic of"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%9B%E4%B8%80%E4%B9%9D%E8%BF%90%E5%8A%A8",
   "check": {
@@ -97009,7 +98363,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Belgian Congo"
+   "Zaire"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%88%9A%E6%9E%9C%E5%8D%B1%E6%9C%BA",
   "check": {
@@ -97100,6 +98454,32 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-sino-soviet-split",
+  "year": 1960,
+  "circa": false,
+  "level": 2,
+  "category": "diplomacy",
+  "title": "Sino-Soviet split",
+  "title_zh": "中苏交恶",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Ideological and strategic disputes between Beijing and Moscow came into the open; in 1960 the Soviet Union withdrew its technical experts from China, ending the alliance in all but name.",
+  "summary_zh": "中苏在意识形态和战略上的分歧公开化。1960年苏联撤走在华专家，两国同盟名存实亡。",
+  "source": "https://en.wikipedia.org/wiki/Sino-Soviet_split",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8B%8F%E4%BA%A4%E6%81%B6",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China",
+   "USSR"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "ca-gagarin",
   "region": "central-asia-steppe",
   "year": 1961,
@@ -97145,7 +98525,8 @@
   "places": [],
   "people": [],
   "states": [
-   "France"
+   "France",
+   "East Germany"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%9F%8F%E6%9E%97%E5%9C%8D%E7%89%86",
   "check": {
@@ -97172,7 +98553,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Korea (USA)"
+   "Korea, Republic of"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%94%E4%B8%80%E5%85%AD%E8%BB%8D%E4%BA%8B%E6%94%BF%E8%AE%8A",
   "check": {
@@ -97228,8 +98609,8 @@
   "people": [],
   "states": [
    "United States of America",
-   "Cuba",
    "USSR",
+   "Cuba",
    "United States"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%8F%A4%E5%B7%B4%E5%AF%BC%E5%BC%B9%E5%8D%B1%E6%9C%BA",
@@ -97257,7 +98638,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Korea (USA)"
+   "Korea, Republic of"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%BC%A2%E6%B1%9F%E5%A5%87%E8%B9%9F",
   "check": {
@@ -97338,7 +98719,7 @@
   "places": [],
   "people": [],
   "states": [
-   "British Colonial Empire"
+   "Malaysia"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E9%A9%AC%E6%9D%A5%E8%A5%BF%E4%BA%9A%E5%8D%8F%E5%AE%9A",
   "check": {
@@ -97536,6 +98917,29 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-first-atomic-bomb",
+  "year": 1964,
+  "circa": false,
+  "level": 2,
+  "category": "science",
+  "title": "China's first atomic bomb",
+  "title_zh": "第一颗原子弹爆炸",
+  "place": "Lop Nur",
+  "place_zh": "罗布泊",
+  "lat": 40.82,
+  "lon": 89.77,
+  "summary": "On 16 October 1964 China detonated its first nuclear device at Lop Nur in Xinjiang, becoming the fifth nuclear power. Its first hydrogen bomb followed in June 1967.",
+  "summary_zh": "1964年10月16日，中国在新疆罗布泊成功爆炸第一颗原子弹，成为第五个拥有核武器的国家；1967年6月又爆炸氢弹。",
+  "source": "https://en.wikipedia.org/wiki/596_(nuclear_test)",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%A4%E5%BC%B9%E4%B8%80%E6%98%9F",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "sea-thirtieth-september",
   "region": "southeast-asia",
   "year": 1965,
@@ -97617,6 +99021,32 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-cultural-revolution",
+  "year": 1966,
+  "endYear": 1976,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Cultural Revolution",
+  "title_zh": "文化大革命",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Mao mobilised Red Guards against alleged 'capitalist roaders', purging officials, closing schools and destroying cultural heritage. Estimates of deaths range from hundreds of thousands to millions; the Party later called it a catastrophe.",
+  "summary_zh": "毛泽东发动红卫兵打倒“走资派”，大批官员遭清洗，学校停课，文物遭破坏。死亡人数估计数十万至数百万，中共后来称之为浩劫。",
+  "source": "https://en.wikipedia.org/wiki/Cultural_Revolution",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%96%87%E5%8C%96%E5%A4%A7%E9%9D%A9%E5%91%BD",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "eg-six-day-war",
   "region": "egypt-north-africa",
   "year": 1967,
@@ -97635,8 +99065,8 @@
   "places": [],
   "people": [],
   "states": [
-   "Israel",
-   "Egypt"
+   "Egypt",
+   "Israel"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89",
   "check": {
@@ -97663,10 +99093,9 @@
   "places": [],
   "people": [],
   "states": [
+   "Jordan",
    "Israel",
-   "Egypt",
-   "Syria",
-   "Jordan"
+   "Egypt"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89",
   "check": {
@@ -97695,8 +99124,8 @@
   "states": [
    "Thailand",
    "Philippines",
-   "Indonesia",
-   "Malaysia"
+   "Malaysia",
+   "Indonesia"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%9C%E7%9B%9F%E5%AE%A3%E8%A8%80",
   "check": {
@@ -97751,6 +99180,7 @@
   "places": [],
   "people": [],
   "states": [
+   "British Africa",
    "Tanzania, United Republic of"
   ],
   "check": {
@@ -97896,6 +99326,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-down-to-countryside",
+  "year": 1968,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "Down to the Countryside Movement",
+  "title_zh": "上山下乡运动",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "From December 1968 Mao ordered urban youth, many of them former Red Guards, to settle in rural areas; about 17 million young people were sent to villages and frontier farms.",
+  "summary_zh": "1968年12月起，毛泽东号召城市知识青年（许多曾是红卫兵）到农村去，约1700万青年被送往农村和边疆农场。",
+  "source": "https://en.wikipedia.org/wiki/Down_to_the_Countryside_Movement",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%8A%E5%B1%B1%E4%B8%8B%E4%B9%A1%E8%BF%90%E5%8A%A8",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "na-apollo-11",
   "region": "north-america",
   "year": 1969,
@@ -98031,6 +99486,30 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-zhenbao-island",
+  "year": 1969,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "Zhenbao Island clashes",
+  "title_zh": "珍宝岛事件",
+  "place": "Zhenbao Island",
+  "place_zh": "珍宝岛",
+  "lat": 46.49,
+  "lon": 133.84,
+  "summary": "In March 1969 Chinese and Soviet troops fought over Zhenbao (Damansky) Island on the Ussuri River. Fear of a wider war pushed China towards rapprochement with the United States.",
+  "summary_zh": "1969年3月，中苏两军在乌苏里江珍宝岛发生武装冲突。对全面战争的担忧促使中国转向与美国缓和关系。",
+  "source": "https://en.wikipedia.org/wiki/Sino-Soviet_border_conflict",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8B%8F%E8%BE%B9%E7%95%8C%E5%86%B2%E7%AA%81",
+  "places": [],
+  "people": [],
+  "states": [
+   "China",
+   "United States"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "sam-allende",
   "region": "south-america",
   "year": 1970,
@@ -98104,14 +99583,36 @@
   "places": [],
   "people": [],
   "states": [
-   "Tanzania, United Republic of",
-   "China",
-   "Zambia"
+   "British Africa",
+   "China"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%9D%A6%E8%B4%8A%E9%90%B5%E8%B7%AF",
   "check": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-dongfanghong-1",
+  "year": 1970,
+  "circa": false,
+  "level": 3,
+  "category": "science",
+  "title": "First Chinese satellite",
+  "title_zh": "东方红一号",
+  "place": "Jiuquan",
+  "place_zh": "酒泉",
+  "lat": 40.96,
+  "lon": 100.29,
+  "summary": "On 24 April 1970 a Long March 1 rocket put Dong Fang Hong 1 into orbit, making China the fifth country to launch a satellite on its own rocket. It broadcast the song 'The East Is Red'.",
+  "summary_zh": "1970年4月24日，长征一号火箭将东方红一号送入轨道，中国成为第五个自行发射卫星的国家。卫星播放《东方红》乐曲。",
+  "source": "https://en.wikipedia.org/wiki/Dong_Fang_Hong_1",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%9C%E6%96%B9%E7%BA%A2%E4%B8%80%E5%8F%B7",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -98196,6 +99697,28 @@
    "s": "ok"
   },
   "statesBy": "geo"
+ },
+ {
+  "id": "cn-un-seat",
+  "year": 1971,
+  "circa": false,
+  "level": 2,
+  "category": "diplomacy",
+  "title": "PRC takes China's UN seat",
+  "title_zh": "恢复联合国席位",
+  "place": "New York",
+  "place_zh": "纽约",
+  "lat": 40.75,
+  "lon": -73.97,
+  "summary": "On 25 October 1971 UN General Assembly Resolution 2758 recognised the PRC's representatives as the only lawful representatives of China at the UN, including on the Security Council; the ROC's delegation was expelled.",
+  "summary_zh": "1971年10月25日，联大第2758号决议承认中华人民共和国代表为中国在联合国（包括安理会）的唯一合法代表，中华民国代表被驱逐。",
+  "source": "https://en.wikipedia.org/wiki/United_Nations_General_Assembly_Resolution_2758",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E8%81%94%E5%90%88%E5%9B%BD%E5%A4%A7%E4%BC%9A2758%E5%8F%B7%E5%86%B3%E8%AE%AE",
+  "states": [
+   "China"
+  ],
+  "places": [],
+  "people": []
  },
  {
   "id": "jp-china-normalization",
@@ -98495,7 +100018,6 @@
   "places": [],
   "people": [],
   "states": [
-   "United States of America",
    "Vietnam"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%9B%E4%B8%89%E3%80%87%E4%BA%8B%E4%BB%B6",
@@ -98793,6 +100315,79 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-tangshan-earthquake",
+  "year": 1976,
+  "circa": false,
+  "level": 2,
+  "category": "society",
+  "title": "Tangshan earthquake",
+  "title_zh": "唐山大地震",
+  "place": "Tangshan",
+  "place_zh": "唐山",
+  "lat": 39.63,
+  "lon": 118.18,
+  "summary": "Early on 28 July 1976 a magnitude 7.6 earthquake destroyed the industrial city of Tangshan. The official death toll was about 242,000, one of the deadliest earthquakes of the 20th century.",
+  "summary_zh": "1976年7月28日凌晨，7.6级地震摧毁工业城市唐山，官方公布死亡约24.2万人，为20世纪死亡人数最多的地震之一。",
+  "source": "https://en.wikipedia.org/wiki/1976_Tangshan_earthquake",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%94%90%E5%B1%B1%E5%A4%A7%E5%9C%B0%E9%9C%87",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-mao-death-gang-of-four",
+  "year": 1976,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Death of Mao and fall of the Gang of Four",
+  "title_zh": "毛泽东逝世与粉碎四人帮",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Mao Zedong died on 9 September 1976. On 6 October his successor Hua Guofeng had Jiang Qing and the other members of the radical 'Gang of Four' arrested, effectively ending the Cultural Revolution.",
+  "summary_zh": "1976年9月9日毛泽东逝世。10月6日，华国锋下令逮捕江青等“四人帮”成员，文化大革命实际结束。",
+  "source": "https://en.wikipedia.org/wiki/Gang_of_Four",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%9B%9B%E4%BA%BA%E5%B8%AE",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-gaokao-restored",
+  "year": 1977,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "National college entrance exam restored",
+  "title_zh": "恢复高考",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "In late 1977 China held its first national university entrance examination since 1966; about 5.7 million people sat it and roughly 270,000 were admitted.",
+  "summary_zh": "1977年冬，中国举行1966年以来首次全国高考，约570万人报考，约27万人被录取。",
+  "source": "https://en.wikipedia.org/wiki/Gaokao",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%99%AE%E9%80%9A%E9%AB%98%E7%AD%89%E5%AD%A6%E6%A0%A1%E6%8B%9B%E7%94%9F%E5%85%A8%E5%9B%BD%E7%BB%9F%E4%B8%80%E8%80%83%E8%AF%95",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "sea-cambodian-vietnamese-war",
   "region": "southeast-asia",
   "year": 1978,
@@ -98877,6 +100472,56 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-reform-opening",
+  "year": 1978,
+  "circa": false,
+  "level": 1,
+  "category": "reform",
+  "title": "Reform and opening up",
+  "title_zh": "改革开放",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "In December 1978 the Third Plenum of the 11th Central Committee, led by Deng Xiaoping, shifted the Party's focus to economic development, beginning market-oriented reforms and opening China to foreign trade and investment.",
+  "summary_zh": "1978年12月，中共十一届三中全会在邓小平主导下将工作重心转向经济建设，开启市场化改革和对外开放。",
+  "source": "https://en.wikipedia.org/wiki/Reform_and_opening_up",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%94%B9%E9%9D%A9%E5%BC%80%E6%94%BE",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-household-responsibility",
+  "year": 1978,
+  "circa": false,
+  "level": 3,
+  "category": "economy",
+  "title": "Household responsibility system",
+  "title_zh": "家庭联产承包责任制",
+  "place": "Xiaogang, Fengyang",
+  "place_zh": "凤阳小岗村",
+  "lat": 32.87,
+  "lon": 117.56,
+  "summary": "In late 1978 farmers in Xiaogang village, Anhui, secretly divided collective land among households. The household responsibility system spread nationwide in the early 1980s, ending the people's communes and raising farm output.",
+  "summary_zh": "1978年底，安徽小岗村农民秘密分田到户。80年代初家庭联产承包责任制推广全国，人民公社解体，农业产量大增。",
+  "source": "https://en.wikipedia.org/wiki/Household_responsibility_system",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%AE%B6%E5%BA%AD%E8%81%94%E4%BA%A7%E6%89%BF%E5%8C%85%E8%B4%A3%E4%BB%BB%E5%88%B6",
+  "places": [
+   "zhongli"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "ir-iranian-revolution",
   "region": "iran",
   "year": 1979,
@@ -98923,8 +100568,8 @@
   "places": [],
   "people": [],
   "states": [
-   "USSR",
-   "Afghanistan"
+   "Afghanistan",
+   "USSR"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E8%8B%8F%E9%98%BF%E6%88%98%E4%BA%89",
   "check": {
@@ -98952,8 +100597,8 @@
   "people": [],
   "states": [
    "United States of America",
-   "Egypt",
-   "Israel"
+   "Israel",
+   "Egypt"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%9F%83%E4%BB%A5%E5%92%8C%E7%B4%84",
   "check": {
@@ -99101,6 +100746,53 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-us-relations-1979",
+  "year": 1979,
+  "circa": false,
+  "level": 3,
+  "category": "diplomacy",
+  "title": "China and the United States establish relations",
+  "title_zh": "中美建交",
+  "place": "Washington, D.C.",
+  "place_zh": "华盛顿",
+  "lat": 38.9,
+  "lon": -77.04,
+  "summary": "On 1 January 1979 the US and the PRC established diplomatic relations, and the US ended formal recognition of the ROC. Deng Xiaoping then made a state visit to the United States.",
+  "summary_zh": "1979年1月1日中美正式建交，美国与中华民国断交。随后邓小平访问美国。",
+  "source": "https://en.wikipedia.org/wiki/Joint_Communiqu%C3%A9_on_the_Establishment_of_Diplomatic_Relations",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E7%BE%8E%E5%BB%BA%E4%BA%A4%E5%85%AC%E6%8A%A5",
+  "states": [
+   "China"
+  ],
+  "places": [],
+  "people": []
+ },
+ {
+  "id": "cn-sino-vietnamese-war",
+  "year": 1979,
+  "circa": false,
+  "level": 3,
+  "category": "war",
+  "title": "Sino-Vietnamese War",
+  "title_zh": "中越战争",
+  "place": "Lạng Sơn",
+  "place_zh": "谅山",
+  "lat": 21.85,
+  "lon": 106.76,
+  "summary": "In February 1979 China invaded northern Vietnam, partly in response to Vietnam's invasion of Cambodia. After capturing several provincial capitals, Chinese troops withdrew in March; border clashes continued through the 1980s.",
+  "summary_zh": "1979年2月，中国出兵越南北部，部分原因是越南入侵柬埔寨。中国军队攻占数座省会后于3月撤军，边境冲突延续至80年代。",
+  "source": "https://en.wikipedia.org/wiki/Sino-Vietnamese_War",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%B6%8A%E6%88%98%E4%BA%89",
+  "places": [],
+  "people": [],
+  "states": [
+   "Vietnam",
+   "China",
+   "Cambodia"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "me-iran-iraq-war",
   "region": "middle-east",
   "year": 1980,
@@ -99212,6 +100904,57 @@
   "check": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-shenzhen-sez",
+  "year": 1980,
+  "circa": false,
+  "level": 2,
+  "category": "economy",
+  "title": "Shenzhen Special Economic Zone",
+  "title_zh": "深圳经济特区",
+  "place": "Shenzhen",
+  "place_zh": "深圳",
+  "lat": 22.54,
+  "lon": 114.06,
+  "summary": "In August 1980 Shenzhen, next to Hong Kong, became one of China's first special economic zones, along with Zhuhai, Shantou and Xiamen. Foreign investment turned it from a small town into a major city.",
+  "summary_zh": "1980年8月，毗邻香港的深圳与珠海、汕头、厦门成为首批经济特区。外资涌入使其由小镇发展为特大城市。",
+  "source": "https://en.wikipedia.org/wiki/Special_economic_zones_of_China",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%9C%B3%E7%BB%8F%E6%B5%8E%E7%89%B9%E5%8C%BA",
+  "places": [
+   "hong-kong"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-one-child-policy",
+  "year": 1980,
+  "endYear": 2015,
+  "circa": false,
+  "level": 2,
+  "category": "society",
+  "title": "One-child policy",
+  "title_zh": "独生子女政策",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "From 1980 most urban couples were limited to one child, with exceptions for many rural families and ethnic minorities. Enforcement included fines and in some areas forced abortions and sterilisations.",
+  "summary_zh": "1980年起大多数城镇夫妇只准生一孩，许多农村家庭和少数民族有例外。执行手段包括罚款，部分地区还有强制堕胎和绝育。",
+  "source": "https://en.wikipedia.org/wiki/One-child_policy",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%8B%AC%E7%94%9F%E5%AD%90%E5%A5%B3%E6%94%BF%E7%AD%96",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -99655,6 +101398,29 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-taiwan-martial-law-lifted",
+  "year": 1987,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Taiwan lifts martial law",
+  "title_zh": "台湾解除戒严",
+  "place": "Taipei",
+  "place_zh": "台北",
+  "lat": 25.03,
+  "lon": 121.56,
+  "summary": "On 15 July 1987 President Chiang Ching-kuo ended martial law in Taiwan, in force since 1949. Bans on new parties and newspapers were soon lifted, opening the way to democratisation.",
+  "summary_zh": "1987年7月15日，蒋经国总统宣布台湾解除自1949年起实施的戒严，随后开放党禁、报禁，台湾走向民主化。",
+  "source": "https://en.wikipedia.org/wiki/Martial_law_in_Taiwan",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E7%9C%81%E6%88%92%E4%B8%A5%E4%BB%A4",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "eg-mahfouz-nobel",
   "region": "egypt-north-africa",
   "year": 1988,
@@ -99833,6 +101599,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-tiananmen-1989",
+  "year": 1989,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Tiananmen Square protests and crackdown",
+  "title_zh": "六四事件",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.9,
+  "lon": 116.39,
+  "summary": "Student-led protests calling for political reform filled Tiananmen Square from April 1989. After martial law was declared, troops cleared the square on 3–4 June, killing protesters and civilians; estimates of the dead range from several hundred to several thousand.",
+  "summary_zh": "1989年4月起学生主导的民主运动聚集天安门广场。戒严后军队于6月3日至4日清场，向示威者和平民开枪，死亡人数估计数百至数千。",
+  "source": "https://en.wikipedia.org/wiki/1989_Tiananmen_Square_protests_and_massacre",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%85%AD%E5%9B%9B%E4%BA%8B%E4%BB%B6",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "me-gulf-war",
   "region": "middle-east",
   "year": 1990,
@@ -99852,6 +101643,7 @@
   "places": [],
   "people": [],
   "states": [
+   "Kuwait",
    "Iraq",
    "United States"
   ],
@@ -100352,6 +102144,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-southern-tour",
+  "year": 1992,
+  "circa": false,
+  "level": 2,
+  "category": "reform",
+  "title": "Deng Xiaoping's southern tour",
+  "title_zh": "邓小平南巡",
+  "place": "Shenzhen",
+  "place_zh": "深圳",
+  "lat": 22.54,
+  "lon": 114.06,
+  "summary": "In early 1992 Deng Xiaoping toured Wuchang, Shenzhen, Zhuhai and Shanghai, urging faster market reform after a post-1989 slowdown. Later that year the Party adopted the goal of a 'socialist market economy'.",
+  "summary_zh": "1992年初，邓小平视察武昌、深圳、珠海、上海，呼吁在1989年后的停滞中加快改革。同年中共确立“社会主义市场经济”目标。",
+  "source": "https://en.wikipedia.org/wiki/Deng_Xiaoping's_southern_tour",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%82%93%E5%B0%8F%E5%B9%B3%E5%8D%97%E5%B7%A1",
+  "places": [
+   "hong-kong"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "me-oslo-accords",
   "region": "middle-east",
   "year": 1993,
@@ -100569,6 +102386,32 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-three-gorges-dam",
+  "year": 1994,
+  "endYear": 2012,
+  "circa": false,
+  "level": 2,
+  "category": "economy",
+  "title": "Three Gorges Dam",
+  "title_zh": "三峡大坝",
+  "place": "Yichang",
+  "place_zh": "宜昌",
+  "lat": 30.82,
+  "lon": 111.0,
+  "summary": "Construction of the dam on the Yangtze began in 1994; it became the world's largest power station by capacity. The reservoir displaced more than 1.3 million people and flooded towns and archaeological sites.",
+  "summary_zh": "长江三峡大坝于1994年动工，建成后成为装机容量世界最大的水电站。水库淹没城镇和古迹，移民超过130万人。",
+  "source": "https://en.wikipedia.org/wiki/Three_Gorges_Dam",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%89%E5%B3%A1%E5%A4%A7%E5%9D%9D",
+  "places": [
+   "yichang"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-hanshin-earthquake",
   "region": "japan",
   "year": 1995,
@@ -100779,6 +102622,30 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-taiwan-1996-election",
+  "year": 1996,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Taiwan's first direct presidential election",
+  "title_zh": "台湾首次总统直选",
+  "place": "Taipei",
+  "place_zh": "台北",
+  "lat": 25.03,
+  "lon": 121.56,
+  "summary": "On 23 March 1996 Taiwan held its first direct presidential election, won by Lee Teng-hui. Beijing had conducted missile tests near the island in the run-up, prompting the US to send aircraft carriers.",
+  "summary_zh": "1996年3月23日台湾举行首次总统直选，李登辉当选。选前北京在台湾附近进行导弹试射，美国派航母前往。",
+  "source": "https://en.wikipedia.org/wiki/1996_Taiwanese_presidential_election",
+  "source_zh": "https://zh.wikipedia.org/wiki/1996%E5%B9%B4%E4%B8%AD%E5%8D%8E%E6%B0%91%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%80%89%E4%B8%BE",
+  "places": [],
+  "people": [],
+  "states": [
+   "Republic of China",
+   "United States"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "sea-asian-financial-crisis",
   "region": "southeast-asia",
   "year": 1997,
@@ -100830,7 +102697,7 @@
   "places": [],
   "people": [],
   "states": [
-   "USSR"
+   "Kazakhstan"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E9%98%BF%E6%96%AF%E5%A1%94%E7%B4%8D",
   "check": {
@@ -100869,6 +102736,33 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-hong-kong-handover",
+  "year": 1997,
+  "circa": false,
+  "level": 1,
+  "category": "politics",
+  "title": "Hong Kong handover",
+  "title_zh": "香港回归",
+  "place": "Hong Kong",
+  "place_zh": "香港",
+  "lat": 22.28,
+  "lon": 114.16,
+  "summary": "On 1 July 1997 Britain transferred sovereignty over Hong Kong to China. Under 'one country, two systems', the Basic Law promised the territory a high degree of autonomy for 50 years.",
+  "summary_zh": "1997年7月1日英国将香港主权移交中国。根据“一国两制”，《基本法》承诺香港享有高度自治，五十年不变。",
+  "source": "https://en.wikipedia.org/wiki/Handover_of_Hong_Kong",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E5%9B%9E%E5%BD%92",
+  "places": [
+   "hong-kong"
+  ],
+  "people": [],
+  "states": [
+   "British Colonial Empire",
+   "China",
+   "United Kingdom"
+  ],
   "statesBy": "geo"
  },
  {
@@ -101043,7 +102937,7 @@
   "places": [],
   "people": [],
   "states": [
-   "West Germany"
+   "Germany"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%85%83",
   "check": {
@@ -101113,6 +103007,57 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-macau-handover",
+  "year": 1999,
+  "circa": false,
+  "level": 3,
+  "category": "politics",
+  "title": "Macau handover",
+  "title_zh": "澳门回归",
+  "place": "Macau",
+  "place_zh": "澳门",
+  "lat": 22.19,
+  "lon": 113.54,
+  "summary": "On 20 December 1999 Portugal transferred Macau to China, ending more than four centuries of Portuguese presence. It became a special administrative region under 'one country, two systems'.",
+  "summary_zh": "1999年12月20日葡萄牙将澳门移交中国，结束四百多年的葡萄牙管治。澳门成为实行“一国两制”的特别行政区。",
+  "source": "https://en.wikipedia.org/wiki/Transfer_of_sovereignty_over_Macau",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%BE%B3%E9%97%A8%E5%9B%9E%E5%BD%92",
+  "places": [
+   "macau"
+  ],
+  "people": [],
+  "states": [
+   "Portugal",
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-falun-gong-ban",
+  "year": 1999,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "Falun Gong banned",
+  "title_zh": "取缔法轮功",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "After about 10,000 Falun Gong practitioners gathered near the leadership compound of Zhongnanhai in April 1999, the government banned the movement in July and launched a nationwide campaign against it involving mass detentions.",
+  "summary_zh": "1999年4月约万名法轮功学员聚集中南海附近，同年7月政府宣布取缔法轮功，在全国开展打压，大量学员被拘押。",
+  "source": "https://en.wikipedia.org/wiki/Persecution_of_Falun_Gong",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B3%95%E8%BD%AE%E5%8A%9F",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -101331,6 +103276,28 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-wto-accession",
+  "year": 2001,
+  "circa": false,
+  "level": 1,
+  "category": "economy",
+  "title": "China joins the World Trade Organization",
+  "title_zh": "中国加入世贸组织",
+  "place": "Doha",
+  "place_zh": "多哈",
+  "lat": 25.29,
+  "lon": 51.53,
+  "summary": "After 15 years of negotiations, China's accession was approved at the WTO ministerial meeting in Doha and took effect on 11 December 2001. Exports surged, making China the world's largest trading nation.",
+  "summary_zh": "经过15年谈判，中国入世在多哈部长级会议获批，2001年12月11日正式生效。此后出口激增，中国成为世界最大贸易国。",
+  "source": "https://en.wikipedia.org/wiki/China_and_the_World_Trade_Organization",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E5%8A%A0%E5%85%A5%E4%B8%96%E7%95%8C%E8%B4%B8%E6%98%93%E7%BB%84%E7%BB%87",
+  "states": [
+   "China"
+  ],
+  "places": [],
+  "people": []
+ },
+ {
   "id": "af-african-union",
   "region": "sub-saharan-africa",
   "year": 2002,
@@ -101418,6 +103385,32 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-sars",
+  "year": 2002,
+  "endYear": 2003,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "SARS outbreak",
+  "title_zh": "非典疫情",
+  "place": "Guangzhou",
+  "place_zh": "广州",
+  "lat": 23.13,
+  "lon": 113.26,
+  "summary": "A new coronavirus disease emerged in Guangdong in late 2002 and spread to dozens of countries, causing about 8,000 cases and 774 deaths. Early concealment led to the dismissal of Beijing's mayor and the health minister.",
+  "summary_zh": "2002年底广东出现非典型肺炎，传播至数十国，约8000人感染、774人死亡。因早期隐瞒疫情，北京市长和卫生部长被免职。",
+  "source": "https://en.wikipedia.org/wiki/2002%E2%80%932004_SARS_outbreak",
+  "source_zh": "https://zh.wikipedia.org/wiki/SARS%E4%BA%8B%E4%BB%B6",
+  "places": [
+   "guangzhou"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -101511,6 +103504,30 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-shenzhou-5",
+  "year": 2003,
+  "circa": false,
+  "level": 2,
+  "category": "science",
+  "title": "Shenzhou 5: first Chinese in space",
+  "title_zh": "神舟五号",
+  "place": "Jiuquan",
+  "place_zh": "酒泉",
+  "lat": 40.96,
+  "lon": 100.29,
+  "summary": "On 15 October 2003 Yang Liwei orbited Earth aboard Shenzhou 5, making China the third country, after the Soviet Union and the United States, to send a person into space on its own.",
+  "summary_zh": "2003年10月15日，杨利伟乘神舟五号进入太空，中国成为继苏联、美国之后第三个独立实现载人航天的国家。",
+  "source": "https://en.wikipedia.org/wiki/Shenzhou_5",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%A5%9E%E8%88%9F%E4%BA%94%E5%8F%B7",
+  "places": [],
+  "people": [],
+  "states": [
+   "China",
+   "United States"
+  ],
   "statesBy": "geo"
  },
  {
@@ -101870,6 +103887,54 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-beijing-olympics",
+  "year": 2008,
+  "circa": false,
+  "level": 1,
+  "category": "culture",
+  "title": "Beijing Olympics",
+  "title_zh": "北京奥运会",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.99,
+  "lon": 116.39,
+  "summary": "Beijing hosted the Summer Olympic Games from 8 to 24 August 2008, showcasing China's rise; the host nation won the most gold medals.",
+  "summary_zh": "2008年8月8日至24日北京举办夏季奥运会，展现中国崛起，东道主中国金牌数位居第一。",
+  "source": "https://en.wikipedia.org/wiki/2008_Summer_Olympics",
+  "source_zh": "https://zh.wikipedia.org/wiki/2008%E5%B9%B4%E5%A4%8F%E5%AD%A3%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E8%BF%90%E5%8A%A8%E4%BC%9A",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-wenchuan-earthquake",
+  "year": 2008,
+  "circa": false,
+  "level": 2,
+  "category": "society",
+  "title": "Wenchuan earthquake",
+  "title_zh": "汶川大地震",
+  "place": "Wenchuan",
+  "place_zh": "汶川",
+  "lat": 31.06,
+  "lon": 103.33,
+  "summary": "On 12 May 2008 a magnitude 7.9 earthquake struck Sichuan, leaving about 69,000 dead and 18,000 missing. The collapse of many school buildings drew criticism of construction quality.",
+  "summary_zh": "2008年5月12日四川发生7.9级地震，约6.9万人遇难、1.8万人失踪。大量校舍倒塌引发对建筑质量的质疑。",
+  "source": "https://en.wikipedia.org/wiki/2008_Sichuan_earthquake",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%B1%B6%E5%B7%9D%E5%A4%A7%E5%9C%B0%E9%9C%87",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "eu-2009-european-debt-crisis",
   "region": "europe",
   "year": 2009,
@@ -102049,6 +104114,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-shanghai-expo",
+  "year": 2010,
+  "circa": false,
+  "level": 3,
+  "category": "culture",
+  "title": "Shanghai World Expo",
+  "title_zh": "上海世博会",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.19,
+  "lon": 121.49,
+  "summary": "Shanghai hosted the 2010 World Expo from May to October on the theme 'Better City, Better Life', attracting about 73 million visitors, a record for a world's fair.",
+  "summary_zh": "2010年5月至10月上海举办世界博览会，主题为“城市，让生活更美好”，参观者约7300万人次，创世博会纪录。",
+  "source": "https://en.wikipedia.org/wiki/Expo_2010",
+  "source_zh": "https://zh.wikipedia.org/wiki/2010%E5%B9%B4%E4%B8%8A%E6%B5%B7%E4%B8%96%E7%95%8C%E5%8D%9A%E8%A7%88%E4%BC%9A",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -102234,6 +104324,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-high-speed-rail",
+  "year": 2011,
+  "circa": false,
+  "level": 2,
+  "category": "economy",
+  "title": "Beijing–Shanghai high-speed railway",
+  "title_zh": "京沪高铁通车",
+  "place": "Shanghai",
+  "place_zh": "上海",
+  "lat": 31.19,
+  "lon": 121.32,
+  "summary": "The 1,318 km Beijing–Shanghai high-speed line opened in June 2011, three years after the first 350 km/h service. China's network grew to over 40,000 km, the world's largest.",
+  "summary_zh": "2011年6月全长1318公里的京沪高铁通车，距首条时速350公里线路开通仅三年。中国高铁里程增至四万公里以上，居世界首位。",
+  "source": "https://en.wikipedia.org/wiki/Beijing%E2%80%93Shanghai_high-speed_railway",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%BA%AC%E6%B2%AA%E9%AB%98%E9%80%9F%E9%93%81%E8%B7%AF",
+  "places": [
+   "shanghai"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "jp-abenomics",
   "region": "japan",
   "year": 2012,
@@ -102292,6 +104407,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-xi-jinping",
+  "year": 2012,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Xi Jinping becomes Party leader",
+  "title_zh": "习近平出任中共中央总书记",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "In November 2012 Xi Jinping became general secretary of the Communist Party. He led a sweeping anti-corruption campaign, removed presidential term limits in 2018 and began a third term as Party leader in 2022.",
+  "summary_zh": "2012年11月习近平出任中共中央总书记，主导大规模反腐运动，2018年修宪取消国家主席任期限制，2022年开始第三个总书记任期。",
+  "source": "https://en.wikipedia.org/wiki/Xi_Jinping",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B9%A0%E8%BF%91%E5%B9%B3",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -102355,6 +104495,28 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-belt-and-road",
+  "year": 2013,
+  "circa": false,
+  "level": 2,
+  "category": "diplomacy",
+  "title": "Belt and Road Initiative",
+  "title_zh": "一带一路",
+  "place": "Astana",
+  "place_zh": "阿斯塔纳",
+  "lat": 51.09,
+  "lon": 71.4,
+  "summary": "In 2013 Xi Jinping proposed a 'Silk Road Economic Belt' in Kazakhstan and a maritime silk road in Indonesia. The initiative funded ports, railways and power plants in over a hundred countries.",
+  "summary_zh": "2013年习近平在哈萨克斯坦提出“丝绸之路经济带”，在印度尼西亚提出“海上丝绸之路”。该倡议在一百多个国家资助港口、铁路和电站建设。",
+  "source": "https://en.wikipedia.org/wiki/Belt_and_Road_Initiative",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E4%B8%80%E5%B8%A6%E4%B8%80%E8%B7%AF",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ]
+ },
+ {
   "id": "eu-2014-annexation-of-crimea",
   "region": "europe",
   "year": 2014,
@@ -102405,7 +104567,7 @@
   "places": [],
   "people": [],
   "states": [
-   "Iraq",
+   "United States of America",
    "Syria"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E4%BC%8A%E6%96%AF%E5%85%B0%E5%9B%BD",
@@ -102604,6 +104766,31 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-tu-youyou-nobel",
+  "year": 2015,
+  "circa": false,
+  "level": 3,
+  "category": "science",
+  "title": "Tu Youyou wins the Nobel Prize",
+  "title_zh": "屠呦呦获诺贝尔奖",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Tu Youyou shared the 2015 Nobel Prize in Physiology or Medicine for discovering artemisinin, an anti-malaria drug derived from sweet wormwood in a secret 1970s research project, Project 523.",
+  "summary_zh": "屠呦呦因在1970年代“523项目”中从青蒿提取青蒿素治疗疟疾，获2015年诺贝尔生理学或医学奖。",
+  "source": "https://en.wikipedia.org/wiki/Tu_Youyou",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%B1%A0%E5%91%A6%E5%91%A6",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "eu-2016-brexit",
   "region": "europe",
   "year": 2016,
@@ -102723,6 +104910,56 @@
   "statesBy": "geo"
  },
  {
+  "id": "cn-two-child-policy",
+  "year": 2016,
+  "circa": false,
+  "level": 3,
+  "category": "society",
+  "title": "End of the one-child policy",
+  "title_zh": "全面二孩政策",
+  "place": "Beijing",
+  "place_zh": "北京",
+  "lat": 39.91,
+  "lon": 116.39,
+  "summary": "Facing an ageing population, China allowed all couples two children from 1 January 2016, and three from 2021. Births nonetheless kept falling, and the population began to shrink in 2022.",
+  "summary_zh": "面对人口老龄化，中国自2016年1月1日起全面放开二孩，2021年放开三孩，但出生人口仍持续下降，2022年起总人口开始减少。",
+  "source": "https://en.wikipedia.org/wiki/Two-child_policy",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E7%8B%AC%E7%94%9F%E5%AD%90%E5%A5%B3%E6%94%BF%E7%AD%96",
+  "places": [
+   "beijing"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-xinjiang-internment",
+  "year": 2017,
+  "circa": false,
+  "level": 2,
+  "category": "society",
+  "title": "Xinjiang internment camps",
+  "title_zh": "新疆再教育营",
+  "place": "Ürümqi",
+  "place_zh": "乌鲁木齐",
+  "lat": 43.83,
+  "lon": 87.62,
+  "summary": "From about 2017 authorities detained large numbers of Uyghurs and other Muslims in camps the government calls vocational training centres; estimates run to around a million or more. A 2022 UN report said abuses there may constitute crimes against humanity.",
+  "summary_zh": "约2017年起，当局将大批维吾尔族等穆斯林拘押于官方所称“职业技能教育培训中心”，估计达百万人以上。2022年联合国报告称或构成危害人类罪。",
+  "source": "https://en.wikipedia.org/wiki/Xinjiang_internment_camps",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E6%96%B0%E7%96%86%E5%86%8D%E6%95%99%E8%82%B2%E8%90%A5",
+  "places": [
+   "ürümqi"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
   "id": "kr-panmunjom-2018",
   "region": "korea",
   "year": 2018,
@@ -102810,6 +105047,80 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-change-4",
+  "year": 2019,
+  "circa": false,
+  "level": 3,
+  "category": "science",
+  "title": "Chang'e 4 lands on the far side of the Moon",
+  "title_zh": "嫦娥四号",
+  "place": "Xichang",
+  "place_zh": "西昌",
+  "lat": 27.9,
+  "lon": 102.26,
+  "summary": "On 3 January 2019 Chang'e 4, launched from Xichang, made the first soft landing on the far side of the Moon, deploying the Yutu-2 rover and relaying signals through the Queqiao satellite.",
+  "summary_zh": "2019年1月3日，从西昌发射的嫦娥四号在月球背面实现人类首次软着陆，释放玉兔二号月球车，通过鹊桥中继星传回信号。",
+  "source": "https://en.wikipedia.org/wiki/Chang'e_4",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%AB%A6%E5%A8%A5%E5%9B%9B%E5%8F%B7",
+  "places": [],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-hong-kong-protests-2019",
+  "year": 2019,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Hong Kong protests",
+  "title_zh": "香港反修例运动",
+  "place": "Hong Kong",
+  "place_zh": "香港",
+  "lat": 22.28,
+  "lon": 114.16,
+  "summary": "Mass protests against a bill allowing extradition to mainland China began in June 2019 and grew into a wider movement for democracy, with frequent clashes with police. The bill was withdrawn in the autumn.",
+  "summary_zh": "2019年6月香港爆发反对修订《逃犯条例》的大规模示威，演变为争取民主的广泛运动，警民冲突频繁。条例草案于秋季撤回。",
+  "source": "https://en.wikipedia.org/wiki/2019%E2%80%932020_Hong_Kong_protests",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%8F%8D%E4%BF%AE%E4%BE%8B%E8%BF%90%E5%8A%A8",
+  "places": [
+   "hong-kong"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-covid-19-wuhan",
+  "year": 2019,
+  "endYear": 2022,
+  "circa": false,
+  "level": 1,
+  "category": "society",
+  "title": "COVID-19 outbreak in Wuhan",
+  "title_zh": "新冠疫情在武汉暴发",
+  "place": "Wuhan",
+  "place_zh": "武汉",
+  "lat": 30.59,
+  "lon": 114.31,
+  "summary": "A new coronavirus was identified in Wuhan in December 2019; the city was locked down on 23 January 2020 as the virus spread into a global pandemic. China kept strict 'zero-COVID' controls until December 2022.",
+  "summary_zh": "2019年12月武汉发现新型冠状病毒，2020年1月23日武汉封城，疫情演变为全球大流行。中国实行严格的“动态清零”至2022年12月。",
+  "source": "https://en.wikipedia.org/wiki/COVID-19_pandemic_in_mainland_China",
+  "source_zh": "https://zh.wikipedia.org/wiki/2019%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E7%97%85%E7%96%AB%E6%83%85",
+  "places": [
+   "wuhan"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -102989,6 +105300,31 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-hk-national-security-law",
+  "year": 2020,
+  "circa": false,
+  "level": 2,
+  "category": "politics",
+  "title": "Hong Kong National Security Law",
+  "title_zh": "香港国安法",
+  "place": "Hong Kong",
+  "place_zh": "香港",
+  "lat": 22.28,
+  "lon": 114.16,
+  "summary": "On 30 June 2020 China's legislature imposed a national security law on Hong Kong criminalising secession, subversion, terrorism and collusion with foreign forces. Most prominent opposition figures were subsequently arrested or went into exile.",
+  "summary_zh": "2020年6月30日全国人大常委会为香港制定国安法，将分裂国家、颠覆政权、恐怖活动和勾结外国势力定为罪行。此后多数知名反对派人士被捕或出走。",
+  "source": "https://en.wikipedia.org/wiki/Hong_Kong_national_security_law",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E5%9B%BD%E5%AE%89%E6%B3%95",
+  "places": [
+   "hong-kong"
+  ],
+  "people": [],
+  "states": [
+   "China"
+  ],
   "statesBy": "geo"
  },
  {
@@ -103595,6 +105931,30 @@
   "sum": {
    "s": "ok"
   },
+  "statesBy": "geo"
+ },
+ {
+  "id": "cn-change-6",
+  "year": 2024,
+  "circa": false,
+  "level": 2,
+  "category": "science",
+  "title": "Chang'e 6 returns samples from the far side",
+  "title_zh": "嫦娥六号月背采样返回",
+  "place": "Siziwang Banner",
+  "place_zh": "四子王旗",
+  "lat": 41.53,
+  "lon": 111.68,
+  "summary": "On 25 June 2024 the Chang'e 6 capsule landed in Inner Mongolia carrying about 1.9 kg of rock and soil, the first samples ever collected from the far side of the Moon.",
+  "summary_zh": "2024年6月25日，嫦娥六号返回器在内蒙古着陆，带回约1.9千克月壤和岩石，是人类首次获得月球背面样品。",
+  "source": "https://en.wikipedia.org/wiki/Chang'e_6",
+  "source_zh": "https://zh.wikipedia.org/wiki/%E5%AB%A6%E5%A8%A5%E5%85%AD%E5%8F%B7",
+  "places": [],
+  "people": [],
+  "states": [
+   "China",
+   "Mongolia"
+  ],
   "statesBy": "geo"
  },
  {
