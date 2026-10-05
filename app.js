@@ -377,7 +377,7 @@ const LOOKS = {
     hi: ["#fbf5e4", "#fbf5e4", "#f6eed8", "#fbf5e4"], lo: ["#5b4630", "#6a5238", "#5b4630", "#4c3a28"] },
   plain: { name: "Simple", name_zh: "简洁", swatch: "linear-gradient(135deg,#f3f0e8 55%,#cfe0ea 56%)", flat: true,
     relief: flatRelief("#cfe0ea", "#f4f1e9"), land: "#f4f1e9", coast: "#a9bfcc", bg: "#cfe0ea", lakes: 1, lakeColor: "#cfe0ea", river: "#8fb3c9", sky: "relief", noShade: true },
-  dark: { name: "Dark", name_zh: "暗色", swatch: "linear-gradient(135deg,#2a3230,#3d4440 55%,#0f1a24 56%)", dark: true,
+  dark: { name: "Dark terrain", name_zh: "暗色地形", swatch: "linear-gradient(135deg,#2a3230,#3d4440 55%,#0f1a24 56%)", dark: true,
     relief: ["interpolate", ["linear"], ["elevation"], -6000, "#0a121a", -1, "#122030", 0, "#262d2b", 1500, "#2f3532", 4000, "#3c403c", 6500, "#5a5d5a"],
     bg: "#122030", lakes: 1, lakeColor: "#16283a", river: "#3f6f8c", sky: "dark",
     shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.4, 6, 0.55, 8, 0.65],
@@ -385,9 +385,11 @@ const LOOKS = {
     lo: ["rgba(0,0,0,0.9)", "rgba(0,0,0,0.75)", "rgba(0,0,0,0.6)", "rgba(0,0,0,0.75)"] },
 };
 // Flat and quiet, for reading the data on top: charcoal land, navy sea, thin slate-blue rivers and lake outlines.
-LOOKS.night = { name: "Night", name_zh: "夜色", swatch: "linear-gradient(135deg,#2b2a28 55%,#1c2333 56%)", dark: true, flat: true,
+LOOKS.night = { name: "Dark simple", name_zh: "暗色简洁", swatch: "linear-gradient(135deg,#2b2a28 55%,#1c2333 56%)", dark: true, flat: true,
   relief: flatRelief("#1c2333", "#1c2333"), land: "#2b2a28", coast: "#4a4b50", bg: "#1c2333", lakes: 1, lakeColor: "#1c2333", lakeLine: 0.9, river: "#6f86b8", riverWidth: 0.7,
   sky: "dark", noShade: true };
+// Menu order: each light style next to its dark twin.
+const LOOK_ORDER = ["satellite", "terrain", "dark", "plain", "night", "antique"];
 const OLD_LOOK = { sat: "satellite", relief: "terrain" };
 const lookId = (v) => (LOOKS[v] ? v : OLD_LOOK[v] || null);
 function applyLook(m = map) {
@@ -452,7 +454,7 @@ function toggleLookPop(open) {
   pop.hidden = !open;
   btn.setAttribute("aria-expanded", open);
   if (!open) return;
-  pop.innerHTML = Object.entries(LOOKS).map(([id, L]) => `<button type="button" role="menuitemradio" aria-checked="${id === state.look}" data-look="${id}"><span>${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
+  pop.innerHTML = LOOK_ORDER.map((id) => [id, LOOKS[id]]).map(([id, L]) => `<button type="button" role="menuitemradio" aria-checked="${id === state.look}" data-look="${id}"><span>${lookSwatch(L)}<b>${esc(zh() ? L.name_zh : L.name)}</b></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
   // Fixed to the window (the layers panel clips on phones); opens upward when there is no room below.
   if (pop.parentNode !== document.body) document.body.appendChild(pop);
   const r = btn.getBoundingClientRect(), h = pop.offsetHeight;
@@ -805,7 +807,7 @@ function pluginApi(src) {
     on(name, fn) { (hooks[name] ||= []).push(fn); return () => (hooks[name] = hooks[name].filter((f) => f !== fn)); },
     setYear: (y) => setYear(y),
     get style() { return state.look; },
-    styles: Object.keys(LOOKS),
+    styles: LOOK_ORDER,
     setStyle: (id) => setLook(id, false),
     startTour: (id, step = 0) => startTour(id, step),
     openEvent: (id) => state.events.some((e) => e.id === id) && openStory(id),
