@@ -1153,3 +1153,9 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .install .chip.on { background: var(--jade); border-color: var(--jade); color: #fff; }
 .in-never { margin-left: auto; border: 0; background: none; padding: 4px 2px; font-size: 12px; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 @media (max-width: 720px) { .install { bottom: calc(110px + env(safe-area-inset-bottom)); } }
+/* Life journeys: their own heading in the tours tab, a play button on person cards, a mark in the people list */
+.tour-lives { margin: 14px 16px 2px; font: 700 12px var(--font-display, serif); color: var(--muted); letter-spacing: .05em; }
+.tour-item.life b::before { content: "◉ "; color: var(--gold, #b8892b); font-size: 11px; }
+.atlas-pop .pc-life { display: inline-block; margin: 2px 0 6px; padding: 4px 10px; border: 1px solid var(--cinnabar); border-radius: 999px; background: none; color: var(--cinnabar); font: 600 12px inherit; cursor: pointer; }
+.atlas-pop .pc-life:hover { background: var(--cinnabar); color: #fff; }
+.pp-life { font-style: normal; color: var(--cinnabar); margin-right: 4px; font-size: 9px; }
