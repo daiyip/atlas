@@ -1966,6 +1966,36 @@ function bearing(a, b) {
   return Math.atan2((b[0] - a[0]) * Math.cos(((a[1] + b[1]) / 2) * rad), b[1] - a[1]) / rad;
 }
 
+// Campaigns and journeys are drawn as flowing curves through their waypoints (a centripetal Catmull-Rom spline),
+// and a two-point march as a gentle bow, instead of ruler lines. Cached per path array.
+const smoothCache = new WeakMap();
+function smoothPath(path) {
+  if (path.length < 2) return path;
+  if (smoothCache.has(path)) return smoothCache.get(path);
+  let out;
+  if (path.length === 2) out = arcLeg(path[0], path[1], 24);
+  else {
+    const p = unwrapLine(path);
+    const ext = [[2 * p[0][0] - p[1][0], 2 * p[0][1] - p[1][1]], ...p, [2 * p[p.length - 1][0] - p[p.length - 2][0], 2 * p[p.length - 1][1] - p[p.length - 2][1]]];
+    out = [p[0]];
+    for (let i = 1; i < ext.length - 2; i++) {
+      const [p0, p1, p2, p3] = [ext[i - 1], ext[i], ext[i + 1], ext[i + 2]];
+      const d = (a, b) => Math.max(1e-6, Math.hypot(b[0] - a[0], b[1] - a[1]) ** 0.5);
+      const t1 = d(p0, p1), t2 = t1 + d(p1, p2), t3 = t2 + d(p2, p3);
+      const n = Math.max(2, Math.min(16, Math.round(Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) * 2)));
+      for (let k = 1; k <= n; k++) {
+        const t = t1 + ((t2 - t1) * k) / n;
+        const lerp = (a, b, ta, tb) => [0, 1].map((c) => ((tb - t) * a[c] + (t - ta) * b[c]) / (tb - ta));
+        const a1 = lerp(p0, p1, 0, t1), a2 = lerp(p1, p2, t1, t2), a3 = lerp(p2, p3, t2, t3);
+        const b1 = lerp(a1, a2, 0, t2), b2 = lerp(a2, a3, t1, t3);
+        out.push(lerp(b1, b2, t1, t2));
+      }
+    }
+    out = out.map(([x, y]) => [((x + 540) % 360) - 180, y]);
+  }
+  smoothCache.set(path, out);
+  return out;
+}
 function renderRoutes() {
   markers.routes.forEach((m) => m.remove());
   markers.routes = [];
@@ -1980,7 +2010,7 @@ function renderRoutes() {
     if (state.sel && !(r.event && selHas(state.events.find((ev) => ev.id === r.event)?.states, r.from, r.to)) && !selKeep(r.path)) continue;
     const moving = r.kind === "campaign" || r.kind === "journey";
     const f = moving && r.to > r.from ? Math.max(0.08, (state.year - r.from + 1) / (r.to - r.from + 1)) : 1;
-    const path = moving ? partialPath(r.path, f) : r.path;
+    const path = moving ? partialPath(smoothPath(r.path), f) : r.path;
     feats.push({ type: "Feature", properties: { kind: r.kind }, geometry: lineGeom(path) });
     if (moving && path.length > 1) {
       const head = document.createElement("div");
@@ -3389,7 +3419,8 @@ function drawTourPath(tour, i) {
   const t0 = performance.now(), dur = 2200;
   const tick = (now) => {
     if (state.tour !== tour || tour.i !== i) return;
-    const f = Math.min(1, (now - t0) / dur);
+    // A frame's timestamp can be a little earlier than t0, so clamp to 0..1.
+    const f = Math.min(1, Math.max(0, (now - t0) / dur));
     tourLine.f = 1 - (1 - f) ** 3;
     drawTourLine();
     if (f < 1) tour.anim = requestAnimationFrame(tick);
@@ -3422,10 +3453,10 @@ function drawTourLine() {
   }
   svg.style.display = "";
   const at = (g) => {
-    const p = g * (leg.length - 1), j = Math.min(leg.length - 2, Math.floor(p)), t = p - j;
+    const p = Math.min(1, Math.max(0, g)) * (leg.length - 1), j = Math.min(leg.length - 2, Math.floor(p)), t = p - j;
     return [leg[j][0] + (leg[j + 1][0] - leg[j][0]) * t, leg[j][1] + (leg[j + 1][1] - leg[j][1]) * t];
   };
-  const n = Math.floor(f * (leg.length - 1));
+  const n = Math.max(0, Math.floor(f * (leg.length - 1)));
   const pts = [...leg.slice(0, n + 1), at(f)].map((q) => map.project(q));
   const d = pts.length > 1 && f > 0 ? "M" + pts.map((q) => `${q.x.toFixed(1)} ${q.y.toFixed(1)}`).join("L") : "";
   svg.querySelector(".tl-glow").setAttribute("d", d);
