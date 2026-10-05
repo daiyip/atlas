@@ -1153,8 +1153,10 @@ function renderPolityLabels(gj) {
     const minArea = p.kind === "state" ? 2 : p.name_zh ? 3 : 20;
     if (!p.focus && (p.area < minArea || !state.showNeighbours || p.nolabel)) continue;
     const el = document.createElement("div");
+    // Dynasty names are one or two characters and get a big, spaced label; longer names (平原野牛猎人) a smaller one.
+    const len = zh() ? (p.name_zh || "").length : p.name.length / 3;
     el.className = "mk-polity" + (p.focus ? " focus" : p.name_zh ? " neighbour" : "") +
-      (p.kind === "state" ? " state" : "") + (p.minor ? " minor" : "");
+      (p.kind === "state" ? " state" : "") + (p.minor ? " minor" : "") + (len > 5 ? " longer" : len > 3 ? " long" : "");
     if (zh()) el.innerHTML = p.name_zh ? esc(p.name_zh) : `<small>${esc(p.name)}</small>`;
     else el.innerHTML = `<span>${esc(p.name)}</span>` + (p.name_zh ? `<small lang="zh-CN">${esc(p.name_zh)}</small>` : "");
     markers.polities.push(new maplibregl.Marker({ element: el }).setLngLat(p.label).addTo(map));
@@ -1966,11 +1968,18 @@ function declutter() {
   // to hold it and it doesn't run into a more important name, so smaller states appear as you zoom in.
   const ppd = (512 * 2 ** map.getZoom()) / 360;
   const polities = [];
-  for (const p of [...markers.polityEls].sort((a, b) => b.focus - a.focus || b.area - a.area)) {
+  // The selected country first, then the period's main states (the largest of them always shows; the others, as
+  // several peoples of one period can be, give way when they run into it), then the rest.
+  const selNow = selNames();
+  const rank = (p) => (selNow.has(p.name) ? 2 : p.focus ? 1 : 0);
+  let firstFocus = true;
+  for (const p of [...markers.polityEls].sort((a, b) => rank(b) - rank(a) || b.area - a.area)) {
     const r = p.el.getBoundingClientRect();
     if (!r.width) continue;
     const onScreen = p.area * ppd * ppd * Math.cos((p.lat * Math.PI) / 180);
-    if (!p.focus && (onScreen < r.width * r.height * (phone ? 4 : 2.5) || polities.some((t) => overlaps(r, t, pad)))) {
+    const must = (p.focus && (firstFocus || p.state)) || selNow.has(p.name);
+    if (p.focus) firstFocus = false;
+    if (!must && (onScreen < r.width * r.height * (phone ? 4 : 2.5) || polities.some((t) => overlaps(r, t, pad)))) {
       p.el.classList.add("dc-hide");
       continue;
     }

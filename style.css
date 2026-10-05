@@ -1119,3 +1119,7 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
   font: 500 13px/1.2 var(--font-data); font-variant-numeric: tabular-nums; }
 .speed-pop button:hover, .speed-pop button:focus-visible { background: color-mix(in srgb, currentColor 8%, transparent); }
 .speed-pop button[aria-checked="true"] { background: color-mix(in srgb, var(--jade) 16%, transparent); color: var(--jade); font-weight: 700; }
+/* Long names (平原野牛猎人, Eastern Woodlands hunter-gatherers) can't take the big spaced dynasty style. */
+.mk-polity.focus.long { font-size: 19px; letter-spacing: 0.1em; }
+.mk-polity.focus.longer { font-size: 15px; letter-spacing: 0.04em; }
+.mk-polity.focus.long small, .mk-polity.focus.longer small { letter-spacing: 0.06em; }
