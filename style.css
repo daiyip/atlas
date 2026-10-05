@@ -1053,7 +1053,10 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 }
 .world-strip[hidden], .touring .world-strip, .comparing .world-strip { display: none; }
 .world-strip > * { pointer-events: auto; }
-.ws-head { padding: 5px 9px; border-radius: 999px; background: rgba(20, 24, 26, 0.72); color: #fff; font: 600 11px/1.2 var(--font-body); white-space: nowrap; flex: none; }
+.world-strip .ws-head { display: inline-flex; align-items: center; gap: 5px; padding: 5px 9px; border: 0; border-radius: 999px; background: rgba(20, 24, 26, 0.72); color: #fff; font: 600 11px/1.2 var(--font-body); white-space: nowrap; flex: none; cursor: pointer; box-shadow: none; }
+.world-strip .ws-head:hover { background: rgba(20, 24, 26, 0.88); box-shadow: none; }
+.world-strip .ws-head svg { width: 9px; height: 9px; opacity: 0.8; }
+.ws-none { padding: 5px 9px; border-radius: 999px; background: var(--panel); color: var(--muted); font: 500 11px var(--font-body); white-space: nowrap; }
 .world-strip button {
   display: inline-flex; align-items: center; gap: 5px; min-width: 0; max-width: 260px; padding: 5px 9px; border: 0; border-radius: 999px;
   background: var(--panel-solid); color: var(--ink); font: 500 12px/1.2 var(--font-body); cursor: pointer;

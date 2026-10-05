@@ -103,7 +103,7 @@ const UI = {
     reign: (a, b) => `${a}–${b}年在位`, troops: "兵力", unknown: "不详", losses: "伤亡",
     result: { won: "胜", lost: "败", draw: "平" },
     units: { infantry: "步兵", cavalry: "骑兵", chariots: "战车", archers: "弓兵", crossbows: "弩兵", navy: "水军", siege: "攻城", firearms: "火器", artillery: "火炮", elephants: "象兵" },
-    kinds: { campaign: "进军", journey: "行程", trade: "商路", canal: "运河", wall: "长城" }, exchange: "交流", spread: "传播", spreadGroups: { faith: "宗教传播", tech: "技术传播", crop: "作物传播" }, arrived: (y) => `${y}传到`, set_out: (y) => `${y}起`, world_t: "世界", worldHead: "同一年的世界", goRegion: "切换地区", allWorld: "全球", worldHint: "点击地区，地图和时间轴切换过去；点击事件阅读详情", noWorldEv: "前后几十年没有收录的大事", elsewhere: "同时期的世界", hideStrip: "隐藏", showStrip: "在时间轴上方显示同时期的世界",
+    kinds: { campaign: "进军", journey: "行程", trade: "商路", canal: "运河", wall: "长城" }, exchange: "交流", spread: "传播", spreadGroups: { faith: "宗教传播", tech: "技术传播", crop: "作物传播" }, arrived: (y) => `${y}传到`, set_out: (y) => `${y}起`, world_t: "世界", worldHead: "同一年的世界", goRegion: "切换地区", allWorld: "全球", worldHint: "点击地区，地图和时间轴切换过去；点击事件阅读详情", noWorldEv: "前后几十年没有收录的大事", elsewhere: "同时期的世界", elsewhereAt: "同时期", wsWorld: "世界", wsNear: (n) => `${n}的邻国`, wsNone: "前后几年没有收录的大事", hideStrip: "隐藏", showStrip: "在时间轴上方显示同时期的世界",
     sel: { hint: "点击地图上的国家即可选中，地图和各栏只显示与它相关的内容；再点一次取消", off: "这一年不在地图上", offMap: "这一年的地图没有单独画出它", before: "这一年尚未建立", after: "这一年已不存在", jump: (y) => `跳到${y}`, events: (n) => `事件 ${n}`, people: (n) => `本时期人物 ${n}`, cities: "城市", clear: "取消选中", circa: "约", away: "已移出视野，时间轴仍跟随它", back: (n) => `回到${n}`, now: "今", more: (n) => `另 ${n} 国`, less: "收起" },
     people_l: "人物", cmp: { one: "对比", open: "两地对比", sync: "同步视角", openTime: "两时对比", place: "两地", time: "两时", period: "时期", year: "年份", close: "关闭对比", pick: "对比地区", rulers: "君主", events: "前后大事", none: "前后几十年没有收录的大事" }, lasted: (n) => `共${n}年`, packs: "专题", rpMore: "这一年的君主、大事与国家", asState: "作为国家：", close: "关闭", search: "搜索", share: "分享这个视图", tours: "导览", toursHead: "导览 · 跟着地图读历史", tourStory: "读这段故事", tourBack: "返回导览", tourPrev: "上一步", tourNext: "下一步", tourPlay: "自动播放", tourPause: "暂停", tourEnd: "结束导览", tourDone: "导览结束", tourSteps: (n) => `${n} 站`, tourCount: (n) => `${n} 条导览`, tourAt: (n) => `第${n}站`, toursHere: "本时期导览", toursOther: "其他时期", noTours: "本时期还没有导览", tourHint: "点击一条导览，地图会跟着故事移动", linkCopied: "链接已复制，可以发给别人", linkCopy: "复制这个链接：", searchPh: "搜索导览、事件、人物、君主、城市或年份（如 755、前221）", autoLayers: "自动图层", autoHint: "打开事件或导览时，自动显示相关图层，自动打开的图层标为虚线", autoOn: "已自动显示", autoAlso: "相关图层", sgroups: { time: "时间", era: "朝代", tour: "导览", event: "事件", person: "人物", ruler: "君主", city: "城市" }, noResults: "没有找到相关内容", jumpYear: "跳到这一年", capitals: "都城·人口", faith: "宗教思想", inventions: "发明", passes: "关隘", roads: "官道", walls: "长城", wallBy: "修筑", wallLen: (n) => `约${n.toLocaleString()}公里`, ruin: "已废弃，现为遗迹", clans: "豪族", ckinds: { gentry: "门阀士族", bloc: "地域集团", military: "军事集团", faction: "朋党", merchant: "商帮" }, seats: "郡望/根据地", families: "代表家族", members: "代表人物", drafted: "AI 整理，未经核对", cityEvents: (n) => `城中大事（${n}）· 点击跳转`,  personEvents: (n) => `相关事件（${n}）· 点击跳转`, pranks: { capital: "都城", secondary: "陪都", major: "重要城市", port: "港口", frontier: "军事重镇" }, rkinds: { imperial: "驰道", post: "驿道", trade: "商道" }, via: "途经", inUse: "使用年代",
     fields: { general: "军事家", statesman: "政治家", thinker: "思想家", poet: "诗人", writer: "文学家", historian: "史学家", scientist: "科学家", physician: "医学家", engineer: "工程师", artist: "艺术家", religious: "宗教人物", explorer: "旅行家", scholar: "学者" },
@@ -128,7 +128,7 @@ const UI = {
     reign: (a, b) => `r. ${a}–${b}`, troops: "Troops", unknown: "unknown", losses: "Losses",
     result: { won: "Won", lost: "Lost", draw: "Draw" },
     units: { infantry: "Infantry", cavalry: "Cavalry", chariots: "Chariots", archers: "Archers", crossbows: "Crossbows", navy: "Navy", siege: "Siege", firearms: "Firearms", artillery: "Artillery", elephants: "Elephants" },
-    kinds: { campaign: "Campaign", journey: "Journey", trade: "Trade route", canal: "Canal", wall: "Wall" }, exchange: "Exchange", spread: "Spread", spreadGroups: { faith: "Faith spreads", tech: "Technique spreads", crop: "Crop spreads" }, arrived: (y) => `arrived ${y}`, set_out: (y) => `from ${y}`, world_t: "World", worldHead: "The world this year", goRegion: "Go to region", allWorld: "Whole world", worldHint: "Click a region to move the map and timeline there; click an event to read it", noWorldEv: "No major events recorded within a few decades", elsewhere: "Elsewhere", hideStrip: "Hide", showStrip: "Show other regions above the timeline",
+    kinds: { campaign: "Campaign", journey: "Journey", trade: "Trade route", canal: "Canal", wall: "Wall" }, exchange: "Exchange", spread: "Spread", spreadGroups: { faith: "Faith spreads", tech: "Technique spreads", crop: "Crop spreads" }, arrived: (y) => `arrived ${y}`, set_out: (y) => `from ${y}`, world_t: "World", worldHead: "The world this year", goRegion: "Go to region", allWorld: "Whole world", worldHint: "Click a region to move the map and timeline there; click an event to read it", noWorldEv: "No major events recorded within a few decades", elsewhere: "Elsewhere", elsewhereAt: "Meanwhile", wsWorld: "World", wsNear: (n) => `Around ${n}`, wsNone: "No recorded events in these years", hideStrip: "Hide", showStrip: "Show other regions above the timeline",
     sel: { hint: "Click a country on the map to select it: the map and panels then show only what concerns it. Click it again to clear", off: "Not on the map in this year", offMap: "The map for this year doesn't draw it separately", before: "Not yet founded in this year", after: "No longer exists in this year", jump: (y) => `Go to ${y}`, events: (n) => `${n} events`, people: (n) => `${n} people this period`, cities: "Cities", clear: "Clear selection", circa: "c. ", away: "Out of view; the timeline still follows it", back: (n) => `Back to ${n}`, now: "today", more: (n) => `${n} more`, less: "Fewer" },
     people_l: "People", cmp: { one: "Compare", open: "Compare regions", sync: "Sync view", openTime: "Compare times", place: "Two places", time: "Two times", period: "Period", year: "Year", close: "Close compare", pick: "Compare with", rulers: "Rulers", events: "Around this year", none: "No major events recorded within a few decades" }, lasted: (n) => `${n} years`, packs: "Packs", rpMore: "Rulers, events and countries this year", asState: "As a state: ", close: "Close", search: "Search", share: "Share this view", tours: "Tours", toursHead: "Guided tours", tourStory: "Read the story", tourBack: "Back to the tour", tourPrev: "Back", tourNext: "Next", tourPlay: "Play", tourPause: "Pause", tourEnd: "End tour", tourDone: "End of tour", tourSteps: (n) => `${n} stops`, tourCount: (n) => `${n} tour${n === 1 ? "" : "s"}`, tourAt: (n) => `Stop ${n}`, toursHere: "Tours for this period", toursOther: "Other periods", noTours: "No tours for this period yet", tourHint: "Pick a tour and the map follows the story", linkCopied: "Link copied", linkCopy: "Copy this link:", searchPh: "Search tours, events, people, rulers, cities or a year (755, 221 BC)", autoLayers: "Auto layers", autoHint: "Reading an event or a tour stop switches on the layers it needs; those get a dashed outline", autoOn: "Switched on for this", autoAlso: "Related layers", sgroups: { time: "Year", era: "Periods", tour: "Tours", event: "Events", person: "People", ruler: "Rulers", city: "Cities" }, noResults: "Nothing found", jumpYear: "Go to this year", capitals: "Capitals", faith: "Faith", inventions: "Inventions", passes: "Passes", roads: "Roads", walls: "Great Walls", wallBy: "Built by", wallLen: (n) => `about ${n.toLocaleString()} km`, ruin: "Abandoned; ruins remain", clans: "Elites", ckinds: { gentry: "Great clans", bloc: "Regional bloc", military: "Military clique", faction: "Court faction", merchant: "Merchant guild" }, seats: "Home seats", families: "Families", members: "Key figures", drafted: "AI-drafted, not source-checked", cityEvents: (n) => `Events here (${n}) · click to jump`, personEvents: (n) => `Related events (${n}) · click to jump`, pranks: { capital: "Capital", secondary: "Secondary capital", major: "Major city", port: "Port", frontier: "Military stronghold" }, rkinds: { imperial: "Imperial highway", post: "Post road", trade: "Trade road" }, via: "Via", inUse: "In use",
     fields: { general: "Military", statesman: "Statesman", thinker: "Thinker", poet: "Poet", writer: "Writer", historian: "Historian", scientist: "Scientist", physician: "Physician", engineer: "Engineer", artist: "Artist", religious: "Religious figure", explorer: "Traveller", scholar: "Scholar" },
@@ -1140,6 +1140,7 @@ async function setMaps(era, year) {
   const prev = state.shownBorders;
   state.shownBorders = state.borders[key];
   renderPolityLabels(state.borders[key]);
+  renderWorldStrip();
   applySelMap();
   // While playing, the old map turns into the new one; otherwise it simply switches.
   if (state.playing && prev && !matchMedia("(prefers-reduced-motion: reduce)").matches && morphBorders(prev, state.borders[key])) return;
@@ -1437,6 +1438,7 @@ function flyToCountry(name) {
 }
 // The card over the ledger: the selected country's years, ruler now, counts and its cities on the map this year.
 function renderSelCard() {
+  renderWorldStrip();
   const box = $("sel-card"), s = state.sel;
   box.hidden = !s;
   $("ledger").classList.toggle("has-sel", !!s);
@@ -2403,30 +2405,113 @@ function renderLedger() {
 // Over the timeline: a few headline events from other regions near the current year, one per region, so links
 // across civilisations show while scrubbing. Click one to read it (the map moves there); × hides the strip.
 let stripKey = "";
+// The strip's reach (同时期的…): the world (one headline per other region), the area group, the region (one per
+// country), or the neighbours of the selected country (or of the period's main state). Chosen from a menu on its
+// head, remembered as atlas-wscope; a reach that doesn't apply here falls back to the next wider one.
+const WS_SCOPES = ["near", "region", "group", "world"];
+let wsScope = "world";
+try { wsScope = localStorage.getItem("atlas-wscope") || "world"; } catch {}
+function stripAnchor() {
+  const feats = state.shownBorders?.features || [];
+  const names = state.sel ? selNames() : new Set(feats.filter((f) => f.properties.focus && f.properties.kind !== "state").map((f) => f.properties.name));
+  const own = feats.filter((f) => names.has(f.properties.name));
+  return own.length ? { names, own } : null;
+}
+// A state's display name: from the map shown now, else from any map seen this visit.
+function polityLabel(name) {
+  let f = state.shownBorders?.features.find((x) => x.properties.name === name);
+  if (!f?.properties.name_zh) for (const fc of Object.values(state.borders || {})) { f = fc?.features?.find((x) => x.properties.name === name && x.properties.name_zh); if (f) break; }
+  if (f) return zh() ? f.properties.name_zh || name : f.properties.label_en || name;
+  // Not on any map loaded yet: the country table's Chinese name for it.
+  return (zh() && state.countries?.spans?.[name]?.[0]?.[2]) || name;
+}
+// States on the map whose land comes within about half a degree of the anchor's.
+function neighbourNames(anchor) {
+  const cell = (x, y) => `${Math.floor(x * 2)},${Math.floor(y * 2)}`, grid = new Set();
+  const each = (g, fn) => { const walk = (c) => (typeof c[0] === "number" ? fn(c) : c.forEach(walk)); walk(g.coordinates); };
+  for (const f of anchor.own) each(f.geometry, ([x, y]) => { for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) grid.add(cell(x + i / 2, y + j / 2)); });
+  const out = new Set();
+  for (const f of state.shownBorders.features) {
+    const n = f.properties.name;
+    if (anchor.names.has(n) || out.has(n) || !f.geometry) continue;
+    let hit = false;
+    each(f.geometry, ([x, y]) => { if (!hit && grid.has(cell(x, y))) hit = true; });
+    if (hit) out.add(n);
+  }
+  return out;
+}
+const groupOf = (rid) => (state.groups || []).find((g) => g.regions.includes(rid));
+// The reaches that make sense here, narrowest first, each with its menu label.
+function stripScopes() {
+  const here = state.mode, r = state.regionById?.[here], g = groupOf(here), anchor = stripAnchor(), out = [];
+  const nm = (o) => (o ? (zh() ? o.short_zh || o.name_zh || o.name : o.short || o.name) : "");
+  if (anchor) out.push({ id: "near", label: t("wsNear")(polityLabel(anchor.own[0].properties.name)), anchor });
+  if (r) out.push({ id: "region", label: nm(r) });
+  if (g && g.regions.filter((id) => id !== here && state.regionById[id]).length) out.push({ id: "group", label: nm(g) });
+  out.push({ id: "world", label: t("wsWorld") });
+  return out;
+}
 function renderWorldStrip() {
   const box = $("world-strip");
   let off = false;
   try { off = localStorage.getItem("atlas-wstrip") === "0"; } catch {}
   if (off || !state.regions?.length || state.tour || cmp.on) { box.hidden = true; stripKey = ""; return; }
   const y = state.year, here = state.mode;
-  const key = `${y}|${here}|${state.lang}`;
+  const key = `${y}|${here}|${state.lang}|${wsScope}|${state.snapshot}|${state.sel?.id || ""}`;
   if (key === stripKey) return;
   stripKey = key;
+  const scopes = stripScopes();
+  // The chosen reach, or the next wider one that applies here.
+  const want = WS_SCOPES.indexOf(wsScope);
+  const sc = scopes.find((s) => WS_SCOPES.indexOf(s.id) >= want) || scopes[scopes.length - 1];
   const win = Math.max(10, Math.min(40, Math.round((state.era?.end - state.era?.start || 100) / 8)));
+  const g = groupOf(here);
+  // Each pick is keyed by what it stands for: a region (world, group) or a state (region, neighbours).
+  let keyOf;
+  if (sc.id === "world") keyOf = (ev) => { const r = ev.region || "china"; return r === here ? null : r; };
+  else if (sc.id === "group") keyOf = (ev) => { const r = ev.region || "china"; return r !== here && g.regions.includes(r) ? r : null; };
+  else {
+    const anchor = sc.anchor || stripAnchor(), mine = anchor?.names || new Set();
+    const near = sc.id === "near" ? neighbourNames(anchor) : null;
+    keyOf = (ev) => {
+      if (sc.id === "region" && (ev.region || "china") !== here) return null;
+      const st = (ev.states || []).filter((n) => !mine.has(n) && (!near || near.has(n)));
+      if (!st.length || (ev.states || []).some((n) => mine.has(n)) && sc.id === "near") return null;
+      return "s:" + st[0];
+    };
+  }
   const best = new Map();
   for (const ev of state.events) {
-    const r = ev.region || "china";
-    if (r === here || ev.level > 2 || Math.abs(ev.year - y) > win) continue;
+    if (ev.level > 2 || Math.abs(ev.year - y) > win) continue;
+    const k = keyOf(ev);
+    if (!k) continue;
     const score = ev.level * win + Math.abs(ev.year - y);
-    if (!best.has(r) || score < best.get(r).score) best.set(r, { ev, score });
+    if (!best.has(k) || score < best.get(k).score) best.set(k, { ev, k, score });
   }
-  const picks = [...best.values()].sort((a, b) => a.score - b.score).slice(0, 4).map((x) => x.ev).sort((a, b) => a.year - b.year);
-  if (!picks.length) { box.hidden = true; return; }
+  const picks = [...best.values()].sort((a, b) => a.score - b.score).slice(0, 4).sort((a, b) => a.ev.year - b.ev.year);
   box.hidden = false;
-  box.innerHTML = `<span class="ws-head">${esc(t("elsewhere"))}</span>` + picks.map((ev) => {
+  const head = `<button type="button" class="ws-head" aria-haspopup="menu" aria-expanded="false">${esc(t("elsewhereAt"))} · ${esc(sc.label)}<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>`;
+  box.dataset.scope = sc.id;
+  box.innerHTML = head + (picks.length ? picks.map(({ ev, k }) => {
     const r = state.regionById[ev.region || "china"];
-    return `<button type="button" data-ev="${esc(ev.id)}" style="--rc:${esc(r?.seal || r?.color || "#888")}" title="${esc(tx(ev, "summary"))}"><i></i><b>${esc(r ? (zh() ? r.short_zh || r.name_zh : r.short || r.name) : "")}</b><span>${fmtYear(ev.year)}</span> ${esc(zh() ? ev.title_zh || ev.title : ev.title)}</button>`;
-  }).join("") + `<button type="button" class="ws-x" aria-label="${esc(t("hideStrip"))}" title="${esc(t("hideStrip"))}">×</button>`;
+    const who = k.startsWith("s:") ? polityLabel(k.slice(2)) : r ? (zh() ? r.short_zh || r.name_zh : r.short || r.name) : "";
+    return `<button type="button" data-ev="${esc(ev.id)}" style="--rc:${esc(r?.seal || r?.color || "#888")}" title="${esc(tx(ev, "summary"))}"><i></i><b>${esc(who)}</b><span>${fmtYear(ev.year)}</span> ${esc(zh() ? ev.title_zh || ev.title : ev.title)}</button>`;
+  }).join("") : `<span class="ws-none">${esc(t("wsNone"))}</span>`) + `<button type="button" class="ws-x" aria-label="${esc(t("hideStrip"))}" title="${esc(t("hideStrip"))}">×</button>`;
+}
+function toggleStripPop(open) {
+  const pop = $("ws-pop"), btn = $("world-strip").querySelector(".ws-head");
+  open ??= pop.hidden;
+  pop.hidden = !open || !btn;
+  btn?.setAttribute("aria-expanded", !pop.hidden);
+  if (pop.hidden) return;
+  const cur = $("world-strip").dataset.scope;
+  // Widest first, each narrower reach indented under it, like a path down the hierarchy.
+  pop.innerHTML = stripScopes().reverse().map((s, i) => `<button type="button" role="menuitemradio" aria-checked="${s.id === cur}" data-scope="${s.id}" style="padding-left:${10 + i * 12}px"><b>${esc(s.label)}</b><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("");
+  if (pop.parentNode !== document.body) document.body.appendChild(pop);
+  const r = btn.getBoundingClientRect();
+  pop.style.position = "fixed";
+  pop.style.left = `${r.left}px`;
+  pop.style.top = `${Math.max(8, r.top - 6 - pop.offsetHeight)}px`;
 }
 
 // Regions in their groups (东亚: 中国, 朝鲜半岛, 日本; 欧洲: 欧洲), as data/regions.json `groups` lists them; regions in
@@ -3941,6 +4026,7 @@ async function init() {
     setZoom(state.zoom + (e.deltaY < 0 ? 1 : -1), e.deltaY < 0 ? y : state.year);
   }, { passive: false });
   $("world-strip").addEventListener("click", (e) => {
+    if (e.target.closest(".ws-head")) { e.stopPropagation(); return toggleStripPop(); }
     if (e.target.closest(".ws-x")) {
       try { localStorage.setItem("atlas-wstrip", "0"); } catch {}
       return renderWorldStrip();
@@ -3948,6 +4034,16 @@ async function init() {
     const id = e.target.closest("[data-ev]")?.dataset.ev;
     if (id) openStory(id);
   });
+  $("ws-pop").addEventListener("click", (e) => {
+    const sc = e.target.closest("[data-scope]")?.dataset.scope;
+    toggleStripPop(false);
+    if (!sc) return;
+    wsScope = sc;
+    try { localStorage.setItem("atlas-wscope", sc); } catch {}
+    renderWorldStrip();
+  });
+  document.addEventListener("click", (e) => { if (!$("ws-pop").hidden && !e.target.closest("#ws-pop")) toggleStripPop(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("ws-pop").hidden) toggleStripPop(false); });
   $("lang").addEventListener("click", (e) => { e.stopPropagation(); toggleLangPop(); });
   $("lang-pop").addEventListener("click", (e) => {
     const l = e.target.closest("[data-lang]")?.dataset.lang;
