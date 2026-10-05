@@ -20,6 +20,7 @@
   },
   {
    "id": "south-southeast-asia",
+   "short": "S & SE Asia",
    "name": "South and Southeast Asia",
    "name_zh": "南亚与东南亚",
    "regions": [
@@ -29,6 +30,7 @@
   },
   {
    "id": "west-asia-north-africa",
+   "short": "W Asia & N Africa",
    "name": "West Asia and North Africa",
    "name_zh": "西亚与北非",
    "regions": [
@@ -55,6 +57,7 @@
   },
   {
    "id": "americas",
+   "short": "Americas",
    "name": "The Americas",
    "name_zh": "美洲",
    "regions": [

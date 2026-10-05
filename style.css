@@ -908,25 +908,38 @@ a.chip[hidden] { display: none; }
 .region-btn svg { width: 14px; height: 14px; flex: none; }
 .region-btn span { max-width: 6em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .region-pop {
-  position: absolute; z-index: 30; top: 48px; right: 12px; width: min(340px, calc(100vw - 32px));
-  max-height: min(70dvh, 520px); overflow-y: auto; padding: 6px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  position: absolute; z-index: 30; top: 48px; right: 12px; width: min(360px, calc(100vw - 24px));
+  max-height: min(72dvh, 560px); overflow-y: auto; overscroll-behavior: contain; padding: 6px 6px 8px;
   background: var(--panel-solid); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 .region-pop[hidden] { display: none; }
 .region-pop button {
-  display: grid; grid-template-columns: 10px 1fr; column-gap: 7px; align-items: center; text-align: left;
-  padding: 7px 8px; border: 0; border-radius: 8px; background: none; color: inherit; font: inherit; cursor: pointer;
+  display: grid; grid-template-columns: 8px minmax(0, 1fr); column-gap: 6px; align-items: center; text-align: left; min-width: 0;
+  padding: 4px 6px; border: 0; border-radius: 7px; background: none; color: inherit; font: inherit; cursor: pointer;
 }
-.region-pop button:hover, .region-pop button:focus-visible { background: rgba(0, 0, 0, 0.06); }
-.region-pop button.here { background: color-mix(in srgb, var(--rc) 16%, transparent); }
-.region-pop i { width: 10px; height: 10px; border-radius: 50%; background: var(--rc); grid-row: span 2; }
-.region-pop b { font-size: 13px; font-weight: 600; line-height: 1.25; }
-.region-pop span { grid-column: 2; font-size: 11.5px; color: var(--muted); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.region-pop button:hover, .region-pop button:focus-visible { background: color-mix(in srgb, currentColor 7%, transparent); }
+.region-pop button.here { background: color-mix(in srgb, var(--rc) 20%, transparent); }
+.region-pop i { width: 8px; height: 8px; border-radius: 50%; background: var(--rc); grid-row: span 2; }
+.region-pop b { font-size: 13px; font-weight: 600; line-height: 1.2; }
+.region-pop span { grid-column: 2; font-size: 11px; color: var(--muted); line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* 全球 and compare: two pills on one line. */
+.rp-top { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 2px 2px 8px; margin-bottom: 2px; border-bottom: 1px solid var(--rule); }
+.region-pop .rp-pill { display: flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; white-space: nowrap; }
+.region-pop .rp-pill svg { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+.region-pop .rp-pill span { grid-column: auto; font-size: 11px; }
+.region-pop .rp-pill.here { background: color-mix(in srgb, var(--jade) 14%, transparent); border-color: transparent; }
+.region-pop .rp-cmp { justify-content: center; color: var(--jade); }
+.region-pop .rp-cmp:hover, .region-pop .rp-cmp:focus-visible { border-color: var(--jade); background: none; }
+/* A group: its name in a narrow left column, its regions two to a row. */
+.rp-grp { display: grid; grid-template-columns: 4em minmax(0, 1fr); align-items: start; padding: 4px 0; }
+.rp-grp + .rp-grp { border-top: 1px solid color-mix(in srgb, var(--rule) 60%, transparent); }
+.region-pop h6 { margin: 0; padding: 7px 2px 0 6px; font-size: 11px; font-weight: 600; line-height: 1.3; letter-spacing: 0.04em; color: var(--muted); }
+html[lang="en"] .rp-grp { grid-template-columns: 5.4em minmax(0, 1fr); }
+.rp-items { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 2px; }
 @media (max-width: 720px) {
   .region-btn { padding-inline: 6px; height: 30px; }
   .region-btn span { max-width: 4.5em; font-size: 12px; }
-  .region-pop { top: 44px; right: 8px; }
+  .region-pop { top: 44px; left: 8px !important; right: 8px !important; width: auto; }
 }
 /* Fact-check marks */
 .fc, html:lang(zh-CN) .story-body p.fc, .story-body p.fc { margin: 12px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
@@ -960,10 +973,6 @@ a.chip[hidden] { display: none; }
 .cmp-ev span { color: var(--muted); font-size: 12px; margin-right: 2px; }
 .cmp-dot { border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35); cursor: pointer; padding: 0; width: 22px; height: 22px; }
 .cmp-none { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
-.region-pop .rp-cmp { grid-column: 1 / -1; margin-bottom: 2px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 6px; border: 1px solid transparent; border-radius: 999px;
-  color: var(--jade); font-size: 12.5px; font-weight: 600; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-.region-pop .rp-cmp:hover, .region-pop .rp-cmp:focus-visible { background: none; border-color: var(--jade); }
-.rp-cmp svg { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; }
 @media (max-width: 720px) {
   #map2 { top: 50%; left: 0; border-left: 0; border-top: 3px solid var(--panel-solid); }
   .comparing #map { right: 0; bottom: 50%; }
@@ -1072,7 +1081,5 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .wd-countries.open .extra { display: inline-flex; }
 .wd-more { border: 0; background: none; font-size: 11px; color: var(--jade); cursor: pointer; padding: 2px 4px; }
 .era-zh .era-entity { display: block; margin-top: 3px; font-size: 12px; white-space: normal; }
-/* Region groups (东亚, 欧洲…): headings in the region menu and the 世界 tab. */
-.region-pop h6 { grid-column: 1 / -1; margin: 8px 8px 2px; font-size: 11px; font-weight: 600; line-height: 1.2; letter-spacing: 0.06em; color: var(--muted); }
-.region-pop h6:first-child { margin-top: 2px; }
+/* Region groups (东亚, 欧洲…) in the 世界 tab. */
 .wd-group { padding: 12px 16px 4px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--rule); }
