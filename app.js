@@ -376,7 +376,7 @@ const LOOKS = {
     shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.35, 6, 0.5, 8, 0.6],
     hi: ["#fbf5e4", "#fbf5e4", "#f6eed8", "#fbf5e4"], lo: ["#5b4630", "#6a5238", "#5b4630", "#4c3a28"] },
   plain: { name: "Simple", name_zh: "简洁", swatch: "linear-gradient(135deg,#f3f0e8 55%,#cfe0ea 56%)", flat: true,
-    relief: flatRelief("#cfe0ea", "#f4f1e9"), bg: "#cfe0ea", lakes: 1, lakeColor: "#cfe0ea", river: "#8fb3c9", sky: "relief", noShade: true },
+    relief: flatRelief("#cfe0ea", "#f4f1e9"), land: "#f4f1e9", coast: "#a9bfcc", bg: "#cfe0ea", lakes: 1, lakeColor: "#cfe0ea", river: "#8fb3c9", sky: "relief", noShade: true },
   dark: { name: "Dark", name_zh: "暗色", swatch: "linear-gradient(135deg,#2a3230,#3d4440 55%,#0f1a24 56%)", dark: true,
     relief: ["interpolate", ["linear"], ["elevation"], -6000, "#0a121a", -1, "#122030", 0, "#262d2b", 1500, "#2f3532", 4000, "#3c403c", 6500, "#5a5d5a"],
     bg: "#122030", lakes: 1, lakeColor: "#16283a", river: "#3f6f8c", sky: "dark",
@@ -384,6 +384,10 @@ const LOOKS = {
     hi: ["rgba(255,255,255,0.18)", "rgba(255,255,255,0.12)", "rgba(255,255,255,0.08)", "rgba(255,255,255,0.12)"],
     lo: ["rgba(0,0,0,0.9)", "rgba(0,0,0,0.75)", "rgba(0,0,0,0.6)", "rgba(0,0,0,0.75)"] },
 };
+// Flat and quiet, for reading the data on top: charcoal land, navy sea, thin slate-blue rivers and lake outlines.
+LOOKS.night = { name: "Night", name_zh: "夜色", swatch: "linear-gradient(135deg,#2b2a28 55%,#1c2333 56%)", dark: true, flat: true,
+  relief: flatRelief("#1c2333", "#1c2333"), land: "#2b2a28", coast: "#4a4b50", bg: "#1c2333", lakes: 1, lakeColor: "#1c2333", lakeLine: 0.9, river: "#6f86b8", riverWidth: 0.7,
+  sky: "dark", noShade: true };
 const OLD_LOOK = { sat: "satellite", relief: "terrain" };
 const lookId = (v) => (LOOKS[v] ? v : OLD_LOOK[v] || null);
 function applyLook(m = map) {
@@ -403,6 +407,17 @@ function applyLook(m = map) {
     m.setPaintProperty("hillshade", "hillshade-shadow-color", L.lo);
   }
   m.setPaintProperty("lakes", "fill-opacity", L.lakes);
+  for (const id of ["land", "coast"]) m.setLayoutProperty(id, "visibility", L.land ? "visible" : "none");
+  if (L.land) {
+    m.setPaintProperty("land", "fill-color", L.land);
+    m.setPaintProperty("coast", "line-color", L.coast);
+    if (!m._landLoaded) { m._landLoaded = true; m.getSource("land").setData(BASE + "data/geo/land.geojson"); }
+  }
+  m.setPaintProperty("lakes-line", "line-opacity", L.lakeLine || 0);
+  m.setPaintProperty("rivers", "line-opacity", L.riverWidth ? 0.95 : 0.9);
+  m.setPaintProperty("rivers", "line-width", L.riverWidth
+    ? ["interpolate", ["linear"], ["zoom"], 3, ["case", ["<=", ["get", "rank"], 3], 1, 0.5], 8, ["case", ["<=", ["get", "rank"], 3], 2.4, 1.6]]
+    : ["interpolate", ["linear"], ["zoom"], 3, ["case", ["<=", ["get", "rank"], 3], 1.2, 0.6], 8, ["case", ["<=", ["get", "rank"], 3], 4.5, 3]]);
   if (L.lakeColor) m.setPaintProperty("lakes", "fill-color", L.lakeColor);
   for (const id of ["rivers", "rivers-minor", "old-river"]) m.setPaintProperty(id, "line-color", L.river);
   m.setPaintProperty("bg", "background-color", L.bg);
@@ -458,6 +473,7 @@ function buildStyle() {
              attribution: "Imagery: Sentinel-2 2020, Copernicus/Sentinel Hub (CC BY 4.0); Sentinel-2 cloudless 2016 by EOX, s2maps.eu (CC BY 4.0)" },
       rivers: { type: "geojson", data: BASE + "data/geo/rivers.geojson" },
       lakes: { type: "geojson", data: BASE + "data/geo/lakes.geojson" },
+      land: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       oldgeo: { type: "geojson", data: BASE + "data/geo/old-rivers.geojson" },
       borders: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       routes: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
@@ -470,6 +486,9 @@ function buildStyle() {
     layers: [
       { id: "bg", type: "background", paint: { "background-color": "#9db8bf" } },
       { id: "relief", type: "color-relief", source: "dem", paint: { "color-relief-color": RELIEF } },
+      // Natural Earth land (10m, simplified): flat styles draw it over the relief for a crisp coast.
+      { id: "land", type: "fill", source: "land", layout: { visibility: "none" }, paint: { "fill-color": "#2b2a28" } },
+      { id: "coast", type: "line", source: "land", layout: { visibility: "none", "line-join": "round" }, paint: { "line-color": "#55565a", "line-width": 0.8 } },
       { id: "satellite", type: "raster", source: "sat", layout: { visibility: "none" },
         paint: { "raster-fade-duration": 150, "raster-contrast": 0.08, "raster-saturation": 0.05 } },
       // Light from several directions so ranges read clearly whichever way they run.
@@ -482,6 +501,7 @@ function buildStyle() {
           "hillshade-exaggeration": ["interpolate", ["linear"], ["zoom"], 3, 0.45, 6, 0.6, 8, 0.7] } },
       // Modern rivers and lakes (Natural Earth); minor rivers appear as you zoom in.
       { id: "lakes", type: "fill", source: "lakes", paint: { "fill-color": "#86afc2", "fill-opacity": 0.9 } },
+      { id: "lakes-line", type: "line", source: "lakes", paint: { "line-color": "#7d8fb8", "line-width": 1.2, "line-opacity": 0 } },
       { id: "rivers-minor", type: "line", source: "rivers", minzoom: 4.5, filter: [">", ["get", "rank"], 5],
         layout: { "line-cap": "round", "line-join": "round" },
         paint: { "line-color": "#4a82a0", "line-opacity": 0.85,
@@ -2566,7 +2586,7 @@ function openCompare(id, kind = cmp.kind || "region") {
     cmp.map = new maplibregl.Map({ container: "map2", style: buildStyle(), center: [10, 45], zoom: 3, minZoom: 1.2, maxZoom: 9, attributionControl: false });
     cmp.map.on("load", () => {
       applyLook(cmp.map);
-      if (!state.showGeo) for (const l of ["rivers", "rivers-minor", "lakes"]) cmp.map.setLayoutProperty(l, "visibility", "none");
+      if (!state.showGeo) for (const l of ["rivers", "rivers-minor", "lakes", "lakes-line"]) cmp.map.setLayoutProperty(l, "visibility", "none");
       cmp.loaded = true;
       compareTerrain();
       fitCompare();
@@ -3783,7 +3803,7 @@ async function init() {
     renderGeo();
     // Switches remembered from the last visit that the style starts with on.
     if (!state.showNeighbours) for (const id of ["neighbour-fill", "neighbour-line"]) map.setLayoutProperty(id, "visibility", "none");
-    if (!state.showGeo) for (const id of ["rivers", "rivers-minor", "lakes"]) map.setLayoutProperty(id, "visibility", "none");
+    if (!state.showGeo) for (const id of ["rivers", "rivers-minor", "lakes", "lakes-line"]) map.setLayoutProperty(id, "visibility", "none");
     addTourLayers();
     if (state.pack) await startPlugins(plugins);
     setMode(detectRegion(), true);
@@ -3905,7 +3925,7 @@ async function init() {
   toggle("t-places", "showPlaces", renderPlaces);
   toggle("t-geo", "showGeo", () => {
     renderGeo();
-    for (const id of ["rivers", "rivers-minor", "lakes"]) map.setLayoutProperty(id, "visibility", state.showGeo ? "visible" : "none");
+    for (const id of ["rivers", "rivers-minor", "lakes", "lakes-line"]) map.setLayoutProperty(id, "visibility", state.showGeo ? "visible" : "none");
     renderOldGeo();
   });
   try { state.autoLayers = localStorage.getItem("atlas-auto") !== "off"; } catch {}

@@ -122,7 +122,7 @@ logs it in the console and carries on without it.
 | | |
 | --- | --- |
 | `atlas.setYear(year)` | Moves the timeline. |
-| `atlas.setStyle(id)` / `atlas.style` / `atlas.styles` | Switches the map style (`satellite`, `terrain`, `antique`, `plain`, `dark`); the current one; all of them. |
+| `atlas.setStyle(id)` / `atlas.style` / `atlas.styles` | Switches the map style (`satellite`, `terrain`, `antique`, `plain`, `dark`, `night`); the current one; all of them. |
 | `atlas.startTour(id, step)` | Starts a tour (step counts from 0). |
 | `atlas.openEvent(id)` | Opens an event's story. |
 

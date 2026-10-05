@@ -68,7 +68,7 @@ The atlas is a plain web page, so it embeds with an `iframe`:
 | --- | --- |
 | `?pack=<manifest URL>` | Loads your pack. Add `&packonly=1` to hide the atlas's own data. |
 | `?lang=en` / `zh` | Interface language. |
-| `?style=<id>` | Map style: `satellite` (default), `terrain`, `antique`, `plain` (flat, no relief or 3D) or `dark`. Overrides the visitor's own choice. |
+| `?style=<id>` | Map style: `satellite` (default), `terrain`, `antique`, `plain` (flat, no relief or 3D), `dark` or `night` (flat and dark). Overrides the visitor's own choice. |
 | `?embed=1` | Only the map and a small period label: no panels, timeline or tour card. For a host page that tells the story itself and moves the map through a plugin (see [Embedding](docs/plugins.md#embedding)). |
 | `#y=<year>&c=<lon>,<lat>,<zoom>,<pitch>,<bearing>` | Opens at a year and camera. Negative years are BCE. |
 | `#tour=<id>&s=<step>` | Starts a tour at a step (counting from 1). |
