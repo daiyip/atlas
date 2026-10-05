@@ -98,12 +98,15 @@ city("扬州", "Yangzhou", 119.4, 32.4,
      (-486, 588, "广陵", "Guangling", "major", "吴王夫差开邗沟筑城，汉吴国都城。", "Founded with the Han canal; Han kingdom of Wu."),
      (589, 1912, "扬州", "Yangzhou", "major", "运河与长江交汇，唐“扬一益二”，明清盐商之都。", "Canal–Yangtze junction; richest Tang city; salt-merchant capital later."))
 city("成都", "Chengdu", 104.07, 30.67,
+     (-1150, -651, "金沙", "Jinsha", "capital", "三星堆之后的古蜀中心都邑（今成都西郊金沙遗址），出土太阳神鸟金饰。", "Shu centre after Sanxingdui (Jinsha site, west Chengdu), known for its sun-bird gold foil."),
+     (-650, -317, "成都", "Chengdu", "capital", "古蜀国都城：杜宇都郫，开明氏徙治成都（年代不详，均在成都平原）。", "Capital of the ancient state of Shu (the Kaiming kings moved here from Pi; dates uncertain)."),
      (-316, 220, "成都", "Chengdu", "major", "秦灭蜀后筑城，汉代五大都会之一。", "One of the five great cities of Han."),
      (221, 263, "成都", "Chengdu", "capital", "蜀汉都城。", "Capital of Shu-Han."),
      (264, 906, "成都", "Chengdu", "major", "唐“扬一益二”，安史之乱时玄宗避难于此。", "Second city of Tang; refuge of Xuanzong in 756."),
      (907, 965, "成都", "Chengdu", "capital", "前蜀、后蜀都城。", "Capital of Former and Later Shu."),
      (966, 1912, "成都", "Chengdu", "major", "北宋发行交子，世界最早纸币。", "Where the first paper money, jiaozi, was issued."))
 city("重庆", "Chongqing", 106.55, 29.56,
+     (-700, -317, "江州", "Jiangzhou", "capital", "巴国都邑之一（巴都屡迁，江州为其一）。", "A seat of the state of Ba (Ba moved its capital several times)."),
      (-316, 1188, "江州", "Jiangzhou (Yu)", "major", "巴郡治所，后称渝州。", "Seat of Ba commandery, later Yuzhou."),
      (1189, 1912, "重庆", "Chongqing", "major", "南宋抗蒙山城防御中心（钓鱼城）。", "Centre of Song mountain-fort resistance to the Mongols."))
 city("广州", "Guangzhou", 113.26, 23.13,
@@ -280,6 +283,7 @@ city("蓟县", "Jixian", 117.4, 40.04,
 city("宁波双屿", "Shuangyu", 122.1, 29.85,
      (1525, 1548, "双屿", "Shuangyu", "port", "明代走私贸易港，葡萄牙人聚居，1548年被毁。", "Smuggling port with Portuguese traders, destroyed 1548."))
 city("南阳", "Nanyang", 112.53, 33.0,
+     (-800, -688, "申", "Shen", "capital", "申国都城，周宣王所封，后为楚所灭。", "Capital of Shen, annexed by Chu."),
      (-272, 1912, "宛", "Wan (Nanyang)", "major", "冶铁重镇，汉代五大都会之一，光武帝起兵之地。", "Iron-working centre, one of the five great cities of Han."))
 city("定陶", "Dingtao", 115.57, 35.07,
      (-480, -100, "陶", "Tao", "major", "“天下之中”，范蠡经商致富之地。", "'Centre of the world', where Fan Li grew rich in trade."))
@@ -342,6 +346,7 @@ city("吉尔吉斯托克马克", "Tokmok", 75.3, 42.8,
 city("雄县", "Xiongxian", 116.1, 38.99,
      (960, 1127, "雄州", "Xiongzhou", "frontier", "宋辽边界，白沟河榷场。", "Song–Liao border town and market."))
 city("定州", "Dingzhou", 115.0, 38.5,
+     (-414, -381, "顾", "Gu", "capital", "中山国早期都城。", "Early capital of Zhongshan."),
      (960, 1127, "定州", "Dingzhou", "frontier", "宋河北边防重镇，设塘泊防线。", "Song frontier base behind the water defences."))
 city("延安", "Yan'an", 109.49, 36.6,
      (1000, 1127, "延州", "Yanzhou", "frontier", "宋夏前线，范仲淹镇守。", "Song–Xia front, held by Fan Zhongyan."))
@@ -359,6 +364,49 @@ city("宁安", "Ning'an", 129.47, 44.35,
      (1666, 1912, "宁古塔", "Ningguta", "frontier", "宁古塔将军驻地，清流放之地。", "Seat of the Ningguta general; place of exile."))
 city("吉林", "Jilin", 126.55, 43.85,
      (1676, 1912, "吉林乌拉", "Jilin Ula", "frontier", "吉林将军驻地，松花江船厂。", "Seat of the Jilin general and shipyard."))
+
+city("翼城", "Yicheng", 111.72, 35.74,
+     (-770, -586, "绛", "Jiang (Yi)", "capital", "晋国都城（翼，后称绛），前585年迁新田。", "Capital of Jin until the move to Xintian in 585 BCE."))
+city("淇县", "Qixian", 114.2, 35.6,
+     (-1040, -661, "朝歌", "Zhaoge", "capital", "商末都邑，后为卫国都城，前660年为狄所破。", "Late Shang seat, then capital of Wey until the Di sacked it in 660 BCE."))
+city("滑县", "Huaxian", 114.52, 35.58,
+     (-658, -630, "楚丘", "Chuqiu", "capital", "齐桓公助卫复国所筑新都。", "Wey's capital rebuilt with Qi's help."))
+city("濮阳", "Puyang", 115.03, 35.76,
+     (-629, -209, "帝丘", "Diqiu", "capital", "卫国后期都城。", "Later capital of Wey."))
+city("淅川", "Xichuan", 111.49, 33.1,
+     (-1000, -690, "丹阳", "Danyang", "capital", "楚国早期都城（地望有争议，此取丹淅之会说）。", "Early Chu capital (location disputed; placed at the Dan–Xi confluence)."))
+city("礼县", "Lixian", 105.17, 34.19,
+     (-850, -763, "西垂", "Xichui", "capital", "秦人早期居邑（西犬丘），大堡子山秦公墓所在。", "Early Qin seat; Qin dukes' tombs at Dabuzishan."))
+city("宝鸡陈仓", "Chencang (Baoji)", 107.3, 34.37,
+     (-762, -678, "平阳", "Pingyang", "capital", "秦文公居汧渭之会，宪公迁平阳，前677年迁雍。", "Qin seat near the Qian–Wei confluence, then Pingyang, before Yong."))
+city("上蔡", "Shangcai", 114.26, 33.26,
+     (-1040, -532, "上蔡", "Shangcai", "capital", "蔡国都城，前531年为楚所灭，后复国迁新蔡。", "Capital of Cai until Chu took it in 531 BCE."))
+city("新蔡", "Xincai", 114.98, 32.75,
+     (-529, -494, "新蔡", "Xincai", "capital", "蔡平侯复国后都城。", "Cai's capital after it was restored."))
+city("凤台", "Fengtai", 116.7, 32.7,
+     (-493, -447, "下蔡", "Xiacai", "capital", "蔡昭侯迁州来，称下蔡，前447年为楚所灭。", "Cai's last capital, taken by Chu in 447 BCE."))
+city("莒县", "Juxian", 118.83, 35.58,
+     (-1040, -431, "莒", "Ju", "capital", "莒国都城，前431年为楚所灭。", "Capital of Ju, taken by Chu in 431 BCE."))
+city("灵寿", "Lingshou", 114.38, 38.31,
+     (-380, -296, "灵寿", "Lingshou", "capital", "中山国都城，前296年为赵所灭。", "Capital of Zhongshan until Zhao conquered it in 296 BCE."))
+city("无锡", "Wuxi", 120.42, 31.48,
+     (-770, -515, "梅里", "Meili", "capital", "相传泰伯所居，吴国早期都邑（地望有争议）。", "Early Wu seat said to be founded by Taibo (location disputed)."))
+city("诸暨", "Zhuji", 120.23, 29.71,
+     (-600, -491, "埤中", "Bizhong", "capital", "越国早期都邑（传说在诸暨）。", "Early Yue seat, traditionally placed at Zhuji."))
+city("泗洪", "Sihong", 118.2, 33.47,
+     (-1000, -512, "徐", "Xu", "capital", "徐国都城，前512年为吴所灭。", "Capital of Xu, conquered by Wu in 512 BCE."))
+city("邢台", "Xingtai", 114.5, 37.07,
+     (-1040, -662, "邢", "Xing", "capital", "邢国都城，前661年为狄所破，迁夷仪。", "Capital of Xing until the Di sacked it in 661 BCE."))
+city("三门峡", "Sanmenxia", 111.2, 34.78,
+     (-770, -655, "上阳", "Shangyang", "capital", "虢国都城，前655年晋假道伐虢而灭。", "Capital of Guo, destroyed by Jin in 655 BCE."))
+city("随州", "Suizhou", 113.37, 31.69,
+     (-1000, -450, "随", "Sui (Zeng)", "capital", "随（曾）国都邑，出土曾侯乙编钟。", "Seat of Sui (Zeng); Marquis Yi of Zeng's bells found nearby."))
+city("潢川", "Huangchuan", 115.05, 32.13,
+     (-1000, -648, "黄", "Huang", "capital", "黄国都城，前648年为楚所灭。", "Capital of Huang, taken by Chu in 648 BCE."))
+city("龙口", "Longkou", 120.5, 37.65,
+     (-1000, -567, "莱", "Lai", "capital", "莱国都邑，前567年为齐所灭。", "Seat of Lai, conquered by Qi in 567 BCE."))
+city("竹山", "Zhushan", 110.23, 32.23,
+     (-1000, -611, "上庸", "Shangyong", "capital", "庸国都城，前611年为楚所灭。", "Capital of Yong, taken by Chu in 611 BCE."))
 
 out = []
 for modern_zh, modern, lon, lat, spans in C:
