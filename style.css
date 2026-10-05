@@ -865,6 +865,10 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 .illu figcaption { margin-top: 3px; font-size: 10.5px; line-height: 1.3; color: var(--muted, #888); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .illu figcaption a { color: inherit; text-decoration: none; }
 .illu figcaption a:hover { text-decoration: underline; }
+.illu.ai { position: relative; }
+.illu.ai::before { content: "AI"; position: absolute; top: 6px; left: 6px; padding: 1px 6px; border-radius: 4px; font: 600 10.5px/1.5 system-ui, sans-serif; letter-spacing: .04em; color: #fff; background: rgba(0,0,0,.55); }
+.illu.ai figcaption { font-style: italic; }
+.no-ai .illu.ai { display: none; }
 
 /* Share: link to the current view */
 .share-box { position: absolute; top: 44px; right: 12px; z-index: 6; width: min(320px, calc(100% - 24px)); padding: 8px 10px;

@@ -11,7 +11,7 @@ self.addEventListener("activate", (e) => {
     .then(() => self.clients.claim()));
 });
 
-const keep = (url) => url.origin === location.origin ? /\/(tiles|vendor)\/|\/data\/img\/|\/docs\/img\//.test(url.pathname)
+const keep = (url) => url.origin === location.origin ? /\/(tiles|vendor)\/|\/data\/(img|ai)\/|\/docs\/img\//.test(url.pathname)
   : /fonts\.(googleapis|gstatic)\.com$|cdn\.jsdelivr\.net$/.test(url.hostname);
 
 self.addEventListener("fetch", (e) => {

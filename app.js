@@ -65,7 +65,7 @@ const state = {
   closedArmies: new Set(),
   win: null,            // [start, end] years shown on the rail when zoomed in
   lang: "zh",
-  show3d: true, look: "satellite", flat3d: false, showNeighbours: true, showPlaces: true, showGeo: true,
+  show3d: true, look: "satellite", flat3d: false, showNeighbours: true, showPlaces: true, showGeo: true, showAI: true,
   geo: [],              // labels for rivers, lakes, mountains, plains, seas
   layers: {},           // era id -> promise of { rulers, armies, routes }
   exchange: { routes: [], topics: {}, spread: [] }, // cross-civilisation routes and spreads (data/exchange.json)
@@ -88,10 +88,10 @@ const $ = (id) => document.getElementById(id);
 
 const UI = {
   zh: {
-    title: "Atlas · 地图上的故事", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
+    title: "Atlas · 地图上的故事", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川", aiPics: "AI 插图",
     other: "English", map: "地图：", count: (n, era) => `${era} · ${n} 件`, countWin: (n) => `本时段 · ${n} 件`,
     fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" },
-    sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", wiki: "维基百科", wikiOther: "English Wikipedia",
+    sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", aiIllu: "AI 生成的示意图，非史料", wiki: "维基百科", wikiOther: "English Wikipedia",
     more: "阅读详情 →", loading: "正在载入…", noStory: "这件事的详细介绍还在编写中。",
     notePack: "疆域为近似示意，取自开源 Cliopatria（Seshat）与 historical-basemaps 数据集。地形、海岸线和河流均为现代地理。",
     note: "疆域为近似示意：取自开源 historical-basemaps 数据集，并参照谭其骧《中国历史地图集》人工修订。地形、海岸线和河流均为现代地理。",
@@ -113,10 +113,10 @@ const UI = {
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
   en: {
-    title: "Atlas: Map with Stories", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
+    title: "Atlas: Map with Stories", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape", aiPics: "AI pictures",
     other: "中文", map: "Map: ", count: (n, era) => `${n} in ${era}`, countWin: (n) => `${n} in view`,
     fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" },
-    sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", wiki: "Wikipedia", wikiOther: "中文维基百科",
+    sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", aiIllu: "AI-generated illustration, not a historical source", wiki: "Wikipedia", wikiOther: "中文维基百科",
     more: "Read the story →", loading: "Loading…", noStory: "The full story for this event is still being written.",
     notePack: "Borders are approximate, from the open Cliopatria (Seshat) and historical-basemaps datasets. Terrain, coastlines and rivers are modern.",
     note: "Borders are approximate: from the open historical-basemaps dataset, revised by hand after Tan Qixiang's Historical Atlas of China. Terrain, coastlines and rivers are modern.",
@@ -1618,26 +1618,30 @@ function showCard(lngLat, html) {
 /* ---------- illustrations ---------- */
 // data/illustrations.json maps "p:<person id>" / "e:<event id>" to an image; the pictures themselves sit in data/img/<bucket>.json
 // as data URLs (the hosted page cannot load images from other sites). Built by tools/pack_illustrations.py.
-let illuIndex = null;
+// "a:<event id>" keys are AI-generated scenes from data/ai-illustrations.json + data/ai/<bucket>.json (tools/pack_ai_illustrations.py),
+// always captioned as AI-generated.
+const illuSets = {};
 const illuBuckets = {};
 function illuSlot(key) {
   return `<figure class="illu" data-illu="${esc(key)}" hidden></figure>`;
 }
 async function fillIllus(root) {
   const slots = [...root.querySelectorAll("figure[data-illu]:not(.done)")];
-  if (!slots.length) return;
-  illuIndex ||= loadJSON("data/illustrations.json").catch(() => ({ keys: {}, images: {} }));
-  const idx = await illuIndex;
   for (const fig of slots) {
     fig.classList.add("done");
+    const set = fig.dataset.illu.startsWith("a:") ? "ai" : "img";
+    illuSets[set] ||= loadJSON(set === "ai" ? "data/ai-illustrations.json" : "data/illustrations.json").catch(() => ({ keys: {}, images: {} }));
+    const idx = await illuSets[set];
     const id = idx.keys[fig.dataset.illu], im = idx.images[id];
     if (!im) continue;
-    illuBuckets[im.b] ||= loadJSON(`data/img/${im.b}.json`).catch(() => ({}));
-    const src = (await illuBuckets[im.b])[id];
+    illuBuckets[set + im.b] ||= loadJSON(`data/${set}/${im.b}.json`).catch(() => ({}));
+    const src = (await illuBuckets[set + im.b])[id];
     if (!src) continue;
     const credit = [im.artist, im.license].filter(Boolean).join(" · ");
-    fig.innerHTML = `<img src="${src}" alt="${esc(im.page)}" style="aspect-ratio:${im.w}/${im.h}">` +
-      `<figcaption><a href="${esc(im.url)}" target="_blank" rel="noopener">${esc(credit || "Wikimedia Commons")} ↗</a></figcaption>`;
+    fig.classList.toggle("ai", !!im.ai);
+    fig.innerHTML = `<img src="${src}" alt="${esc(im.ai ? t("aiIllu") : im.page)}" style="aspect-ratio:${im.w}/${im.h}">` + (im.ai
+      ? `<figcaption>${esc(t("aiIllu"))} · ${esc(im.ai)}</figcaption>`
+      : `<figcaption><a href="${esc(im.url)}" target="_blank" rel="noopener">${esc(credit || "Wikimedia Commons")} ↗</a></figcaption>`);
     fig.hidden = false;
   }
 }
@@ -3108,7 +3112,7 @@ async function renderStory() {
       <div class="story-sub" lang="${zh() ? "en" : "zh-CN"}">${esc(zh() ? ev.title : ev.title_zh)}</div>
       <button class="story-place" data-go="map"><i></i>${esc(tx(ev, "place"))}</button>
     </header>
-    ${illuSlot("e:" + ev.id)}
+    ${illuSlot("e:" + ev.id)}${illuSlot("a:" + ev.id)}
     <p class="story-lede">${esc(tx(ev, "summary"))}</p>
     <div class="story-body"><p class="muted">${t("loading")}</p></div>`;
   box.scrollTop = 0;
@@ -3904,7 +3908,7 @@ function toggle(btnId, key, fn) {
   $(btnId).addEventListener("click", () => {
     state[key] = !state[key];
     $(btnId).setAttribute("aria-pressed", String(state[key]));
-    try { localStorage.setItem("atlas-toggles", JSON.stringify({ show3d: state.show3d, showNeighbours: state.showNeighbours, showPlaces: state.showPlaces, showGeo: state.showGeo })); } catch {}
+    try { localStorage.setItem("atlas-toggles", JSON.stringify({ show3d: state.show3d, showNeighbours: state.showNeighbours, showPlaces: state.showPlaces, showGeo: state.showGeo, showAI: state.showAI })); } catch {}
     fn();
   });
 }
@@ -3965,7 +3969,7 @@ async function shareView() {
 function loadView() {
   let v = null, tg = null;
   try { v = JSON.parse(localStorage.getItem(viewKey()) || "null"); tg = JSON.parse(localStorage.getItem("atlas-toggles") || "null"); } catch {}
-  if (tg) for (const k of ["show3d", "showNeighbours", "showPlaces", "showGeo"]) if (typeof tg[k] === "boolean") state[k] = tg[k];
+  if (tg) for (const k of ["show3d", "showNeighbours", "showPlaces", "showGeo", "showAI"]) if (typeof tg[k] === "boolean") state[k] = tg[k];
   // A shared link wins over the remembered view. The address is then cleaned, so a bookmark or a Home Screen
   // icon made later opens the site as usual (the share button builds a link to the current view).
   const link = readHash();
@@ -4270,6 +4274,10 @@ async function init() {
     renderPolityLabels(state.borders[state.snapshot]);
   });
   toggle("t-places", "showPlaces", renderPlaces);
+  // AI-generated event pictures are loaded either way and only hidden, so switching back needs no reload.
+  const syncAI = () => document.body.classList.toggle("no-ai", !state.showAI);
+  toggle("t-ai", "showAI", syncAI);
+  syncAI();
   toggle("t-geo", "showGeo", () => {
     renderGeo();
     for (const id of ["rivers", "rivers-minor", "lakes", "lakes-line"]) map.setLayoutProperty(id, "visibility", state.showGeo ? "visible" : "none");
