@@ -1164,3 +1164,5 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .tour-line .tl-glow { stroke: rgba(255, 246, 242, .55); stroke-width: 7; filter: blur(1px); }
 .tour-line .tl-line { stroke: #b93a26; stroke-width: 3.2; }
 .tour-line .tl-arrow { fill: #b93a26; stroke: #fff6f2; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgba(0,0,0,.35)); }
+.sc-story { margin: 8px 0 2px; padding: 4px 12px; border: 1px solid var(--cinnabar); border-radius: 999px; background: none; color: var(--cinnabar); font: 600 12px inherit; cursor: pointer; }
+.sc-story:hover { background: var(--cinnabar); color: #fff; }
