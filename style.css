@@ -822,14 +822,22 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
   .era-corner { margin: -2px -2px 6px 0; } .search-open { width: 30px; height: 30px; } }
 
 /* Search: a panel over the top of the map; results grouped by kind. */
+/* It takes the era panel's place in the top-left corner and the era panel slides down below it (--search-push, set
+   from the panel's height in app.js); closing slides it back up. */
 .search {
-  position: absolute; z-index: 20; top: calc(16px + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%);
-  width: min(460px, calc(100% - 16px)); max-height: min(calc(70dvh - env(safe-area-inset-top)), 560px); display: flex; flex-direction: column; overflow: hidden;
-  background: var(--panel-solid);
+  position: absolute; z-index: 20; top: calc(16px + env(safe-area-inset-top)); left: 16px;
+  width: min(400px, calc(100% - 32px)); max-height: min(calc(60dvh - env(safe-area-inset-top)), 520px); display: flex; flex-direction: column; overflow: hidden;
+  background: var(--panel-solid); transform-origin: top left;
+  animation: search-in .32s cubic-bezier(.2, .9, .25, 1.1) both;
 }
-/* On a phone it opens just below the status bar and notch, where the era panel starts. */
-@media (max-width: 720px) { .search { top: calc(8px + env(safe-area-inset-top)); } }
 .search[hidden] { display: none; }
+.search.closing { animation: search-out .2s ease-in both; pointer-events: none; }
+@keyframes search-in { from { opacity: 0; transform: translateY(-14px) scale(.96); } }
+@keyframes search-out { to { opacity: 0; transform: translateY(-10px) scale(.97); } }
+.era { translate: 0 var(--search-push, 0px); transition: translate .42s cubic-bezier(.2, .9, .25, 1.06); }
+/* On a phone it opens just below the status bar and notch, where the era panel starts. */
+@media (max-width: 720px) { .search { top: calc(8px + env(safe-area-inset-top)); left: 8px; width: calc(100% - 16px); } }
+@media (prefers-reduced-motion: reduce) { .search, .search.closing { animation: none; } .era { transition: none; } }
 .search-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--rule); }
 .search-bar svg { width: 16px; height: 16px; color: var(--muted); flex: none; }
 .search-bar input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: inherit; font: 500 16px var(--font-body); }

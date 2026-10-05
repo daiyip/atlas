@@ -3884,14 +3884,33 @@ function renderSearch() {
   });
   box.innerHTML = html;
 }
+// The era panel makes room below the search panel and follows its height as results come and go.
+const SEARCH_GAP = 8;
+let searchShut = 0, searchSize = null;
+function pushEra() {
+  const box = $("search"), open = !box.hidden && !box.classList.contains("closing");
+  document.documentElement.style.setProperty("--search-push", open ? `${box.offsetHeight + SEARCH_GAP}px` : "0px");
+}
 async function openSearch() {
+  clearTimeout(searchShut);
+  $("search").classList.remove("closing");
   $("search").hidden = false;
+  if (!searchSize && window.ResizeObserver) (searchSize = new ResizeObserver(pushEra)).observe($("search"));
+  pushEra();
   $("search-q").placeholder = t("searchPh");
   $("search-q").focus();
   $("search-q").select();
   if (!searchIndex) { searchIndex = await buildSearchIndex(); renderSearch(); }
 }
-function closeSearch() { $("search").hidden = true; }
+function closeSearch() {
+  const box = $("search");
+  if (box.hidden || box.classList.contains("closing")) return;
+  box.classList.add("closing");
+  pushEra();
+  const done = () => { box.hidden = true; box.classList.remove("closing"); };
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return done();
+  searchShut = setTimeout(done, 200);
+}
 function pickSearch(i) { const h = searchHits[i]; if (!h) return; closeSearch(); h.go(); }
 async function jumpToYear(y) {
   stop();
