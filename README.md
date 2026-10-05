@@ -6,6 +6,7 @@
 </p>
 
 <h1 align="center">Atlas</h1>
+<p align="center"><b>Map with Stories · 有故事的地图</b></p>
 
 **An interactive 3D history map, from 3000 BCE to today.** Pick a year and the map shows that moment's borders,
 cities and events. Take guided tours, read the stories behind events, and switch on layers for armies, roads, faith,
@@ -39,6 +40,7 @@ The atlas provides the map, terrain, borders, timeline, tours and search. Your p
 | **Periods, events and tours** | `eras.json`, `events.json`, `tours.json`. See [docs/custom-data.md](docs/custom-data.md). |
 | **Map layers** | GeoJSON roads, regions or sites that appear and disappear with the years. No code needed. See [docs/plugins.md](docs/plugins.md#layers). |
 | **Plugins** | JavaScript modules that get the map and the atlas's events, for animations and anything interactive. See [docs/plugins.md](docs/plugins.md#plugins). |
+| **Your own ground** | Another planet or an invented world instead of Earth: your own imagery, elevation and place names. `tools/make_tiles.py` turns one picture into tiles. See [docs/custom-ground.md](docs/custom-ground.md). |
 
 ![A pack with its own layers and a journey playback plugin](docs/img/pack-demo.jpg)
 
@@ -48,7 +50,7 @@ layers, and a plugin that animates each leg of a journey. To try it, open
 
 A pack can even bring its own world: [`examples/mars-pack/`](examples/mars-pack/) replaces Earth with Mars (its own
 elevation, imagery and place names) and follows the landers from 1971 to today. Open
-`/?pack=examples/mars-pack/manifest.json&packonly=1`. See [Base map](docs/custom-data.md#base-map).
+`/?pack=examples/mars-pack/manifest.json&packonly=1`. See [docs/custom-ground.md](docs/custom-ground.md).
 
 ### Embed it in your app
 

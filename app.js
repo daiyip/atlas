@@ -88,7 +88,7 @@ const $ = (id) => document.getElementById(id);
 
 const UI = {
   zh: {
-    title: "历代地图", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
+    title: "Atlas · 有故事的地图", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川",
     other: "English", map: "地图：", count: (n, era) => `${era} · ${n} 件`, countWin: (n) => `本时段 · ${n} 件`,
     fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" },
     sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" }, back: "返回列表", prev: "上一件", next: "下一件", why: "历史意义", people: "相关人物", wiki: "维基百科", wikiOther: "English Wikipedia",
@@ -113,7 +113,7 @@ const UI = {
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
   en: {
-    title: "Atlas", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
+    title: "Atlas: Map with Stories", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape",
     other: "中文", map: "Map: ", count: (n, era) => `${n} in ${era}`, countWin: (n) => `${n} in view`,
     fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" },
     sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" }, back: "All events", prev: "Previous", next: "Next", why: "Why it matters", people: "People", wiki: "Wikipedia", wikiOther: "中文维基百科",

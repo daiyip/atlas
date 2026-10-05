@@ -125,7 +125,8 @@ shows `text`. `event` links the step to an event's story, and `path: true` draws
 ## Base map
 
 A pack shown alone (`packonly=1`) can replace Earth with its own ground. The [Mars pack](../examples/mars-pack/)
-is a complete example: open `/?pack=examples/mars-pack/manifest.json&packonly=1`.
+is a complete example: open `/?pack=examples/mars-pack/manifest.json&packonly=1`. For a step-by-step guide,
+including how to make tiles from one picture, see [custom-ground.md](custom-ground.md).
 
 ```json
 "basemap": {
