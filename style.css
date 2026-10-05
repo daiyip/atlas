@@ -601,10 +601,22 @@ html:lang(en) .mk-geo.g-river, html:lang(en) .mk-geo.g-lake { text-transform: no
 .dc-more {
   position: absolute; left: -10px; top: -15px; z-index: 1;
   min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px;
-  display: grid; place-items: center; cursor: pointer; visibility: visible;
+  display: flex; align-items: center; gap: 1px; cursor: pointer; visibility: visible; white-space: nowrap;
   font: 700 10px/1 var(--font-body); color: #fff; background: #1b2226; border: 1.5px solid #f4f2ea;
-  box-shadow: 0 1px 3px rgba(0,0,0,.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,.4); overflow: hidden;
 }
+/* One tag per kind folded here, coloured like its markers. */
+.dc-more:has(.dk) { padding: 0; gap: 0; }
+.dc-more .dk { display: inline-flex; align-items: center; gap: 1px; height: 100%; padding: 0 4px; background: #1b2226; }
+.dc-more .dk + .dk { border-left: 1px solid rgba(244, 242, 234, .6); }
+.dc-more .dk:hover { filter: brightness(1.25); }
+.dc-more .k-event { background: #b93a26; }
+.dc-more .k-person { background: #6a4c93; }
+.dc-more .k-capital { background: #8f2a1b; }
+.dc-more .k-invention { background: #2f6f8f; }
+.dc-more .k-faith { background: #8a6a2a; }
+.dc-more .k-pass { background: #4a3d2e; }
+.dc-more .k-clan { background: #7a5d1a; }
 .mk-event .dc-more { left: -8px; top: -12px; }
 .dc-list { list-style: none; margin: 6px 0 0; padding: 0; max-height: 260px; overflow-y: auto; }
 .dc-list button {

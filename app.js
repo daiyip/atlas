@@ -2200,19 +2200,26 @@ function declutter() {
   }
   for (const it of kept) if (it.group) addGroupBadge(it);
 }
+// A folded spot shows one small tag per kind, each with how many of that kind sit there (事 3 · 人 2), the shown
+// marker included; a tag opens the list of just that kind, the badge's edge the whole list.
+const DC_KINDS = { event: ["事", "◆"], person: ["人", "●"], capital: ["都", "■"], invention: ["器", "⚙"], faith: ["教", "✦"], pass: ["关", "▲"], clan: ["族", "◼"], place: ["城", "•"] };
 function addGroupBadge(host) {
+  const byKind = new Map();
+  for (const g of host.group) { if (!byKind.has(g.kind)) byKind.set(g.kind, []); byKind.get(g.kind).push(g); }
   const b = document.createElement("b");
   b.className = "dc-more";
-  b.textContent = "+" + (host.group.length - 1);
+  b.innerHTML = [...byKind].map(([k, l]) => `<b class="dk k-${k}" data-k="${k}">${(DC_KINDS[k] || ["", "•"])[zh() ? 0 : 1]}${l.length}</b>`).join("");
   b.title = host.group.map((g) => g.el.dataset.name).join(" · ");
   b.addEventListener("click", (e) => {
     e.stopPropagation();
-    const kinds = { event: t("events"), capital: t("capitals"), person: t("people_l"), invention: t("inventions"), faith: t("faith"), pass: t("passes") };
-    showCard(host.m.getLngLat(), `<div class="pc-kind">${zh() ? `此处 ${host.group.length} 项` : `${host.group.length} here`}</div>
-      <ul class="dc-list">${host.group.map((g, i) => `<li><button data-i="${i}"><span class="dc-ico ${esc(g.el.className.replace(/\b(dc|maplibregl)-\S+/g, ""))}">${(g.el.querySelector("i") || {}).outerHTML || ""}</span>
+    const only = e.target.closest("[data-k]")?.dataset.k;
+    const list = only ? byKind.get(only) : host.group;
+    const kinds = { event: t("events"), capital: t("capitals"), person: t("people_l"), invention: t("inventions"), faith: t("faith"), pass: t("passes"), clan: t("clans") };
+    showCard(host.m.getLngLat(), `<div class="pc-kind">${only ? esc(kinds[only] || "") + " · " : ""}${zh() ? `此处 ${list.length} 项` : `${list.length} here`}</div>
+      <ul class="dc-list">${list.map((g, i) => `<li><button data-i="${i}"><span class="dc-ico ${esc(g.el.className.replace(/\b(dc|maplibregl)-\S+/g, ""))}">${(g.el.querySelector("i") || {}).outerHTML || ""}</span>
         <span>${esc(g.el.dataset.name || "")}<small>${esc(kinds[g.kind] || "")}</small></span></button></li>`).join("")}</ul>`);
     popup.getElement().querySelectorAll(".dc-list button").forEach((btn) =>
-      btn.addEventListener("click", () => host.group[+btn.dataset.i].el.click()));
+      btn.addEventListener("click", () => list[+btn.dataset.i].el.click()));
   });
   host.el.appendChild(b);
 }
