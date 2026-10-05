@@ -105,6 +105,7 @@ they need no `snapshots`.
 | `category` | One of `war`, `politics`, `reform`, `rebellion`, `diplomacy`, `economy`, `culture`, `science`, `society`. |
 | `title`, `place`, `summary` (+ `_zh`) | Text for the list, the map card and the story view. |
 | `refs` | Optional, for the manifest's `refs` link. |
+| `layers` | Optional. Map layers the Auto layers switch turns on while this event's story is open, for example `["armies", "passes"]`. `[]` turns none on. Left out, keyword rules guess. Keys: `rulers`, `people`, `armies`, `routes`, `exchange`, `spread`, `passes`, `roads`, `walls`, `clans`, `capitals`, `faith`, `inventions`. |
 
 ## tours.json: guided tours
 
@@ -120,7 +121,8 @@ they need no `snapshots`.
 ```
 
 Each step flies the camera to `at` (with optional `zoom`, `pitch` and `bearing`), moves the timeline to `year` and
-shows `text`. `event` links the step to an event's story, and `path: true` draws the journey so far.
+shows `text`. `event` links the step to an event's story, and `path: true` draws the journey so far. A step's `layers`
+works like an event's: the layers Auto layers turns on at that stop (without it, the linked event's, then the rules).
 
 ## Base map
 

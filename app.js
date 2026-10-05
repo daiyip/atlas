@@ -1552,7 +1552,13 @@ function syncAuto() {
   }
   const auto = {};
   if (ctx !== state.autoCtx) { state.autoCtx = ctx; state.autoOff = {}; }
-  if (text) for (const [keys, test] of AUTO_RULES) if (test(cat, text)) for (const k of keys) if (!state.autoOff[k] && !$("l-" + k)?.hidden) auto[k] = true;
+  // Each event and tour stop names its own layers (`layers`, chosen one by one); the keyword rules are the fallback.
+  const s = state.autoLayers && state.tour?.tr.steps[state.tour.i];
+  const ev = state.autoLayers && state.events.find((e) => e.id === (s ? s.event : state.reading && state.selected));
+  const own = s ? s.layers ?? (s.event ? ev?.layers : undefined) : ev?.layers;
+  const ok = (k) => !state.autoOff[k] && !$("l-" + k)?.hidden && k in state.show;
+  if (Array.isArray(own)) own.forEach((k) => { if (ok(k)) auto[k] = true; });
+  else if (text) for (const [keys, test] of AUTO_RULES) if (test(cat, text)) for (const k of keys) if (ok(k)) auto[k] = true;
   for (const k of Object.keys(state.show)) $("l-" + k)?.classList.toggle("auto", !state.show[k] && !!auto[k]);
   renderAutoStrip(auto);
   const key = Object.keys(auto).sort().join();
