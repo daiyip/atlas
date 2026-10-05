@@ -377,7 +377,7 @@ const LOOKS = {
     hi: ["#fbf5e4", "#fbf5e4", "#f6eed8", "#fbf5e4"], lo: ["#5b4630", "#6a5238", "#5b4630", "#4c3a28"] },
   plain: { name: "Simple", name_zh: "简洁", swatch: "linear-gradient(135deg,#f3f0e8 55%,#cfe0ea 56%)", flat: true,
     relief: flatRelief("#cfe0ea", "#f4f1e9"), land: "#f4f1e9", coast: "#a9bfcc", bg: "#cfe0ea", lakes: 1, lakeColor: "#cfe0ea", river: "#8fb3c9", sky: "relief", noShade: true },
-  dark: { name: "Dark terrain", name_zh: "暗色地形", swatch: "linear-gradient(135deg,#2a3230,#3d4440 55%,#0f1a24 56%)", dark: true,
+  dark: { name: "Terrain · dark", name_zh: "地形·暗色", swatch: "linear-gradient(135deg,#2a3230,#3d4440 55%,#0f1a24 56%)", dark: true,
     relief: ["interpolate", ["linear"], ["elevation"], -6000, "#0a121a", -1, "#122030", 0, "#262d2b", 1500, "#2f3532", 4000, "#3c403c", 6500, "#5a5d5a"],
     bg: "#122030", lakes: 1, lakeColor: "#16283a", river: "#3f6f8c", sky: "dark",
     shadeEx: ["interpolate", ["linear"], ["zoom"], 3, 0.4, 6, 0.55, 8, 0.65],
@@ -385,7 +385,7 @@ const LOOKS = {
     lo: ["rgba(0,0,0,0.9)", "rgba(0,0,0,0.75)", "rgba(0,0,0,0.6)", "rgba(0,0,0,0.75)"] },
 };
 // Flat and quiet, for reading the data on top: charcoal land, navy sea, thin slate-blue rivers and lake outlines.
-LOOKS.night = { name: "Dark simple", name_zh: "暗色简洁", swatch: "linear-gradient(135deg,#2b2a28 55%,#1c2333 56%)", dark: true, flat: true,
+LOOKS.night = { name: "Simple · dark", name_zh: "简洁·暗色", swatch: "linear-gradient(135deg,#2b2a28 55%,#1c2333 56%)", dark: true, flat: true,
   relief: flatRelief("#1c2333", "#1c2333"), land: "#2b2a28", coast: "#4a4b50", bg: "#1c2333", lakes: 1, lakeColor: "#1c2333", lakeLine: 0.9, river: "#6f86b8", riverWidth: 0.7,
   sky: "dark", noShade: true };
 // Menu order: each light style next to its dark twin.
