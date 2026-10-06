@@ -74,9 +74,11 @@ def main():
             if a.is_empty:
                 continue
             a = a.simplify(SIMPLIFY, preserve_topology=True)
+            if a.geom_type == "GeometryCollection":   # stray lines/points from clipping
+                a = unary_union([p for p in a.geoms if p.geom_type in ("Polygon", "MultiPolygon")])
             if a.geom_type == "MultiPolygon":   # keep the piece holding the seat plus any big islands
                 a = unary_union([p for p in a.geoms if p.distance(seat) < 0.05 or p.area > 0.3])
-            if a.is_empty:
+            if a.is_empty or a.geom_type not in ("Polygon", "MultiPolygon"):
                 continue
             g = mapping(a)
             r = lambda c: [round(c[0], 3), round(c[1], 3)]

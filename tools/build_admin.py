@@ -16,9 +16,11 @@ TYPES = {
     "军": ("military prefecture", 2), "监": ("industrial prefecture", 2), "直隶州": ("independent department", 2),
     "直隶厅": ("independent sub-prefecture", 2), "国": ("princely state", 2), "王国": ("kingdom", 2),
     "尹": ("capital district", 2), "内史": ("capital district", 2), "属国": ("dependent state", 2), "宣慰司": ("pacification commission", 3),
+    "都护府": ("protectorate", 3), "都督府": ("area command", 2),
 }
 PY_TYPE = {"郡": "Jun", "州": "Zhou", "府": "Fu", "路": "Lu", "军": "Jun", "监": "Jian", "直隶州": "Zhou",
-           "直隶厅": "Ting", "国": "Guo", "王国": "Guo", "尹": "Yin", "内史": "Neishi", "属国": "Shuguo", "宣慰司": "Xuanweisi"}
+           "直隶厅": "Ting", "国": "Guo", "王国": "Guo", "尹": "Yin", "内史": "Neishi", "属国": "Shuguo", "宣慰司": "Xuanweisi",
+           "都护府": "Duhufu", "都督府": "Dudufu"}
 CONF = {"high": 2, "medium": 1, "low": 0}
 
 
@@ -41,11 +43,11 @@ for path in sorted(glob.glob(os.path.join(ROOT, "tools/admin/*.json"))):
         to = x.get("to")
         items.append([x["name_zh"], x.get("name") or pinyin(x["name_zh"], tz), types.index(tz), round(x["lon"], 3), round(x["lat"], 3),
                       int(x["from"]), None if to is None else int(to), x.get("modern_zh", ""), x.get("seat_zh", ""),
-                      era, int(snap), CONF.get(x.get("confidence"), 1), x.get("state", "")])
+                      era, int(snap), CONF.get(x.get("confidence"), 1), x.get("state", ""), x.get("was_zh", "")])
 items.sort(key=lambda r: (r[10], r[3], r[4]))
 out = {
-    "source": "AI-drafted from general knowledge, one main year per dynasty; spot-checked against CHGIS V6. Approximate.",
-    "fields": ["name_zh", "name", "type", "lon", "lat", "from", "to", "modern_zh", "seat_zh", "era", "snap", "conf", "state"],
+    "source": "AI-drafted from general knowledge, one or more main years per dynasty; spot-checked against CHGIS V6. Approximate.",
+    "fields": ["name_zh", "name", "type", "lon", "lat", "from", "to", "modern_zh", "seat_zh", "era", "snap", "conf", "state", "was_zh"],
     "types": [[tz, *TYPES.get(tz, (tz, 2))] for tz in types],
     "items": items,
 }
