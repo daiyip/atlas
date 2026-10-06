@@ -9,5 +9,6 @@ jobs:
     timeout-minutes: 10
     steps:
       - run: |
-          for u in "https://dataverse.harvard.edu/api/info/version" "https://dataverse.harvard.edu/api/search?q=CHGIS&type=dataset&per_page=50" "https://maps.cga.harvard.edu/tgaz/placename?fmt=json&n=%E9%95%BF%E5%AE%89" "https://chgis.fas.harvard.edu/"; do
-            echo "== $u"; curl -sS -m 40 -A "Atlas/1.0" "$u" | head -c 6000; echo; done
+          curl -sS -m 40 "https://dataverse.harvard.edu/api/info/version"; echo
+          curl -sS -m 60 "https://dataverse.harvard.edu/api/dataverses/chgis/contents" | python3 -c "import json,sys; d=json.load(sys.stdin); [print(x.get('type'), x.get('protocol'), x.get('authority'), x.get('identifier'), x.get('title') or '', x.get('id')) for x in d.get('data',[])]" || true
+          curl -sS -m 60 "https://dataverse.harvard.edu/api/search?q=CHGIS&type=dataset&per_page=60" | python3 -c "import json,sys; d=json.load(sys.stdin); [print(x['global_id'], x['name']) for x in d['data']['items']]" || true
