@@ -4015,8 +4015,9 @@ function tourPicRect(im) {
 }
 function placeTourPic() {
   const box = $("tour-pic"), tour = state.tour, s = tour?.tr.steps[tour.i];
-  const key = "a:" + s?.event, idx = illuSets.aiReady;
-  const im = !EMBED && s?.event && state.showAI && idx?.images[idx.keys[key]];
+  // A step shows its event's picture, or else one painted for the step itself (tools/ai_prompts.json "tour.<tour id>.<step>").
+  const idx = illuSets.aiReady, key = s?.event ? "a:" + s.event : s ? `a:tour.${tour.id}.${tour.i}` : "";
+  const im = !EMBED && s && state.showAI && idx?.images[idx.keys[key]];
   const at = im ? tourPicRect(im) : null;
   box.rect = at;
   if (at && box.dataset.key === key + state.lang && !box.hidden) return placeBox(box, at);

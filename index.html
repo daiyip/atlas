@@ -50,6 +50,8 @@
       <span id="layers-label" class="sr-only" data-i18n="layers">Layers</span>
       <div class="auto-row"><button type="button" class="switch" id="t-auto" aria-pressed="true"><i aria-hidden="true"></i><span data-i18n="autoLayers">Auto layers</span></button><small data-i18n="autoHint"></small></div>
       <div class="lg"><span data-i18n="g_map">Map</span>
+        <button type="button" class="chip look" id="look-btn" aria-haspopup="menu" aria-expanded="false"></button>
+        <button class="chip" id="t-3d" aria-pressed="true" data-i18n="t3d">3D terrain</button>
         <button class="chip" id="t-geo" aria-pressed="true" data-i18n="geo">Landscape</button>
       </div>
       <div class="lg"><span data-i18n="g_pol">Power</span>
@@ -64,17 +66,15 @@
         <button class="chip layer" id="l-armies" aria-pressed="true" data-i18n="armies">Armies</button>
         <button class="chip layer" id="l-passes" aria-pressed="true" data-i18n="passes">Passes</button>
         <button class="chip layer" id="l-walls" aria-pressed="true" data-i18n="walls">Great Walls</button>
-      </div>
-      <div class="lg"><span data-i18n="g_move">Travel</span>
         <button class="chip layer" id="l-roads" aria-pressed="true" data-i18n="roads">Roads</button>
         <button class="chip layer" id="l-routes" aria-pressed="true" data-i18n="routes">Routes</button>
-        <button class="chip layer" id="l-exchange" aria-pressed="true" data-i18n="exchange">Exchange</button>
-        <button class="chip layer" id="l-spread" aria-pressed="true" data-i18n="spread">Spread</button>
       </div>
       <div class="lg"><span data-i18n="g_cul">Culture</span>
         <button class="chip layer" id="l-people" aria-pressed="true" data-i18n="people_l">People</button>
         <button class="chip layer" id="l-faith" aria-pressed="false" data-i18n="faith">Faith</button>
         <button class="chip layer" id="l-inventions" aria-pressed="false" data-i18n="inventions">Inventions</button>
+        <button class="chip layer" id="l-exchange" aria-pressed="true" data-i18n="exchange">Exchange</button>
+        <button class="chip layer" id="l-spread" aria-pressed="true" data-i18n="spread">Spread</button>
       </div>
     </div>
     <div class="pop-chart" id="pop-chart" hidden></div>
@@ -86,10 +86,6 @@
       <div class="st-sec"><h3 data-i18n="stLook">Appearance</h3>
         <div class="st-row"><span data-i18n="stPanel">Panel colour</span><button type="button" class="chip look" id="panel-btn" aria-haspopup="menu" aria-expanded="false"></button></div>
         <div class="st-row"><span data-i18n="panelOp">Opacity</span><label class="panel-op"><input type="range" id="panel-op" min="20" max="100" step="1" data-i18n-title="panelOp"><output id="panel-op-v"></output></label></div>
-      </div>
-      <div class="st-sec"><h3 data-i18n="g_map">Map</h3>
-        <div class="st-row"><span data-i18n="stMapStyle">Map style</span><button type="button" class="chip look" id="look-btn" aria-haspopup="menu" aria-expanded="false"></button></div>
-        <button type="button" class="switch st-switch" id="t-3d" aria-pressed="false"><span><b data-i18n="t3d"></b></span><i aria-hidden="true"></i></button>
       </div>
       <div class="st-sec"><h3 data-i18n="stRail">Timeline</h3>
         <div class="st-row"><span data-i18n="stRailStyle">Style</span><span class="st-seg" id="st-rail" role="group"></span></div>
