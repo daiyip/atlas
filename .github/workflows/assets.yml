@@ -5,7 +5,7 @@ name: Assets
 on:
   push:
     branches: [main]
-    paths: [data/tiles.json, data/ai-illustrations.json, data/music.json, tools/check_assets.py]
+    paths: [data/tiles.json, data/ai-illustrations.json, data/music.json, data/narration.json, tools/check_assets.py]
   schedule:
     - cron: "17 6 * * 1"
   workflow_dispatch:

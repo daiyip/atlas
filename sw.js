@@ -1,6 +1,6 @@
 // Atlas offline cache. The page, scripts and data are fetched fresh when online and served from the cache when not;
 // terrain and imagery packs, pictures and fonts are kept once fetched, since they never change under the same name.
-const SHELL = "atlas-shell-v1", KEEP = "atlas-keep-v1";
+const SHELL = "atlas-shell-v1", KEEP = "atlas-keep-v2";
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(SHELL).then((c) => c.addAll(["./", "index.html", "app.js", "style.css", "vendor/maplibre-gl.css", "manifest.webmanifest"]).catch(() => {})));
@@ -18,6 +18,9 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
+  // Audio and video are left to the browser: players ask for byte ranges, and a cached partial (or whole, opaque) file
+  // answered to a range request leaves the player silent.
+  if (req.headers.has("range") || req.destination === "audio" || req.destination === "video") return;
   if (keep(url)) {
     // Cache first: these files are large and do not change.
     e.respondWith(caches.open(KEEP).then(async (c) => {

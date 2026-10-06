@@ -862,7 +862,7 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 .era-corner { grid-column: 1 / -1; order: -1; display: flex; align-items: center; justify-content: flex-end; gap: 6px; margin: -4px -4px 4px 0; }
 /* Region (and, on phones, layers) on the left; language, search, share on the right. */
 .era-corner { justify-content: flex-start; }
-.era-corner .lang-btn { margin-left: auto; }
+.era-corner #search-open { margin-left: auto; }
 .search-open { display: grid; place-items: center; width: 26px; height: 26px; padding: 0; }
 .search-open svg { width: 13px; height: 13px; }
 @media (max-width: 720px) {
@@ -992,7 +992,8 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
 .immersive.tour-reading .story { padding-top: 14px; padding-bottom: 20px;
   -webkit-mask-image: linear-gradient(#000 calc(100% - 28px), transparent); mask-image: linear-gradient(#000 calc(100% - 28px), transparent); }
 .immersive.touring.tour-reading .tour { display: block; }
-.tour-immersive[aria-pressed="true"], .tour-ctl .music-toggle[aria-pressed="true"] { background: var(--jade-soft); }
+.tour-immersive[aria-pressed="true"], .tour-ctl .music-toggle[aria-pressed="true"], .tour-ctl .narr-toggle[aria-pressed="true"] { background: var(--jade-soft); }
+.narr-short { display: none; }
 .tour-pic { position: fixed; z-index: 4; cursor: pointer; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.35); background: var(--panel-solid); transition: opacity .3s ease, left .4s ease, top .4s ease, width .4s ease, height .4s ease; }
 .tour-pic.fade-out { opacity: 0; }
 .tour-pic[hidden], .touring.tour-reading .tour-pic { display: none; }
@@ -1012,7 +1013,8 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
   .tour { bottom: calc(var(--rail-h, 64px) + 8px + var(--bottom-gap, 8px)); width: calc(100% - 16px); padding: 10px 12px; }
   /* Immersive: the card sits low, lined up with the picture's 16px side margins */
   .immersive .tour { bottom: var(--bottom-gap, 8px); width: calc(100% - 32px); box-sizing: border-box; }
-  .tour-ctl .music-label { display: none; } /* just ♪ on phones */
+  .tour-ctl .music-label { display: none; } /* just ♪ and 🔊 (with 男/女 when on) on phones */
+  .tour-ctl .narr-short { display: inline; }
   .tour-ctl { gap: 3px; }
   .immersive.tour-reading .ledger { top: var(--top-gap, 8px); width: calc(100% - 32px); }
   .tour-ctl .chip { padding-left: 6px; padding-right: 6px; font-size: 12px; }
@@ -1149,11 +1151,7 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 }
 .cmp-sync { flex: none; white-space: nowrap; font-size: 12px; padding: 4px 10px; }
 .cmp-sync[aria-pressed="true"] { background: var(--jade); border-color: var(--jade); color: #fff; }
-/* Language menu: the corner chip shows the current language; its menu lists every language in its own name. */
-.lang-btn { display: inline-flex; align-items: center; gap: 4px; padding-inline: 8px; }
-.lang-btn svg { width: 14px; height: 14px; flex: none; }
-.lang-btn svg.caret { width: 10px; height: 10px; margin-left: -1px; opacity: 0.7; }
-.lang-btn[aria-expanded="true"] svg.caret { transform: rotate(180deg); }
+/* Small menus (map style, panel colour, the strip's reach) share the language menu's old look. */
 .lang-pop {
   position: absolute; z-index: 30; min-width: 150px; padding: 5px; display: grid; gap: 2px;
   background: var(--panel-solid); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -1167,7 +1165,6 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .lang-pop b { font-size: 13px; font-weight: 600; }
 .lang-pop svg { width: 12px; height: 12px; color: var(--jade); visibility: hidden; }
 .lang-pop [aria-checked="true"] svg { visibility: visible; }
-@media (max-width: 720px) { .lang-btn { padding-inline: 6px; height: 30px; font-size: 12px; } }
 /* The seal takes its civilisation's colour (data/regions.json `seal`, else `color`); China keeps cinnabar. */
 .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 84%, #000); --seal-ink: #fffaf5; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .seal.civ { --seal-bg: color-mix(in srgb, var(--seal) 72%, #fff); --seal-ink: #15110f; } }
@@ -1335,3 +1332,44 @@ html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .rail-style svg { width: 15px; height: 15px; }
 .zoom .rail-style { margin-left: 4px; color: var(--muted); }
 @media (max-width: 720px) { .zoom .rail-style { margin-left: 2px; } }
+
+/* Settings: how Atlas looks and behaves, one scrolling panel by the era panel; a bottom sheet on phones. */
+.st-open[aria-expanded="true"] { background: var(--jade-soft); border-color: var(--jade); color: var(--jade); }
+.st-open svg { width: 15px; height: 15px; }
+.settings { position: fixed; z-index: 25; width: 340px; max-height: calc(100dvh - 32px); display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.settings[hidden] { display: none; }
+.st-head { display: flex; align-items: baseline; gap: 8px; padding: 12px 12px 10px 16px; border-bottom: 1px solid var(--rule); }
+.st-head h2 { margin: 0; font: 700 17px/1.2 var(--font-display); }
+.st-head small { flex: 1; font: 500 11px var(--font-data); color: var(--muted); }
+.st-head .zbtn { align-self: center; }
+.st-body { overflow-y: auto; overscroll-behavior: contain; padding: 0 16px 4px; }
+.st-sec { display: grid; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.st-sec:last-child { border-bottom: 0; }
+.st-sec h3 { margin: 0; font: 600 11px/1 var(--font-body); letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
+html:lang(zh-CN) .st-sec h3 { letter-spacing: 0.2em; }
+.st-row, .st-switch { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 30px; font: 500 13px/1.3 var(--font-body); color: var(--ink); }
+.st-row > span:first-child:not(.st-seg) { flex: none; }
+.st-switch { width: 100%; text-align: left; }
+.st-switch b { font-weight: 500; }
+.st-switch i { flex: none; width: 34px; height: 20px; background: rgba(120, 132, 136, 0.45); }
+.st-switch i::after { top: 3px; left: 3px; width: 14px; height: 14px; }
+.st-switch[aria-pressed="true"] i { background: var(--jade); }
+.st-switch[aria-pressed="true"] i::after { transform: translateX(14px); }
+.st-seg { display: inline-flex; flex-wrap: wrap; justify-content: flex-end; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+.st-row > .st-seg:only-child { justify-content: flex-start; }
+.st-seg button { appearance: none; border: 0; background: none; padding: 6px 10px; font: 600 12px/1 var(--font-body); color: var(--muted); cursor: pointer; }
+.st-seg button + button { border-left: 1px solid var(--rule); }
+.st-seg button:hover { color: var(--ink); }
+.st-seg button[aria-pressed="true"] { background: var(--jade); color: #fff; }
+#st-speed button { padding-inline: 7px; }
+.settings:focus { outline: none; }
+.settings .panel-op input { width: 130px; }
+.st-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--muted); }
+@media (max-width: 720px) {
+  .settings { left: 0 !important; right: 0; top: auto !important; bottom: 0; width: auto; max-height: 82dvh; border-radius: 16px 16px 0 0; padding-bottom: env(safe-area-inset-bottom); }
+  .st-head { position: relative; padding-top: 18px; }
+  .st-head::before { content: ""; position: absolute; top: 7px; left: 50%; width: 36px; height: 4px; margin-left: -18px; border-radius: 2px; background: var(--rule); }
+  body.settings-open #app::after { content: ""; position: fixed; inset: 0; z-index: 24; background: rgba(0, 0, 0, 0.32); }
+  .st-row, .st-switch { min-height: 36px; font-size: 14px; }
+  .st-seg button { padding: 8px 11px; font-size: 13px; }
+}

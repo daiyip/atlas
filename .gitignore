@@ -13,3 +13,5 @@ data/ai/
 tiles/
 data/music/
 tools/.cache/chgis*
+data/narration/
+.claude/mind-transfer/
