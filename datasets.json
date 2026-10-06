@@ -1,0 +1,189 @@
+{
+ "doi:10.7910/DVN/6CHSR7": {
+  "name": "CHGIS V6 README",
+  "license": {
+   "name": "CC0 1.0",
+   "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+   "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+   "rightsIdentifier": "CC0-1.0",
+   "rightsIdentifierScheme": "SPDX",
+   "schemeUri": "https://spdx.org/licenses/",
+   "languageCode": "en"
+  },
+  "terms": null,
+  "files": [
+   {
+    "id": 2966512,
+    "name": "CHGIS_V6_README.pdf",
+    "size": 87961,
+    "restricted": false,
+    "saved": true
+   }
+  ]
+ },
+ "doi:10.7910/DVN/FDLFJ3": {
+  "name": "CHGIS V6 EULA",
+  "license": null,
+  "terms": "As a condition of access to this data, you hereby agree to the following terms and conditions.\r\n(1) You, the end user, will obtain the official version of the data by direct download from authorized distributor(s) approved by the CHGIS Management Committee, or the contributing institutions.   The CHGIS data is not for sale or license by any third party.    The contributing institutions are:\r\nCenter for Historical Geographical Studies, Fudan University (Shanghai, China)\r\nCHGIS, Fairbank Center for Chinese Studies, Harvard University (Cambridge, USA)\r\n\r\n---  \r\n(2) authorized distributors:\r\nIf your primary residence is within the People's Republic of China, the official distribution is maintained by the\r\nCenter for Historical Geographical Studies, Fudan University, 220 Handan Lu, Shanghai, CHINA, 200433 http://yugong.fudan.edu.cn/\r\nFor all other countries, the main point of distribution for the official CHGIS data is:\r\nwww.fas.harvard.edu/~chgis\r\n\r\n---  \r\n(3) terms of use:   Access to, and use of, these data is restricted to non-commercial use for academic research and educational purposes. Commercial use requires a separate CHGIS Commercial Data License agreement, which may be obtained only from the CHGIS Management Committee. Any organization or individual that would like to develop commercial or revenue generating use of the CHGIS Datasets, must first obtain a licensing agreement from CHGIS Management Committee. Acceptance of this agreement acknowledges understanding of this liability by the end-user.\r\n\r\n---  \r\n(4) citation:   Academic use of CHGIS data is allowed, and encouraged, provided that any derived data or digital images of maps give proper citation to CHGIS as stated below:\r\nMandatory Citation: \"CHGIS Version 6.\" (c) Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University, Dec 2016.\"\r\nYou may use portions of the CHGIS data in your research and publications, but in your publications you must:\r\nfollow normal scholarly practices and conventions for attributing the source of the CHGIS Data as specified above.   Clearly describe any changes you have made to the CHGIS Data that are included in your work.  \r\n\r\n---  \r\n(5) redistribution: You may not incorporate the entirety of CHGIS Data Layers in a work of your own intended for public dissemination, whether modified or not, without the express permission of the Management Committee in a separate License Agreement. No commercial use or repackaging of this dataset is allowed, in any form. Redistribution of CHGIS datasets in electronic media format, or by downloadable distribution over the Internet is not allowed, except under written agreement with CHGIS Management Committee.\r\n\r\n---  \r\n(6) disclaimer:  While every reasonable effort has been made to insure the accuracy of the data, neither the Management Committee nor any contributing institution can guarantee its accuracy or its suitability for any specific purpose. Use of the data is entirely your responsibility.\r\n\r\n---  \r\n(7) agreement:  Your download and/or use of the CHGIS Data under any circumstances implies your acceptance of this License and all of its conditions.\r\n",
+  "files": [
+   {
+    "id": 2966398,
+    "name": "CHGIS_Version_6_EULA.pdf",
+    "size": 88889,
+    "restricted": false,
+    "saved": true
+   }
+  ]
+ },
+ "doi:10.7910/DVN/I0Q7SM": {
+  "name": "V6 Time Series Prefecture Polygons",
+  "license": null,
+  "terms": "This dataset is made available without information on how it can be used. You should communicate with the Contact(s) specified before use.",
+  "files": [
+   {
+    "id": 2966504,
+    "name": "v6_1680_pref_pgn_sample.png",
+    "size": 1093219,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2966508,
+    "name": "v6_time_pref_pgn_gbk_wgs84.zip",
+    "size": 31096134,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2966509,
+    "name": "v6_time_pref_pgn_gbk_xian80.zip",
+    "size": 30719545,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2966510,
+    "name": "v6_time_pref_pgn_utf_wgs84.zip",
+    "size": 31098173,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2966511,
+    "name": "v6_time_pref_pgn_utf_xian80.zip",
+    "size": 30721584,
+    "restricted": false,
+    "saved": true
+   }
+  ]
+ },
+ "doi:10.7910/DVN/SB8ZTM": {
+  "name": "V6 Ming Dynasty Courier Routes and Stations",
+  "license": {
+   "name": "CC0 1.0",
+   "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+   "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+   "rightsIdentifier": "CC0-1.0",
+   "rightsIdentifierScheme": "SPDX",
+   "schemeUri": "https://spdx.org/licenses/",
+   "languageCode": "en"
+  },
+  "terms": null,
+  "files": [
+   {
+    "id": 3005467,
+    "name": "Ming_Routes_2016.zip",
+    "size": 33954,
+    "restricted": false
+   },
+   {
+    "id": 3005465,
+    "name": "Ming_Stations_2016.zip",
+    "size": 109520,
+    "restricted": false
+   },
+   {
+    "id": 3005466,
+    "name": "README_MING_COURIER_2016.txt",
+    "size": 4028,
+    "restricted": false
+   }
+  ]
+ },
+ "doi:10.7910/DVN/SNCEAU": {
+  "name": "V6 Data Dictionary",
+  "license": {
+   "name": "CC0 1.0",
+   "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+   "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+   "rightsIdentifier": "CC0-1.0",
+   "rightsIdentifierScheme": "SPDX",
+   "schemeUri": "https://spdx.org/licenses/",
+   "languageCode": "en"
+  },
+  "terms": null,
+  "files": [
+   {
+    "id": 2966673,
+    "name": "CHGIS_data_dictionary.zip",
+    "size": 47149,
+    "restricted": false
+   },
+   {
+    "id": 2966672,
+    "name": "China_Periods_ReignDates.zip",
+    "size": 155774,
+    "restricted": false
+   },
+   {
+    "id": 2966674,
+    "name": "README_DATA_DICTIONARY.txt",
+    "size": 960,
+    "restricted": false,
+    "saved": true
+   }
+  ]
+ },
+ "doi:10.7910/DVN/WW1PD6": {
+  "name": "V6 Time Series Prefecture Points",
+  "license": null,
+  "terms": "CHGIS V6 End Users License Agreement As a condition of access to this data, you hereby agree to the following terms and conditions. (1) You, the end user, will obtain the official version of the data by direct download from authorized distributor(s) approved by the CHGIS Management Committee, or the contributing institutions. The CHGIS data is not for sale or license by any third party. The contributing institutions are: Center for Historical Geographical Studies, Fudan University (Shanghai, China) CHGIS, Fairbank Center for Chinese Studies, Harvard University (Cambridge, USA) --- (2) authorized distributors: If your primary residence is within the People's Republic of China, the official distribution is maintained by the Center for Historical Geographical Studies, Fudan University, 220 Handan Lu, Shanghai, CHINA, 200433 http://yugong.fudan.edu.cn/ For all other countries, the main point of distribution for the official CHGIS data is: www.fas.harvard.edu/~chgis --- (3) terms of use: Access to, and use of, these data is restricted to non-commercial use for academic research and educational purposes. Commercial use requires a separate CHGIS Commercial Data License agreement, which may be obtained only from the CHGIS Management Committee. Any organization or individual that would like to develop commercial or revenue generating use of the CHGIS Datasets, must first obtain a licensing agreement from CHGIS Management Committee. Acceptance of this agreement acknowledges understanding of this liability by the end-user. --- (4) citation: Academic use of CHGIS data is allowed, and encouraged, provided that any derived data or digital images of maps give proper citation to CHGIS as stated below: Mandatory Citation: \"CHGIS Version 6.\" (c) Fairbank Center for Chinese Studies and the Institute for Chinese Historical Geography at Fudan University, Dec 2016.\" You may use portions of the CHGIS data in your research and publications, but in your publications you must: follow normal scholarly practices and conventions for attributing the source of the CHGIS Data as specified above. Clearly describe any changes you have made to the CHGIS Data that are included in your work. --- (5) redistribution: You may not incorporate the entirety of CHGIS Data Layers in a work of your own intended for public dissemination, whether modified or not, without the express permission of the Management Committee in a separate License Agreement. No commercial use or repackaging of this dataset is allowed, in any form. Redistribution of CHGIS datasets in electronic media format, or by downloadable distribution over the Internet is not allowed, except under written agreement with CHGIS Management Committee. --- (6) disclaimer: While every reasonable effort has been made to insure the accuracy of the data, neither the Management Committee nor any contributing institution can guarantee its accuracy or its suitability for any specific purpose. Use of the data is entirely your responsibility. --- (7) agreement: Your download and/or use of the CHGIS Data under any circumstances implies your acceptance of this License and all of its conditions.",
+  "files": [
+   {
+    "id": 2970285,
+    "name": "v6_time_pref_pts_gbk_wgs84.zip",
+    "size": 282615,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2970288,
+    "name": "v6_time_pref_pts_gbk_xian80.zip",
+    "size": 282850,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2970289,
+    "name": "v6_time_pref_pts.png",
+    "size": 4937707,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2970286,
+    "name": "v6_time_pref_pts_utf_wgs84.zip",
+    "size": 288343,
+    "restricted": false,
+    "saved": true
+   },
+   {
+    "id": 2970287,
+    "name": "v6_time_pref_pts_utf_xian80.zip",
+    "size": 288578,
+    "restricted": false,
+    "saved": true
+   }
+  ]
+ }
+}
