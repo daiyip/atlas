@@ -117,6 +117,11 @@ against sources. See [docs/internals.md](docs/internals.md#data-sources-and-know
 
 ## License
 
-The code is released under the [MIT License](LICENSE). Bundled third-party data keeps its own licence: the border
-maps derived from historical-basemaps are GPL-3.0 (with Cliopatria data, CC BY 4.0), the satellite imagery is CC BY 4.0, and illustrations from
-Wikimedia Commons carry the licence shown under each image.
+The atlas engine is source-available under the [Business Source License 1.1](LICENSE). It is free for personal use,
+for schools, universities, libraries, museums, congregations and other non-profits, on private networks, and for
+building data packs and plugins; running it as a competing public atlas site is not allowed. Each version becomes
+MIT three years after it is first published.
+
+The atlas's own events, stories and tours are CC BY-SA 4.0, the examples' code is MIT, and bundled third-party data
+keeps its own licence. Your own packs and plugins are yours to license as you like. See [LICENSES.md](LICENSES.md)
+for every path, and [CONTRIBUTING.md](CONTRIBUTING.md) before sending a change.
