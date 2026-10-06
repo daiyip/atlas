@@ -23,16 +23,12 @@ def get(url, raw=False):
     return None
 
 
+# The V6 dataverse holds the time-series layers; the EULA and README say how they may be used.
 found = {}
-for q in ["CHGIS", "China Historical GIS", "CHGIS V6 time series"]:
-    start = 0
-    while True:
-        r = get(f"{DV}/api/search?" + urllib.parse.urlencode({"q": q, "type": "dataset", "per_page": 100, "start": start}))
-        items = (r or {}).get("data", {}).get("items", [])
-        for it in items:
-            found[it["global_id"]] = it.get("name", "")
-        if len(items) < 100: break
-        start += 100
+for x in (get(f"{DV}/api/dataverses/2966391/contents") or {}).get("data", []):
+    if x.get("type") == "dataset": found[f"{x['protocol']}:{x['authority']}/{x['identifier']}"] = ""
+for gid in ["doi:10.7910/DVN/WW1PD6", "doi:10.7910/DVN/I0Q7SM", "doi:10.7910/DVN/FDLFJ3", "doi:10.7910/DVN/6CHSR7", "doi:10.7910/DVN/SNCEAU"]:
+    found[gid] = ""
 print(len(found), "datasets", file=sys.stderr)
 
 meta = {}
@@ -42,10 +38,11 @@ for gid, name in sorted(found.items()):
     v = d.get("data", {}).get("latestVersion", {})
     files = [{"id": f["dataFile"]["id"], "name": f["dataFile"].get("filename"), "size": f["dataFile"].get("filesize"),
               "restricted": f.get("restricted")} for f in v.get("files", [])]
+    name = name or next((f["value"] for blk in v.get("metadataBlocks", {}).values() for f in blk.get("fields", []) if f.get("typeName") == "title"), "")
     meta[gid] = {"name": name, "license": v.get("license"), "terms": v.get("termsOfUse"), "files": files}
     json.dump(meta, open(os.path.join(OUT, "datasets.json"), "w"), ensure_ascii=False, indent=1)
     print("dataset", gid, name, [f["name"] for f in files], flush=True)
-    if not re.search(r"chgis", name, re.I) or not re.search(r"time.?series", name, re.I):
+    if not re.search(r"time.?series|eula|readme|dictionary", name, re.I):
         continue
     folder = os.path.join(OUT, "files", re.sub(r"[^A-Za-z0-9]+", "_", gid))
     for f in files:
