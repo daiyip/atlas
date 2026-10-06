@@ -90,7 +90,8 @@ const state = {
   roads: [],            // major official roads (官道), data/roads.json
   clans: [],            // local elite groups (豪族/士人集团), data/clans.json
   walls: [],            // Great Walls (长城) by period, data/walls.json
-  admin: null,          // administrative seats (郡/州/府… 治所) from CHGIS, data/admin.json, loaded when first shown
+  admin: null,          // administrative seats (郡/州/府… 治所), data/admin.json, loaded when first shown
+  adminAreas: null,     // their sketch areas, data/admin-areas.json (Map by seat index), loaded with them
   playing: null,
 };
 
@@ -627,6 +628,9 @@ function applyLook(m = map) {
   if (L.lakeColor) m.setPaintProperty("lakes", "fill-color", L.lakeColor);
   for (const id of ["rivers", "rivers-minor", "old-river"]) m.setPaintProperty(id, "line-color", L.river);
   m.setPaintProperty("bg", "background-color", L.bg);
+  // 政区 area edges: cream over dark looks, ink over light ones.
+  if (m.getLayer("admin-area-line")) m.setPaintProperty("admin-area-line", "line-color", L.dark ? "#f3e6c4"
+    : ["match", ["get", "lv"], 3, "#2f5f8a", "#5a3d2a"]);
   m.setSky(state.basemap?.sky || SKY[L.sky]);
   if (state.basemap) {
     // Earth's own water and coast stay off; without elevation there is no relief to shade.
@@ -795,6 +799,7 @@ function baseStyle() {
       clans: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       walls: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       admin: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      adminAreas: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
     },
     sky: SKY.relief,
     layers: [
@@ -877,6 +882,13 @@ function baseStyle() {
       { id: "road-hit", type: "line", source: "roads", paint: { "line-color": "#000", "line-opacity": 0, "line-width": 14 } },
       // Administrative seats (郡/州/府… 治所): small rings, frontier and military offices in slate; names come as
       // markers from zoom 5 on (renderAdminLabels).
+      // Their rough areas (nearest seat, clipped to the period map): faint dashed edges, the open seat's area tinted.
+      { id: "admin-area-on", type: "fill", source: "adminAreas", filter: ["==", ["get", "i"], -1],
+        paint: { "fill-color": "#d9b45a", "fill-opacity": 0.3 } },
+      { id: "admin-area-line", type: "line", source: "adminAreas", layout: { "line-join": "round" },
+        paint: { "line-color": ["match", ["get", "lv"], 3, "#2f5f8a", "#5a3d2a"],
+                 "line-opacity": ["interpolate", ["linear"], ["zoom"], 3.5, 0, 4.5, 0.55, 7, 0.8],
+                 "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.8, 8, 1.6], "line-dasharray": [3, 2] } },
       { id: "admin-dot", type: "circle", source: "admin", paint: {
           "circle-radius": ["interpolate", ["linear"], ["zoom"], 3, 1.8, 6, 3.5, 9, 5],
           "circle-color": "#f6efe0", "circle-opacity": 0.95,
@@ -2070,10 +2082,10 @@ function renderCapitals() {
 
 // Faith sites and inventions: those of the current era up to this year (in the decades view, of the window).
 function cumulative(key, items, cls, glyph, kindLabel) {
-  const start = state.zoom === 2 ? state.win[0] : state.era.start;
+  const start = state.zoom === 2 ? state.win[0] : state.era?.start ?? state.year;
   const shown = items.filter((x) => x.year <= state.year && x.year >= start && selKeep([[x.lon, x.lat]]));
   pointMarkers(key, shown, (x) => {
-    const recent = x.year >= state.era.start;
+    const recent = x.year >= (state.era?.start ?? state.year);
     const el = document.createElement("div");
     el.className = `${cls} k-${x.kind || x.field}` + (recent ? "" : " old");
     el.innerHTML = `<i>${glyph(x)}</i>` + (recent ? `<span>${esc(nameOf(x))}</span>` : "");
@@ -2167,7 +2179,16 @@ function wallCard(w) {
 // tools/build_admin.py), shown through that dynasty's years as far as each unit's own years allow. Dots for all of
 // them; names from zoom 5 on, for the seats in view. A card can look the seat up live in CHGIS's Temporal Gazetteer.
 const ADMIN_LABEL_ZOOM = 5;
-let adminLoad;
+let adminLoad, areasLoad;
+// data/admin-areas.json (tools/build_admin_areas.py): one sketch polygon per seat, keyed by its index in admin.json.
+function adminAreas() {
+  if (state.adminAreas) return state.adminAreas;
+  areasLoad ||= loadJSON("data/admin-areas.json").then((d) => {
+    state.adminAreas = new Map(d.features.map((f) => [f.properties.i, f]));
+    renderAdmin();
+  }).catch(() => { state.adminAreas = new Map(); });
+  return null;
+}
 function adminData() {
   if (state.admin) return state.admin;
   adminLoad ||= loadJSON("data/admin.json").then((d) => {
@@ -2196,6 +2217,10 @@ function renderAdmin() {
   state.adminShown = list;
   map.getSource("admin")?.setData({ type: "FeatureCollection", features: list.map((x) => ({
     type: "Feature", properties: { i: x.i, lv: x.lv }, geometry: { type: "Point", coordinates: [x.lon, x.lat] } })) });
+  const areas = list.length ? adminAreas() : null;
+  map.getSource("adminAreas")?.setData({ type: "FeatureCollection", features: areas ? list.map((x) => areas.get(x.i))
+    .filter(Boolean).map((f) => ({ ...f, properties: { i: f.properties.i, lv: state.admin.items[f.properties.i].lv } })) : [] });
+  if (map.getLayer("admin-area-on") && !list.some((x) => x.i === state.adminOn)) adminHighlight(null);
   renderAdminLabels();
 }
 function renderAdminLabels() {
@@ -2229,8 +2254,14 @@ function adminCard(x) {
     <p class="pc-meta">${t("adminSnap")(fmtYear(x.snap))}${x.conf === 0 ? ` · ${t("adminUnsure")}` : ""}</p>`;
 }
 // The card's history list opens scrolled to the record shown.
+function adminHighlight(i) {
+  state.adminOn = i;
+  map.setFilter("admin-area-on", ["==", ["get", "i"], i ?? -1]);
+}
 function openAdmin(x) {
   showCard([x.lon, x.lat], adminCard(x));
+  adminHighlight(x.i);
+  popup.on("close", () => { if (state.adminOn === x.i) adminHighlight(null); });
   requestAnimationFrame(() => {
     const li = document.querySelector(".pc-admin li.on"), ul = li?.parentElement;
     if (ul) ul.scrollTop = li.offsetTop - ul.offsetTop - ul.clientHeight / 2;
