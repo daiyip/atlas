@@ -190,6 +190,7 @@ function applyLang() {
   if (state.pack?.only) document.querySelector('[data-i18n="note"]').textContent = tx(state.pack.manifest, "note") || t("notePack");
   document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); el.setAttribute("aria-label", el.title); });
   setMinButton($("era-min"), !!state.eraMin);
+  renderLayoutChips();
   setRailButton(!!state.railMin);
   setRailStyleButton();
   setMinButton($("ledger-min"), $("ledger").classList.contains("collapsed"));
@@ -4896,6 +4897,7 @@ function setLayout(id, remember = true) {
   state.layout = layoutOk(id) ? id : "classic";
   if (remember) try { localStorage.setItem("atlas-layout", state.layout); } catch {}
   applyLayout();
+  renderLayoutChips();
 }
 function setAutoLayout(on, remember = true) {
   state.autoLayout = on;
@@ -4926,6 +4928,37 @@ function renderEdgeTabs() {
   l.innerHTML = `<span class="sl">${esc((state.era.glyph || "").slice(0, 1))}</span>${esc(zh() ? state.era.name_zh || state.era.glyph : bandName(state.era))}<small>${esc(fmtYear(state.year))}</small>`;
   r.innerHTML = `${esc(t(state.tab === "people" ? "people_l" : state.tab))}`;
 }
+const layoutIcon = (id) => `<svg viewBox="-2 -2 60 44" aria-hidden="true"><rect x="-1" y="-1" width="58" height="42" rx="5" fill="none" stroke="currentColor" stroke-width="3"/><g fill="currentColor">${LAYOUTS.find((l) => l.id === id).svg}</g></svg>`;
+function renderLayoutChips() {
+  const b = $("layout-open");
+  if (!b) return;
+  const id = layoutOk(state.layout) ? state.layout : "classic", L = LAYOUTS.find((l) => l.id === id), name = (l) => zh() ? l.name_zh : l.name;
+  b.innerHTML = layoutIcon(id);
+  b.title = `${t("stLayout")}: ${name(L)}`;
+  b.setAttribute("aria-label", b.title);
+  $("cine-layout").innerHTML = layoutIcon("cinema");
+  $("cine-layout").title = t("stLayout");
+  $("cine-layout").setAttribute("aria-label", t("stLayout"));
+  $("cine-settings").title = t("settings");
+  $("cine-settings").setAttribute("aria-label", t("settings"));
+}
+function toggleLayoutPop(open, anchor) {
+  const pop = $("layout-pop");
+  if (!pop) return;
+  open ??= pop.hidden;
+  pop.hidden = !open;
+  for (const id of ["layout-open", "cine-layout"]) $(id).setAttribute("aria-expanded", String(open && state.layoutAnchor?.id === id));
+  if (!open) return;
+  state.layoutAnchor = anchor = anchor || state.layoutAnchor || $("layout-open");
+  anchor.setAttribute("aria-expanded", "true");
+  pop.innerHTML = LAYOUTS.map((l) => `<button type="button" role="menuitemradio" aria-checked="${l.id === state.layout}" data-lay="${l.id}"><span><i class="lp-pic"><svg viewBox="0 0 56 40" aria-hidden="true">${l.svg}</svg></i><b>${esc(zh() ? l.name_zh : l.name)}</b></span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.5l2.3 2.2L9.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>`).join("") +
+    `<button type="button" class="lp-auto switch" aria-pressed="${state.autoLayout}"><i aria-hidden="true"></i><span>${esc(t("stAutoLayout"))}</span></button>`;
+  const r = anchor.getBoundingClientRect(), h = pop.offsetHeight;
+  pop.style.position = "fixed";
+  pop.style.top = `${r.bottom + 6 + h > innerHeight - 8 ? Math.max(8, r.top - 6 - h) : r.bottom + 6}px`;
+  pop.style.left = `${Math.max(8, Math.min(r.left, innerWidth - pop.offsetWidth - 8))}px`;
+  pop.querySelector('[aria-checked="true"]')?.focus();
+}
 function initLayouts() {
   const edge = (side) => {
     const b = document.createElement("button");
@@ -4945,6 +4978,36 @@ function initLayouts() {
     b.addEventListener("click", (e) => { e.stopPropagation(); setPins({ [k]: !state.pins[k] }); });
     where.append(b);
   };
+  // Quick layout switch: a chip after the gear showing the current layout, and in 导览 (no panels) two small icons
+  // in the map's top-left corner for the layout menu and settings.
+  const lb = document.createElement("button");
+  lb.type = "button";
+  lb.className = "chip search-open layout-open";
+  lb.id = "layout-open";
+  lb.setAttribute("aria-haspopup", "true");
+  lb.setAttribute("aria-expanded", "false");
+  lb.addEventListener("click", (e) => { e.stopPropagation(); toggleLayoutPop(undefined, lb); });
+  $("settings-open").after(lb);
+  const cine = document.createElement("div");
+  cine.className = "cine-tools";
+  cine.innerHTML = `<button type="button" id="cine-layout" aria-haspopup="true"></button><button type="button" id="cine-settings" aria-haspopup="dialog">${$("settings-open").innerHTML}</button>`;
+  $("app").append(cine);
+  $("cine-layout").addEventListener("click", (e) => { e.stopPropagation(); toggleLayoutPop(undefined, e.currentTarget); });
+  $("cine-settings").addEventListener("click", (e) => { e.stopPropagation(); toggleLayoutPop(false); toggleSettings(); });
+  const pop = document.createElement("div");
+  pop.className = "lang-pop layout-pop";
+  pop.id = "layout-pop";
+  pop.setAttribute("role", "menu");
+  pop.hidden = true;
+  document.body.append(pop);
+  pop.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const b = e.target.closest("[data-lay]");
+    if (b) { setLayout(b.dataset.lay); return toggleLayoutPop(false); }
+    if (e.target.closest(".lp-auto")) { setAutoLayout(!state.autoLayout); toggleLayoutPop(true, state.layoutAnchor); }
+  });
+  document.addEventListener("click", (e) => { if (!pop.hidden && !e.target.closest("#layout-pop")) toggleLayoutPop(false); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !pop.hidden) { toggleLayoutPop(false); state.layoutAnchor?.focus(); } });
   pin("pin-l", document.querySelector(".era-corner"), "l");
   pin("pin-r", document.querySelector(".ledger-head"), "r");
   // A panel slid out from its tab folds away again when the map is touched.
@@ -4980,6 +5043,7 @@ function initLayouts() {
   $("st-pins").addEventListener("click", () => { const on = !(state.pins.l && state.pins.r); setPins({ l: on, r: on }); });
   setPins(state.pins, false);
   setAutoLayout(state.autoLayout, false);
+  renderLayoutChips();
 }
 function renderExNav() {
   const open = !$("ledger").classList.contains("collapsed");
@@ -5191,7 +5255,9 @@ function toggleSettings(open) {
   toggleRegionPop(false);
   renderSettings();
   renderPanelChip();
-  const r = document.querySelector(".era").getBoundingClientRect();
+  // Beside the era panel; in 导览, where it is hidden, under the small settings icon on the map.
+  let r = document.querySelector(".era").getBoundingClientRect();
+  if (!r.width) { const c = $("cine-settings").parentNode.getBoundingClientRect(); r = { left: c.left, right: c.left - 12, top: c.bottom + 8 }; }
   const room = innerWidth - r.right - 12 >= box.offsetWidth + 16;
   box.style.left = `${room ? r.right + 12 : r.left}px`;
   box.style.top = `${r.top}px`;
@@ -5237,7 +5303,7 @@ function initSettings() {
   // A click outside closes it, except in the colour and style menus it opens.
   document.addEventListener("click", (e) => {
     // (A segment button pressed here is redrawn before the click reaches the document, so it is no longer in the page.)
-    if (!$("settings").hidden && e.target.isConnected && !e.target.closest("#settings, #look-pop, #panel-pop, #settings-open")) toggleSettings(false);
+    if (!$("settings").hidden && e.target.isConnected && !e.target.closest("#settings, #look-pop, #panel-pop, #settings-open, #cine-settings")) toggleSettings(false);
   });
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape" || $("settings").hidden || !$("look-pop").hidden || !$("panel-pop").hidden) return;
