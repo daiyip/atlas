@@ -679,6 +679,19 @@ html:lang(en) .mk-geo.g-river, html:lang(en) .mk-geo.g-lake { text-transform: no
   font: 700 11px/1.15 var(--font-display); color: #2b2018; white-space: nowrap;
   text-shadow: 0 0 3px #f4f2ea, 0 0 3px #f4f2ea, 0 0 6px #f4f2ea;
 }
+/* Administrative seats (郡县 治所): names only; the rings are drawn by the map (admin-dot) */
+.mk-admin {
+  font: 600 10.5px/1.1 var(--font-display); color: #4a3424; white-space: nowrap; cursor: pointer;
+  text-shadow: 0 0 3px #f4f2ea, 0 0 3px #f4f2ea, 0 0 5px #f4f2ea;
+}
+.mk-admin.lv-3 { color: #2f4f6e; }
+.mk-admin.dc-nolabel { visibility: hidden; }
+.sat .mk-admin { color: #fbf3e2; text-shadow: 0 0 3px rgba(10, 20, 15, .95), 0 0 6px rgba(10, 20, 15, .6); }
+.sat .mk-admin.lv-3 { color: #d7e8f7; }
+.atlas-pop .pc-admin { max-height: 168px; overflow-y: auto; }
+.atlas-pop .pc-admin li { cursor: pointer; }
+.atlas-pop .pc-admin li.on { font-weight: 700; }
+.atlas-pop .pc-admin small { color: var(--muted); font-size: 11px; }
 .atlas-pop .pc-battles { margin: 2px 0 0; padding: 0; list-style: none; font-size: 13px; }
 .atlas-pop .pc-battles span { font: 500 11px var(--font-mono, monospace); color: var(--cinnabar); margin-right: 4px; }
 

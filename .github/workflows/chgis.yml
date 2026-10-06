@@ -1,11 +1,8 @@
-# Fetches CHGIS V6 time-series data from Harvard Dataverse (tools/chgis_fetch.py) and puts it on the `chgis` branch.
+# Fetches CHGIS V6 time-series data from Harvard Dataverse (tools/chgis_fetch.py) and puts it on the `chgis` branch (private: the CHGIS EULA forbids redistributing the layers).
 # Run by hand (Actions → CHGIS → Run workflow); tools/build_admin.py builds data/admin.json from it.
 name: CHGIS
 on:
   workflow_dispatch:
-  push:
-    branches: [claude/project-thread-am5p5c]
-    paths: [.github/workflows/chgis.yml, tools/chgis_fetch.py]
 permissions:
   contents: write
 jobs:
@@ -18,7 +15,7 @@ jobs:
       - name: Commit results
         run: |
           cd /tmp/out
-          git init -q -b chgis3
+          git init -q -b chgis
           git config user.name github-actions && git config user.email github-actions@users.noreply.github.com
           git add -A && git commit -q -m "CHGIS from ${GITHUB_SHA}"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" chgis3
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" chgis

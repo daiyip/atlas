@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ID = re.compile(r"^[a-z0-9-]+$")
 CATS = {"war", "politics", "reform", "rebellion", "diplomacy", "economy", "culture", "science", "society"}
-AUTO_LAYERS = {"rulers", "people", "armies", "routes", "exchange", "spread", "passes", "roads", "walls", "clans",
+AUTO_LAYERS = {"rulers", "people", "armies", "routes", "exchange", "spread", "passes", "roads", "walls", "clans", "admin",
                "capitals", "faith", "inventions"}
 LAYER_TYPES = {"fill", "line", "circle"}
 
