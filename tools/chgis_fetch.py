@@ -14,9 +14,9 @@ os.makedirs(OUT, exist_ok=True)
 
 
 def get(url, raw=False):
-    for i in range(5):
+    for i in range(3):
         try:
-            r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=300)
+            r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=120)
             return r.read() if raw else json.load(r)
         except Exception as e:
             print("retry", url, e, file=sys.stderr); time.sleep(5 * (i + 1))
@@ -43,11 +43,14 @@ for gid, name in sorted(found.items()):
     files = [{"id": f["dataFile"]["id"], "name": f["dataFile"].get("filename"), "size": f["dataFile"].get("filesize"),
               "restricted": f.get("restricted")} for f in v.get("files", [])]
     meta[gid] = {"name": name, "license": v.get("license"), "terms": v.get("termsOfUse"), "files": files}
-    if not re.search(r"chgis", name, re.I) or not re.search(r"time.?series|v6|version 6", name, re.I):
+    json.dump(meta, open(os.path.join(OUT, "datasets.json"), "w"), ensure_ascii=False, indent=1)
+    print("dataset", gid, name, [f["name"] for f in files], flush=True)
+    if not re.search(r"chgis", name, re.I) or not re.search(r"time.?series", name, re.I):
         continue
     folder = os.path.join(OUT, "files", re.sub(r"[^A-Za-z0-9]+", "_", gid))
     for f in files:
         if f["restricted"] or (f["size"] or 0) > MAX: continue
+        if not re.search(r"pts|point|pgn|polygon|\.csv|\.txt|\.xls|readme|\.pdf", f["name"] or "", re.I): continue
         b = get(f"{DV}/api/access/datafile/{f['id']}?format=original", raw=True) or get(f"{DV}/api/access/datafile/{f['id']}", raw=True)
         if b is None: f["error"] = "download failed"; continue
         os.makedirs(folder, exist_ok=True)
