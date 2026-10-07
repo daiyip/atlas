@@ -67,6 +67,7 @@ const state = {
   reading: false,       // story view open in the ledger
   tab: "events",        // ledger tab: "events" or "rulers"
   speed: 1,             // playback speed (SPEEDS)
+  playMode: "events",   // what the play button does (PLAY_MODES)
   eraMin: false,        // era panel minimised
   railMin: false,       // timeline folded down to its play button
   narration: true,      // tour narration (on, male voice, until switched off; remembered)
@@ -110,7 +111,7 @@ const $ = (id) => document.getElementById(id);
 
 const UI = {
   zh: {
-    title: "Atlas · 地图上的故事", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", railHide: "收起时间轴", railShow: "展开时间轴", speed: "播放速度", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川", aiPics: "插图", music: "背景音乐", slimOn: "换成精简时间轴（只显示年份）", slimOff: "换成完整时间轴（显示朝代）",
+    title: "Atlas · 地图上的故事", events: "事件", hide: "收起", show: "展开", install: { title: "安装到主屏幕", why: "像 App 一样全屏打开，看过的地图离线也能用。", step1: (ipad, icon, other) => other ? `点地址栏里的分享按钮 ${icon}` : `点 Safari ${ipad ? "地址栏右侧" : "底部"}的分享按钮 ${icon}`, step2: "在菜单里选「添加到主屏幕」", go: "安装", ok: "知道了", never: "不再显示" }, minimise: "收起面板", restore: "展开面板", railHide: "收起时间轴", railShow: "展开时间轴", speed: "播放速度", playMode: "播放方式", playModes: { years: "只走年份", events: "事件停留", tours: "依次导览" }, playRead: "读这件事", playOn: "继续", fullscreen: "全屏", t3d: "3D 地形", sat: "卫星影像", neighbours: "周边政权", cities: "城市", geo: "山川", aiPics: "插图", music: "背景音乐", slimOn: "换成精简时间轴（只显示年份）", slimOff: "换成完整时间轴（显示朝代）",
     other: "English", map: "地图：", count: (n, era) => `${era} · ${n} 件`, countWin: (n) => `本时段 · ${n} 件`,
     fc: { ok: "已与维基百科/维基数据核对年份", fixed: "已更正", doubt: "存疑", none: "AI 撰写，尚未核对" },
     sm: { ok: "简介已与维基百科对照（AI 审读）", fixed: "简介已更正", doubt: "简介存疑" },
@@ -139,7 +140,7 @@ const UI = {
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
   en: {
-    title: "Atlas: Map with Stories", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", railHide: "Fold the timeline away", railShow: "Show the timeline", speed: "Playback speed", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape", aiPics: "Pictures", music: "Music", slimOn: "Switch to the slim timeline (years only)", slimOff: "Switch to the full timeline (with periods)",
+    title: "Atlas: Map with Stories", events: "Events", hide: "Hide", show: "Show", install: { title: "Add to Home Screen", why: "Opens full screen like an app, and maps you have seen work offline.", step1: (ipad, icon, other) => other ? `Tap the Share button ${icon} in the address bar` : `Tap Safari's Share button ${icon} ${ipad ? "next to the address bar" : "at the bottom"}`, step2: "Choose “Add to Home Screen”", go: "Install", ok: "Got it", never: "Don't show again" }, minimise: "Minimise panel", restore: "Restore panel", railHide: "Fold the timeline away", railShow: "Show the timeline", speed: "Playback speed", playMode: "Play", playModes: { years: "Years only", events: "Stop at events", tours: "Tours in turn" }, playRead: "Read it", playOn: "Go on", fullscreen: "Full screen", t3d: "3D terrain", sat: "Satellite", neighbours: "Neighbours", cities: "Cities", geo: "Landscape", aiPics: "Pictures", music: "Music", slimOn: "Switch to the slim timeline (years only)", slimOff: "Switch to the full timeline (with periods)",
     other: "中文", map: "Map: ", count: (n, era) => `${n} in ${era}`, countWin: (n) => `${n} in view`,
     fc: { ok: "Years checked against Wikipedia/Wikidata", fixed: "Corrected", doubt: "Doubtful", none: "AI-drafted, not yet checked" },
     sm: { ok: "Summary compared with Wikipedia (AI review)", fixed: "Summary corrected", doubt: "Summary doubtful" },
@@ -5033,7 +5034,7 @@ function countryTour() {
   return state.genTour = { id: "country:" + c.id, region: c.region || selRegion(), path: false, morph: true, start: from, end: steps.at(-1).year,
     title: `The story of ${name}`, title_zh: `${name_zh}的故事`, summary: "", summary_zh: "", steps };
 }
-async function startTour(id, i = 0, auto = false) {
+async function startTour(id, i = 0, auto = false, chain = null) {
   const tr = id === state.genTour?.id ? state.genTour : (await loadTours()).find((x) => x.id === id);
   if (!tr) return;
   stop(); closeSearch();
@@ -5043,7 +5044,8 @@ async function startTour(id, i = 0, auto = false) {
   const c = map.getCenter();
   const before = state.tour?.before || { year: state.year, mode: state.mode, win: state.win, scope: state.scope,
     cam: { center: [c.lng, c.lat], zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() } };
-  state.tour = { id, tr, i: 0, auto, before };
+  // `chain`: the tours 依次导览 plays after this one (their ids).
+  state.tour = { id, tr, i: 0, auto, before, chain };
   applyLayout();
   syncMusic();
   setMode(tourRegion(tr));
@@ -5300,6 +5302,7 @@ function tourNext() {
   const tour = state.tour;
   if (!tour) return;
   if (tour.i < tour.tr.steps.length - 1) tourStep(tour.i + 1);
+  else if (tour.chain?.length) startTour(tour.chain[0], 0, tour.auto, tour.chain.slice(1));
   else endTour();
 }
 function tourPause() {
@@ -6004,8 +6007,13 @@ function setMusic(on, remember = true) {
   if (remember) try { localStorage.setItem("atlas-music", on ? "1" : "0"); } catch {}
   syncMusic();
 }
+// 播放方式: the play button walks the years (years), walks them but stops at each event the filter shows with a short
+// card (events), or plays the region's guided tours one after another from the year on screen (tours).
+const PLAY_MODES = ["years", "events", "tours"];
+const playHold = { timer: 0, queue: [] };
 function play() {
   if (state.playing) return stop();
+  if (state.playMode === "tours") return playTours();
   if (state.year >= state.range.end) setYear(state.range.start);
   state.selected = null;
   state.reading = false;
@@ -6015,6 +6023,7 @@ function play() {
   setTimeout(syncMusic, 0); // once state.playing is set
   setTimeout(() => state.layout && applyLayout(), 0);
   state.playing = setInterval(() => {
+    if (playHold.queue.length) return; // an event card is up
     if (state.year >= state.range.end) return stop();
     const era = state.era;
     const len = state.zoom === 2 ? state.win[1] - state.win[0] + 1 : era.end - era.start + 1;
@@ -6022,14 +6031,63 @@ function play() {
     const step = Math.max(1, Math.round((len / 50) * Math.max(1, (tick * state.speed) / base)));
     let next = Math.min(state.year + step, state.range.end);
     if (next > era.end && era.end >= state.year) next = era.end + 1; // land on the next era's first year
-    const hit = state.events.filter((e) => shownEvent(e) && e.year > state.year && e.year <= next).pop();
+    const hits = state.events.filter((e) => shownEvent(e) && e.year > state.year && e.year <= next);
+    if (state.playMode === "events" && hits.length) {
+      // Stop on the first year with events and show them one by one; the walk goes on from there.
+      const y = Math.min(...hits.map((e) => e.year));
+      playHold.queue = hits.filter((e) => e.year === y).sort((a, b) => (a.level || 1) - (b.level || 1));
+      return setYear(y).then(() => state.playing && playCard());
+    }
+    const hit = hits.pop();
     if (hit) state.selected = hit.id;
     setYear(next).then(() => { if (hit) renderLedger(); });
   }, tick);
 }
+// The card for the event playback stopped at: it stays for a reading pause (shorter at faster speeds), then the next
+// event of the same year, or the walk goes on. 读这件事 opens the story (and ends playback); 继续 moves on at once.
+function playCard() {
+  clearTimeout(playHold.timer);
+  const box = $("play-card"), ev = playHold.queue[0];
+  if (!ev || !state.playing) { box.hidden = true; playHold.queue = []; return; }
+  state.selected = ev.id;
+  renderLedger();
+  const text = tx(ev, "summary") || "";
+  const ms = Math.min(15000, Math.max(1500, (2200 + text.length * (zh() ? 70 : 28)) / Math.sqrt(state.speed)));
+  box.querySelector(".tour-title").textContent = tx(ev, "title");
+  box.querySelector(".tour-count").textContent = playHold.queue.length > 1 ? `+${playHold.queue.length - 1}` : "";
+  box.querySelector(".tour-year").textContent = fmtYear(ev.year);
+  box.querySelector(".tour-text").textContent = text;
+  box.querySelector(".pc-read").textContent = t("playRead");
+  box.querySelector(".pc-on").textContent = t("playOn");
+  const bar = box.querySelector(".tour-bar i");
+  bar.style.transition = "none"; bar.style.width = "0";
+  box.hidden = false;
+  requestAnimationFrame(() => requestAnimationFrame(() => { bar.style.transition = `width ${ms}ms linear`; bar.style.width = "100%"; }));
+  playHold.timer = setTimeout(playNext, ms);
+}
+function playNext() {
+  playHold.queue.shift();
+  if (playHold.queue.length) return playCard();
+  clearTimeout(playHold.timer);
+  $("play-card").hidden = true;
+}
+// The region's tours that start from the year on screen on, in order; each runs on autoplay and hands over to the next.
+async function playTours() {
+  const reg = state.mode === "world" ? state.home : state.era.region || state.mode;
+  const all = (await loadTours()).filter((tr) => !tr.person && tourRegion(tr) === reg).sort((a, b) => a.start - b.start || a.end - b.end);
+  let chain = all.filter((tr) => tr.start >= state.year);
+  if (!chain.length) chain = all;
+  if (!chain.length) { state.playMode = "events"; play(); state.playMode = "tours"; return; }
+  startTour(chain[0].id, 0, true, chain.slice(1).map((tr) => tr.id));
+}
 // Playback speed: the badge on the play button opens a menu of these.
 const SPEEDS = [0.125, 0.25, 0.5, 1, 2, 4, 8];
 const speedText = (v) => ({ 0.125: "⅛", 0.25: "¼", 0.5: "½" }[v] || String(v)) + "×";
+function setPlayMode(v, remember) {
+  state.playMode = PLAY_MODES.includes(v) ? v : "events";
+  if (remember) try { localStorage.setItem("atlas-playmode", state.playMode); } catch {}
+  if (state.playing) { stop(); play(); }
+}
 function setSpeed(v, remember) {
   state.speed = SPEEDS.includes(v) ? v : 1;
   $("speed").textContent = speedText(state.speed);
@@ -6476,6 +6534,7 @@ function renderSettings() {
   $("st-dials").hidden = !state.dial;
   $("st-dials").innerHTML = DIAL_SKINS.map((d) => `<button type="button" data-v="${d.id}" aria-pressed="${d.id === state.dialSkin}">${dialPreview(d)}${esc(zh() ? d.name_zh : d.name)}</button>`).join("");
   $("st-speed").innerHTML = seg(SPEEDS.map((v) => [v, speedText(v)]), state.speed);
+  $("st-play").innerHTML = seg(PLAY_MODES.map((k) => [k, t("playModes")[k]]), state.playMode);
   $("st-narr").innerHTML = seg([["off", t("stOff")], ...Object.entries(t("voices"))], state.narration ? state.voice : "off");
   $("st-lang").innerHTML = seg(LANGS.map((l) => [l.id, l.name]), state.lang);
   $("st-wstrip").setAttribute("aria-pressed", String(!stripOff()));
@@ -6516,6 +6575,7 @@ function resetSettings() {
   setLayButtons({ btn: "icon", pos: "group" }, false);
   try { localStorage.removeItem("atlas-laybtn"); localStorage.removeItem("atlas-laypos"); } catch {}
   setSpeed(1, true);
+  setPlayMode("events", true);
   setMusic(true);
   state.voice = "Charon";
   setNarration(true);
@@ -6534,6 +6594,7 @@ function initSettings() {
   on("st-rail", (v) => { setDial(v === "dial", true); if (v !== "dial") setRailSlim(v === "slim", true); });
   on("st-dials", (v) => { setDialSkin(v); setDialOpen(true); scheduleDialClose(); });
   on("st-speed", (v) => setSpeed(+v, true));
+  on("st-play", (v) => setPlayMode(v, true));
   on("st-narr", (v) => { if (v === "off") return setNarration(false); state.voice = v; setNarration(true); });
   on("st-lang", (v) => { if (v !== state.lang) setLang(v); });
   $("st-wstrip").addEventListener("click", () => {
@@ -6607,6 +6668,9 @@ function sizeRailVars() {
 function stop() {
   clearInterval(state.playing);
   state.playing = null;
+  clearTimeout(playHold.timer);
+  playHold.queue = [];
+  $("play-card").hidden = true;
   if (state.layout) applyLayout();
   syncMusic();
   $("play-icon").innerHTML = '<path d="M4 2l10 6-10 6z"/>';
@@ -7198,6 +7262,9 @@ async function init() {
   let speed = 1;
   try { speed = +localStorage.getItem("atlas-speed") || 1; } catch {}
   setSpeed(speed);
+  try { setPlayMode(localStorage.getItem("atlas-playmode") || "events"); } catch {}
+  $("play-card").querySelector(".pc-on").addEventListener("click", playNext);
+  $("play-card").querySelector(".pc-read").addEventListener("click", () => { const ev = playHold.queue[0]; if (ev) openStory(ev.id); });
   try { if (localStorage.getItem("atlas-era-min") === "1") setEraMin(true); } catch {}
   $("ledger-toggle").addEventListener("click", () => $("app").classList.contains("tour-reading") ? $("app").classList.remove("tour-reading") : collapseLedger(!$("ledger").classList.contains("collapsed")));
   const phone = matchMedia("(max-width: 720px)");

@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=229">
+<link rel="stylesheet" href="style.css?v=230">
 <script>
 // Before the first paint: the saved look of the page (panel style and colour, layout, map style, language), so it
 // never opens in the default one and then jumps. app.js applies the same settings again once it runs.
@@ -134,6 +134,7 @@
         <div class="st-row"><span data-i18n="stRailStyle">Style</span><span class="st-seg" id="st-rail" role="group"></span></div>
         <div class="st-dials" id="st-dials" role="group" data-i18n-title="stDialLook" hidden></div>
         <div class="st-row"><span data-i18n="speed">Playback speed</span><span class="st-seg" id="st-speed" role="group"></span></div>
+        <div class="st-row"><span data-i18n="playMode">Play</span><span class="st-seg" id="st-play" role="group"></span></div>
       </div>
       <div class="st-sec"><h3 data-i18n="stContent">Content</h3>
         <button type="button" class="switch st-switch" id="st-wstrip" aria-pressed="false"><span><b data-i18n="elsewhere"></b></span><i aria-hidden="true"></i></button>
@@ -169,6 +170,12 @@
       <button type="button" class="chip tour-immersive" aria-pressed="false" data-i18n-title="tourImmersiveHint"><svg class="tc-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15"/><circle cx="12" cy="12" r="2.6"/></svg><span class="tl" data-i18n="tourImmersive">Immersive</span></button>
       <button type="button" class="chip tour-next"></button>
     </div>
+  </section>
+  <section class="tour play-card panel" id="play-card" aria-live="polite" hidden>
+    <div class="tour-bar"><i></i></div>
+    <div class="tour-head"><span class="tour-title"></span><span class="tour-count"></span></div>
+    <p><b class="tour-year"></b><span class="tour-text"></span></p>
+    <div class="tour-ctl"><button type="button" class="chip pc-read"></button><button type="button" class="chip tour-next pc-on"></button></div>
   </section>
   <section class="tour trail panel" id="trail" aria-live="polite" hidden></section>
   <div class="tour-pic" id="tour-pic" hidden></div>
@@ -247,6 +254,6 @@
 })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=229"></script>
+<script src="app.js?v=230"></script>
 </body>
 </html>
