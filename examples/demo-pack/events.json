@@ -493,7 +493,19 @@
    "cyprus_316",
    "seleucia_1045"
   ],
-  "states": []
+  "states": [],
+  "area": "demo:area:cyprus",
+  "year_range": [
+   45,
+   47
+  ],
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Sergius_Paulus",
+    "title": "Sergius Paulus",
+    "title_zh": "士求保罗"
+   }
+  ]
  },
  {
   "id": "mission-to-antioch-in-pisidia",

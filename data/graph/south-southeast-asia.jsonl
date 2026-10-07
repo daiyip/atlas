@@ -1,0 +1,40 @@
+{"note":"South and Southeast Asia (南亚与东南亚): hand-written places, one node or edge per line. See docs/places.md."}
+{"id":"polity:east-timor","kind":"polity","name":"East Timor / Timor-Leste","name_zh":"东帝汶","from":1975,"to":null}
+{"id":"area:jiaozhi","kind":"area","name":"Northern Vietnam (Jiaozhi)","name_zh":"越南北部（交趾）","geo":{"poly":[[102.2,22.4],[103.5,22.6],[104.8,23.0],[105.9,23.0],[106.8,22.8],[107.9,21.5],[106.7,20.7],[106.0,19.9],[105.8,18.7],[105.0,19.2],[104.0,20.0],[103.2,20.8],[102.5,21.5]]},"intro":"The Red River delta; ruled as commanderies by dynasties from China for about a thousand years from the Qin and Han to the Tang, independent after Ngô Quyền founded his kingdom in 939.","intro_zh":"红河三角洲一带，秦汉至唐由中原王朝设郡县管辖约千年，939年吴权建国后独立。","notes":[]}
+{"child":"area:jiaozhi","parent":"region:southeast-asia","rel":"in"}
+{"id":"area:kashmir","kind":"area","name":"Kashmir","name_zh":"克什米尔","geo":{"poly":[[73.0,33.0],[73.5,32.5],[75.3,32.3],[76.4,32.8],[78.4,32.5],[79.5,32.5],[80.3,35.4],[78.0,35.8],[77.0,35.9],[75.8,36.8],[74.5,37.0],[73.0,36.8],[72.5,35.0]]},"intro":"Valleys and plateaus at the western end of the Himalaya, ruled by Hindu, Buddhist and Muslim dynasties, and a princely state under British India from 1846.","intro_zh":"喜马拉雅西端的山谷与高原，印度教、佛教、伊斯兰教王朝先后统治，1846年起为英属印度下的土邦。","notes":[{"from":1947,"to":2026,"zh":"1947年起被印度、巴基斯坦分别控制，双方都主张全境；阿克赛钦由中国控制，印度主张。地图按实际控制绘制。","en":"Since 1947 divided between India and Pakistan, each claiming the whole; Aksai Chin is held by China and claimed by India. The map shows who controls what.","disputed":true}]}
+{"child":"area:kashmir","parent":"region:south-asia","rel":"in"}
+{"id":"area:punjab","kind":"area","name":"Punjab","name_zh":"旁遮普","geo":{"poly":[[70.0,30.5],[71.0,29.0],[73.0,29.3],[74.6,30.0],[76.8,30.0],[77.4,31.0],[76.0,32.4],[74.5,32.8],[73.0,33.5],[71.5,33.6],[70.5,32.2]]},"intro":"The land of five rivers, a centre of the Harappan civilisation; later held by Persia, Macedon, the Kushans, Delhi, the Mughals, the Sikh Empire and Britain, and split between India and Pakistan in 1947.","intro_zh":"五河之地，哈拉帕文明的中心之一，此后波斯、马其顿、贵霜、德里苏丹、莫卧儿、锡克帝国和英国先后统治，1947年分属印巴。","notes":[]}
+{"child":"area:punjab","parent":"region:south-asia","rel":"in"}
+{"id":"area:bengal","kind":"area","name":"Bengal","name_zh":"孟加拉","geo":{"poly":[[86.0,22.0],[88.0,21.6],[89.5,21.8],[91.8,22.3],[92.5,24.2],[92.2,25.0],[89.8,26.3],[88.2,26.5],[87.2,25.0],[86.0,24.0]]},"intro":"The Ganges–Brahmaputra delta, ruled by the Pala, the Bengal Sultanate, the Mughals and the East India Company, and partitioned in 1947.","intro_zh":"恒河与布拉马普特拉河三角洲，波罗王朝、孟加拉苏丹国、莫卧儿和英国东印度公司先后统治，1947年东西分治。","notes":[]}
+{"child":"area:bengal","parent":"region:south-asia","rel":"in"}
+{"id":"area:aksai-chin","kind":"area","name":"Aksai Chin","name_zh":"阿克赛钦","geo":{"src":"disputes.json#aksai-chin","label":[79.16,34.72]}}
+{"child":"area:aksai-chin","parent":"area:kashmir","rel":"in"}
+{"child":"area:aksai-chin","parent":"polity:india-1945","rel":"claim","from":1950,"to":null,"disputed":true,"dispute":"aksai-chin"}
+{"id":"area:kashmir-india","kind":"area","name":"Jammu and Kashmir, Ladakh","name_zh":"印控克什米尔","geo":{"src":"disputes.json#kashmir-india","label":[76.49,33.88]}}
+{"child":"area:kashmir-india","parent":"area:kashmir","rel":"in"}
+{"child":"area:kashmir-india","parent":"polity:pakistan-1950","rel":"claim","from":1947,"to":null,"disputed":true,"dispute":"kashmir-india"}
+{"id":"area:kashmir-pakistan","kind":"area","name":"Azad Kashmir, Gilgit-Baltistan","name_zh":"巴控克什米尔","geo":{"src":"disputes.json#kashmir-pakistan","label":[75.43,34.93]}}
+{"child":"area:kashmir-pakistan","parent":"area:kashmir","rel":"in"}
+{"child":"area:kashmir-pakistan","parent":"polity:india-1945","rel":"claim","from":1947,"to":null,"disputed":true,"dispute":"kashmir-pakistan"}
+{"id":"area:shaksgam","kind":"area","name":"Shaksgam Valley","name_zh":"沙克斯干河谷","geo":{"src":"disputes.json#shaksgam","label":[76.44,35.96]}}
+{"child":"area:shaksgam","parent":"area:kashmir","rel":"in"}
+{"child":"area:shaksgam","parent":"polity:india-1945","rel":"claim","from":1963,"to":null,"disputed":true,"dispute":"shaksgam"}
+{"id":"area:siachen","kind":"area","name":"Siachen Glacier","name_zh":"锡亚琴冰川","geo":{"src":"disputes.json#siachen","label":[77.17,35.28]}}
+{"child":"area:siachen","parent":"area:kashmir","rel":"in"}
+{"child":"area:siachen","parent":"polity:pakistan-1950","rel":"claim","from":1984,"to":null,"disputed":true,"dispute":"siachen"}
+{"id":"area:spratlys","kind":"area","name":"Spratly Islands","name_zh":"南沙群岛","geo":{"src":"disputes.json#spratlys","label":[114.3,10.11]}}
+{"child":"area:spratlys","parent":"region:southeast-asia","rel":"in"}
+{"child":"area:spratlys","parent":"polity:prc","rel":"claim","from":1949,"to":null,"disputed":true,"dispute":"spratlys"}
+{"child":"area:spratlys","parent":"polity:roc","rel":"claim","from":1946,"to":null,"disputed":true,"dispute":"spratlys"}
+{"child":"area:spratlys","parent":"polity:vietnam","rel":"claim","from":1946,"to":null,"disputed":true,"dispute":"spratlys"}
+{"child":"area:spratlys","parent":"polity:philippines-1368","rel":"claim","from":1946,"to":null,"disputed":true,"dispute":"spratlys"}
+{"child":"area:spratlys","parent":"polity:malaysia-1960","rel":"claim","from":1963,"to":null,"disputed":true,"dispute":"spratlys"}
+{"child":"area:spratlys","parent":"polity:brunei","rel":"claim","from":1946,"to":null,"disputed":true,"dispute":"spratlys"}
+{"id":"area:scarborough","kind":"area","name":"Scarborough Shoal","name_zh":"黄岩岛","geo":{"src":"disputes.json#scarborough","label":[117.75,15.18]}}
+{"child":"area:scarborough","parent":"region:southeast-asia","rel":"in"}
+{"child":"area:scarborough","parent":"polity:philippines-1368","rel":"claim","from":2012,"to":null,"disputed":true,"dispute":"scarborough"}
+{"child":"area:scarborough","parent":"polity:roc","rel":"claim","from":2012,"to":null,"disputed":true,"dispute":"scarborough"}
+{"id":"area:east-timor","kind":"area","name":"East Timor","name_zh":"东帝汶","geo":{"src":"disputes.json#east-timor","label":[125.76,-8.88]}}
+{"child":"area:east-timor","parent":"region:southeast-asia","rel":"in"}
+{"child":"area:east-timor","parent":"polity:east-timor","rel":"claim","from":1975,"to":1999,"disputed":true,"dispute":"east-timor"}

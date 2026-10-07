@@ -1,0 +1,3 @@
+{"note":"Central Asia (中亚): hand-written places, one node or edge per line. See docs/places.md."}
+{"id":"area:transoxiana","kind":"area","name":"Transoxiana","name_zh":"河中地区","geo":{"poly":[[63.0,39.0],[64.5,37.5],[67.5,37.2],[69.3,37.1],[71.0,39.5],[70.0,41.0],[66.5,42.0],[63.5,41.2]]},"intro":"Between the Oxus and the Jaxartes, the land of Samarkand and Bukhara and home of the Sogdian merchants; ruled in turn by Persians, Greeks, Turks, Arabs, Mongols and Timur.","intro_zh":"阿姆河与锡尔河之间，撒马尔罕、布哈拉所在，粟特商人的故乡，波斯、希腊、突厥、阿拉伯、蒙古、帖木儿先后统治。","notes":[]}
+{"child":"area:transoxiana","parent":"region:central-asia-steppe","rel":"in"}

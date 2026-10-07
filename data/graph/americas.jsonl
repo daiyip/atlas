@@ -1,0 +1,11 @@
+{"note":"The Americas (美洲): hand-written places, one node or edge per line. See docs/places.md."}
+{"id":"area:texas","kind":"area","name":"Texas","name_zh":"得克萨斯","geo":{"poly":[[-106.6,31.8],[-104.5,29.6],[-103.0,29.0],[-101.4,29.8],[-99.5,27.5],[-97.4,25.9],[-97.2,27.8],[-94.0,29.7],[-93.8,31.9],[-94.0,33.6],[-96.0,33.8],[-100.0,34.5],[-100.0,36.5],[-103.0,36.5],[-103.0,32.0]]},"intro":"Land of the Comanche and other peoples; Spanish, then Mexican, independent as the Republic of Texas in 1836 and part of the United States from 1845.","intro_zh":"原住民科曼奇等族的土地，先后属西班牙、墨西哥，1836年独立为得克萨斯共和国，1845年并入美国。","notes":[]}
+{"child":"area:texas","parent":"region:north-america","rel":"in"}
+{"id":"area:california","kind":"area","name":"California","name_zh":"加利福尼亚","geo":{"poly":[[-124.2,42.0],[-120.0,42.0],[-120.0,39.0],[-114.6,35.0],[-114.7,32.7],[-117.1,32.5],[-118.5,34.0],[-120.6,34.6],[-121.9,36.6],[-122.5,37.8],[-123.8,39.5],[-124.4,40.4]]},"intro":"Home to many native peoples; Spain built missions here in the 1700s; then Mexican, and American after the Mexican–American War in 1848.","intro_zh":"原住民部落众多，十八世纪西班牙在此建传教站，后属墨西哥，1848年美墨战争后归美国。","notes":[]}
+{"child":"area:california","parent":"region:north-america","rel":"in"}
+{"id":"area:falklands","kind":"area","name":"Falkland Islands / Malvinas","name_zh":"福克兰群岛 / 马尔维纳斯群岛","geo":{"src":"disputes.json#falklands","label":[-59.35,-51.82]}}
+{"child":"area:falklands","parent":"region:south-america","rel":"in"}
+{"child":"area:falklands","parent":"polity:argentina","rel":"claim","from":1833,"to":null,"disputed":true,"dispute":"falklands"}
+{"id":"area:essequibo","kind":"area","name":"Guayana Esequiba","name_zh":"埃塞奎博地区","geo":{"src":"disputes.json#essequibo","label":[-59.42,4.88]}}
+{"child":"area:essequibo","parent":"region:south-america","rel":"in"}
+{"child":"area:essequibo","parent":"polity:venezuela-1834","rel":"claim","from":1966,"to":null,"disputed":true,"dispute":"essequibo"}
