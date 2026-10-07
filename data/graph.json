@@ -1,0 +1,14 @@
+{
+ "atlas": 2,
+ "note": "Places a reader can follow through time, and how they relate (docs/places.md). Hand-written; tools/build_graph.py adds graph/maps.jsonl (regions, countries, map names and who held each area, from the maps). Area outlines, intros, notes and claims AI-drafted; claims follow data/disputes.json.",
+ "include": [
+  "graph/east-asia.jsonl",
+  "graph/inner-asia.jsonl",
+  "graph/south-southeast-asia.jsonl",
+  "graph/west-asia-north-africa.jsonl",
+  "graph/europe.jsonl",
+  "graph/africa.jsonl",
+  "graph/americas.jsonl",
+  "graph/maps.jsonl"
+ ]
+}

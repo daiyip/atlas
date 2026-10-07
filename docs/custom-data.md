@@ -49,11 +49,12 @@ my-pack/
 
 | Key | Meaning |
 | --- | --- |
-| `atlas` | The Atlas format the pack is written for, `1` today: the lowest format that can read it. See [Versions](#versions). |
+| `atlas` | The Atlas format the pack is written for: the lowest format that can read it, `1` unless the pack uses something newer (`2` for `data.graph`). See [Versions](#versions). |
 | `id` | Lowercase letters, digits and `-`. It is also the region id, and the key the browser remembers the view under. |
 | `name`, `name_zh` | Display name in English and Chinese. |
 | `data.eras`, `data.events` | Required. Paths relative to the manifest. |
 | `data.tours` | Optional guided tours. |
+| `data.graph` | Optional places a reader can follow through time, with who held them (format 2). See [places.md](places.md#packs). |
 | `region.polygon` | Outline `[[lon, lat], ...]`. While the map is mostly inside it, the timeline shows the pack's periods. `region.bounds` (`[[west, south], [east, north]]`) is used as a box when there is no polygon. |
 | `region.view` | First view when there is no link and no remembered view: `center`, `zoom`, `year`. |
 | `range` | `{start, end}`: the years the pack's periods cover. Negative years are BCE. |
@@ -174,13 +175,14 @@ The format goes up when the atlas gains something a pack may rely on, such as a 
 an older atlas would silently get wrong. Fields an older atlas can safely ignore don't raise it. Set `atlas` to the
 lowest format that has everything your pack uses:
 
-The format is numbered separately from the app. The app version (`?v=`, shown as "Atlas v178" in the map credits)
+The format is numbered separately from the app. The app version (`?v=`, shown as "Atlas v223" in the map credits)
 goes up with every release; the format only goes up when packs need to know, so the table below is the full list of
-format changes. The credits show both, for example "Atlas v178 · data format 1".
+format changes. The credits show both, for example "Atlas v223 · data format 2".
 
 | Format | First app version | Added |
 | --- | --- | --- |
 | 1 | v178 (earlier versions read format 1 only) | Everything in these pages: manifest, `eras.json`, `events.json`, `tours.json`, layers, plugins (API 1), `basemap`. |
+| 2 | v223 | The [place graph](places.md): `data.graph` (JSON or JSONL with `include`), and `atlas.places` for plugins (API 2). A format-1 pack reads as before; its region is the node `region:<pack id>`. |
 
 The atlas's own data declares its format the same way, in `data/manifest.json`.
 
@@ -230,7 +232,7 @@ python3 tools/validate.py data examples/*-pack   # the atlas's own data/ and the
 ```
 
 ```
-Atlas data format 1
+Atlas data format 2
 my-pack/manifest.json: 2 error(s), 1 warning(s)
   error: events.json paul-at-athens: unknown `category` 'religion'
   error: tours.json paul-first step 3: event 'paul-in-cyprus' does not exist

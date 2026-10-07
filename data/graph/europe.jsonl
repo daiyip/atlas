@@ -1,0 +1,25 @@
+{"note":"Europe (欧洲): hand-written places, one node or edge per line. See docs/places.md."}
+{"id":"polity:moldova","kind":"polity","name":"Moldova","name_zh":"摩尔多瓦","from":1991,"to":null}
+{"id":"area:crimea","kind":"area","name":"Crimea","name_zh":"克里米亚","geo":{"poly":[[32.5,45.35],[33.6,44.5],[34.4,44.55],[35.4,45.0],[36.6,45.4],[35.4,45.9],[34.5,46.0],[33.6,46.15],[32.7,45.8]]},"intro":"Held in turn by Greek colonies, the Bosporan Kingdom, Byzantium, the Golden Horde and the Crimean Khanate; annexed by Russia in 1783 and transferred to Ukraine in 1954.","intro_zh":"希腊殖民城邦、博斯普鲁斯王国、拜占庭、金帐汗国、克里米亚汗国先后据有，1783年并入俄国，1954年划归乌克兰。","notes":[{"from":2014,"to":2026,"zh":"2014年起由俄罗斯控制；乌克兰和联合国大会多数成员国不承认俄方吞并。","en":"Controlled by Russia since 2014; Ukraine and most UN General Assembly members do not recognise the annexation.","disputed":true}]}
+{"child":"area:crimea","parent":"region:europe","rel":"in"}
+{"child":"area:crimea","parent":"polity:ukraine-1996","rel":"claim","from":2014,"to":null,"disputed":true,"dispute":"crimea"}
+{"id":"area:sicily","kind":"area","name":"Sicily","name_zh":"西西里岛","geo":{"poly":[[12.4,37.8],[12.6,38.15],[13.4,38.2],[15.6,38.3],[15.1,37.1],[15.1,36.65],[14.4,36.8],[13.2,37.4]]},"intro":"The crossroads of the Mediterranean: Greeks, Carthage, Rome, Byzantium, the Arabs, the Normans, Spain and the Bourbons ruled it before it joined Italy in 1860.","intro_zh":"地中海的十字路口：希腊人、迦太基、罗马、拜占庭、阿拉伯、诺曼、西班牙、波旁先后统治，1860年并入意大利。","notes":[]}
+{"child":"area:sicily","parent":"region:europe","rel":"in"}
+{"id":"area:andalusia","kind":"area","name":"Andalusia","name_zh":"安达卢西亚","geo":{"poly":[[-7.4,37.2],[-6.4,36.8],[-5.6,36.0],[-4.4,36.7],[-2.1,36.7],[-1.6,37.4],[-2.6,38.1],[-3.6,38.4],[-5.0,38.6],[-6.9,38.2],[-7.5,37.6]]},"intro":"Southern Iberia: Rome's province of Baetica, Muslim al-Andalus from 711, and Castilian after Granada fell in 1492.","intro_zh":"伊比利亚半岛南部，罗马的贝提卡行省，711年起为伊斯兰的安达卢斯，1492年格拉纳达陷落后归卡斯蒂利亚。","notes":[]}
+{"child":"area:andalusia","parent":"region:europe","rel":"in"}
+{"id":"area:bohemia","kind":"area","name":"Bohemia","name_zh":"波希米亚","geo":{"poly":[[12.1,50.3],[13.0,49.3],[13.8,48.8],[14.7,48.6],[15.6,49.0],[16.4,49.6],[16.6,50.2],[15.4,50.9],[14.4,51.0],[13.0,50.5]]},"intro":"The basin around Prague; the Kingdom of Bohemia was long part of the Holy Roman Empire and then the Habsburg lands, Czechoslovakia from 1918 and Czechia today.","intro_zh":"布拉格所在的盆地，波希米亚王国长期是神圣罗马帝国的一部分，后归哈布斯堡，1918年起为捷克斯洛伐克、今捷克。","notes":[]}
+{"child":"area:bohemia","parent":"region:europe","rel":"in"}
+{"id":"area:alsace","kind":"area","name":"Alsace","name_zh":"阿尔萨斯","geo":{"poly":[[7.55,47.45],[7.6,47.6],[7.55,48.1],[7.8,48.6],[8.2,48.97],[7.9,49.05],[7.6,49.08],[7.3,49.0],[7.1,48.5],[7.2,48.0],[6.85,47.8],[7.0,47.5]]},"intro":"The left bank of the Rhine, long part of the Holy Roman Empire, French from the 1600s and then passed between France and Germany four times.","intro_zh":"莱茵河左岸，长期属神圣罗马帝国，十七世纪归法国，此后在法德之间四度易手。","notes":[{"from":1871,"to":1918,"zh":"普法战争后割让给德意志帝国。","en":"Ceded to the German Empire after the Franco-Prussian War.","disputed":false},{"from":1940,"to":1944,"zh":"二战中被纳粹德国吞并。","en":"Annexed by Nazi Germany during the Second World War.","disputed":false}]}
+{"child":"area:alsace","parent":"region:europe","rel":"in"}
+{"id":"area:donbas","kind":"area","name":"Donetsk and Luhansk","name_zh":"顿涅茨克、卢甘斯克","geo":{"src":"disputes.json#donbas","label":[38.63,47.87]}}
+{"child":"area:donbas","parent":"region:europe","rel":"in"}
+{"child":"area:donbas","parent":"polity:ukraine-1996","rel":"claim","from":2014,"to":null,"disputed":true,"dispute":"donbas"}
+{"id":"area:transnistria","kind":"area","name":"Transnistria","name_zh":"德涅斯特河沿岸","geo":{"src":"disputes.json#transnistria","label":[29.25,47.36]}}
+{"child":"area:transnistria","parent":"region:europe","rel":"in"}
+{"child":"area:transnistria","parent":"polity:moldova","rel":"claim","from":1992,"to":null,"disputed":true,"dispute":"transnistria"}
+{"id":"area:kosovo","kind":"area","name":"Kosovo","name_zh":"科索沃","geo":{"src":"disputes.json#kosovo","label":[20.9,42.59]}}
+{"child":"area:kosovo","parent":"region:europe","rel":"in"}
+{"child":"area:kosovo","parent":"polity:serbia","rel":"claim","from":2008,"to":null,"disputed":true,"dispute":"kosovo"}
+{"id":"area:gibraltar","kind":"area","name":"Gibraltar","name_zh":"直布罗陀","geo":{"src":"disputes.json#gibraltar","label":[-5.35,36.17]}}
+{"child":"area:gibraltar","parent":"area:andalusia","rel":"in"}
+{"child":"area:gibraltar","parent":"polity:spain","rel":"claim","from":1713,"to":null,"disputed":true,"dispute":"gibraltar"}

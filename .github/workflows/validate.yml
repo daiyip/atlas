@@ -4,9 +4,9 @@ name: Validate data
 on:
   push:
     branches: [main]
-    paths: ["data/**", "examples/**", "tools/validate.py", "app.js"]
+    paths: ["data/**", "examples/**", "tools/validate.py", "tools/check_graph.py", "tools/placegraph.py", "app.js"]
   pull_request:
-    paths: ["data/**", "examples/**", "tools/validate.py", "app.js"]
+    paths: ["data/**", "examples/**", "tools/validate.py", "tools/check_graph.py", "tools/placegraph.py", "app.js"]
   workflow_dispatch:
 permissions:
   contents: read

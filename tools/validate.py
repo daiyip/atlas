@@ -14,6 +14,8 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 ROOT = Path(__file__).resolve().parent.parent
 ID = re.compile(r"^[a-z0-9-]+$")
 CATS = {"war", "politics", "reform", "rebellion", "diplomacy", "economy", "culture", "science", "society"}
@@ -276,6 +278,10 @@ def check_pack(path):
         d = load(base / data["tours"], rep, data["tours"])
         if d is not None:
             check_tours(rep, data["tours"], d, era_ids, event_ids)
+    if data.get("graph"):
+        if m.get("atlas", 1) < 2:
+            rep.err("manifest", "`data.graph` needs `atlas`: 2 or later")
+        check_places(rep, data["graph"], base / data["graph"], m.get("id"))
 
     layers = m.get("layers") or []
     if not isinstance(layers, list):
@@ -325,6 +331,18 @@ def check_pack(path):
         if not re.match(r"^https?:", src) and not (base / src).is_file():
             rep.err(w, "file not found")
     return rep
+
+
+def check_places(rep, where, path, ns=None):
+    """The place graph (docs/places.md), via tools/check_graph.py; a pack's against the atlas's own."""
+    import check_graph, placegraph
+    base = None
+    if ns:
+        try: base = placegraph.load(str(ROOT / "data/graph.json"))
+        except (placegraph.GraphError, OSError, ValueError): pass
+    errs, warns, _ = check_graph.check(str(path), ns, base)
+    for e in errs: rep.err(where, e)
+    for w in warns: rep.warn(where, w)
 
 
 def check_builtin():
@@ -385,6 +403,7 @@ def check_builtin():
                 rep.err(where, "`year` should be a whole number")
             if l.get("event") and isinstance(events, list) and l["event"] not in event_ids:
                 rep.err(where, f"unknown event {l['event']!r}")
+    check_places(rep, "data/graph.json", ROOT / "data/graph.json")
     return rep
 
 

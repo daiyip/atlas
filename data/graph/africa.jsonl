@@ -1,0 +1,10 @@
+{"note":"Africa (非洲): hand-written places, one node or edge per line. See docs/places.md."}
+{"id":"polity:somalia","kind":"polity","name":"Somalia","name_zh":"索马里","from":1960,"to":null}
+{"id":"polity:south-sudan","kind":"polity","name":"South Sudan","name_zh":"南苏丹","from":2011,"to":null}
+{"id":"area:somaliland","kind":"area","name":"Somaliland","name_zh":"索马里兰","geo":{"src":"disputes.json#somaliland","label":[46.08,9.75]}}
+{"child":"area:somaliland","parent":"region:sub-saharan-africa","rel":"in"}
+{"child":"area:somaliland","parent":"polity:somalia","rel":"claim","from":1991,"to":null,"disputed":true,"dispute":"somaliland"}
+{"id":"area:abyei","kind":"area","name":"Abyei","name_zh":"阿卜耶伊","geo":{"src":"disputes.json#abyei","label":[28.43,9.67]}}
+{"child":"area:abyei","parent":"region:sub-saharan-africa","rel":"in"}
+{"child":"area:abyei","parent":"polity:sudan","rel":"claim","from":2011,"to":null,"disputed":true,"dispute":"abyei"}
+{"child":"area:abyei","parent":"polity:south-sudan","rel":"claim","from":2011,"to":null,"disputed":true,"dispute":"abyei"}

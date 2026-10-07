@@ -94,7 +94,7 @@ logs it in the console and carries on without it.
 
 | | |
 | --- | --- |
-| `atlas.version` | The [Atlas format](custom-data.md#versions) this page reads, `1`. The plugin API is part of it. |
+| `atlas.version` | The [Atlas format](custom-data.md#versions) this page reads, `2`. The plugin API is part of it. |
 | `atlas.map` | The [MapLibre GL](https://maplibre.org/maplibre-gl-js/docs/API/) map, already loaded. |
 | `atlas.maplibregl` | The MapLibre library, for markers and popups. |
 | `atlas.pack` | The pack's manifest. |
@@ -131,6 +131,17 @@ logs it in the console and carries on without it.
 | `atlas.setStyle(id)` / `atlas.style` / `atlas.styles` | Switches the map style (`satellite`, `terrain`, `antique`, `plain`, `dark`, `night`); the current one; all of them. |
 | `atlas.startTour(id, step)` | Starts a tour (step counts from 0). |
 | `atlas.openEvent(id)` | Opens an event's story. |
+
+**Places** (format 2): the [place graph](places.md), ids as in the graph. `year` defaults to the current year.
+
+| | |
+| --- | --- |
+| `atlas.places.ready()` | Resolves once the graph has loaded; the others return nothing useful before. |
+| `atlas.places.get(id)` | The node, or `null`. |
+| `atlas.places.path(id, year)` | Where it lies: `[id, parent, …, group]`. |
+| `atlas.places.held(id, year)` | Who held it: `[{id, polity, share}]`, a map name's `id` resolved to its `polity` id. |
+| `atlas.places.claims(id, year)` | The polity ids claiming it. |
+| `atlas.places.open(id)` | Opens an area's 地区史 card and selects it. |
 
 **Helpers**
 
