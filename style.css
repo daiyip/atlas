@@ -643,8 +643,10 @@ html:lang(en) .mk-polity .ruler { font-family: var(--font-body); font-weight: 60
 .econ-src i { font-style: normal; border: 1px solid currentColor; border-radius: 3px; padding: 0 3px; margin-left: 2px; }
 .mk-econ { display: flex; align-items: center; gap: 4px; pointer-events: none; }
 .mk-econ i { width: 14px; height: 14px; border-radius: 50%; background: #7a1d14; border: 2px solid #f6efe0; box-shadow: 0 0 0 3px rgba(122,29,20,.35); }
-.mk-econ-yr { pointer-events: none; font: 600 11px/1 var(--font-data); color: #5c120c; background: rgba(246,239,224,.82); padding: 1px 4px; border-radius: 3px; white-space: nowrap; }
-.econ-far .mk-econ-yr.old { display: none; }
+.mk-econ-half { pointer-events: none; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px 10px; border-radius: 6px; background: rgba(246,239,224,.9); box-shadow: 0 1px 4px rgba(0,0,0,.18); white-space: nowrap; }
+.mk-econ-half b { font: 700 20px/1 var(--font-display); color: #5c120c; }
+.mk-econ-half.s b { color: #b8321f; }
+.mk-econ-half small { font: 500 10px/1.2 var(--font-body); color: #6b5a4a; }
 .mk-econ span { font: 600 12px/1 var(--font-body); color: #7a1d14; background: rgba(246,239,224,.88); padding: 2px 5px; border-radius: 3px; white-space: nowrap; }
 @media (max-width: 720px) { .econ-box svg, .econ-box .econ-src { display: none; } }
 @media (max-width: 720px) { .pop-chart:not(.clim-chart) { display: none; } }
