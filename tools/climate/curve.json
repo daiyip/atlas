@@ -1,0 +1,47 @@
+{
+  "note": "Temperature anomaly in eastern China, °C against the 1961–1990 mean. A hand-drawn sketch that follows the warm and cold phases of 竺可桢 (1972) and the 2000-year reconstruction of 葛全胜 et al. (2013); the nodes are AI-placed, not the published numbers.",
+  "note_zh": "中国东部气温距平（相对 1961–1990 年平均，°C）。依竺可桢（1972）与葛全胜等（2013）重建的冷暖起伏手绘示意，节点由 AI 放置，不是原始数据。",
+  "refs": [
+    "竺可桢《中国近五千年来气候变迁的初步研究》，考古学报 1972(1)",
+    "Ge Q., Hao Z., Zheng J., Shao X. (2013) Temperature changes over the past 2000 yr in China and comparison with the Northern Hemisphere. Climate of the Past 9: 1153–1160"
+  ],
+  "nodes": [
+    [-3000, 1.6], [-2500, 1.5], [-2250, 1.1], [-2150, 0.3], [-2000, 0.9], [-1700, 1.2], [-1400, 1.1], [-1150, 0.8],
+    [-1050, -0.2], [-950, -0.9], [-880, -0.8], [-800, -0.2], [-700, 0.5], [-550, 0.9], [-400, 0.8], [-250, 0.7],
+    [-120, 0.6], [-40, 0.4], [20, 0.15], [90, 0.1], [150, -0.1], [200, -0.35], [260, -0.5], [320, -0.7],
+    [370, -0.5], [430, -0.6], [480, -0.8], [520, -0.85], [540, -1.05], [570, -0.6], [610, -0.2], [650, 0.2],
+    [700, 0.35], [750, 0.3], [800, 0.1], [840, -0.15], [880, -0.35], [920, -0.1], [960, 0.05], [1000, 0.15],
+    [1050, 0.2], [1090, 0.0], [1110, -0.45], [1150, -0.6], [1180, -0.4], [1220, 0.05], [1250, 0.25], [1290, 0.15],
+    [1320, -0.1], [1360, -0.25], [1400, -0.3], [1450, -0.6], [1480, -0.5], [1520, -0.35], [1560, -0.3], [1600, -0.5],
+    [1630, -0.85], [1655, -1.1], [1690, -0.95], [1720, -0.55], [1760, -0.3], [1790, -0.4], [1815, -0.65], [1840, -0.55],
+    [1870, -0.7], [1890, -0.6], [1910, -0.4], [1940, -0.1], [1960, -0.15], [1985, 0.0], [2000, 0.45], [2010, 0.7], [2024, 0.95]
+  ],
+  "periods": [
+    {"id": "yangshao-warm", "kind": "warm", "from": -3000, "to": -1100, "circa": true, "name": "Yangshao–Shang warm period", "name_zh": "仰韶—殷商温暖期",
+     "summary": "About two degrees warmer than today: elephants, rhinos and bamboo lived in the Yellow River valley, and the Shang hunted them.", "summary_zh": "比今天暖约 2°C，黄河流域有象、犀和竹林，殷人猎象。"},
+    {"id": "4-2ka", "kind": "cold", "from": -2200, "to": -2000, "circa": true, "name": "4.2-kiloyear event", "name_zh": "4.2 千年事件",
+     "summary": "A worldwide dry and cool spell; in China the late Neolithic cultures (Liangzhu, Shimao, Taosi) declined and the flood stories of Yu took shape.", "summary_zh": "全球性的干冷事件；中国良渚、石峁、陶寺等龙山晚期文化衰落，大禹治水的传说由此而来。"},
+    {"id": "zhou-cold", "kind": "cold", "from": -1000, "to": -850, "circa": true, "name": "Western Zhou cold period", "name_zh": "西周寒冷期",
+     "summary": "The Han River froze twice (903 and 897 BCE in the Bamboo Annals); droughts and nomad pressure followed, ending with the fall of Haojing in 771 BCE.", "summary_zh": "《竹书纪年》记周孝王时汉水两次结冰；随后旱灾与戎狄压力相继，终至公元前 771 年镐京陷落。"},
+    {"id": "spring-han-warm", "kind": "warm", "from": -770, "to": 0, "circa": true, "name": "Spring and Autumn–Han warm period", "name_zh": "春秋—西汉温暖期",
+     "summary": "Plum and bamboo grew far north of their range today; the Qin and Han built their empires in a mild, wet climate.", "summary_zh": "梅、竹生长远比今天偏北；秦汉帝国在温和湿润的气候中建立。"},
+    {"id": "han-jin-cold", "kind": "cold", "from": 180, "to": 590, "circa": true, "name": "Eastern Han–Northern and Southern Dynasties cold period", "name_zh": "东汉—南北朝寒冷期",
+     "summary": "Cold and dry centuries: steppe peoples moved south, the north broke up into the Sixteen Kingdoms and northern families fled south of the Yangtze.", "summary_zh": "寒冷干燥的几百年：草原民族南下，北方分裂为十六国，北方士族大批南渡。"},
+    {"id": "sui-tang-warm", "kind": "warm", "from": 600, "to": 850, "circa": true, "name": "Sui–Tang warm period", "name_zh": "隋唐温暖期",
+     "summary": "Oranges and plum trees grew in Chang'an; harvests in the north were good through the high Tang.", "summary_zh": "长安能种柑橘和梅；盛唐时北方农业丰收。"},
+    {"id": "late-tang-cold", "kind": "cold", "from": 850, "to": 920, "circa": true, "name": "Late Tang cold spell", "name_zh": "晚唐寒冷期",
+     "summary": "Colder, drier decades with drought and locusts in the north, the background of Huang Chao's rising.", "summary_zh": "晚唐转冷转干，北方旱蝗频仍，是黄巢起义的背景。"},
+    {"id": "song-warm", "kind": "warm", "from": 930, "to": 1100, "circa": true, "name": "Medieval warm period (Northern Song)", "name_zh": "中世纪温暖期（北宋）",
+     "summary": "A warm phase that matches Europe's Medieval Warm Period; Champa rice spread and the south boomed.", "summary_zh": "与欧洲中世纪暖期相当；占城稻推广，南方经济兴盛。"},
+    {"id": "southern-song-cold", "kind": "cold", "from": 1100, "to": 1200, "circa": true, "name": "Southern Song cold period", "name_zh": "南宋寒冷期",
+     "summary": "Lake Tai froze hard enough to walk on in 1111 and the lychees of Fuzhou died; the Jurchen came south in 1127.", "summary_zh": "1111 年太湖结冰可行车马，福州荔枝冻死；1127 年女真南下。"},
+    {"id": "yuan-warm", "kind": "warm", "from": 1200, "to": 1300, "circa": true, "name": "Song–Yuan warm interval", "name_zh": "宋元之际温暖期",
+     "summary": "A short return of warmth, when the Mongols built their empire.", "summary_zh": "短暂回暖，正值蒙古崛起。"},
+    {"id": "little-ice-age", "kind": "cold", "from": 1320, "to": 1900, "circa": true, "name": "Little Ice Age", "name_zh": "明清小冰期",
+     "summary": "Five centuries of cold, with the worst decades in the 1450s, 1620s–1690s and 1840s–1870s; each matched waves of drought, famine and revolt.", "summary_zh": "持续约五百年的寒冷期，最冷在 1450 年代、1620—1690 年代和 1840—1870 年代，每次都伴随旱荒与民变。"},
+    {"id": "maunder", "kind": "cold", "from": 1620, "to": 1720, "name": "Coldest phase of the Little Ice Age", "name_zh": "小冰期最冷阶段",
+     "summary": "The coldest century in two thousand years: the Huai and the Han froze, the Chongzhen drought ran seven years, and the Ming fell to Li Zicheng and the Qing.", "summary_zh": "两千年来最冷的一百年：淮河、汉水封冻，崇祯大旱连续七年，明亡于李自成与清。"},
+    {"id": "modern-warm", "kind": "warm", "from": 1980, "to": 2024, "name": "Modern warming", "name_zh": "现代变暖",
+     "summary": "Temperatures rising faster than at any time in the record.", "summary_zh": "升温速度为有记录以来最快。"}
+  ]
+}

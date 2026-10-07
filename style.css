@@ -626,7 +626,26 @@ html:lang(en) .mk-polity .ruler { font-family: var(--font-body); font-weight: 60
 .pop-pt.estimate { fill: var(--panel-solid); stroke: var(--jade); stroke-width: 1.2; }
 .pop-pt.on { fill: var(--cinnabar); }
 .pop-now { stroke: var(--cinnabar); stroke-width: 1; stroke-dasharray: 2 2; vector-effect: non-scaling-stroke; }
-@media (max-width: 720px) { .pop-chart { display: none; } }
+.econ-box { grid-column: 1 / -1; margin-top: 8px; }
+.econ-seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.econ-seg button { font: inherit; font-size: 11px; padding: 1px 8px; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.econ-seg button[aria-pressed="true"] { background: var(--cinnabar); color: #fff; }
+.econ-now { margin: 4px 0 0; font-size: 12px; line-height: 1.5; }
+.econ-now b { color: var(--cinnabar); font-weight: 600; }
+.econ-now small { color: var(--muted); }
+.econ-box svg { display: block; width: 100%; height: 46px; margin-top: 2px; }
+.econ-half { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.5; vector-effect: non-scaling-stroke; }
+.econ-line { fill: none; stroke: var(--cinnabar); stroke-width: 1.6; vector-effect: non-scaling-stroke; }
+.econ-line.other { stroke: var(--muted); stroke-width: 1; opacity: 0.55; }
+.econ-pt { fill: var(--panel-solid); stroke: var(--cinnabar); stroke-width: 1.2; }
+.econ-pt.on { fill: var(--cinnabar); }
+.econ-src { margin: 2px 0 0; font-size: 10.5px; line-height: 1.4; color: var(--muted); }
+.econ-src i { font-style: normal; border: 1px solid currentColor; border-radius: 3px; padding: 0 3px; margin-left: 2px; }
+.mk-econ { display: flex; align-items: center; gap: 4px; pointer-events: none; }
+.mk-econ i { width: 14px; height: 14px; border-radius: 50%; background: #7a1d14; border: 2px solid #f6efe0; box-shadow: 0 0 0 3px rgba(122,29,20,.35); }
+.mk-econ span { font: 600 12px/1 var(--font-body); color: #7a1d14; background: rgba(246,239,224,.88); padding: 2px 5px; border-radius: 3px; white-space: nowrap; }
+@media (max-width: 720px) { .econ-box svg, .econ-box .econ-src { display: none; } }
+@media (max-width: 720px) { .pop-chart:not(.clim-chart) { display: none; } }
 
 /* Landscape names */
 .mk-geo {
@@ -1913,3 +1932,32 @@ html[data-ui="glass"] .search-results button { border-radius: 10px; width: calc(
 html[data-ui="editorial"] .search-bar { border-bottom: 2px solid var(--ink); }
 html[data-ui="editorial"] .search-results h5 { color: var(--ink); }
 html[data-ui="editorial"] .search-results button.on, html[data-ui="editorial"] .search-results button:hover { box-shadow: inset 3px 0 var(--cinnabar); }
+
+/* Climate and disasters (气候与灾害) */
+.mk-dis { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.mk-dis i {
+  display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; font: 700 11px/1 var(--font-display); font-style: normal;
+  color: #fff; background: var(--c); border: 1.5px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.45);
+}
+.mk-dis span { font: 600 12px/1.2 var(--font-body); color: #fff; text-shadow: 0 0 3px #000, 0 0 6px rgba(0,0,0,.7); white-space: nowrap; }
+.mk-dis.past i { width: 12px; height: 12px; font-size: 0; opacity: .55; border-width: 1px; box-shadow: none; }
+.clim-chart svg { height: 66px; }
+.cl-band.warm { fill: #d9663a; opacity: .16; }
+.cl-band.cold { fill: #3f86c4; opacity: .18; }
+.cl-zero { stroke: var(--muted); stroke-width: .6; stroke-dasharray: 1 2; vector-effect: non-scaling-stroke; }
+.cl-line { fill: none; stroke: var(--ink); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.cl-dis, .cl-reb, .cl-cap { stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.cl-reb { stroke: var(--cinnabar); }
+.cl-cap { stroke: #c99a1d; stroke-width: 2; }
+.cl-hit { fill: transparent; cursor: pointer; }
+.cl-hit:hover { fill: rgba(127,127,127,.25); }
+.cl-key { display: flex; flex-wrap: wrap; gap: 4px 10px; margin-top: 2px; font-size: 10px; color: var(--muted); }
+.cl-key span::before { content: ""; display: inline-block; width: 2px; height: 8px; margin-right: 3px; vertical-align: -1px; background: currentColor; }
+.cl-key .k-reb::before { background: var(--cinnabar); }
+.cl-key .k-cap::before { background: #c99a1d; width: 3px; }
+.cl-key .k-dis::before { background: linear-gradient(#c9852b 50%, #2f7fc1 50%); }
+.cl-key .cl-src { margin-left: auto; font-style: italic; }
+.cl-key .cl-src::before { display: none; }
+.clim-chart .pop-head b { white-space: nowrap; }
+.clim-chart .pop-head span { text-align: right; }
+@media (max-width: 720px) { .era:not(.open) .clim-chart { display: none; } }

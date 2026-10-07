@@ -84,12 +84,13 @@ const state = {
   auto: {},             // layers on only for the current story or tour step (syncAuto)
   autoOff: {}, autoCtx: "",
   autoLayers: true,
-  show: { rulers: true, armies: true, routes: true, people: true, capitals: false, faith: false, inventions: false, passes: true, roads: true, clans: true, walls: true, exchange: true, spread: true, admin: false },
+  show: { rulers: true, armies: true, routes: true, people: true, capitals: false, faith: false, inventions: false, passes: true, roads: true, clans: true, walls: true, exchange: true, spread: true, admin: false, economy: false, climate: false },
   overlays: { population: [], faith: [], inventions: [] },
   passes: [],           // famous passes (关隘), data/passes.json
   roads: [],            // major official roads (官道), data/roads.json
   clans: [],            // local elite groups (豪族/士人集团), data/clans.json
   walls: [],            // Great Walls (长城) by period, data/walls.json
+  climate: null,        // temperature sketch, warm/cold phases and disasters (气候与灾害), data/climate.json
   admin: null,          // administrative seats (郡/州/府… 治所), data/admin.json, loaded when first shown
   adminAreas: null,     // their sketch areas, data/admin-areas.json (Map by seat index), loaded with them
   playing: null,
@@ -118,10 +119,11 @@ const UI = {
     units: { infantry: "步兵", cavalry: "骑兵", chariots: "战车", archers: "弓兵", crossbows: "弩兵", navy: "水军", siege: "攻城", firearms: "火器", artillery: "火炮", elephants: "象兵" },
     kinds: { campaign: "进军", journey: "行程", trade: "商路", canal: "运河", wall: "长城" }, exchange: "交流", spread: "传播", spreadGroups: { faith: "宗教传播", tech: "技术传播", crop: "作物传播" }, arrived: (y) => `${y}传到`, set_out: (y) => `${y}起`, world_t: "世界", worldHead: "同一年的世界", goRegion: "切换地区", allWorld: "全球", worldHint: "点击地区，地图和时间轴切换过去；点击事件阅读详情", noWorldEv: "前后几十年没有收录的大事", elsewhere: "同时期的世界", wsHead: (x) => `同时期的${x}`, wsNearShort: "邻国", wsWorld: "世界", wsNear: (n) => `${n}的邻国`, wsNone: "前后几年没有收录的大事", hideStrip: "隐藏", showStrip: "在时间轴上方显示同时期的世界",
     sel: { hint: "点击地图上的国家即可选中，地图和各栏只显示与它相关的内容；再点一次取消", off: "这一年不在地图上", offMap: "这一年的地图没有单独画出它", before: "这一年尚未建立", after: "这一年已不存在", jump: (y) => `跳到${y}`, events: (n) => `事件 ${n}`, people: (n) => `本时期人物 ${n}`, cities: "城市", clear: "取消选中", circa: "约", away: "已移出视野，时间轴仍跟随它", back: (n) => `回到${n}`, story: "播放它的故事", now: "今", more: (n) => `另 ${n} 国`, less: "收起" },
-    people_l: "人物", cmp: { one: "对比", open: "两地对比", sync: "同步视角", openTime: "两时对比", place: "两地", time: "两时", period: "时期", year: "年份", close: "关闭对比", pick: "对比地区", rulers: "君主", events: "前后大事", none: "前后几十年没有收录的大事" }, lasted: (n) => `共${n}年`, packs: "专题", rpMore: "这一年的君主、大事与国家", asState: "作为国家：", close: "关闭", search: "搜索", share: "分享这个视图", tours: "导览", toursHead: "导览 · 跟着地图读历史", tourStory: "读这段故事", tourMusic: " 音乐", tourNarr: " 旁白", tourNarrHint: "朗读每一站的解说（AI 语音，中文）", voices: { Charon: "男声", Kore: "女声" }, tourMusicHint: "导览和时间轴播放时的背景音乐（AI 生成）", tourImmersive: "沉浸", tourImmersiveHint: "放大图片，收起其它面板（Esc 退出）", tourBack: "返回导览", tourPrev: "上一步", tourNext: "下一步", tourPlay: "自动播放", tourPause: "暂停", tourEnd: "结束导览", tourDone: "导览结束", tourSteps: (n) => `${n} 站`, tourCount: (n) => `${n} 条导览`, followLife: "跟随一生", trail: "足迹", trailShow: "足迹", trailHint: "在地图上画出一生足迹，随时间轴移动", trailPrev: "上一站", trailNext: "下一站", trailBefore: (y) => `还没有出生。足迹从${y}开始，点“下一站”或拖动时间轴。`, trailAfter: "一生行迹到此为止。", livesHere: "本时期人物的一生", livesAll: "人物一生", tourAt: (n) => `第${n}站`, toursHere: "本时期导览", toursOther: "其他时期", noTours: "本时期还没有导览", tourHint: "点击一条导览，地图会跟着故事移动", linkCopied: "链接已复制，可以发给别人", linkCopy: "复制这个链接：", searchPh: "搜索导览、事件、人物、君主、城市或年份（如 755、前221）", autoLayers: "自动图层", autoHint: "打开事件或导览时，自动显示相关图层，自动打开的图层标为虚线", autoOn: "已自动显示", autoAlso: "相关图层", tipOn: "已打开", stLayBtn: "图层按钮", stLayPos: "图层排列", layBtns: { text: "文字", icon: "图标", both: "图标+文字" }, layPos: { group: "分组", nowrap: "一行·滑动", wrap: "一行·换行" }, tipOff: "已关闭", tipAuto: "自动显示", sgroups: { time: "时间", era: "朝代", tour: "导览", event: "事件", person: "人物", ruler: "君主", city: "城市", place: "地名" }, noResults: "没有找到相关内容", jumpYear: "跳到这一年", capitals: "都城·人口", faith: "宗教思想", inventions: "发明", passes: "关隘", admin: "政区", adminSeat: "治所", adminWas: "汉时旧名", adminSite: "此地历代 · 点击跳转", adminNow: "今", adminSnap: (y) => `以${y}为准 · AI 整理，已与 CHGIS 抽查比对`, adminUnsure: "位置待核", adminChgis: "查 CHGIS 记录", adminChgisWait: "正在查询 CHGIS…", adminChgisDown: "暂时连不上 CHGIS，稍后再试", adminChgisNone: "CHGIS 在这一年没有同名记录", adminChgisSrc: "来自 CHGIS 时空地名库（哈佛、复旦），实时查询", adminChgisMoved: "治所位置与本图略有不同", roads: "官道", walls: "长城", wallBy: "修筑", wallLen: (n) => `约${n.toLocaleString()}公里`, ruin: "已废弃，现为遗迹", clans: "豪族", ckinds: { gentry: "门阀士族", bloc: "地域集团", military: "军事集团", faction: "朋党", merchant: "商帮" }, seats: "郡望/根据地", families: "代表家族", members: "代表人物", drafted: "AI 整理，未经核对", cityEvents: (n) => `城中大事（${n}）· 点击跳转`, cityHere: (n, m) => n === m ? `城中大事 ${n} 件` : `这一段大事 ${n} 件 · 全城 ${m} 件`, cityNone: (m) => `这一段没有收录大事 · 点上方色条看其他时期（共 ${m} 件）`, cityTop: "要事", cityAll: "全部", gazHead: "地名古今 · 点击跳转", cityTabEv: (n) => n ? `城中大事 ${n}` : "城中大事", cityNoEv: "这一段没有收录大事", gazHeld: "属", gazIn: "约在", gazKind: "地名古今", gazNote: "由本图的城市、政区和疆域推算 · AI 整理，未经核对",  personEvents: (n) => `相关事件（${n}）· 点击跳转`, pranks: { capital: "都城", secondary: "陪都", major: "重要城市", port: "港口", frontier: "军事重镇" }, rkinds: { imperial: "驰道", post: "驿道", trade: "商道" }, via: "途经", inUse: "使用年代",
+    people_l: "人物", climate: "气候灾害", climHead: "气候 · 华东气温", climNow: (a, p) => `较 1961–90 ${a >= 0 ? "暖" : "冷"} ${Math.abs(a).toFixed(1)}°C${p ? " · " + p : ""}`, climKinds: { drought: "旱灾", flood: "水灾", locust: "蝗灾", famine: "饥荒", quake: "地震", plague: "疫病", cold: "寒冬", river: "黄河决徙" }, climKey: { reb: "起义", cap: "迁都", dis: "灾害" }, climToll: "伤亡", climArea: "范围", climLinked: "相关事件 · 点击跳转", climAfter: "前后的起义与迁都", climPhase: "当时气候", climNote: "灾害与冷暖期为 AI 整理，未经核对；气温曲线为示意", climCurve: "气温曲线依竺可桢（1972）与葛全胜等（2013）的冷暖分期手绘示意，不是原始数据", climElse: "气候曲线只画中国东部", cmp: { one: "对比", open: "两地对比", sync: "同步视角", openTime: "两时对比", place: "两地", time: "两时", period: "时期", year: "年份", close: "关闭对比", pick: "对比地区", rulers: "君主", events: "前后大事", none: "前后几十年没有收录的大事" }, lasted: (n) => `共${n}年`, packs: "专题", rpMore: "这一年的君主、大事与国家", asState: "作为国家：", close: "关闭", search: "搜索", share: "分享这个视图", tours: "导览", toursHead: "导览 · 跟着地图读历史", tourStory: "读这段故事", tourMusic: " 音乐", tourNarr: " 旁白", tourNarrHint: "朗读每一站的解说（AI 语音，中文）", voices: { Charon: "男声", Kore: "女声" }, tourMusicHint: "导览和时间轴播放时的背景音乐（AI 生成）", tourImmersive: "沉浸", tourImmersiveHint: "放大图片，收起其它面板（Esc 退出）", tourBack: "返回导览", tourPrev: "上一步", tourNext: "下一步", tourPlay: "自动播放", tourPause: "暂停", tourEnd: "结束导览", tourDone: "导览结束", tourSteps: (n) => `${n} 站`, tourCount: (n) => `${n} 条导览`, followLife: "跟随一生", trail: "足迹", trailShow: "足迹", trailHint: "在地图上画出一生足迹，随时间轴移动", trailPrev: "上一站", trailNext: "下一站", trailBefore: (y) => `还没有出生。足迹从${y}开始，点“下一站”或拖动时间轴。`, trailAfter: "一生行迹到此为止。", livesHere: "本时期人物的一生", livesAll: "人物一生", tourAt: (n) => `第${n}站`, toursHere: "本时期导览", toursOther: "其他时期", noTours: "本时期还没有导览", tourHint: "点击一条导览，地图会跟着故事移动", linkCopied: "链接已复制，可以发给别人", linkCopy: "复制这个链接：", searchPh: "搜索导览、事件、人物、君主、城市或年份（如 755、前221）", autoLayers: "自动图层", autoHint: "打开事件或导览时，自动显示相关图层，自动打开的图层标为虚线", autoOn: "已自动显示", autoAlso: "相关图层", tipOn: "已打开", stLayBtn: "图层按钮", stLayPos: "图层排列", layBtns: { text: "文字", icon: "图标", both: "图标+文字" }, layPos: { group: "分组", nowrap: "一行·滑动", wrap: "一行·换行" }, tipOff: "已关闭", tipAuto: "自动显示", sgroups: { time: "时间", era: "朝代", tour: "导览", event: "事件", person: "人物", ruler: "君主", city: "城市", place: "地名" }, noResults: "没有找到相关内容", jumpYear: "跳到这一年", capitals: "都城·人口", faith: "宗教思想", inventions: "发明", passes: "关隘", admin: "政区", adminSeat: "治所", adminWas: "汉时旧名", adminSite: "此地历代 · 点击跳转", adminNow: "今", adminSnap: (y) => `以${y}为准 · AI 整理，已与 CHGIS 抽查比对`, adminUnsure: "位置待核", adminChgis: "查 CHGIS 记录", adminChgisWait: "正在查询 CHGIS…", adminChgisDown: "暂时连不上 CHGIS，稍后再试", adminChgisNone: "CHGIS 在这一年没有同名记录", adminChgisSrc: "来自 CHGIS 时空地名库（哈佛、复旦），实时查询", adminChgisMoved: "治所位置与本图略有不同", roads: "官道", walls: "长城", wallBy: "修筑", wallLen: (n) => `约${n.toLocaleString()}公里`, ruin: "已废弃，现为遗迹", clans: "豪族", ckinds: { gentry: "门阀士族", bloc: "地域集团", military: "军事集团", faction: "朋党", merchant: "商帮" }, seats: "郡望/根据地", families: "代表家族", members: "代表人物", drafted: "AI 整理，未经核对", cityEvents: (n) => `城中大事（${n}）· 点击跳转`, cityHere: (n, m) => n === m ? `城中大事 ${n} 件` : `这一段大事 ${n} 件 · 全城 ${m} 件`, cityNone: (m) => `这一段没有收录大事 · 点上方色条看其他时期（共 ${m} 件）`, cityTop: "要事", cityAll: "全部", gazHead: "地名古今 · 点击跳转", cityTabEv: (n) => n ? `城中大事 ${n}` : "城中大事", cityNoEv: "这一段没有收录大事", gazHeld: "属", gazIn: "约在", gazKind: "地名古今", gazNote: "由本图的城市、政区和疆域推算 · AI 整理，未经核对",  personEvents: (n) => `相关事件（${n}）· 点击跳转`, pranks: { capital: "都城", secondary: "陪都", major: "重要城市", port: "港口", frontier: "军事重镇" }, rkinds: { imperial: "驰道", post: "驿道", trade: "商道" }, via: "途经", inUse: "使用年代",
     fields: { general: "军事家", statesman: "政治家", thinker: "思想家", poet: "诗人", writer: "文学家", historian: "史学家", scientist: "科学家", physician: "医学家", engineer: "工程师", artist: "艺术家", religious: "宗教人物", explorer: "旅行家", scholar: "学者" },
     faiths: { buddhist: "佛教", daoist: "道教", confucian: "儒家", islam: "伊斯兰教", christian: "基督教", thought: "思想", other: "其他" },
     ifields: { craft: "工艺", writing: "文字", printing: "印刷", metallurgy: "冶金", military: "军事", astronomy: "天文", math: "数学", medicine: "医学", agriculture: "农业", navigation: "航海", engineering: "工程", money: "货币" },
+    economy: "经济重心", econPop: "人口", econWealth: "财赋", econSouth: "南方占", econSouthHint: "秦岭—淮河以南", econCentre: "重心约在", econTop: "最多", econFrom: "数据", econNext: "下一个数据点", econOut: "这一层只覆盖汉至清（前206—1912）", econCentrePop: "人口重心", econCentreWealth: "财赋重心", econNote: "各省比例按历代户口、田赋统计约略复原，再分到当时的政区治所 · AI 整理，未经核对", econKind: { census: "户口", estimate: "估计", record: "账册" },
     pop: "人口", popOf: (m, y, k) => { const w = Math.round(m * 100); return `${k === "estimate" ? "估计约" : "约"}${w >= 10000 ? (w / 10000).toFixed(1).replace(/\.0$/, "") + "亿" : w + "万"}（${y}）`; },
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
@@ -143,10 +145,11 @@ const UI = {
     units: { infantry: "Infantry", cavalry: "Cavalry", chariots: "Chariots", archers: "Archers", crossbows: "Crossbows", navy: "Navy", siege: "Siege", firearms: "Firearms", artillery: "Artillery", elephants: "Elephants" },
     kinds: { campaign: "Campaign", journey: "Journey", trade: "Trade route", canal: "Canal", wall: "Wall" }, exchange: "Exchange", spread: "Spread", spreadGroups: { faith: "Faith spreads", tech: "Technique spreads", crop: "Crop spreads" }, arrived: (y) => `arrived ${y}`, set_out: (y) => `from ${y}`, world_t: "World", worldHead: "The world this year", goRegion: "Go to region", allWorld: "Whole world", worldHint: "Click a region to move the map and timeline there; click an event to read it", noWorldEv: "No major events recorded within a few decades", elsewhere: "Elsewhere", wsHead: (x) => `Meanwhile · ${x}`, wsNearShort: "Neighbours", wsWorld: "World", wsNear: (n) => `Around ${n}`, wsNone: "No recorded events in these years", hideStrip: "Hide", showStrip: "Show other regions above the timeline",
     sel: { hint: "Click a country on the map to select it: the map and panels then show only what concerns it. Click it again to clear", off: "Not on the map in this year", offMap: "The map for this year doesn't draw it separately", before: "Not yet founded in this year", after: "No longer exists in this year", jump: (y) => `Go to ${y}`, events: (n) => `${n} events`, people: (n) => `${n} people this period`, cities: "Cities", clear: "Clear selection", circa: "c. ", away: "Out of view; the timeline still follows it", back: (n) => `Back to ${n}`, story: "Play its story", now: "today", more: (n) => `${n} more`, less: "Fewer" },
-    people_l: "People", cmp: { one: "Compare", open: "Compare regions", sync: "Sync view", openTime: "Compare times", place: "Two places", time: "Two times", period: "Period", year: "Year", close: "Close compare", pick: "Compare with", rulers: "Rulers", events: "Around this year", none: "No major events recorded within a few decades" }, lasted: (n) => `${n} years`, packs: "Packs", rpMore: "Rulers, events and countries this year", asState: "As a state: ", close: "Close", search: "Search", share: "Share this view", tours: "Tours", toursHead: "Guided tours", tourStory: "Read the story", tourMusic: " Music", tourNarr: " Narration", tourNarrHint: "Read each stop aloud (AI voice, in Chinese)", voices: { Charon: "Male", Kore: "Female" }, tourMusicHint: "Background music during tours and timeline playback (AI-generated)", tourImmersive: "Immersive", tourImmersiveHint: "Enlarge the picture and fold the other panels away (Esc to leave)", tourBack: "Back to the tour", tourPrev: "Back", tourNext: "Next", tourPlay: "Play", tourPause: "Pause", tourEnd: "End tour", tourDone: "End of tour", tourSteps: (n) => `${n} stops`, tourCount: (n) => `${n} tour${n === 1 ? "" : "s"}`, followLife: "Follow their life", trail: "Footsteps", trailShow: "Footsteps", trailHint: "Draw their whole life journey on the map; it moves with the timeline", trailPrev: "Previous", trailNext: "Next stop", trailBefore: (y) => `Not born yet. The journey starts in ${y}; press Next stop or drag the timeline.`, trailAfter: "The journey ends here.", livesHere: "Lives in this period", livesAll: "Lives", tourAt: (n) => `Stop ${n}`, toursHere: "Tours for this period", toursOther: "Other periods", noTours: "No tours for this period yet", tourHint: "Pick a tour and the map follows the story", linkCopied: "Link copied", linkCopy: "Copy this link:", searchPh: "Search tours, events, people, rulers, cities or a year (755, 221 BC)", autoLayers: "Auto layers", autoHint: "Reading an event or a tour stop switches on the layers it needs; those get a dashed outline", autoOn: "Switched on for this", autoAlso: "Related layers", tipOn: "On", stLayBtn: "Layer buttons", stLayPos: "Layer layout", layBtns: { text: "Text", icon: "Icon", both: "Icon + text" }, layPos: { group: "Groups", nowrap: "One row, scroll", wrap: "One row, wrap" }, tipOff: "Off", tipAuto: "On for this story", sgroups: { time: "Year", era: "Periods", tour: "Tours", event: "Events", person: "People", ruler: "Rulers", city: "Cities", place: "Place names" }, noResults: "Nothing found", jumpYear: "Go to this year", capitals: "Capitals", faith: "Faith", inventions: "Inventions", passes: "Passes", admin: "Prefectures", adminSeat: "Seat", adminWas: "Han name", adminSite: "This seat by dynasty · click to jump", adminNow: "Today", adminSnap: (y) => `As in ${y} · AI-drafted, spot-checked against CHGIS`, adminUnsure: "position uncertain", adminChgis: "Look up in CHGIS", adminChgisWait: "Asking CHGIS…", adminChgisDown: "CHGIS can't be reached right now; try again later", adminChgisNone: "No record of this name in CHGIS for this year", adminChgisSrc: "From the CHGIS Temporal Gazetteer (Harvard, Fudan), looked up live", adminChgisMoved: "its seat differs a little from this map", roads: "Roads", walls: "Great Walls", wallBy: "Built by", wallLen: (n) => `about ${n.toLocaleString()} km`, ruin: "Abandoned; ruins remain", clans: "Elites", ckinds: { gentry: "Great clans", bloc: "Regional bloc", military: "Military clique", faction: "Court faction", merchant: "Merchant guild" }, seats: "Home seats", families: "Families", members: "Key figures", drafted: "AI-drafted, not source-checked", cityEvents: (n) => `Events here (${n}) · click to jump`, cityHere: (n, m) => n === m ? `${n} events here` : `${n} events in this phase · ${m} in all`, cityNone: (m) => `No events recorded in this phase · tap the bar for other periods (${m} in all)`, cityTop: "Major", cityAll: "All", gazHead: "Names through time · click to jump", cityTabEv: (n) => n ? `Events ${n}` : "Events", cityNoEv: "No events recorded in this phase", gazHeld: "held by", gazIn: "roughly in", gazKind: "Place through time", gazNote: "Worked out from this atlas's cities, prefectures and borders · AI-drafted, approximate", personEvents: (n) => `Related events (${n}) · click to jump`, pranks: { capital: "Capital", secondary: "Secondary capital", major: "Major city", port: "Port", frontier: "Military stronghold" }, rkinds: { imperial: "Imperial highway", post: "Post road", trade: "Trade road" }, via: "Via", inUse: "In use",
+    people_l: "People", climate: "Climate & disasters", climHead: "Climate · E. China", climNow: (a, p) => `${Math.abs(a).toFixed(1)}°C ${a >= 0 ? "warmer" : "colder"} than 1961–90${p ? " · " + p : ""}`, climKinds: { drought: "Drought", flood: "Flood", locust: "Locusts", famine: "Famine", quake: "Earthquake", plague: "Epidemic", cold: "Severe cold", river: "Yellow River breach" }, climKey: { reb: "revolts", cap: "capital moves", dis: "disasters" }, climToll: "Toll", climArea: "Area", climLinked: "Related events · click to jump", climAfter: "Revolts and capital moves around it", climPhase: "Climate then", climNote: "Disasters and warm/cold phases AI-drafted, not source-checked; the temperature line is a sketch", climCurve: "The temperature line is hand-drawn after the warm and cold phases of Zhu Kezhen (1972) and Ge et al. (2013); not the published data", climElse: "The climate line covers eastern China only", cmp: { one: "Compare", open: "Compare regions", sync: "Sync view", openTime: "Compare times", place: "Two places", time: "Two times", period: "Period", year: "Year", close: "Close compare", pick: "Compare with", rulers: "Rulers", events: "Around this year", none: "No major events recorded within a few decades" }, lasted: (n) => `${n} years`, packs: "Packs", rpMore: "Rulers, events and countries this year", asState: "As a state: ", close: "Close", search: "Search", share: "Share this view", tours: "Tours", toursHead: "Guided tours", tourStory: "Read the story", tourMusic: " Music", tourNarr: " Narration", tourNarrHint: "Read each stop aloud (AI voice, in Chinese)", voices: { Charon: "Male", Kore: "Female" }, tourMusicHint: "Background music during tours and timeline playback (AI-generated)", tourImmersive: "Immersive", tourImmersiveHint: "Enlarge the picture and fold the other panels away (Esc to leave)", tourBack: "Back to the tour", tourPrev: "Back", tourNext: "Next", tourPlay: "Play", tourPause: "Pause", tourEnd: "End tour", tourDone: "End of tour", tourSteps: (n) => `${n} stops`, tourCount: (n) => `${n} tour${n === 1 ? "" : "s"}`, followLife: "Follow their life", trail: "Footsteps", trailShow: "Footsteps", trailHint: "Draw their whole life journey on the map; it moves with the timeline", trailPrev: "Previous", trailNext: "Next stop", trailBefore: (y) => `Not born yet. The journey starts in ${y}; press Next stop or drag the timeline.`, trailAfter: "The journey ends here.", livesHere: "Lives in this period", livesAll: "Lives", tourAt: (n) => `Stop ${n}`, toursHere: "Tours for this period", toursOther: "Other periods", noTours: "No tours for this period yet", tourHint: "Pick a tour and the map follows the story", linkCopied: "Link copied", linkCopy: "Copy this link:", searchPh: "Search tours, events, people, rulers, cities or a year (755, 221 BC)", autoLayers: "Auto layers", autoHint: "Reading an event or a tour stop switches on the layers it needs; those get a dashed outline", autoOn: "Switched on for this", autoAlso: "Related layers", tipOn: "On", stLayBtn: "Layer buttons", stLayPos: "Layer layout", layBtns: { text: "Text", icon: "Icon", both: "Icon + text" }, layPos: { group: "Groups", nowrap: "One row, scroll", wrap: "One row, wrap" }, tipOff: "Off", tipAuto: "On for this story", sgroups: { time: "Year", era: "Periods", tour: "Tours", event: "Events", person: "People", ruler: "Rulers", city: "Cities", place: "Place names" }, noResults: "Nothing found", jumpYear: "Go to this year", capitals: "Capitals", faith: "Faith", inventions: "Inventions", passes: "Passes", admin: "Prefectures", adminSeat: "Seat", adminWas: "Han name", adminSite: "This seat by dynasty · click to jump", adminNow: "Today", adminSnap: (y) => `As in ${y} · AI-drafted, spot-checked against CHGIS`, adminUnsure: "position uncertain", adminChgis: "Look up in CHGIS", adminChgisWait: "Asking CHGIS…", adminChgisDown: "CHGIS can't be reached right now; try again later", adminChgisNone: "No record of this name in CHGIS for this year", adminChgisSrc: "From the CHGIS Temporal Gazetteer (Harvard, Fudan), looked up live", adminChgisMoved: "its seat differs a little from this map", roads: "Roads", walls: "Great Walls", wallBy: "Built by", wallLen: (n) => `about ${n.toLocaleString()} km`, ruin: "Abandoned; ruins remain", clans: "Elites", ckinds: { gentry: "Great clans", bloc: "Regional bloc", military: "Military clique", faction: "Court faction", merchant: "Merchant guild" }, seats: "Home seats", families: "Families", members: "Key figures", drafted: "AI-drafted, not source-checked", cityEvents: (n) => `Events here (${n}) · click to jump`, cityHere: (n, m) => n === m ? `${n} events here` : `${n} events in this phase · ${m} in all`, cityNone: (m) => `No events recorded in this phase · tap the bar for other periods (${m} in all)`, cityTop: "Major", cityAll: "All", gazHead: "Names through time · click to jump", cityTabEv: (n) => n ? `Events ${n}` : "Events", cityNoEv: "No events recorded in this phase", gazHeld: "held by", gazIn: "roughly in", gazKind: "Place through time", gazNote: "Worked out from this atlas's cities, prefectures and borders · AI-drafted, approximate", personEvents: (n) => `Related events (${n}) · click to jump`, pranks: { capital: "Capital", secondary: "Secondary capital", major: "Major city", port: "Port", frontier: "Military stronghold" }, rkinds: { imperial: "Imperial highway", post: "Post road", trade: "Trade road" }, via: "Via", inUse: "In use",
     fields: { general: "Military", statesman: "Statesman", thinker: "Thinker", poet: "Poet", writer: "Writer", historian: "Historian", scientist: "Scientist", physician: "Physician", engineer: "Engineer", artist: "Artist", religious: "Religious figure", explorer: "Traveller", scholar: "Scholar" },
     faiths: { buddhist: "Buddhism", daoist: "Daoism", confucian: "Confucianism", islam: "Islam", christian: "Christianity", thought: "Thought", other: "Other" },
     ifields: { craft: "Craft", writing: "Writing", printing: "Printing", metallurgy: "Metalwork", military: "Military", astronomy: "Astronomy", math: "Mathematics", medicine: "Medicine", agriculture: "Farming", navigation: "Navigation", engineering: "Engineering", money: "Money" },
+    economy: "Economic centre", econPop: "Population", econWealth: "Revenue", econSouth: "South", econSouthHint: "south of the Qinling–Huai line", econCentre: "Centre near", econTop: "Largest", econFrom: "Data", econNext: "next data point", econOut: "This layer covers Han to Qing (206 BC – 1912)", econCentrePop: "Population centre", econCentreWealth: "Revenue centre", econNote: "Province shares roughly rebuilt from dynastic census and tax figures, spread over that period's prefecture seats · AI-drafted, not source-checked", econKind: { census: "census", estimate: "estimate", record: "ledger" },
     pop: "Population", popOf: (m, y, k) => `${k === "estimate" ? "c. " : ""}${m} million (${y})`,
     capital: "Capital", works: "Known works", life: (a, b) => `${a} – ${b}`, inventor: "Inventor", pkinds: { pass: "Mountain pass", wall: "Great Wall gate", gate: "Gate" }, guards: "Guards", battles: "Happened here", built: (y) => `built ${y}`,
   },
@@ -822,9 +825,12 @@ function baseStyle() {
       spread: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       roads: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       clans: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      disasters: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       walls: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       admin: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       adminAreas: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      econ: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      econTrail: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
     },
     sky: SKY.relief,
     layers: [
@@ -887,6 +893,10 @@ function baseStyle() {
       { id: "clan-fill", type: "fill", source: "clans", paint: { "fill-color": ["get", "color"], "fill-opacity": 0.3 } },
       { id: "clan-line", type: "line", source: "clans", layout: { "line-join": "round" },
         paint: { "line-color": ["get", "color"], "line-width": 2, "line-opacity": 0.95, "line-dasharray": [2, 1.5] } },
+      // Disasters (气候与灾害): a soft tint over the stricken area, coloured by kind; faded once it is over.
+      { id: "dis-fill", type: "fill", source: "disasters", paint: { "fill-color": ["get", "color"], "fill-opacity": ["case", ["get", "past"], 0.05, 0.13] } },
+      { id: "dis-line", type: "line", source: "disasters", layout: { "line-join": "round" },
+        paint: { "line-color": ["get", "color"], "line-width": 1.6, "line-opacity": ["case", ["get", "past"], 0.35, 0.85], "line-dasharray": [1, 1.4] } },
       // Great Walls (长城): manned walls as a dark line with battlement ticks; abandoned ones as faint dashes.
       { id: "wall-ruin", type: "line", source: "walls", filter: ["==", ["get", "ruin"], true],
         paint: { "line-color": "#6b5a48", "line-opacity": 0.45, "line-width": 1.6, "line-dasharray": [2, 2] } },
@@ -908,6 +918,20 @@ function baseStyle() {
       // Administrative seats (郡/州/府… 治所): small rings, frontier and military offices in slate; names come as
       // markers from zoom 5 on (renderAdminLabels).
       // Their rough areas (nearest seat, clipped to the period map): faint dashed edges, the open seat's area tinted.
+      // Economic centre (经济重心): a heatmap of each province's share of people or revenue, spread over the period's
+      // seats, with the drift of its weighted centre drawn as a trail (renderEconomy).
+      { id: "econ-heat", type: "heatmap", source: "econ", maxzoom: 9, paint: {
+          "heatmap-weight": ["get", "w"],
+          "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 3, 1, 6, 2],
+          "heatmap-radius": ["interpolate", ["exponential", 2], ["zoom"], 3, 22, 5, 50, 7, 120],
+          "heatmap-color": ["interpolate", ["linear"], ["heatmap-density"], 0, "rgba(255,236,160,0)", 0.15, "rgba(255,226,120,0.35)",
+            0.35, "rgba(250,180,60,0.55)", 0.6, "rgba(232,110,40,0.68)", 0.85, "rgba(200,40,30,0.75)", 1, "rgba(150,10,30,0.8)"],
+          "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.85, 8, 0.55] } },
+      { id: "econ-trail", type: "line", source: "econTrail", filter: ["==", ["geometry-type"], "LineString"],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "#5c120c", "line-width": 3, "line-opacity": 0.9 } },
+      { id: "econ-trail-dot", type: "circle", source: "econTrail", filter: ["==", ["geometry-type"], "Point"], paint: {
+          "circle-radius": 4, "circle-color": "#f6efe0", "circle-stroke-color": "#5c120c", "circle-stroke-width": 2 } },
       { id: "admin-area-on", type: "fill", source: "adminAreas", filter: ["==", ["get", "i"], -1],
         paint: { "fill-color": "#d9b45a", "fill-opacity": 0.3 } },
       { id: "admin-area-line", type: "line", source: "adminAreas", layout: { "line-join": "round" },
@@ -1940,10 +1964,12 @@ const AUTO_RULES = [
   [["walls"], (c, x) => /长城|边塞|匈奴|突厥|蒙古|瓦剌|鞑靼|鲜卑|柔然|边墙/.test(x)],
   [["routes", "roads"], (c, x) => /运河|渠|驿|驰道|直道|官道|丝绸之路|西域|出使|西行|东渡|下西洋|巡游|南巡|漕运|海运|行军|远征/.test(x)],
   [["capitals"], (c, x) => /迁都|定都|建都|都城|营建|东迁|南渡|国都|京城|首都/.test(x)],
+  [["economy"], (c, x) => /经济重心|南移|户口|漕运|赋税|苏湖熟|湖广熟|衣冠南渡|永嘉之乱|靖康/.test(x)],
   [["admin"], (c, x) => /郡县|设郡|置郡|分天下为|行省|改土归流|废郡|置州|设府|郡国并行|推恩令|州郡|道制/.test(x)],
   [["faith"], (c, x) => /佛|寺|僧|道教|道士|儒|孔子|孟子|理学|心学|书院|景教|伊斯兰|摩尼|祆教|基督|天主|传教|石窟|经书|佛经|百家/.test(x)],
   [["inventions"], (c, x) => c === "science" || /发明|造纸|印刷|火药|指南|历法|地动仪|天文|算|医书|本草|农书|技术|瓷/.test(x)],
   [["clans"], (c, x) => /门阀|士族|世家|豪族|朋党|党争|党禁|商帮|集团|郡望/.test(x)],
+  [["climate"], (c, x) => /旱|蝗|饥荒|大饥|奇荒|水灾|大水|洪水|决口|决堤|改道|夺淮|地震|大疫|瘟疫|鼠疫|雪灾|寒冬|结冰/.test(x)],
 ];
 // A dashed (auto) chip clicked is switched off until the story or step changes; clicked again it is on for good.
 function syncAuto() {
@@ -1993,12 +2019,14 @@ const LAYER_ICONS = {
   "l-capitals": '<path d="M2 9l10-5 10 5"/><path d="M5 9v12M19 9v12M3 21h18M10 21v-5h4v5"/>',
   "t-places": '<path d="M3 21V10h6M9 21V4h7v17M16 13h5v8M2 21h20M12 8h1M12 12h1M12 16h1"/>',
   "l-admin": '<path d="M3 4h18v16H3z"/><path d="M3 11h7l2 3h9M10 4v7M14 14v6"/>',
+  "l-economy": '<path d="M5 14a7 7 0 0014 0M8 14a4 4 0 008 0"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/><path d="M12 3v6.5M9.2 7l2.8 2.8L14.8 7"/>',
   "l-clans": '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/>',
   "l-armies": '<path d="M4 4l11 11M20 4L9 15M13 17l4-4M11 17l-4-4M16 16l3 3M8 16l-3 3"/>',
   "l-passes": '<path d="M3 21V10h18v11M2 10l2-4h16l2 4M9 21v-5a3 3 0 016 0v5"/>',
   "l-walls": '<path d="M3 20V7h3v3h4.5V7h3v3H18V7h3v13z"/><path d="M10 20v-3a2 2 0 014 0v3"/>',
   "l-roads": '<path d="M9 3L4 21M15 3l5 18M12 5v2M12 11v2M12 17v3"/>',
   "l-routes": '<circle cx="5" cy="18" r="2"/><path d="M7 17c4-2 2-8 7-9 3-.6 4-1.5 5-3" stroke-dasharray="2.6 2.4"/><path d="M16 4.5l3.2.3.3 3.2"/>',
+  "l-climate": '<path d="M9 14.5V5a2.5 2.5 0 015 0v9.5a4 4 0 11-5 0z"/><path d="M11.5 9v8"/><path d="M17.5 4.5c1.6 1.4 2.5 3 2.5 4.5a2.5 2.5 0 01-5 0c0-1.5.9-3.1 2.5-4.5z"/>',
   "l-people": '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
   "l-faith": '<path d="M12 20c-4 0-8-3-9-7 3 0 6 1 9 4 3-3 6-4 9-4-1 4-5 7-9 7z"/><path d="M12 17c-2-2-3-5-3-8 1.5 1 2.5 2 3 3 .5-1 1.5-2 3-3 0 3-1 6-3 8z"/>',
   "l-inventions": '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0012 3z"/>',
@@ -2093,6 +2121,9 @@ function renderOverlays() {
   renderWalls();
   renderAdmin();
   renderPopulation();
+  renderEconomy();
+  renderDisasters();
+  renderClimChart();
 }
 
 /* People, capitals, religion & thought, inventions: small markers that open a card. */
@@ -2384,6 +2415,7 @@ function adminData() {
       return o;
     }) };
     renderAdmin();
+    renderEconomy();
   }).catch(() => { state.admin = { items: [], types: [] }; });
   return null;
 }
@@ -2632,6 +2664,244 @@ function renderPopulation() {
       ${pts.map((p) => `<circle class="pop-pt ${esc(p.kind)}${p === last ? " on" : ""}" cx="${sx(p.year).toFixed(1)}" cy="${sy(p.millions).toFixed(1)}" r="${p === last ? 3.5 : 2}"><title>${esc(fmtYear(p.year))} · ${p.millions}${zh() ? "百万" : "M"} ${esc(tx(p, "note"))}</title></circle>`).join("")}
       <line class="pop-now" x1="${cx}" x2="${cx}" y1="0" y2="${H}"/>
     </svg>`;
+}
+
+// Economic centre (经济重心): where the people and the revenue were, 汉 to 清. data/economy.json gives each modern
+// province's share at a handful of census or ledger years; each share is spread evenly over that province's seats in
+// data/admin.json at that year (more prefectures, more people), and between two data points the two heat sets
+// cross-fade. Each data point's weighted centre is drawn as a trail, this year's as a marker. AI-drafted figures.
+const ECON_SPAN = [-206, 1912];
+let econLoad;
+function econData() {
+  if (state.econ) return state.econ;
+  econLoad ||= loadJSON("data/economy.json").then((d) => { state.econ = d; renderEconomy(); })
+    .catch(() => { state.econ = { provinces: {}, metrics: {} }; });
+  return null;
+}
+// The Qinling–Huai line as a latitude at a longitude (data/economy.json `huai`): south of it counts as the south.
+function huaiLat(H, lon) {
+  if (lon <= H[0][0]) return H[0][1];
+  for (let i = 1; i < H.length; i++) if (lon <= H[i][0]) {
+    const [x0, y0] = H[i - 1], [x1, y1] = H[i];
+    return y0 + ((lon - x0) / (x1 - x0)) * (y1 - y0);
+  }
+  return H[H.length - 1][1];
+}
+// One data point made into weighted points: the province shares (normalised to 100) over that year's seats.
+function econPoints(d, s) {
+  if (s.pts) return s;
+  const A = state.admin.items;
+  let seats = A.filter((x) => x.era === s.era && s.year >= x.from && (x.to == null || s.year <= x.to));
+  if (seats.length < 10) {
+    const snaps = [...new Set(A.filter((x) => x.era === s.era).map((x) => x.snap))];
+    const near = snaps.sort((a, b) => Math.abs(a - s.year) - Math.abs(b - s.year))[0];
+    seats = A.filter((x) => x.era === s.era && x.snap === near);
+  }
+  seats.sort((a, b) => Math.abs(a.snap - s.year) - Math.abs(b.snap - s.year));
+  const kept = [];
+  for (const x of seats) if (!kept.some((o) => Math.abs(o.lon - x.lon) < 0.2 && Math.abs(o.lat - x.lat) < 0.2)) kept.push(x);
+  const P = d.provinces, provOf = {};
+  for (const [id, p] of Object.entries(P)) provOf[id] = [];
+  for (const x of kept) {
+    const m = (x.modern_zh || "").replace(/^今/, "");
+    const id = Object.keys(P).find((k) => P[k].match.some((z) => m.startsWith(z)));
+    if (id) provOf[id].push(x);
+  }
+  const sum = Object.values(s.share).reduce((a, b) => a + b, 0);
+  s.pts = [];
+  for (const [id, v] of Object.entries(s.share)) {
+    const share = (v / sum) * 100, at = provOf[id]?.length ? provOf[id] : [{ lon: P[id].lon, lat: P[id].lat }];
+    for (const x of at) s.pts.push({ lon: x.lon, lat: x.lat, w: share / at.length, m: x.modern_zh });
+  }
+  const W = s.pts.reduce((a, p) => a + p.w, 0);
+  s.centre = [s.pts.reduce((a, p) => a + p.w * p.lon, 0) / W, s.pts.reduce((a, p) => a + p.w * p.lat, 0) / W];
+  s.south = s.pts.reduce((a, p) => a + (p.lat < huaiLat(d.huai, p.lon) ? p.w : 0), 0) / W;
+  s.top = Object.entries(s.share).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([id]) => id);
+  return s;
+}
+// The two data points around a year and how far between them it is.
+function econAt(list, y) {
+  if (y <= list[0].year) return [list[0], list[0], 0];
+  for (let i = 1; i < list.length; i++) if (y < list[i].year) return [list[i - 1], list[i], (y - list[i - 1].year) / (list[i].year - list[i - 1].year)];
+  const last = list[list.length - 1];
+  return [last, last, 0];
+}
+function econFrame(d, metric, y) {
+  const list = d.metrics[metric].map((s) => econPoints(d, s));
+  const [a, b, f] = econAt(list, y);
+  const lerp = (u, v) => u + (v - u) * f;
+  return { list, a, b, f, centre: [lerp(a.centre[0], b.centre[0]), lerp(a.centre[1], b.centre[1])], south: lerp(a.south, b.south) };
+}
+function renderEconomy() {
+  const box = $("econ-box");
+  const clear = () => {
+    map.getSource("econ")?.setData({ type: "FeatureCollection", features: [] });
+    map.getSource("econTrail")?.setData({ type: "FeatureCollection", features: [] });
+    (markers.econ || []).forEach((m) => m.remove());
+    markers.econ = [];
+  };
+  if (!shown("economy")) { box.hidden = true; return clear(); }
+  const d = econData(), adm = adminData();
+  box.hidden = false;
+  if (!d || !adm || !d.metrics?.pop) { box.innerHTML = ""; return clear(); }
+  const y = state.year, metric = state.econMetric === "wealth" ? "wealth" : "pop";
+  const inSpan = y >= ECON_SPAN[0] && y <= ECON_SPAN[1];
+  const fr = econFrame(d, metric, y);
+  const other = econFrame(d, metric === "pop" ? "wealth" : "pop", y);
+  const pt = (c, props) => ({ type: "Feature", properties: props, geometry: { type: "Point", coordinates: c } });
+  clear();
+  if (inSpan) {
+    const feats = fr.a.pts.map((p) => pt([p.lon, p.lat], { w: p.w * (1 - fr.f) }));
+    if (fr.f > 0) feats.push(...fr.b.pts.map((p) => pt([p.lon, p.lat], { w: p.w * fr.f })));
+    map.getSource("econ")?.setData({ type: "FeatureCollection", features: feats });
+    const past = fr.list.filter((s) => s.year <= y);
+    const line = [...past.map((s) => s.centre), fr.centre];
+    map.getSource("econTrail")?.setData({ type: "FeatureCollection", features: [
+      ...(line.length > 1 ? [{ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: line } }] : []),
+      ...past.map((s) => pt(s.centre, { year: s.year })) ] });
+    const el = document.createElement("div");
+    el.className = "mk-econ";
+    el.innerHTML = `<i></i><span>${esc(t(metric === "pop" ? "econCentrePop" : "econCentreWealth"))}</span>`;
+    markers.econ.push(new maplibregl.Marker({ element: el, anchor: "center" }).setLngLat(fr.centre).addTo(map));
+  }
+  // Card: metric switch, south share and centre now, and a chart of the south's share for both measures.
+  const P = d.provinces, pname = (id) => (zh() ? P[id].zh : P[id].en);
+  const near = [...fr.a.pts, ...fr.b.pts].filter((p) => p.m)
+    .sort((p, q) => Math.hypot(p.lon - fr.centre[0], p.lat - fr.centre[1]) - Math.hypot(q.lon - fr.centre[0], q.lat - fr.centre[1]))[0];
+  const src = fr.f > 0.5 ? fr.b : fr.a;
+  const W = 288, H = 46, sx = (yr) => ((yr - ECON_SPAN[0]) / (ECON_SPAN[1] - ECON_SPAN[0])) * W, sy = (v) => H - 3 - v * (H - 6);
+  const path = (f) => [ECON_SPAN[0], ...f.list.map((s) => s.year), ECON_SPAN[1]].map((yr, i) => {
+    const [a, b, k] = econAt(f.list, yr);
+    return `${i ? "L" : "M"}${sx(yr).toFixed(1)},${sy(a.south + (b.south - a.south) * k).toFixed(1)}`;
+  }).join("");
+  const cx = sx(Math.max(ECON_SPAN[0], Math.min(ECON_SPAN[1], y)));
+  box.innerHTML = `<div class="pop-head"><b>${t("economy")}</b><span class="econ-seg" role="group">${["pop", "wealth"].map((k) =>
+      `<button type="button" data-m="${k}" aria-pressed="${k === metric}">${t(k === "pop" ? "econPop" : "econWealth")}</button>`).join("")}</span></div>
+    ${inSpan ? `<p class="econ-now"><b>${t("econSouth")} ${Math.round(fr.south * 100)}%</b> <small>${t("econSouthHint")}</small><br>
+      ${near ? `${t("econCentre")} <span lang="zh-CN">${esc(near.m.replace(/^今/, ""))}</span> · ` : ""}${t("econTop")} ${src.top.map(pname).map(esc).join(zh() ? "、" : ", ")}</p>` : `<p class="econ-now">${t("econOut")}</p>`}
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${t("econSouth")}">
+      <line class="econ-half" x1="0" x2="${W}" y1="${sy(0.5)}" y2="${sy(0.5)}"/>
+      <path class="econ-line other" d="${path(other)}"/><path class="econ-line" d="${path(fr)}"/>
+      ${fr.list.map((s) => `<circle class="econ-pt${s === src ? " on" : ""}" cx="${sx(s.year).toFixed(1)}" cy="${sy(s.south).toFixed(1)}" r="${s === src ? 3.2 : 2}"><title>${esc(fmtYear(s.year))} · ${t("econSouth")} ${Math.round(s.south * 100)}% · ${esc(tx(s, "src"))}</title></circle>`).join("")}
+      ${inSpan ? `<line class="pop-now" x1="${cx}" x2="${cx}" y1="0" y2="${H}"/>` : ""}
+    </svg>
+    <p class="econ-src">${t("econFrom")}: ${esc(fmtYear(src.year))} ${esc(tx(src, "src"))} <i>${esc(t("econKind")[src.kind] || "")}</i></p>
+    <p class="econ-src">${t("econNote")}</p>`;
+  box.querySelectorAll("[data-m]").forEach((b) => b.addEventListener("click", () => {
+    state.econMetric = b.dataset.m;
+    try { localStorage.setItem("atlas-econ", state.econMetric); } catch {}
+    renderEconomy();
+  }));
+}
+
+// Climate and disasters (气候与灾害, data/climate.json from tools/build_climate.py): droughts, floods, locusts, famines,
+// quakes, epidemics, cold winters and Yellow River breaches stand on the map while they last (and fade for a few years
+// after); a strip in the era panel draws the temperature sketch with its warm and cold phases across the whole timeline,
+// with the disasters, revolts and capital moves as ticks, so the three can be read against each other.
+const DIS = { drought: ["#c9852b", "旱"], flood: ["#2f7fc1", "涝"], locust: ["#7f9a2a", "蝗"], famine: ["#8a5a3c", "饥"],
+  quake: ["#8d5bb0", "震"], plague: ["#b0405f", "疫"], cold: ["#5aa7c9", "寒"], river: ["#2a5f8f", "河"] };
+const DIS_LINGER = 3;
+const disNow = (d, y = state.year) => y >= d.from && y <= d.to + DIS_LINGER;
+function anomalyAt(y) {
+  const c = state.climate?.curve;
+  if (!c?.length) return null;
+  if (y <= c[0][0]) return c[0][1];
+  for (let i = 1; i < c.length; i++) if (y <= c[i][0]) {
+    const [y0, a0] = c[i - 1], [y1, a1] = c[i];
+    return a0 + ((y - y0) / (y1 - y0)) * (a1 - a0);
+  }
+  return c[c.length - 1][1];
+}
+// The innermost warm or cold phase around a year (the coldest century sits inside the Little Ice Age).
+const climPhase = (y) => (state.climate?.periods || []).filter((p) => y >= p.from && y <= p.to).sort((a, b) => (a.to - a.from) - (b.to - b.from))[0];
+function circleGeom(lon, lat, km) {
+  const ring = [];
+  for (let i = 0; i <= 48; i++) {
+    const a = (i / 48) * 2 * Math.PI;
+    ring.push([lon + (km / (111.3 * Math.cos((lat * Math.PI) / 180))) * Math.cos(a), lat + (km / 111.3) * Math.sin(a)]);
+  }
+  return { type: "Polygon", coordinates: [ring] };
+}
+const chinaEv = (ev) => !ev.region && ev.year != null;
+const isCapMove = (ev) => chinaEv(ev) && /迁都|定都|建都|南渡|东迁|西迁/.test(ev.title_zh || "");
+const isRevolt = (ev) => chinaEv(ev) && ev.category === "rebellion" && (ev.level || 1) <= 2;
+function disasterCard(d) {
+  const [col] = DIS[d.kind] || ["#888"];
+  const years = d.to > d.from ? `${fmtYear(d.from, d.circa)} – ${fmtYear(d.to)}` : fmtYear(d.from, d.circa);
+  const byId = (id) => state.events.find((e) => e.id === id);
+  const linked = (d.events || []).map(byId).filter(Boolean);
+  // Revolts and capital moves in China from just before to a decade after, near enough to the stricken area.
+  const far = Math.max(6, (d.r_km * 1.8) / 111);
+  const around = state.events.filter((ev) => (isRevolt(ev) || isCapMove(ev)) && !linked.includes(ev) && ev.year >= d.from - 2 && ev.year <= d.to + 12
+    && (ev.lon == null || Math.hypot(ev.lon - d.lon, ev.lat - d.lat) < far)).sort((a, b) => a.year - b.year).slice(0, 5);
+  const ph = climPhase(d.from), a = anomalyAt(d.from);
+  const now = (ev) => ev.year <= state.year && state.year <= ev.year + 5;
+  return `<div class="pc-kind" style="color:${col}">${esc(t("climKinds")[d.kind] || d.kind)} · ${years}</div>
+    <h4>${esc(nameOf(d))} <span lang="${zh() ? "en" : "zh-CN"}">${esc(zh() ? d.name : d.name_zh)}</span></h4>
+    <p class="pc-works"><b>${t("climArea")}</b> ${esc(tx(d, "area"))}</p>
+    ${tx(d, "toll") ? `<p class="pc-works"><b>${t("climToll")}</b> ${esc(tx(d, "toll"))}</p>` : ""}
+    <p>${esc(tx(d, "summary"))}</p>
+    ${a != null ? `<p class="pc-works"><b>${t("climPhase")}</b> ${esc(t("climNow")(a, ph ? nameOf(ph) : ""))}</p>` : ""}
+    ${linked.length ? `<p class="pc-works"><b>${t("climLinked")}</b></p>${eventButtons(linked, now)}` : ""}
+    ${around.length ? `<p class="pc-works"><b>${t("climAfter")}</b></p>${eventButtons(around, now)}` : ""}
+    <p class="pc-meta">${t("drafted")} ${wikiA(d.source)}</p>`;
+}
+function renderDisasters() {
+  const list = shown("climate") && state.climate ? state.climate.disasters.filter((d) => disNow(d) && selKeep([[d.lon, d.lat]])) : [];
+  map.getSource("disasters")?.setData({ type: "FeatureCollection", features: list.map((d) => ({
+    type: "Feature", properties: { id: d.id, color: (DIS[d.kind] || ["#888"])[0], past: state.year > d.to }, geometry: circleGeom(d.lon, d.lat, d.r_km) })) });
+  pointMarkers("disasters", list, (d) => {
+    const el = document.createElement("div");
+    const past = state.year > d.to;
+    el.className = "mk-dis k-" + d.kind + (past ? " past" : "");
+    el.style.setProperty("--c", (DIS[d.kind] || ["#888"])[0]);
+    el.innerHTML = `<i>${(DIS[d.kind] || ["", "灾"])[1]}</i>` + (past ? "" : `<span>${esc(nameOf(d))}</span>`);
+    el.title = `${fmtYear(d.from, d.circa)} · ${nameOf(d)}`;
+    return { el, anchor: past ? "center" : "left", card: () => disasterCard(d) };
+  });
+}
+function renderClimChart() {
+  const box = $("clim-chart");
+  const c = state.climate;
+  box.hidden = !shown("climate") || !c || !state.scale?.length;
+  if (box.hidden) return;
+  const W = 288, H = 66, top = 9, bot = H - 9, lo = -1.3, hi = 1.8;
+  const first = state.scale[0].era.start, last = state.scale[state.scale.length - 1].era.end;
+  const sx = (y) => {
+    const s = state.scale.find((s) => y >= s.era.start && y <= s.era.end) || (y < first ? state.scale[0] : state.scale[state.scale.length - 1]);
+    const f = Math.min(1, Math.max(0, (y - s.era.start) / (s.era.end + 1 - s.era.start)));
+    return ((s.p0 + f * (s.p1 - s.p0)) / SLIDER_MAX) * W;
+  };
+  const sy = (a) => bot - ((a - lo) / (hi - lo)) * (bot - top);
+  const pts = c.curve.filter(([y]) => y >= first - 10 && y <= last + 10);
+  const line = pts.map(([y, a], i) => `${i ? "L" : "M"}${sx(y).toFixed(1)},${sy(a).toFixed(1)}`).join("");
+  const z = sy(0).toFixed(1);
+  const bands = c.periods.filter((p) => p.to >= first && p.from <= last).map((p) => {
+    const x0 = sx(Math.max(p.from, first)), x1 = sx(Math.min(p.to, last));
+    return `<rect class="cl-band ${p.kind}" x="${x0.toFixed(1)}" width="${Math.max(0.8, x1 - x0).toFixed(1)}" y="${top}" height="${bot - top}"><title>${esc(nameOf(p))} · ${fmtYear(p.from, p.circa)} – ${fmtYear(p.to)}</title></rect>`;
+  }).join("");
+  const tick = (cls, x, y0, y1, title, data, color) => `<line class="${cls}"${color ? ` style="stroke:${color}"` : ""} x1="${x}" x2="${x}" y1="${y0}" y2="${y1}"/><rect class="cl-hit" x="${(x - 2).toFixed(1)}" width="4" y="${y0 - 1}" height="${y1 - y0 + 2}" ${data}><title>${esc(title)}</title></rect>`;
+  const dis = c.disasters.filter((d) => d.from >= first && d.from <= last).map((d) =>
+    tick("cl-dis", sx(d.from).toFixed(1), H - 7, H, `${fmtYear(d.from, d.circa)} · ${nameOf(d)}`, `data-dis="${esc(d.id)}"`, (DIS[d.kind] || ["#888"])[0])).join("");
+  const evTicks = state.events.filter((ev) => (isRevolt(ev) || isCapMove(ev)) && ev.year >= first && ev.year <= last).map((ev) =>
+    tick(isCapMove(ev) ? "cl-cap" : "cl-reb", sx(ev.year).toFixed(1), 0, 6, `${fmtYear(ev.year, ev.circa)} · ${zh() ? ev.title_zh || ev.title : ev.title}`, `data-ev="${esc(ev.id)}"`)).join("");
+  const a = anomalyAt(state.year), ph = climPhase(state.year), cx = sx(state.year).toFixed(1);
+  const china = state.mode === "china";
+  box.innerHTML = `<div class="pop-head"><b>${t("climHead")}</b><span title="${esc(t("climCurve"))}">${a == null ? "—" : esc(t("climNow")(a, ph ? nameOf(ph) : ""))}</span></div>
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(t("climHead"))}">
+      ${bands}<line class="cl-zero" x1="0" x2="${W}" y1="${z}" y2="${z}"/>
+      <path class="cl-line" d="${line}"/>${china ? evTicks : ""}${dis}
+      <line class="pop-now" x1="${cx}" x2="${cx}" y1="0" y2="${H}"/>
+    </svg>
+    <div class="cl-key"><span class="k-reb">${t("climKey").reb}</span><span class="k-cap">${t("climKey").cap}</span><span class="k-dis">${t("climKey").dis}</span><span class="cl-src" title="${esc(t("climCurve"))}">${china ? t("climNote") : t("climElse")}</span></div>`;
+  box.querySelectorAll("[data-ev]").forEach((r) => r.addEventListener("click", () => openStory(r.dataset.ev)));
+  box.querySelectorAll("[data-dis]").forEach((r) => r.addEventListener("click", async () => {
+    const d = c.disasters.find((x) => x.id === r.dataset.dis);
+    if (!d) return;
+    await setYear(d.from);
+    map.easeTo({ center: [d.lon, d.lat], duration: 800 });
+    showCard([d.lon, d.lat], disasterCard(d));
+  }));
 }
 
 function updateRulers() {
@@ -2904,6 +3174,7 @@ function dcItems() {
   markers.places.forEach((m) => add(m, "place", m.getElement().classList.contains("capital") ? 75 : m.getElement().classList.contains("r-secondary") ? 48 : m.getElement().classList.contains("r-frontier") ? 63 : 40, { fixed: true }));
   (markers.roads || []).forEach((m) => add(m, "road", 20, { fixed: true, labelOnly: true }));
   (markers.clans || []).forEach((m) => add(m, "clan", 55));
+  (markers.disasters || []).forEach((m) => add(m, "disaster", m.getElement().classList.contains("past") ? 26 : 61));
   (markers.walls || []).forEach((m) => add(m, "wall", 22, { fixed: true, labelOnly: true }));
   (markers.admin || []).forEach((m) => add(m, "admin", m.getElement().classList.contains("lv-3") ? 14 : 16, { fixed: true, labelOnly: true }));
   // Route and spread names: the lines and arrows always show; the name only where there is room.
@@ -2996,7 +3267,7 @@ function declutter() {
 }
 // A folded spot shows one small tag per kind, each with how many of that kind sit there (事 3 · 人 2), the shown
 // marker included; a tag opens the list of just that kind, the badge's edge the whole list.
-const DC_KINDS = { event: ["事", "◆"], person: ["人", "●"], capital: ["都", "■"], invention: ["器", "⚙"], faith: ["教", "✦"], pass: ["关", "▲"], clan: ["族", "◼"], place: ["城", "•"] };
+const DC_KINDS = { event: ["事", "◆"], person: ["人", "●"], capital: ["都", "■"], invention: ["器", "⚙"], faith: ["教", "✦"], pass: ["关", "▲"], clan: ["族", "◼"], disaster: ["灾", "≈"], place: ["城", "•"] };
 function addGroupBadge(host) {
   const byKind = new Map();
   for (const g of host.group) { if (!byKind.has(g.kind)) byKind.set(g.kind, []); byKind.get(g.kind).push(g); }
@@ -3008,7 +3279,7 @@ function addGroupBadge(host) {
     e.stopPropagation();
     const only = e.target.closest("[data-k]")?.dataset.k;
     const list = only ? byKind.get(only) : host.group;
-    const kinds = { event: t("events"), capital: t("capitals"), person: t("people_l"), invention: t("inventions"), faith: t("faith"), pass: t("passes"), clan: t("clans") };
+    const kinds = { event: t("events"), capital: t("capitals"), person: t("people_l"), invention: t("inventions"), faith: t("faith"), pass: t("passes"), clan: t("clans"), disaster: t("climate") };
     showCard(host.m.getLngLat(), `<div class="pc-kind">${only ? esc(kinds[only] || "") + " · " : ""}${zh() ? `此处 ${list.length} 项` : `${list.length} here`}</div>
       <ul class="dc-list">${list.map((g, i) => `<li><button data-i="${i}"><span class="dc-ico ${esc(g.el.className.replace(/\b(dc|maplibregl)-\S+/g, ""))}">${(g.el.querySelector("i") || {}).outerHTML || ""}</span>
         <span>${esc(g.el.dataset.name || "")}<small>${esc(kinds[g.kind] || "")}</small></span></button></li>`).join("")}</ul>`);
@@ -6023,6 +6294,7 @@ async function init() {
     state.roads = await loadJSON("data/roads.json").catch(() => []);
     state.clans = await loadJSON("data/clans.json").catch(() => []);
     state.walls = await loadJSON("data/walls.json").catch(() => []);
+    state.climate = await loadJSON("data/climate.json").catch(() => null);
     state.exchange = await loadJSON("data/exchange.json").catch(() => state.exchange);
   }
   const offEarth = state.basemap?.earth === false;
@@ -6295,6 +6567,7 @@ async function init() {
     try { localStorage.setItem("atlas-auto", state.autoLayers ? "on" : "off"); } catch {}
     syncAuto();
   });
+  try { state.econMetric = localStorage.getItem("atlas-econ") || "pop"; } catch {}
   // Layer choices are remembered per browser.
   try { Object.assign(state.show, JSON.parse(localStorage.getItem("atlas-layers") || "{}")); } catch {}
   for (const k of Object.keys(state.show)) {
