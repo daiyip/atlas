@@ -208,7 +208,7 @@ function applyLang() {
   // A pack's own note replaces the China borders note.
   if (state.pack?.only) document.querySelector('[data-i18n="note"]').textContent = tx(state.pack.manifest, "note") || t("notePack");
   document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); el.setAttribute("aria-label", el.title); });
-  for (const [w, k] of [["prev", "tourPrev"], ["auto", "tourPlay"], ["next", "tourNext"]]) tourBtn(w, $("tour").querySelector(".tour-" + w).dataset.key || k);
+  for (const [w, k] of [["prev", "tourPrev"], ["auto", "tourPlay"], ["story", "tourStory"], ["next", "tourNext"]]) tourBtn(w, $("tour").querySelector(".tour-" + w).dataset.key || k);
   iconChips();
   setMinButton($("era-min"), !!state.eraMin);
   renderLayoutChips();
@@ -5281,10 +5281,10 @@ function tourPause() {
   stopNarration();
   tourBtn("auto", "tourPlay");
 }
-// The tour's 上一步 / 播放 / 下一步 buttons: an icon and a label (phones show the icon only), named for screen readers either way.
+// The tour's 上一步 / 播放 / 读这段故事 / 下一步 buttons: an icon and a label (phones show the icon only), named for screen readers either way.
 const TOUR_ICONS = {
   tourPrev: '<path d="M15 5l-7 7 7 7"/>', tourNext: '<path d="M9 5l7 7-7 7"/>', tourEnd: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
-  tourPlay: '<path d="M7.5 5v14l11-7z" fill="currentColor"/>', tourPause: '<path d="M8 5v14M16 5v14" stroke-width="3.2"/>',
+  tourPlay: '<path d="M7.5 5v14l11-7z" fill="currentColor"/>', tourStory: '<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/>', tourPause: '<path d="M8 5v14M16 5v14" stroke-width="3.2"/>',
 };
 function tourBtn(which, key) {
   const b = $("tour").querySelector(".tour-" + which);
