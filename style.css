@@ -1052,6 +1052,10 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
   bottom: calc(var(--rail-h, 96px) + 28px); width: min(500px, calc(100% - 32px));
   padding: 12px 16px 12px; overflow: hidden; background: rgba(var(--panel-rgb), var(--panel-op, 1));
 }
+/* 事件停留: the event playback stopped at, a smaller card in the tour card's place; the bar runs down the pause */
+.play-card { width: min(420px, calc(100% - 32px)); padding: 10px 14px; }
+.play-card p { margin: 4px 0 8px; font-size: 13.5px; line-height: 1.6; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.play-card .tour-ctl .chip { padding-block: 3px; }
 .tour-bar { position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--rule); }
 .tour-bar i { display: block; height: 100%; background: var(--cinnabar); transition: width .4s; }
 .tour-head { display: flex; align-items: center; gap: 10px; }
