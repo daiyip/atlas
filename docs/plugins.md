@@ -173,7 +173,7 @@ hidden, and tours frame their stops for the whole map. Use it when the host page
 map.
 
 Add `&mini=1` for a small inset map (beside a tour card, say): a tour step frames the leg from the last stop to
-this one rather than flying in to the stop, and the period label, map buttons and a leg's time go too.
+this one rather than flying in to the stop, and the period label and map buttons go too.
 
 `&hide=` hides parts of an embedded atlas, as a comma-separated list: `era` (the period label), `controls` (zoom,
 compass and full screen), `credits` (the data credits button; show your sources elsewhere if you hide it) and `span`
