@@ -1052,6 +1052,10 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
   bottom: calc(var(--rail-h, 96px) + 28px); width: min(500px, calc(100% - 32px));
   padding: 12px 16px 12px; overflow: hidden; background: rgba(var(--panel-rgb), var(--panel-op, 1));
 }
+/* 事件停留: the event playback stopped at, a smaller card in the tour card's place; the bar runs down the pause */
+.play-card { width: min(420px, calc(100% - 32px)); padding: 10px 14px; }
+.play-card p { margin: 4px 0 8px; font-size: 13.5px; line-height: 1.6; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+.play-card .tour-ctl .chip { padding-block: 3px; }
 .tour-bar { position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--rule); }
 .tour-bar i { display: block; height: 100%; background: var(--cinnabar); transition: width .4s; }
 .tour-head { display: flex; align-items: center; gap: 10px; }
@@ -1680,10 +1684,15 @@ html[lang="en"] .p-lab.on { font-size: 12px; }
 .t-min { stroke: color-mix(in srgb, var(--ink) 35%, transparent); stroke-width: 1; } .t-maj { stroke: var(--ink); stroke-width: 2; }
 .c-glyph { font: 700 22px var(--font-display); fill: #ff9a83; text-anchor: middle; }
 .c-year { font: 600 34px var(--font-data); fill: #fff; text-anchor: middle; font-variant-numeric: tabular-nums; }
-.c-sub { font: 500 11px var(--font-body); fill: #aab7bb; text-anchor: middle; }
+.c-sub { font: 700 13px var(--font-data); fill: #aab7bb; text-anchor: middle; dominant-baseline: central; }
+/* 慢/快: the playback speed, stepped from inside the dial */
+.c-sbtn { cursor: pointer; } .c-sbtn circle { fill: rgba(255,255,255,.08); stroke: currentColor; stroke-width: 1; }
+.c-speed { color: #aab7bb; } .c-sbtn text { font: 700 11px var(--font-display); fill: currentColor; text-anchor: middle; dominant-baseline: central; }
+html[lang="en"] .c-sbtn text { font: 700 14px var(--font-body); }
+.c-sbtn.off { opacity: .35; cursor: default; } .dial.small .c-speed { opacity: 0; pointer-events: none; }
 .dial.small .c-glyph { font-size: 40px; transform: translateY(-14px); } .dial.small .c-year { font-size: 52px; transform: translateY(22px); }
 .dial.small .c-sub, .dial.small .g-ticks, .dial.small .g-periods, .dial.small .deco-under, .dial.small .deco-over { opacity: 0; }
-.dial .g-ticks, .dial .g-periods, .dial .deco-under, .dial .deco-over, .c-sub { transition: opacity .15s; }
+.dial .g-ticks, .dial .g-periods, .dial .deco-under, .dial .deco-over, .c-speed { transition: opacity .15s; }
 html.embed .dial, .comparing .dial, .touring .dial, .immersive .dial { display: none !important; }
 @media (prefers-reduced-motion: reduce) { .dial { transition: none; } }
 /* 罗盘 Luopan: a bronze geomancer's compass */
@@ -1695,7 +1704,7 @@ html.embed .dial, .comparing .dial, .touring .dial, .immersive .dial { display: 
 .dial[data-skin="luopan"] .p-sep { stroke: rgba(43,22,5,.55); }
 .dial[data-skin="luopan"] .t-min { stroke: rgba(43,22,5,.6); } .dial[data-skin="luopan"] .t-maj { stroke: #2b1605; stroke-width: 2.5; }
 .dial[data-skin="luopan"] .c-glyph { fill: #e2b866; } .dial[data-skin="luopan"] .c-year { fill: #f5e2b8; font-family: var(--font-display); }
-.dial[data-skin="luopan"] .c-sub { fill: #b9955a; }
+.dial[data-skin="luopan"] .c-sub { fill: #e2b866; } .dial[data-skin="luopan"] .c-speed { color: #d9b36a; } .dial[data-skin="luopan"] .c-sbtn circle { fill: #3a2618; } .dial[data-skin="luopan"] .c-sbtn text { fill: #f5e2b8; }
 .dial[data-skin="luopan"] .d-notch { fill: #c0281a; } .dial[data-skin="luopan"] .d-hair { stroke: #c0281a; stroke-width: 2; }
 .dial .lp-ring { fill: none; stroke: rgba(43,22,5,.5); stroke-width: .8; }
 .dial .lp-dot { fill: #2b1605; }
@@ -1708,7 +1717,7 @@ html.embed .dial, .comparing .dial, .touring .dial, .immersive .dial { display: 
 .dial[data-skin="sundial"] .p-sep { stroke: rgba(60,80,55,.35); }
 .dial[data-skin="sundial"] .t-min { stroke: rgba(60,80,55,.5); } .dial[data-skin="sundial"] .t-maj { stroke: #33493a; }
 .dial[data-skin="sundial"] .c-glyph { fill: #f3f7ee; } .dial[data-skin="sundial"] .c-year { fill: #fff; font-family: var(--font-display); }
-.dial[data-skin="sundial"] .c-sub { fill: #d6e8dc; }
+.dial[data-skin="sundial"] .c-sub { fill: #f3f7ee; } .dial[data-skin="sundial"] .c-speed { color: #e6f1e9; }
 .dial[data-skin="sundial"] .d-notch { fill: #33493a; } .dial[data-skin="sundial"] .d-hair { stroke: none; }
 .dial .sd-shadow { fill: url(#g-shadow); }
 .dial .sd-gnomon { fill: #5d6b57; }
@@ -2075,3 +2084,21 @@ html.sat .pc-dispute .pc-badge { color: #e58a74; }
 .ar-path { margin: 4px 0 0; font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 3px 4px; }
 .ar-path .chip, .ar-kids .chip { font-size: 11px; padding: 1px 7px; border-style: dashed; border-color: #d9971a; }
 .ar-kids > span { margin-right: 2px; }
+
+/* 加载中: shown until the map and the first period are drawn (html.booting, set in index.html). The panels keep
+   their saved arrangement meanwhile, with the placeholder period text hidden. */
+.boot { position: absolute; z-index: 30; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none; grid-template-columns: auto auto; align-items: baseline; column-gap: 10px; row-gap: 8px;
+  min-width: 170px; padding: 12px 16px 13px; font-size: 13.5px; color: var(--ink); pointer-events: none; }
+.booting .boot { display: grid; }
+.boot-t::after { content: "…"; }
+.boot.failed .boot-t::after { content: none; }
+.boot-p { justify-self: end; font: 500 12px var(--font-data); font-variant-numeric: tabular-nums; color: var(--muted, inherit); opacity: 0.8; }
+.boot-bar { grid-column: 1 / -1; position: relative; display: block; height: 3px; border-radius: 2px; background: var(--rule); overflow: hidden; }
+.boot-bar b { position: absolute; inset: 0 auto 0 0; width: calc(100% * var(--boot, 0.04)); background: var(--cinnabar); border-radius: inherit; transition: width 0.3s ease; }
+/* Before app.js runs there is no count yet: a short sweep says it is working. */
+.boot:not([style*="--boot"]) .boot-bar b { width: 30%; animation: boot-sweep 1.2s ease-in-out infinite; }
+@keyframes boot-sweep { from { transform: translateX(-100%); } to { transform: translateX(340%); } }
+.boot.failed { pointer-events: auto; max-width: min(420px, calc(100% - 32px)); }
+.boot.failed .boot-bar, .boot.failed .boot-p { display: none; }
+.booting #era-glyph, .booting .era-name, .booting .era-zh, .booting .era-year, .booting .era-summary, .booting .ledger .note { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .boot-bar b { animation: none !important; transition: none; } }
