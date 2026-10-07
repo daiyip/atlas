@@ -1,0 +1,44 @@
+{"note":"West Asia and North Africa (西亚与北非): hand-written places, one node or edge per line. See docs/places.md."}
+{"id":"polity:georgia-1991","kind":"polity","name":"Georgia","name_zh":"格鲁吉亚","from":1991,"to":null}
+{"id":"polity:azerbaijan","kind":"polity","name":"Azerbaijan","name_zh":"阿塞拜疆","from":1991,"to":null}
+{"id":"polity:cyprus","kind":"polity","name":"Republic of Cyprus","name_zh":"塞浦路斯共和国","from":1960,"to":null}
+{"id":"polity:sahrawi","kind":"polity","name":"Polisario Front / Sahrawi Arab Democratic Republic","name_zh":"波利萨里奥阵线／撒哈拉阿拉伯民主共和国","from":1973,"to":null}
+{"id":"polity:palestine","kind":"polity","name":"Palestine (PLO, then the State of Palestine)","name_zh":"巴勒斯坦（巴解组织，后为巴勒斯坦国）","from":1964,"to":null}
+{"id":"polity:lebanon","kind":"polity","name":"Lebanon","name_zh":"黎巴嫩","from":1943,"to":null}
+{"id":"polity:sudan","kind":"polity","name":"Sudan","name_zh":"苏丹","from":1956,"to":null}
+{"id":"area:palestine","kind":"area","name":"Palestine (region)","name_zh":"巴勒斯坦地区","geo":{"poly":[[34.25,31.2],[34.9,29.5],[35.2,30.0],[35.5,31.4],[35.6,32.7],[35.85,33.3],[35.1,33.1],[34.9,32.5],[34.5,31.6]]},"intro":"The southern Levant, land of Canaan and the kingdoms of Israel and Judah; later ruled by Assyria, Babylon, Persia, the Greeks, Rome, the Arabs, the Crusaders, the Mamluks, the Ottomans and Britain.","intro_zh":"地中海东岸南部，迦南、以色列、犹大诸国之地，此后亚述、巴比伦、波斯、希腊、罗马、阿拉伯、十字军、马穆鲁克、奥斯曼和英国先后统治。","notes":[{"from":1948,"to":2026,"zh":"1948年以色列建国，此后约旦河西岸和加沙的归属一直有争议；联合国把 1967年后的西岸和加沙视为被占领的巴勒斯坦领土。地图按实际控制绘制。","en":"Israel was founded in 1948; the status of the West Bank and Gaza has been disputed since; the UN regards the West Bank and Gaza as occupied Palestinian territory since 1967. The map shows who controls what.","disputed":true}]}
+{"child":"area:palestine","parent":"region:middle-east","rel":"in"}
+{"id":"area:tunisia","kind":"area","name":"Tunisia (old Carthage)","name_zh":"突尼斯（迦太基故地）","geo":{"poly":[[8.4,36.9],[10.3,37.3],[11.1,36.9],[10.5,35.8],[11.1,35.2],[10.0,34.2],[11.5,33.2],[10.3,31.8],[9.0,32.1],[7.6,33.2],[8.2,34.5],[8.4,35.6]]},"intro":"Carthage's homeland and Rome's province of Africa, later ruled by the Vandals, Byzantium, the Arabs, the Hafsids, the Ottomans and France.","intro_zh":"迦太基的故地，罗马的阿非利加行省，此后汪达尔、拜占庭、阿拉伯、哈夫斯、奥斯曼和法国先后统治。","notes":[]}
+{"child":"area:tunisia","parent":"region:egypt-north-africa","rel":"in"}
+{"id":"area:abkhazia","kind":"area","name":"Abkhazia","name_zh":"阿布哈兹","geo":{"src":"disputes.json#abkhazia","label":[41.45,43.0]}}
+{"child":"area:abkhazia","parent":"region:middle-east","rel":"in"}
+{"child":"area:abkhazia","parent":"polity:georgia-1991","rel":"claim","from":1993,"to":null,"disputed":true,"dispute":"abkhazia"}
+{"id":"area:south-ossetia","kind":"area","name":"South Ossetia","name_zh":"南奥塞梯","geo":{"src":"disputes.json#south-ossetia","label":[44.06,42.36]}}
+{"child":"area:south-ossetia","parent":"region:middle-east","rel":"in"}
+{"child":"area:south-ossetia","parent":"polity:georgia-1991","rel":"claim","from":1992,"to":null,"disputed":true,"dispute":"south-ossetia"}
+{"id":"area:artsakh","kind":"area","name":"Nagorno-Karabakh","name_zh":"纳戈尔诺-卡拉巴赫","geo":{"src":"disputes.json#artsakh","label":[46.65,39.97]}}
+{"child":"area:artsakh","parent":"region:middle-east","rel":"in"}
+{"child":"area:artsakh","parent":"polity:azerbaijan","rel":"claim","from":1994,"to":2023,"disputed":true,"dispute":"artsakh"}
+{"id":"area:north-cyprus","kind":"area","name":"Northern Cyprus","name_zh":"北塞浦路斯","geo":{"src":"disputes.json#north-cyprus","label":[33.81,35.34]}}
+{"child":"area:north-cyprus","parent":"region:middle-east","rel":"in"}
+{"child":"area:north-cyprus","parent":"polity:cyprus","rel":"claim","from":1974,"to":null,"disputed":true,"dispute":"north-cyprus"}
+{"id":"area:western-sahara","kind":"area","name":"Western Sahara","name_zh":"西撒哈拉","geo":{"src":"disputes.json#western-sahara","label":[-12.58,24.25]}}
+{"child":"area:western-sahara","parent":"region:egypt-north-africa","rel":"in"}
+{"child":"area:western-sahara","parent":"polity:sahrawi","rel":"claim","from":1975,"to":null,"disputed":true,"dispute":"western-sahara"}
+{"child":"area:western-sahara","parent":"polity:morocco","rel":"claim","from":1975,"to":null,"disputed":true,"dispute":"western-sahara"}
+{"id":"area:west-bank","kind":"area","name":"West Bank and East Jerusalem","name_zh":"约旦河西岸和东耶路撒冷","geo":{"src":"disputes.json#west-bank","label":[35.27,31.93]}}
+{"child":"area:west-bank","parent":"area:palestine","rel":"in"}
+{"child":"area:west-bank","parent":"polity:palestine","rel":"claim","from":1967,"to":null,"disputed":true,"dispute":"west-bank"}
+{"id":"area:gaza","kind":"area","name":"Gaza Strip","name_zh":"加沙地带","geo":{"src":"disputes.json#gaza","label":[34.36,31.42]}}
+{"child":"area:gaza","parent":"area:palestine","rel":"in"}
+{"child":"area:gaza","parent":"polity:palestine","rel":"claim","from":1967,"to":null,"disputed":true,"dispute":"gaza"}
+{"id":"area:golan","kind":"area","name":"Golan Heights","name_zh":"戈兰高地","geo":{"src":"disputes.json#golan","label":[35.73,33.03]}}
+{"child":"area:golan","parent":"region:middle-east","rel":"in"}
+{"child":"area:golan","parent":"polity:syria","rel":"claim","from":1967,"to":null,"disputed":true,"dispute":"golan"}
+{"child":"area:golan","parent":"polity:lebanon","rel":"claim","from":1967,"to":null,"disputed":true,"dispute":"golan"}
+{"id":"area:sinai","kind":"area","name":"Sinai","name_zh":"西奈半岛","geo":{"src":"disputes.json#sinai","label":[33.82,29.51]}}
+{"child":"area:sinai","parent":"region:egypt-north-africa","rel":"in"}
+{"child":"area:sinai","parent":"polity:egypt","rel":"claim","from":1967,"to":1982,"disputed":true,"dispute":"sinai"}
+{"id":"area:halaib","kind":"area","name":"Hala'ib Triangle","name_zh":"哈拉伊卜三角区","geo":{"src":"disputes.json#halaib","label":[35.55,22.53]}}
+{"child":"area:halaib","parent":"region:egypt-north-africa","rel":"in"}
+{"child":"area:halaib","parent":"polity:sudan","rel":"claim","from":1958,"to":null,"disputed":true,"dispute":"halaib"}

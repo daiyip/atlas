@@ -1,5 +1,5 @@
 {
- "atlas": 1,
+ "atlas": 2,
  "id": "demo",
  "name": "Plugin demo: the early church",
  "name_zh": "插件示例：早期教会",
@@ -8,7 +8,7 @@
   "view": { "center": [28, 37.5], "zoom": 5, "year": 46 }
  },
  "range": { "start": 31, "end": 100 },
- "data": { "eras": "eras.json", "events": "events.json", "tours": "tours.json" },
+ "data": { "eras": "eras.json", "events": "events.json", "tours": "tours.json", "graph": "places.jsonl" },
  "layers": [
   { "id": "roads", "name": "Roman roads", "name_zh": "罗马大道", "data": "layers/roads.geojson", "type": "line",
     "color": "#7a5230", "width": 3, "dash": [3, 1.5] },

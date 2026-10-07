@@ -14,6 +14,8 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
 ROOT = Path(__file__).resolve().parent.parent
 ID = re.compile(r"^[a-z0-9-]+$")
 CATS = {"war", "politics", "reform", "rebellion", "diplomacy", "economy", "culture", "science", "society"}
@@ -180,7 +182,29 @@ def check_events(rep, where, events):
         text(rep, w, e, "summary", required=False)
         text(rep, w, e, "place", required=False)
         check_layer_keys(rep, w, e)
+        check_event_extras(rep, w, e)
     return ids
+
+
+DATE = re.compile(r"^(-?\d{1,4})(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?$")
+
+
+def check_event_extras(rep, w, e):
+    """Optional fields of format 2: exact dates, an uncertain year range, more sources, an area."""
+    for k, yk in (("date", "year"), ("endDate", "endYear")):
+        if k in e:
+            m = DATE.match(str(e[k]))
+            if not m: rep.err(w, f"`{k}` {e[k]!r} should be YYYY, YYYY-MM or YYYY-MM-DD")
+            elif e.get(yk) != int(m.group(1)): rep.err(w, f"`{k}` {e[k]} is not in `{yk}` {e.get(yk)!r}")
+    if "year_range" in e:
+        r = e["year_range"]
+        if not (isinstance(r, list) and len(r) == 2 and all(map(is_int, r)) and r[0] <= e.get("year", r[0]) <= r[1]):
+            rep.err(w, "`year_range` should be [from, to] around `year`")
+    if "sources" in e:
+        if not isinstance(e["sources"], list) or not all(isinstance(x, str) or (isinstance(x, dict) and "url" in x) for x in e["sources"]):
+            rep.err(w, "`sources` should be a list of links or {url, title, title_zh}")
+    if "area" in e and not (isinstance(e["area"], str) and ":" in e["area"]):
+        rep.err(w, "`area` should be a place graph id like area:taiwan")
 
 
 def check_tours(rep, where, tours, era_ids, event_ids):
@@ -276,6 +300,10 @@ def check_pack(path):
         d = load(base / data["tours"], rep, data["tours"])
         if d is not None:
             check_tours(rep, data["tours"], d, era_ids, event_ids)
+    if data.get("graph"):
+        if m.get("atlas", 1) < 2:
+            rep.err("manifest", "`data.graph` needs `atlas`: 2 or later")
+        check_places(rep, data["graph"], base / data["graph"], m.get("id"))
 
     layers = m.get("layers") or []
     if not isinstance(layers, list):
@@ -325,6 +353,18 @@ def check_pack(path):
         if not re.match(r"^https?:", src) and not (base / src).is_file():
             rep.err(w, "file not found")
     return rep
+
+
+def check_places(rep, where, path, ns=None):
+    """The place graph (docs/places.md), via tools/check_graph.py; a pack's against the atlas's own."""
+    import check_graph, placegraph
+    base = None
+    if ns:
+        try: base = placegraph.load(str(ROOT / "data/graph.json"))
+        except (placegraph.GraphError, OSError, ValueError): pass
+    errs, warns, _ = check_graph.check(str(path), ns, base)
+    for e in errs: rep.err(where, e)
+    for w in warns: rep.warn(where, w)
 
 
 def check_builtin():
@@ -385,6 +425,7 @@ def check_builtin():
                 rep.err(where, "`year` should be a whole number")
             if l.get("event") and isinstance(events, list) and l["event"] not in event_ids:
                 rep.err(where, f"unknown event {l['event']!r}")
+    check_places(rep, "data/graph.json", ROOT / "data/graph.json")
     return rep
 
 

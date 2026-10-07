@@ -1,0 +1,5 @@
+{"note":"The demo pack's places (docs/places.md): its ids start with demo:, and its region is region:demo."}
+{"id":"demo:area:cyprus","kind":"area","name":"Cyprus","name_zh":"塞浦路斯","geo":{"poly":[[32.27,35.07],[32.55,34.7],[33.05,34.56],[33.75,34.95],[34.05,35.05],[34.6,35.69],[33.9,35.33],[33.0,35.37],[32.85,35.15],[32.45,35.18]]},"intro":"Barnabas's home island, the first stop of the first missionary journey, around AD 46.","intro_zh":"巴拿巴的家乡，第一次宣教旅程的第一站，约公元46年。","notes":[{"from":45,"to":47,"en":"Paul and Barnabas cross the island from Salamis to Paphos, where the proconsul Sergius Paulus believes.","zh":"保罗和巴拿巴从撒拉米走到帕弗，方伯士求保罗信了主。","disputed":false}]}
+{"child":"demo:area:cyprus","parent":"region:demo","rel":"in"}
+{"child":"demo:area:cyprus","parent":"polity:rome","rel":"held","from":-58,"to":394,"share":100}
+{"child":"demo:area:cyprus","parent":"polity:byzantium","rel":"held","from":395,"to":649,"share":100}
