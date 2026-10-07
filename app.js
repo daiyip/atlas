@@ -1418,6 +1418,19 @@ function polyBounds(poly) {
   const xs = poly.map((p) => p[0]), ys = poly.map((p) => p[1]);
   return [[Math.min(...xs), Math.min(...ys)], [Math.max(...xs), Math.max(...ys)]];
 }
+// A flight with `padding` (a tour's event stop) leaves that padding on the map, and MapLibre adds it to the padding
+// of every later fit: a tour card's tall padding counted twice left no room, and the map flew off to the far south.
+// So a fit first drops the map's own padding, keeping the spot at the middle of the screen where it is.
+function clearPad() {
+  const p = map.getPadding();
+  if (!p.top && !p.bottom && !p.left && !p.right) return;
+  const c = map.getCanvas();
+  map.jumpTo({ center: map.unproject([c.clientWidth / 2, c.clientHeight / 2]), padding: { top: 0, bottom: 0, left: 0, right: 0 } });
+}
+function fitMap(b, opts) {
+  clearPad();
+  map.fitBounds(b, opts);
+}
 // Sample a grid over the open part of the map, the middle counting most; sea and unassigned land are left out.
 // A region with most of the rest wins; once chosen, a region keeps the timeline while it still holds a good share.
 function detectRegion() {
@@ -1962,7 +1975,7 @@ function countryBounds(name) {
 }
 function flyToCountry(name) {
   const b = countryBounds(name);
-  if (b) map.fitBounds(b, { padding: { top: 120, bottom: 150, left: 60, right: innerWidth > 720 ? 400 : 60 }, maxZoom: 6, duration: 1400 });
+  if (b) fitMap(b, { padding: { top: 120, bottom: 150, left: 60, right: innerWidth > 720 ? 400 : 60 }, maxZoom: 6, duration: 1400 });
 }
 // The card over the ledger: the selected country's years, ruler now, counts and its cities on the map this year.
 function renderSelCard() {
@@ -2219,7 +2232,7 @@ async function openArea(id, opts = {}) {
   drawArea();
   // The card lives in the ledger: a folded ledger (the phone's sheet) opens for it.
   if ($("ledger").classList.contains("collapsed")) foldLedger(false);
-  if (opts.fly !== false) map.fitBounds(areaBounds(a), { padding: areaPad(), maxZoom: 6.5, duration: 1400 });
+  if (opts.fly !== false) fitMap(areaBounds(a), { padding: areaPad(), maxZoom: 6.5, duration: 1400 });
   areaChanged();
 }
 function closeArea(quiet) {
@@ -4357,7 +4370,7 @@ function goRegion(id) {
   if (state.sel && selRegion() !== id) selectCountry(null);
   if (state.area && state.area.region !== id) closeArea(true);
   setMode(id);
-  if (reg.polygon?.length) map.fitBounds(polyBounds(reg.polygon), { padding: { top: 120, bottom: 140, left: 60, right: innerWidth > 720 ? 380 : 60 }, maxZoom: 5, duration: 1400 });
+  if (reg.polygon?.length) fitMap(polyBounds(reg.polygon), { padding: { top: 120, bottom: 140, left: 60, right: innerWidth > 720 ? 380 : 60 }, maxZoom: 5, duration: 1400 });
   renderLedger();
 }
 
@@ -4991,6 +5004,7 @@ async function goToEra(era) {
   refreshTimeline();
   const b = focusBounds() || (fly && polyBounds(r.polygon));
   if (b) {
+    clearPad();
     const cam = map.cameraForBounds(b, { padding: { top: 120, bottom: 140, left: 60, right: innerWidth > 720 ? 380 : 60 } });
     if (cam) map.flyTo({ ...cam, zoom: Math.min(cam.zoom, 5), pitch: state.show3d ? 45 : 0, bearing: -6, duration: 1600, essential: true });
   }
@@ -5081,6 +5095,7 @@ async function showTrail(person, { fit = false } = {}) {
     const b = new maplibregl.LngLatBounds();
     life.steps.forEach((s) => b.extend(s.at));
     const wide = innerWidth > 720;
+    clearPad();
     const cam = map.cameraForBounds(b, { padding: { top: wide ? 110 : 150, bottom: wide ? 260 : 300, left: wide ? 80 : 30, right: wide ? 420 : 30 } });
     if (cam) map.flyTo({ ...cam, zoom: Math.min(cam.zoom, 6.5), pitch: state.show3d ? 30 : 0, bearing: 0, duration: 1600, essential: true });
   }
@@ -5297,18 +5312,18 @@ async function tourStep(i) {
     if (state.tour !== tour || tour.i !== i) return;
     const from = MINI && i > 0 && tr.steps[i - 1].at;
     if (from && (from[0] !== s.at[0] || from[1] !== s.at[1])) {
-      map.fitBounds([[Math.min(from[0], s.at[0]), Math.min(from[1], s.at[1])], [Math.max(from[0], s.at[0]), Math.max(from[1], s.at[1])]],
+      fitMap([[Math.min(from[0], s.at[0]), Math.min(from[1], s.at[1])], [Math.max(from[0], s.at[0]), Math.max(from[1], s.at[1])]],
         { padding, maxZoom: s.zoom ?? 4.8, pitch: 0, bearing: 0, duration: 2600, essential: true });
     } else map.flyTo({ center: s.at, zoom: MINI ? (s.zoom ?? 4.8) - 1 : s.zoom ?? 4.8, pitch: MINI ? 0 : state.show3d ? s.pitch ?? 48 : 0,
       bearing: MINI ? 0 : s.bearing ?? -8, padding, duration: 2600, essential: true });
   }
   // A step with `bounds` frames that box (an area's history keeps its outline in view).
-  if (s.bounds && !s.at) map.fitBounds(s.bounds, { padding: tourPadding(), maxZoom: 6.5, pitch: state.show3d && !MINI ? 30 : 0, bearing: 0, duration: 2200, essential: true });
+  if (s.bounds && !s.at) fitMap(s.bounds, { padding: tourPadding(), maxZoom: 6.5, pitch: state.show3d && !MINI ? 30 : 0, bearing: 0, duration: 2200, essential: true });
   await year;
   // A step with `fit` frames the selected country as the map draws it that year (a country's story opens and closes so).
   if (s.fit && state.tour === tour && tour.i === i) {
     const b = [...selNames()].map(countryBounds).find(Boolean);
-    if (b) map.fitBounds(b, { padding: tourPadding(), maxZoom: 6, pitch: state.show3d ? 30 : 0, bearing: 0, duration: 2200 });
+    if (b) fitMap(b, { padding: tourPadding(), maxZoom: 6, pitch: state.show3d ? 30 : 0, bearing: 0, duration: 2200 });
   }
   saveView();
   // Autoplay moves on once the map has arrived and the narration (if any) has finished, else after a reading pause.
@@ -5877,7 +5892,7 @@ async function jumpToRuler(polity, i, era) {
   // A ruler of another region: switch the timeline there and bring the region into view.
   const reg = state.regionById[era.region];
   if (setMode(era.region) && reg?.polygon?.length)
-    map.fitBounds(polyBounds(reg.polygon), { padding: { top: 120, bottom: 140, left: 60, right: innerWidth > 720 ? 380 : 60 }, maxZoom: 5, duration: 1400 });
+    fitMap(polyBounds(reg.polygon), { padding: { top: 120, bottom: 140, left: 60, right: innerWidth > 720 ? 380 : 60 }, maxZoom: 5, duration: 1400 });
   const r = (await loadLayers(era)).rulers[polity][i];
   await jumpToYear(Math.max(era.start, Math.min(era.end, r.from)));
   state.layerData = await loadLayers(era);
