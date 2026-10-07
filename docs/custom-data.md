@@ -124,6 +124,34 @@ Each step flies the camera to `at` (with optional `zoom`, `pitch` and `bearing`)
 shows `text`. `event` links the step to an event's story, and `path: true` draws the journey so far. A step's `layers`
 works like an event's: the layers Auto layers turns on at that stop (without it, the linked event's, then the rules).
 
+### Tour media: pictures, narration and music
+
+A pack can bring the same media the atlas's own tours have: a picture per stop, a voice reading each stop's `text_zh`,
+and background music per period. Name three index files and the folder their files sit in:
+
+```json
+"media": {
+  "base": "https://data.atlas.daiyip.com/apps/bible/",
+  "pictures": "media/pictures.json",
+  "narration": "media/narration.json",
+  "music": "media/music.json"
+}
+```
+
+The indexes have the same shape as the atlas's own, with file names under `base`:
+
+| File | Shape | Files in |
+| --- | --- | --- |
+| `pictures` | `{"keys": {"a:tour.<tour id>.<step>": "<image id>", "a:<event id>": …}, "images": {"<image id>": {"f": "<file>", "w": 1536, "h": 1152, "ai": "<model>"}}}` | `base/ai/` |
+| `narration` | `{"<tour id>/<step>": {"Charon": "<file>", "Kore": "<file>", "h": "<CRC-32 of text_zh, 8 hex digits>"}}` | `base/narration/` |
+| `music` | `{"<pack id>/<era id>": {"f": "<file>"}}` | `base/music/` |
+
+A step is read aloud only while `h` matches its current `text_zh`, so an edited caption falls silent instead of reading
+old words. Pictures are always shown as AI-generated. `base` must be on an allowed site or under the atlas's R2
+`apps/` folder (see [data-updates.md](data-updates.md#layout-on-r2)), and its files need the CORS header for
+atlas.daiyip.com. Each part is optional, and an atlas that predates `media` simply leaves it out, so it needs no new
+format.
+
 ## Versions
 
 One number, the **Atlas format**, versions everything in a pack: the manifest, the data files (eras, events, tours,

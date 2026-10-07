@@ -298,6 +298,22 @@ def check_pack(path):
             d = load(base / L["data"], rep, w)
             if d is not None:
                 check_geojson(rep, f"{w} ({L['data']})", d)
+    media = m.get("media")
+    if media is not None:
+        if not isinstance(media, dict) or not isinstance(media.get("base"), str):
+            rep.err("manifest media", "should be {base, pictures?, narration?, music?} with `base` a URL")
+        else:
+            for k, v in media.items():
+                if k == "base":
+                    continue
+                if k not in ("pictures", "narration", "music"):
+                    rep.warn("manifest media", f"unknown key {k!r}")
+                elif not re.match(r"^https?:", v):
+                    d = load(base / v, rep, f"media {k}")
+                    if d is not None and not isinstance(d, dict):
+                        rep.err(f"media {k}", "should be an object")
+                    elif k == "pictures" and d is not None and not ({"keys", "images"} <= set(d)):
+                        rep.err("media pictures", "should have `keys` and `images`")
     for p in m.get("plugins") or []:
         entry = {"src": p} if isinstance(p, str) else p
         src = entry.get("src") if isinstance(entry, dict) else None

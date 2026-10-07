@@ -1081,6 +1081,27 @@ function packFile(key) {
     return r.json();
   }).then((d) => upgradeFile(key, d, state.pack.manifest.format));
 }
+// A pack's own pictures, narration and music (manifest "media", docs/custom-data.md#tour-media): indexes in the same
+// shape as the atlas's (data/ai-illustrations.json, data/narration.json, data/music.json), whose file names sit under
+// media.base/ai/, /narration/ and /music/ (an app's folder on R2, apps/<id>/). Each is merged into the atlas's own index
+// with its file names made absolute, so the players need no second lookup. A missing or unreadable index is left out.
+const MEDIA_DIRS = { pictures: "ai", narration: "narration", music: "music" };
+async function packMedia(kind) {
+  const M = state.pack?.manifest.media, path = M?.[kind];
+  if (!path || !M.base) return null;
+  let base;
+  try { base = new URL(M.base.replace(/\/?$/, "/"), state.pack.url); } catch { return null; }
+  if (!allowedOrigin(base) && !base.href.startsWith(DATA_URL + "/apps/")) return null;
+  const idx = await fetch(new URL(path, state.pack.url), { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  if (!idx) return null;
+  const abs = (f) => new URL(`${MEDIA_DIRS[kind]}/${f}`, base).href;
+  const fix = (o, keys) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, { ...v, ...Object.fromEntries(keys.filter((x) => v[x]).map((x) => [x, abs(v[x])])) }]));
+  if (kind === "pictures") return { keys: idx.keys || {}, images: fix(idx.images || {}, ["f"]) };
+  return fix(idx, kind === "music" ? ["f"] : ["Charon", "Kore"]);
+}
+// A file of an index: its name under the atlas's folder, or a pack's absolute address.
+const mediaSrc = (dir, f) => (/^https?:/.test(f) ? f : `${R2}/${dir}/${f}`);
+
 // A link from an event or tour step to the pack's own page for it (the Bible pack: the verse in the reader).
 function refLink(refs) {
   const R = state.pack?.manifest.refs;
@@ -2003,11 +2024,16 @@ function showCard(lngLat, html) {
 // always captioned as AI-generated.
 const illuSets = {};
 const illuBuckets = {};
+// A pack's own pictures (packMedia) join the AI set.
 const illuSet = (set) => illuSets[set] ||= loadJSON(set === "ai" ? "data/ai-illustrations.json" : "data/illustrations.json")
   .then((idx) => {
-    if (set === "ai") pruneKept(["/ai/", "/atlas/ai/", BASE_PATH + "data/ai/"], Object.values(idx.images).map((im) => "/atlas/ai/" + im.f));
+    if (set === "ai") pruneKept(["/ai/", "/atlas/ai/", BASE_PATH + "data/ai/"], Object.values(idx.images).filter((im) => !/^https?:/.test(im.f)).map((im) => "/atlas/ai/" + im.f));
     return idx;
-  }, () => ({ keys: {}, images: {} })).then((idx) => (illuSets[set + "Ready"] = idx));
+  }, () => ({ keys: {}, images: {} }))
+  .then(async (idx) => {
+    const p = set === "ai" && (await packMedia("pictures"));
+    return p ? { keys: { ...idx.keys, ...p.keys }, images: { ...idx.images, ...p.images } } : idx;
+  }).then((idx) => (illuSets[set + "Ready"] = idx));
 function illuSlot(key) {
   return `<figure class="illu" data-illu="${esc(key)}" hidden></figure>`;
 }
@@ -2019,7 +2045,7 @@ async function fillIllus(root) {
     const idx = await illuSet(set);
     const id = idx.keys[fig.dataset.illu], im = idx.images[id];
     if (!im) continue;
-    let src = im.f && `${R2}/${set}/${im.f}`; // AI pictures are files of their own, served from R2
+    let src = im.f && mediaSrc(set, im.f); // AI pictures are files of their own, served from R2
     if (!src) {
       illuBuckets[set + im.b] ||= loadJSON(`data/${set}/${im.b}.json`).catch(() => ({}));
       src = (await illuBuckets[set + im.b])[id];
@@ -4714,14 +4740,14 @@ const music = { key: null, track: null, ctx: null, index: null, moods: null };
 const moodCulture = (region, year) => year >= 1840 ? (region === "china" ? "china-modern" : "modern")
   : year < 500 ? `${region}-early` : region;
 function musicWanted() {
-  if (!state.music || !(state.tour || state.playing) || !state.era || state.era.region === "world") return null;
+  if (EMBED || !state.music || !(state.tour || state.playing) || !state.era || state.era.region === "world") return null;
   const period = `${state.era.region}/${state.era.id}`, tour = state.tour, s = tour?.tr.steps[tour.i];
   const mood = s && music.moods?.[`${tour.id}/${tour.i}`];
   return mood ? [`mood/${moodCulture(tourRegion(tour.tr), s.year)}-${mood}`, period] : [period];
 }
 async function syncMusic() {
   if (state.tour && !music.moods) music.moods = await loadJSON("data/moods.json").catch(() => ({}));
-  music.index ||= loadJSON("data/music.json").catch(() => ({}));
+  music.index ||= Promise.all([loadJSON("data/music.json").catch(() => ({})), packMedia("music")]).then(([a, p]) => ({ ...a, ...p }));
   const idx = await music.index;
   const want = musicWanted()?.find((k) => idx[k]) || null;
   if (want === music.key) return;
@@ -4734,7 +4760,7 @@ async function syncMusic() {
     const ctx = music.ctx ||= new (window.AudioContext || window.webkitAudioContext)();
     if (ctx.state === "suspended") ctx.resume();
     const el = new Audio();
-    el.crossOrigin = "anonymous"; el.loop = true; el.preload = "auto"; el.src = `${R2}/music/${f}`;
+    el.crossOrigin = "anonymous"; el.loop = true; el.preload = "auto"; el.src = mediaSrc("music", f);
     const gain = ctx.createGain();
     gain.gain.value = 0;
     ctx.createMediaElementSource(el).connect(gain).connect(ctx.destination);
@@ -4764,12 +4790,12 @@ const crc32 = (str) => {
 async function narrateStep(tour, i) {
   stopNarration();
   const s = tour.tr.steps[i];
-  if (!state.narration || !s?.text_zh) return;
-  narr.index ||= loadJSON("data/narration.json").catch(() => ({}));
+  if (EMBED || !state.narration || !s?.text_zh) return; // an app embedding the atlas plays its own sound
+  narr.index ||= Promise.all([loadJSON("data/narration.json").catch(() => ({})), packMedia("narration")]).then(([a, p]) => ({ ...a, ...p }));
   const n = (await narr.index)[`${tour.id}/${i}`], f = n && n.h === crc32(s.text_zh) && n[state.voice];
   if (!f || state.tour !== tour || tour.i !== i) return;
   const el = narr.el ||= new Audio();
-  el.src = `${R2}/narration/${f}`;
+  el.src = mediaSrc("narration", f);
   narr.done = new Promise((r) => { el.onended = el.onerror = r; });
   duckMusic(true);
   narr.done.then(() => duckMusic(false));
@@ -4978,7 +5004,7 @@ function initLayouts() {
     b.addEventListener("click", (e) => { e.stopPropagation(); setPins({ [k]: !state.pins[k] }); });
     where.append(b);
   };
-  // Quick layout switch: a chip after the gear showing the current layout, and in 导览 (no panels) two small icons
+  // Quick layout switch: a chip before the gear showing the current layout, and in 导览 (no panels) two small icons
   // in the map's top-left corner for the layout menu and settings.
   const lb = document.createElement("button");
   lb.type = "button";
@@ -4987,7 +5013,7 @@ function initLayouts() {
   lb.setAttribute("aria-haspopup", "true");
   lb.setAttribute("aria-expanded", "false");
   lb.addEventListener("click", (e) => { e.stopPropagation(); toggleLayoutPop(undefined, lb); });
-  $("settings-open").after(lb);
+  $("settings-open").before(lb);
   const cine = document.createElement("div");
   cine.className = "cine-tools";
   cine.innerHTML = `<button type="button" id="cine-layout" aria-haspopup="true"></button><button type="button" id="cine-settings" aria-haspopup="dialog">${$("settings-open").innerHTML}</button>`;
