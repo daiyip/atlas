@@ -84,7 +84,7 @@ const state = {
   auto: {},             // layers on only for the current story or tour step (syncAuto)
   autoOff: {}, autoCtx: "",
   autoLayers: true,
-  show: { rulers: true, armies: true, routes: true, people: true, capitals: false, faith: false, inventions: false, passes: true, roads: true, clans: true, walls: true, exchange: true, spread: true, admin: false },
+  show: { rulers: true, armies: true, routes: true, people: true, capitals: false, faith: false, inventions: false, passes: true, roads: true, clans: true, walls: true, exchange: true, spread: true, admin: false, economy: false },
   overlays: { population: [], faith: [], inventions: [] },
   passes: [],           // famous passes (关隘), data/passes.json
   roads: [],            // major official roads (官道), data/roads.json
@@ -122,6 +122,7 @@ const UI = {
     fields: { general: "军事家", statesman: "政治家", thinker: "思想家", poet: "诗人", writer: "文学家", historian: "史学家", scientist: "科学家", physician: "医学家", engineer: "工程师", artist: "艺术家", religious: "宗教人物", explorer: "旅行家", scholar: "学者" },
     faiths: { buddhist: "佛教", daoist: "道教", confucian: "儒家", islam: "伊斯兰教", christian: "基督教", thought: "思想", other: "其他" },
     ifields: { craft: "工艺", writing: "文字", printing: "印刷", metallurgy: "冶金", military: "军事", astronomy: "天文", math: "数学", medicine: "医学", agriculture: "农业", navigation: "航海", engineering: "工程", money: "货币" },
+    economy: "经济重心", econPop: "人口", econWealth: "财赋", econSouth: "南方占", econSouthHint: "秦岭—淮河以南", econCentre: "重心约在", econTop: "最多", econFrom: "数据", econNext: "下一个数据点", econOut: "这一层只覆盖汉至清（前206—1912）", econCentrePop: "人口重心", econCentreWealth: "财赋重心", econNote: "各省比例按历代户口、田赋统计约略复原，再分到当时的政区治所 · AI 整理，未经核对", econKind: { census: "户口", estimate: "估计", record: "账册" },
     pop: "人口", popOf: (m, y, k) => { const w = Math.round(m * 100); return `${k === "estimate" ? "估计约" : "约"}${w >= 10000 ? (w / 10000).toFixed(1).replace(/\.0$/, "") + "亿" : w + "万"}（${y}）`; },
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
@@ -147,6 +148,7 @@ const UI = {
     fields: { general: "Military", statesman: "Statesman", thinker: "Thinker", poet: "Poet", writer: "Writer", historian: "Historian", scientist: "Scientist", physician: "Physician", engineer: "Engineer", artist: "Artist", religious: "Religious figure", explorer: "Traveller", scholar: "Scholar" },
     faiths: { buddhist: "Buddhism", daoist: "Daoism", confucian: "Confucianism", islam: "Islam", christian: "Christianity", thought: "Thought", other: "Other" },
     ifields: { craft: "Craft", writing: "Writing", printing: "Printing", metallurgy: "Metalwork", military: "Military", astronomy: "Astronomy", math: "Mathematics", medicine: "Medicine", agriculture: "Farming", navigation: "Navigation", engineering: "Engineering", money: "Money" },
+    economy: "Economic centre", econPop: "Population", econWealth: "Revenue", econSouth: "South", econSouthHint: "south of the Qinling–Huai line", econCentre: "Centre near", econTop: "Largest", econFrom: "Data", econNext: "next data point", econOut: "This layer covers Han to Qing (206 BC – 1912)", econCentrePop: "Population centre", econCentreWealth: "Revenue centre", econNote: "Province shares roughly rebuilt from dynastic census and tax figures, spread over that period's prefecture seats · AI-drafted, not source-checked", econKind: { census: "census", estimate: "estimate", record: "ledger" },
     pop: "Population", popOf: (m, y, k) => `${k === "estimate" ? "c. " : ""}${m} million (${y})`,
     capital: "Capital", works: "Known works", life: (a, b) => `${a} – ${b}`, inventor: "Inventor", pkinds: { pass: "Mountain pass", wall: "Great Wall gate", gate: "Gate" }, guards: "Guards", battles: "Happened here", built: (y) => `built ${y}`,
   },
@@ -825,6 +827,8 @@ function baseStyle() {
       walls: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       admin: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
       adminAreas: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      econ: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
+      econTrail: { type: "geojson", data: { type: "FeatureCollection", features: [] } },
     },
     sky: SKY.relief,
     layers: [
@@ -908,6 +912,20 @@ function baseStyle() {
       // Administrative seats (郡/州/府… 治所): small rings, frontier and military offices in slate; names come as
       // markers from zoom 5 on (renderAdminLabels).
       // Their rough areas (nearest seat, clipped to the period map): faint dashed edges, the open seat's area tinted.
+      // Economic centre (经济重心): a heatmap of each province's share of people or revenue, spread over the period's
+      // seats, with the drift of its weighted centre drawn as a trail (renderEconomy).
+      { id: "econ-heat", type: "heatmap", source: "econ", maxzoom: 9, paint: {
+          "heatmap-weight": ["get", "w"],
+          "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 3, 1, 6, 2],
+          "heatmap-radius": ["interpolate", ["exponential", 2], ["zoom"], 3, 22, 5, 50, 7, 120],
+          "heatmap-color": ["interpolate", ["linear"], ["heatmap-density"], 0, "rgba(255,236,160,0)", 0.15, "rgba(255,226,120,0.35)",
+            0.35, "rgba(250,180,60,0.55)", 0.6, "rgba(232,110,40,0.68)", 0.85, "rgba(200,40,30,0.75)", 1, "rgba(150,10,30,0.8)"],
+          "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.85, 8, 0.55] } },
+      { id: "econ-trail", type: "line", source: "econTrail", filter: ["==", ["geometry-type"], "LineString"],
+        layout: { "line-cap": "round", "line-join": "round" },
+        paint: { "line-color": "#5c120c", "line-width": 3, "line-opacity": 0.9 } },
+      { id: "econ-trail-dot", type: "circle", source: "econTrail", filter: ["==", ["geometry-type"], "Point"], paint: {
+          "circle-radius": 4, "circle-color": "#f6efe0", "circle-stroke-color": "#5c120c", "circle-stroke-width": 2 } },
       { id: "admin-area-on", type: "fill", source: "adminAreas", filter: ["==", ["get", "i"], -1],
         paint: { "fill-color": "#d9b45a", "fill-opacity": 0.3 } },
       { id: "admin-area-line", type: "line", source: "adminAreas", layout: { "line-join": "round" },
@@ -1940,6 +1958,7 @@ const AUTO_RULES = [
   [["walls"], (c, x) => /长城|边塞|匈奴|突厥|蒙古|瓦剌|鞑靼|鲜卑|柔然|边墙/.test(x)],
   [["routes", "roads"], (c, x) => /运河|渠|驿|驰道|直道|官道|丝绸之路|西域|出使|西行|东渡|下西洋|巡游|南巡|漕运|海运|行军|远征/.test(x)],
   [["capitals"], (c, x) => /迁都|定都|建都|都城|营建|东迁|南渡|国都|京城|首都/.test(x)],
+  [["economy"], (c, x) => /经济重心|南移|户口|漕运|赋税|苏湖熟|湖广熟|衣冠南渡|永嘉之乱|靖康/.test(x)],
   [["admin"], (c, x) => /郡县|设郡|置郡|分天下为|行省|改土归流|废郡|置州|设府|郡国并行|推恩令|州郡|道制/.test(x)],
   [["faith"], (c, x) => /佛|寺|僧|道教|道士|儒|孔子|孟子|理学|心学|书院|景教|伊斯兰|摩尼|祆教|基督|天主|传教|石窟|经书|佛经|百家/.test(x)],
   [["inventions"], (c, x) => c === "science" || /发明|造纸|印刷|火药|指南|历法|地动仪|天文|算|医书|本草|农书|技术|瓷/.test(x)],
@@ -1993,6 +2012,7 @@ const LAYER_ICONS = {
   "l-capitals": '<path d="M2 9l10-5 10 5"/><path d="M5 9v12M19 9v12M3 21h18M10 21v-5h4v5"/>',
   "t-places": '<path d="M3 21V10h6M9 21V4h7v17M16 13h5v8M2 21h20M12 8h1M12 12h1M12 16h1"/>',
   "l-admin": '<path d="M3 4h18v16H3z"/><path d="M3 11h7l2 3h9M10 4v7M14 14v6"/>',
+  "l-economy": '<path d="M5 14a7 7 0 0014 0M8 14a4 4 0 008 0"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/><path d="M12 3v6.5M9.2 7l2.8 2.8L14.8 7"/>',
   "l-clans": '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.3 5 2.6 5 5.8"/>',
   "l-armies": '<path d="M4 4l11 11M20 4L9 15M13 17l4-4M11 17l-4-4M16 16l3 3M8 16l-3 3"/>',
   "l-passes": '<path d="M3 21V10h18v11M2 10l2-4h16l2 4M9 21v-5a3 3 0 016 0v5"/>',
@@ -2093,6 +2113,7 @@ function renderOverlays() {
   renderWalls();
   renderAdmin();
   renderPopulation();
+  renderEconomy();
 }
 
 /* People, capitals, religion & thought, inventions: small markers that open a card. */
@@ -2377,6 +2398,7 @@ function adminData() {
       return o;
     }) };
     renderAdmin();
+    renderEconomy();
   }).catch(() => { state.admin = { items: [], types: [] }; });
   return null;
 }
@@ -2625,6 +2647,134 @@ function renderPopulation() {
       ${pts.map((p) => `<circle class="pop-pt ${esc(p.kind)}${p === last ? " on" : ""}" cx="${sx(p.year).toFixed(1)}" cy="${sy(p.millions).toFixed(1)}" r="${p === last ? 3.5 : 2}"><title>${esc(fmtYear(p.year))} · ${p.millions}${zh() ? "百万" : "M"} ${esc(tx(p, "note"))}</title></circle>`).join("")}
       <line class="pop-now" x1="${cx}" x2="${cx}" y1="0" y2="${H}"/>
     </svg>`;
+}
+
+// Economic centre (经济重心): where the people and the revenue were, 汉 to 清. data/economy.json gives each modern
+// province's share at a handful of census or ledger years; each share is spread evenly over that province's seats in
+// data/admin.json at that year (more prefectures, more people), and between two data points the two heat sets
+// cross-fade. Each data point's weighted centre is drawn as a trail, this year's as a marker. AI-drafted figures.
+const ECON_SPAN = [-206, 1912];
+let econLoad;
+function econData() {
+  if (state.econ) return state.econ;
+  econLoad ||= loadJSON("data/economy.json").then((d) => { state.econ = d; renderEconomy(); })
+    .catch(() => { state.econ = { provinces: {}, metrics: {} }; });
+  return null;
+}
+// The Qinling–Huai line as a latitude at a longitude (data/economy.json `huai`): south of it counts as the south.
+function huaiLat(H, lon) {
+  if (lon <= H[0][0]) return H[0][1];
+  for (let i = 1; i < H.length; i++) if (lon <= H[i][0]) {
+    const [x0, y0] = H[i - 1], [x1, y1] = H[i];
+    return y0 + ((lon - x0) / (x1 - x0)) * (y1 - y0);
+  }
+  return H[H.length - 1][1];
+}
+// One data point made into weighted points: the province shares (normalised to 100) over that year's seats.
+function econPoints(d, s) {
+  if (s.pts) return s;
+  const A = state.admin.items;
+  let seats = A.filter((x) => x.era === s.era && s.year >= x.from && (x.to == null || s.year <= x.to));
+  if (seats.length < 10) {
+    const snaps = [...new Set(A.filter((x) => x.era === s.era).map((x) => x.snap))];
+    const near = snaps.sort((a, b) => Math.abs(a - s.year) - Math.abs(b - s.year))[0];
+    seats = A.filter((x) => x.era === s.era && x.snap === near);
+  }
+  seats.sort((a, b) => Math.abs(a.snap - s.year) - Math.abs(b.snap - s.year));
+  const kept = [];
+  for (const x of seats) if (!kept.some((o) => Math.abs(o.lon - x.lon) < 0.2 && Math.abs(o.lat - x.lat) < 0.2)) kept.push(x);
+  const P = d.provinces, provOf = {};
+  for (const [id, p] of Object.entries(P)) provOf[id] = [];
+  for (const x of kept) {
+    const m = (x.modern_zh || "").replace(/^今/, "");
+    const id = Object.keys(P).find((k) => P[k].match.some((z) => m.startsWith(z)));
+    if (id) provOf[id].push(x);
+  }
+  const sum = Object.values(s.share).reduce((a, b) => a + b, 0);
+  s.pts = [];
+  for (const [id, v] of Object.entries(s.share)) {
+    const share = (v / sum) * 100, at = provOf[id]?.length ? provOf[id] : [{ lon: P[id].lon, lat: P[id].lat }];
+    for (const x of at) s.pts.push({ lon: x.lon, lat: x.lat, w: share / at.length, m: x.modern_zh });
+  }
+  const W = s.pts.reduce((a, p) => a + p.w, 0);
+  s.centre = [s.pts.reduce((a, p) => a + p.w * p.lon, 0) / W, s.pts.reduce((a, p) => a + p.w * p.lat, 0) / W];
+  s.south = s.pts.reduce((a, p) => a + (p.lat < huaiLat(d.huai, p.lon) ? p.w : 0), 0) / W;
+  s.top = Object.entries(s.share).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([id]) => id);
+  return s;
+}
+// The two data points around a year and how far between them it is.
+function econAt(list, y) {
+  if (y <= list[0].year) return [list[0], list[0], 0];
+  for (let i = 1; i < list.length; i++) if (y < list[i].year) return [list[i - 1], list[i], (y - list[i - 1].year) / (list[i].year - list[i - 1].year)];
+  const last = list[list.length - 1];
+  return [last, last, 0];
+}
+function econFrame(d, metric, y) {
+  const list = d.metrics[metric].map((s) => econPoints(d, s));
+  const [a, b, f] = econAt(list, y);
+  const lerp = (u, v) => u + (v - u) * f;
+  return { list, a, b, f, centre: [lerp(a.centre[0], b.centre[0]), lerp(a.centre[1], b.centre[1])], south: lerp(a.south, b.south) };
+}
+function renderEconomy() {
+  const box = $("econ-box");
+  const clear = () => {
+    map.getSource("econ")?.setData({ type: "FeatureCollection", features: [] });
+    map.getSource("econTrail")?.setData({ type: "FeatureCollection", features: [] });
+    (markers.econ || []).forEach((m) => m.remove());
+    markers.econ = [];
+  };
+  if (!shown("economy")) { box.hidden = true; return clear(); }
+  const d = econData(), adm = adminData();
+  box.hidden = false;
+  if (!d || !adm || !d.metrics?.pop) { box.innerHTML = ""; return clear(); }
+  const y = state.year, metric = state.econMetric === "wealth" ? "wealth" : "pop";
+  const inSpan = y >= ECON_SPAN[0] && y <= ECON_SPAN[1];
+  const fr = econFrame(d, metric, y);
+  const other = econFrame(d, metric === "pop" ? "wealth" : "pop", y);
+  const pt = (c, props) => ({ type: "Feature", properties: props, geometry: { type: "Point", coordinates: c } });
+  clear();
+  if (inSpan) {
+    const feats = fr.a.pts.map((p) => pt([p.lon, p.lat], { w: p.w * (1 - fr.f) }));
+    if (fr.f > 0) feats.push(...fr.b.pts.map((p) => pt([p.lon, p.lat], { w: p.w * fr.f })));
+    map.getSource("econ")?.setData({ type: "FeatureCollection", features: feats });
+    const past = fr.list.filter((s) => s.year <= y);
+    const line = [...past.map((s) => s.centre), fr.centre];
+    map.getSource("econTrail")?.setData({ type: "FeatureCollection", features: [
+      ...(line.length > 1 ? [{ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: line } }] : []),
+      ...past.map((s) => pt(s.centre, { year: s.year })) ] });
+    const el = document.createElement("div");
+    el.className = "mk-econ";
+    el.innerHTML = `<i></i><span>${esc(t(metric === "pop" ? "econCentrePop" : "econCentreWealth"))}</span>`;
+    markers.econ.push(new maplibregl.Marker({ element: el, anchor: "center" }).setLngLat(fr.centre).addTo(map));
+  }
+  // Card: metric switch, south share and centre now, and a chart of the south's share for both measures.
+  const P = d.provinces, pname = (id) => (zh() ? P[id].zh : P[id].en);
+  const near = [...fr.a.pts, ...fr.b.pts].filter((p) => p.m)
+    .sort((p, q) => Math.hypot(p.lon - fr.centre[0], p.lat - fr.centre[1]) - Math.hypot(q.lon - fr.centre[0], q.lat - fr.centre[1]))[0];
+  const src = fr.f > 0.5 ? fr.b : fr.a;
+  const W = 288, H = 46, sx = (yr) => ((yr - ECON_SPAN[0]) / (ECON_SPAN[1] - ECON_SPAN[0])) * W, sy = (v) => H - 3 - v * (H - 6);
+  const path = (f) => [ECON_SPAN[0], ...f.list.map((s) => s.year), ECON_SPAN[1]].map((yr, i) => {
+    const [a, b, k] = econAt(f.list, yr);
+    return `${i ? "L" : "M"}${sx(yr).toFixed(1)},${sy(a.south + (b.south - a.south) * k).toFixed(1)}`;
+  }).join("");
+  const cx = sx(Math.max(ECON_SPAN[0], Math.min(ECON_SPAN[1], y)));
+  box.innerHTML = `<div class="pop-head"><b>${t("economy")}</b><span class="econ-seg" role="group">${["pop", "wealth"].map((k) =>
+      `<button type="button" data-m="${k}" aria-pressed="${k === metric}">${t(k === "pop" ? "econPop" : "econWealth")}</button>`).join("")}</span></div>
+    ${inSpan ? `<p class="econ-now"><b>${t("econSouth")} ${Math.round(fr.south * 100)}%</b> <small>${t("econSouthHint")}</small><br>
+      ${near ? `${t("econCentre")} <span lang="zh-CN">${esc(near.m.replace(/^今/, ""))}</span> · ` : ""}${t("econTop")} ${src.top.map(pname).map(esc).join(zh() ? "、" : ", ")}</p>` : `<p class="econ-now">${t("econOut")}</p>`}
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${t("econSouth")}">
+      <line class="econ-half" x1="0" x2="${W}" y1="${sy(0.5)}" y2="${sy(0.5)}"/>
+      <path class="econ-line other" d="${path(other)}"/><path class="econ-line" d="${path(fr)}"/>
+      ${fr.list.map((s) => `<circle class="econ-pt${s === src ? " on" : ""}" cx="${sx(s.year).toFixed(1)}" cy="${sy(s.south).toFixed(1)}" r="${s === src ? 3.2 : 2}"><title>${esc(fmtYear(s.year))} · ${t("econSouth")} ${Math.round(s.south * 100)}% · ${esc(tx(s, "src"))}</title></circle>`).join("")}
+      ${inSpan ? `<line class="pop-now" x1="${cx}" x2="${cx}" y1="0" y2="${H}"/>` : ""}
+    </svg>
+    <p class="econ-src">${t("econFrom")}: ${esc(fmtYear(src.year))} ${esc(tx(src, "src"))} <i>${esc(t("econKind")[src.kind] || "")}</i></p>
+    <p class="econ-src">${t("econNote")}</p>`;
+  box.querySelectorAll("[data-m]").forEach((b) => b.addEventListener("click", () => {
+    state.econMetric = b.dataset.m;
+    try { localStorage.setItem("atlas-econ", state.econMetric); } catch {}
+    renderEconomy();
+  }));
 }
 
 function updateRulers() {
@@ -6280,6 +6430,7 @@ async function init() {
     try { localStorage.setItem("atlas-auto", state.autoLayers ? "on" : "off"); } catch {}
     syncAuto();
   });
+  try { state.econMetric = localStorage.getItem("atlas-econ") || "pop"; } catch {}
   // Layer choices are remembered per browser.
   try { Object.assign(state.show, JSON.parse(localStorage.getItem("atlas-layers") || "{}")); } catch {}
   for (const k of Object.keys(state.show)) {
