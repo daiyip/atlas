@@ -915,8 +915,9 @@ function baseStyle() {
       { id: "dispute-line", type: "line", source: "disputes", filter: ["==", ["get", "id"], "\u0000"], layout: { "line-join": "round" },
         paint: { "line-color": "#8c2f1f", "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.8, 8, 1.8], "line-opacity": 0.8, "line-dasharray": [2, 1.5] } },
       // The area whose history card is open (地区史): a gold dashed outline over a faint wash.
-      { id: "area-fill", type: "fill", source: "area", paint: { "fill-color": "#f0b429", "fill-opacity": 0.08 } },
-      { id: "area-line", type: "line", source: "area", layout: { "line-join": "round" },
+      { id: "area-dim", type: "fill", source: "area", filter: ["has", "mask"], paint: { "fill-color": "#141a1e", "fill-opacity": 0.4 } },
+      { id: "area-fill", type: "fill", source: "area", filter: ["!", ["has", "mask"]], paint: { "fill-color": "#f0b429", "fill-opacity": 0.08 } },
+      { id: "area-line", type: "line", source: "area", filter: ["!", ["has", "mask"]], layout: { "line-join": "round" },
         paint: { "line-color": "#d9971a", "line-width": ["interpolate", ["linear"], ["zoom"], 3, 1.8, 8, 3.5], "line-dasharray": [2.5, 1.5] } },
       // Elite groups (豪族/士人集团): a soft tint over their home region with a dashed edge, coloured by kind.
       { id: "clan-fill", type: "fill", source: "clans", paint: { "fill-color": ["get", "color"], "fill-opacity": 0.3 } },
@@ -1875,9 +1876,10 @@ function erasOf(id) {
 }
 const selRegion = () => (state.regionById[state.sel?.region] ? state.sel.region : state.mode);
 function selectCountry(name, opts = {}) {
+  if (name) closeArea(true);
   state.sel = name ? countryEntity(name, opts.year ?? state.year) : null;
   // The timeline moves to the country's region; letting go hands it back to the map.
-  if (state.ready) setMode(state.sel ? selRegion() : detectRegion(), false, true);
+  if (state.ready) setMode(state.sel ? selRegion() : state.area ? state.area.region : detectRegion(), false, true);
   // The rulers tab follows the selection; with none it goes back to the period's main country.
   if (!state.sel) state.rulerPolity = null;
   saveView();
@@ -1957,7 +1959,7 @@ function areaData() {
   if (state.areas) return state.areas;
   areaLoad ||= loadJSON("data/areas.json").then((d) => {
     state.areas = d.areas || [];
-    if (state.pendingArea) { const id = state.pendingArea; state.pendingArea = null; openArea(id); }
+    if (state.pendingArea) { const [id, o] = state.pendingArea; state.pendingArea = null; openArea(id, o); }
     if (!$("search").hidden) renderSearch();
   }).catch(() => { state.areas = []; });
   return null;
@@ -2009,8 +2011,11 @@ function areaBounds(a) {
   return polyBounds(a.poly);
 }
 const areaPad = () => ({ top: 120, bottom: 160, left: 60, right: innerWidth > 720 ? 400 : 60 });
+// An open area is a selected district: the map dims around it, the event list and cities narrow to it, and it stays
+// selected as the timeline moves, whoever holds it then (台湾 under 明郑, 清, 日本 …). Clicking a state on the map that lies
+// within an area's outline selects the area rather than that state.
 async function openArea(id, opts = {}) {
-  if (!areaData()) { state.pendingArea = id; return; }
+  if (!areaData()) { state.pendingArea = [id, opts]; return; }
   const a = areaById(id);
   if (!a) return;
   closeSearch();
@@ -2021,18 +2026,37 @@ async function openArea(id, opts = {}) {
   // The card lives in the ledger: a folded ledger (the phone's sheet) opens for it.
   if ($("ledger").classList.contains("collapsed")) foldLedger(false);
   if (opts.fly !== false) map.fitBounds(areaBounds(a), { padding: areaPad(), maxZoom: 6.5, duration: 1400 });
-  renderAreaCard();
-  emit("area", { id: a.id });
+  areaChanged();
 }
-function closeArea() {
+function closeArea(quiet) {
+  if (!state.area) return;
   state.area = null;
+  if (quiet) { drawArea(); renderAreaCard(); return; }
+  if (state.ready) setMode(detectRegion(), false, true);
+  areaChanged();
+}
+function areaChanged() {
   drawArea();
   renderAreaCard();
-  emit("area", { id: null });
+  renderPlaces();
+  if (state.ready) renderLedger();
+  saveView();
+  emit("area", { id: state.area?.id ?? null });
+}
+// The area whose outline holds a state drawn on the map now, when that state is no bigger than the area (荷属台湾,
+// 明郑 or 中华民国 after 1949 in Taiwan; not 清, which only reaches into it).
+function areaOfState(name, at) {
+  if (!state.areas) return null;
+  const a = areaAt(at[0], at[1]);
+  if (!a) return null;
+  const [[ax0, ay0], [ax1, ay1]] = areaBounds(a), b = countryBounds(name), m = 0.6;
+  return b && b[0][0] >= ax0 - m && b[0][1] >= ay0 - m && b[1][0] <= ax1 + m && b[1][1] <= ay1 + m ? a : null;
 }
 function drawArea() {
-  const a = state.area;
-  const fc = { type: "FeatureCollection", features: a ? [{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [[...a.poly, a.poly[0]]] } }] : [] };
+  const a = state.area, ring = a && [...a.poly, a.poly[0]];
+  // The outline, and a world-sized mask with the area as its hole to dim everything else.
+  const fc = { type: "FeatureCollection", features: a ? [{ type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [ring] } },
+    { type: "Feature", properties: { mask: true }, geometry: { type: "Polygon", coordinates: [[[-180, -85], [180, -85], [180, 85], [-180, 85], [-180, -85]], [...ring].reverse()] } }] : [] };
   map.getSource("area")?.setData(fc);
 }
 function renderAreaCard() {
@@ -3675,6 +3699,8 @@ function visibleEvents() {
 function shownEvent(ev) {
   // With a country selected, only its events, from whichever region's list they come (the Korean War for China).
   if (state.sel) { if (!selHas(ev.states, ev.year, ev.year) && ev.id !== state.selected) return false; }
+  // With a district (area) selected, the events that happened inside it.
+  else if (state.area) { if (!(ev.lon != null && inPoly(ev.lon, ev.lat, state.area.poly)) && ev.id !== state.selected) return false; }
   // Otherwise each region shows its own events; the world view shows all.
   else if (state.mode !== "world" && (ev.region || state.home) !== state.mode && !ev.also?.includes(state.mode)) return false;
   if (ev.id === state.selected) return true;
@@ -3922,7 +3948,7 @@ function renderPlaces() {
   markers.places = [];
   if (!state.showPlaces) return;
   for (const p of state.places) {
-    if (state.year < p.from || state.year > p.to || (state.sel && !selContains(p.lon, p.lat))) continue;
+    if (state.year < p.from || state.year > p.to || (state.sel && !selContains(p.lon, p.lat)) || (state.area && !inPoly(p.lon, p.lat, state.area.poly))) continue;
     const el = document.createElement("div");
     el.className = "mk-place r-" + p.rank + (p.rank === "capital" ? " capital" : "");
     el.innerHTML = zh() ? `<i></i><span>${esc(p.name_zh)}</span>` : `<i></i><span>${esc(p.name)} <em>${esc(p.name_zh)}</em></span>`;
@@ -4122,6 +4148,7 @@ function goRegion(id) {
   if (!reg) return;
   // Going to another region on purpose lets go of a country selected elsewhere.
   if (state.sel && selRegion() !== id) selectCountry(null);
+  if (state.area && state.area.region !== id) closeArea(true);
   setMode(id);
   if (reg.polygon?.length) map.fitBounds(polyBounds(reg.polygon), { padding: { top: 120, bottom: 140, left: 60, right: innerWidth > 720 ? 380 : 60 }, maxZoom: 5, duration: 1400 });
   renderLedger();
@@ -6571,7 +6598,7 @@ function saveView() {
   saveTimer = setTimeout(() => {
     if (!map) return;
     const c = map.getCenter();
-    const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab, country: state.sel ? [[...selNames(), ...state.sel.names][0], state.year] : null,
+    const view = { year: state.year, zoom: state.zoom, win: state.win, tab: state.tab, country: state.sel ? [[...selNames(), ...state.sel.names][0], state.year] : null, area: state.area?.id || null,
       cam: { center: [+c.lng.toFixed(3), +c.lat.toFixed(3)], zoom: +map.getZoom().toFixed(2), pitch: Math.round(map.getPitch()), bearing: Math.round(map.getBearing()) } };
     try { localStorage.setItem(viewKey(), JSON.stringify(view)); } catch {}
   }, 500);
@@ -6635,6 +6662,7 @@ function loadView() {
   if ([1, 2].includes(v.zoom) && Array.isArray(v.win) && v.win[0] <= state.year && state.year <= v.win[1]) { state.zoom = v.zoom; state.win = v.win; }
   if (TABS.includes(v.tab)) state.tab = v.tab;
   if (Array.isArray(v.country) && typeof v.country[0] === "string") state.pendingCountry = v.country;
+  if (typeof v.area === "string") state.pendingArea = [v.area, { fly: false }];
   return v.cam && Array.isArray(v.cam.center) ? v.cam : null;
 }
 
@@ -6805,7 +6833,7 @@ async function init() {
   map.on("mouseleave", "road-hit", () => (map.getCanvas().style.cursor = ""));
   // The timeline follows the region in view, except while a country is selected: then it stays on that country's
   // region (its periods and events) until the selection is cleared, and the card offers the way back to it.
-  map.on("moveend", () => { if (state.adminShown?.length) renderAdminLabels(); scheduleDeclutter(); saveView(); if (!state.tour && state.ready) setMode(state.sel ? selRegion() : detectRegion()); renderSelCard(); });
+  map.on("moveend", () => { if (state.adminShown?.length) renderAdminLabels(); scheduleDeclutter(); saveView(); if (!state.tour && state.ready) setMode(state.sel ? selRegion() : state.area ? state.area.region : detectRegion()); renderSelCard(); });
   map.on("zoomend", setTerrainForZoom);
   map.on("styleimagemissing", (e) => { if (e.id === "hatch") addHatch(map); });
   map.on("load", async () => {
@@ -7145,11 +7173,20 @@ async function init() {
     if (map.getLayer("admin-dot") && map.queryRenderedFeatures(e.point, { layers: ["admin-dot"] }).length) return;
     const f = map.queryRenderedFeatures(e.point, { layers: ["focus-fill", "neighbour-fill"] }).find((f) => f.properties.name);
     const d = map.getLayer("dispute-fill") && map.queryRenderedFeatures(e.point, { layers: ["dispute-fill"] })[0];
-    if (f) { if (selNames().has(f.properties.name) && selOnMap()) selectCountry(null); else selectCountry(f.properties.name); }
+    const at = [e.lngLat.lng, e.lngLat.lat];
+    if (state.area && inPoly(at[0], at[1], state.area.poly)) closeArea();
+    else if (f) {
+      const a = areaOfState(f.properties.name, at);
+      if (a) openArea(a.id, { fly: false });
+      else if (selNames().has(f.properties.name) && selOnMap()) selectCountry(null); else selectCountry(f.properties.name);
+    }
     // A disputed area also opens its card: who holds it, who claims it.
     if (d) showCard(e.lngLat, disputeCard(d.properties));
   });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && state.sel && e.target.tagName !== "INPUT" && !state.reading && $("search").hidden) selectCountry(null); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape" || e.target.tagName === "INPUT" || state.reading || !$("search").hidden) return;
+    if (state.sel) selectCountry(null); else if (state.area) closeArea();
+  });
   // The tour card grows and shrinks with each step's caption; the immersive reading card ends just above it.
   new ResizeObserver(() => { if (state.tour) syncTourTop(); }).observe($("tour"));
   new ResizeObserver(() => {
