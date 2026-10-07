@@ -70,9 +70,9 @@ const state = {
   playMode: "events",   // what the play button does (PLAY_MODES)
   eraMin: false,        // era panel minimised
   railMin: false,       // timeline folded down to its play button
-  narration: false,     // tour narration (off until switched on; remembered)
+  narration: true,      // tour narration (on, male voice, until switched off; remembered)
   voice: "Charon",      // narration voice: Charon (male) or Kore (female), Gemini TTS
-  music: false,         // background music during tours and timeline playback (off until switched on; remembered)
+  music: true,          // background music during tours and timeline playback (on until switched off; remembered)
   rulerPolity: null,    // country shown in the ruler list
   countries: null,      // data/countries.json: when each polity is on the map, and lineages joining renamed ones
   sel: null,            // the selected country: { id, names: Set, name, name_zh, spans, from, to } (selectCountry)
@@ -834,6 +834,8 @@ function togglePanelPop(open) {
   pop.querySelector('[aria-checked="true"]')?.focus();
 }
 // Panel styles (设置 › 外观): each is a block of CSS under html[data-ui="<id>"] in style.css; "classic" sets none.
+// A first visit opens in 毛玻璃 at 55% opacity (the boot script in index.html has the same defaults).
+const DEFAULT_UI = "glass", DEFAULT_OP = 0.55;
 // The preview is a tiny drawing of the panels over a map: --p panel fill, --b edge, --r corner.
 const UI_STYLES = [
   { id: "classic", name: "Classic", name_zh: "经典", preview: "--p:rgba(247,249,248,.95);--r:4px" },
@@ -854,12 +856,12 @@ function setUIStyle(id, remember = true) {
 }
 let savedUI = null;
 try { savedUI = localStorage.getItem("atlas-ui"); } catch {}
-setUIStyle(savedUI, false);
+setUIStyle(savedUI || DEFAULT_UI, false);
 
 // Applied before the map loads so the panels never flash in the old colour.
 try {
   state.panelColor = localStorage.getItem("atlas-panel-color") || "auto";
-  const op = parseFloat(localStorage.getItem("atlas-panel-op"));
+  const v = localStorage.getItem("atlas-panel-op"), op = parseFloat(v ?? DEFAULT_OP);
   state.panelOp = op >= 0.2 && op <= 1 ? op : null;
 } catch {}
 if (state.panelColor !== "auto" && !hexOk(state.panelColor)) state.panelColor = "auto";
@@ -6309,8 +6311,8 @@ function setSpeed(v, remember) {
 // The chosen layout is where Atlas rests; 自动布局 changes it for a while: a story being read → 阅读, a tour → 导览,
 // playback → 一览. The preview draws the panels on a 56×40 map.
 const LAYOUTS = [
-  { id: "glance", name: "Glance", name_zh: "一览", svg: '<rect x="3" y="3" width="15" height="5" rx="1"/><rect x="38" y="3" width="15" height="5" rx="1"/><rect x="3" y="34" width="50" height="3" rx="1"/>' },
   { id: "classic", name: "Classic", name_zh: "经典", svg: '<rect x="3" y="3" width="16" height="12" rx="1"/><rect x="38" y="3" width="15" height="24" rx="1"/><rect x="3" y="31" width="50" height="6" rx="1"/>' },
+  { id: "glance", name: "Glance", name_zh: "一览", svg: '<rect x="3" y="3" width="15" height="5" rx="1"/><rect x="38" y="3" width="15" height="5" rx="1"/><rect x="3" y="34" width="50" height="3" rx="1"/>' },
   { id: "reader", name: "Reader", name_zh: "阅读", svg: '<rect x="3" y="3" width="12" height="7" rx="1"/><rect x="33" y="0" width="23" height="40"/><rect x="3" y="33" width="27" height="4" rx="1"/>' },
   { id: "cinema", name: "Cinema", name_zh: "导览", svg: '<rect x="14" y="27" width="28" height="7" rx="1"/><rect x="3" y="36" width="50" height="2" rx="1"/>' },
   { id: "explorer", name: "Explorer", name_zh: "研究", svg: '<rect x="0" y="0" width="13" height="40"/><rect x="43" y="0" width="13" height="40"/><rect x="13" y="35" width="30" height="5"/>' },
@@ -6518,6 +6520,8 @@ const DIAL_SKINS = [
   { id: "glass", name: "Glass", name_zh: "玻璃", o: "rgba(255,255,255,.35)", c: "rgba(10,14,18,.6)", m: "#7ff0d4" },
   { id: "watch", name: "Watch", name_zh: "表盘", o: "#0d0f11", c: "#25292d", m: "#ff8a1f" },
 ];
+// A first visit opens with the dial (not the bar), in 玻璃.
+const DEFAULT_DIAL = "glass";
 const SVGNS = "http://www.w3.org/2000/svg";
 const dial = { el: null, eras: [], key: "", year: 0, open: false, closeT: 0, drag: null, sent: 0, lastIdx: -1 };
 const svgEl = (tag, attrs, parent) => { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.append(e); return e; };
@@ -6696,7 +6700,7 @@ function dialUp() {
   scheduleDialClose();
 }
 function setDialSkin(id, remember = true) {
-  if (!DIAL_SKINS.some((d) => d.id === id)) id = "luopan";
+  if (!DIAL_SKINS.some((d) => d.id === id)) id = DEFAULT_DIAL;
   state.dialSkin = id;
   if (remember) try { localStorage.setItem("atlas-dial-skin", id); } catch {}
   if (!dial.el) return;
@@ -6770,21 +6774,22 @@ function resetSettings() {
   setLayout("classic");
   setAutoLayout(true);
   setPins({ l: true, r: true });
-  setUIStyle("classic");
-  setPanel({ color: "auto", op: null });
+  setUIStyle(DEFAULT_UI);
+  setPanel({ color: "auto", op: DEFAULT_OP });
   state.flat3d = false;
   setLook(lookOrder()[0]);
   if (!state.show3d) $("t-3d").click();
   if (!state.showAI) $("t-ai").click();
   setRailSlim(false, true);
-  setDial(false, true);
-  setDialSkin("luopan");
+  setDial(true, true);
+  setDialSkin(DEFAULT_DIAL);
   setLayButtons({ btn: "icon", pos: "group" }, false);
   try { localStorage.removeItem("atlas-laybtn"); localStorage.removeItem("atlas-laypos"); } catch {}
   setSpeed(1, true);
   setPlayMode("events", true);
-  setMusic(false);
-  setNarration(false);
+  setMusic(true);
+  state.voice = "Charon";
+  setNarration(true);
   try { localStorage.removeItem("atlas-wstrip"); } catch {}
   renderWorldStrip();
   renderSettings();
@@ -7403,7 +7408,7 @@ async function init() {
     else if (state.voice === "Charon") { state.voice = "Kore"; setNarration(true); }
     else setNarration(false);
   });
-  try { if (localStorage.getItem("atlas-narration") === "1") state.narration = true; const v = localStorage.getItem("atlas-voice"); if (v === "Charon" || v === "Kore") state.voice = v; } catch {}
+  try { const n = localStorage.getItem("atlas-narration"); if (n) state.narration = n === "1"; const v = localStorage.getItem("atlas-voice"); if (v === "Charon" || v === "Kore") state.voice = v; } catch {}
   setNarration(state.narration, false);
   for (const b of document.querySelectorAll(".music-toggle")) b.addEventListener("click", () => setMusic(!state.music));
   try { const m = localStorage.getItem("atlas-music"); if (m) state.music = m === "1"; } catch {}
@@ -7457,7 +7462,7 @@ async function init() {
   let slim = false;
   try { slim = localStorage.getItem("atlas-rail-slim") === "1"; } catch {}
   setRailSlim(slim);
-  try { state.dialSkin = localStorage.getItem("atlas-dial-skin") || "luopan"; if (localStorage.getItem("atlas-dial") === "1") setDial(true); } catch {}
+  try { state.dialSkin = localStorage.getItem("atlas-dial-skin") || DEFAULT_DIAL; if (localStorage.getItem("atlas-dial") !== "0") setDial(true); } catch {}
   $("speed").addEventListener("click", (e) => { e.stopPropagation(); toggleSpeedPop(); });
   $("speed-pop").addEventListener("click", (e) => {
     const b = e.target.closest("[data-speed]");
