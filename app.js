@@ -193,6 +193,23 @@ function fmtYear(y, circa) {
   if (zh()) return `${circa ? "约" : ""}${y < 0 ? "前" : ""}${n}年`;
   return `${circa ? "c. " : ""}${n}${y < 0 ? " BCE" : ""}`;
 }
+// An exact date, "1949-10-01" or "1949-10" (a year may be negative: "-44-03-15"), in the reader's language.
+function fmtDate(d) {
+  const m = String(d).match(/^(-?\d{1,4})(?:-(\d\d)(?:-(\d\d))?)?$/);
+  if (!m) return String(d);
+  const y = +m[1], mo = m[2] && +m[2], da = m[3] && +m[3];
+  if (zh()) return fmtYear(y) + (mo ? `${mo}月` : "") + (da ? `${da}日` : "");
+  const M = mo ? new Date(2000, mo - 1, 1).toLocaleString("en", { month: "short" }) : "";
+  return [da, M, fmtYear(y)].filter(Boolean).join(" ");
+}
+// When an event happened, as its story and cards show it: exact dates when it has them (`date`, `endDate`), else
+// years; `year_range` [a, b] adds how uncertain the year is.
+function evWhen(ev) {
+  const a = ev.date ? fmtDate(ev.date) : fmtYear(ev.year, ev.circa);
+  const b = ev.endDate ? fmtDate(ev.endDate) : ev.endYear != null ? fmtYear(ev.endYear) : "";
+  const r = Array.isArray(ev.year_range) ? ` (${fmtYear(ev.year_range[0])}–${fmtYear(ev.year_range[1])})` : "";
+  return (b ? `${a} – ${b}` : a) + r;
+}
 function fmtYearParts(y) {
   const n = String(y === 0 ? 1 : Math.abs(y));
   if (zh()) return y < 0 ? ["前" + n, "年"] : [n, "年"];
@@ -2304,6 +2321,7 @@ document.addEventListener("click", (e) => {
   const c = e.target.closest?.("[data-area]");
   if (!c) return;
   e.stopPropagation();
+  e.preventDefault();
   if (c.closest("#region-pop")) toggleRegionPop(false);
   popup?.remove();
   openArea(c.dataset.area);
@@ -2341,7 +2359,7 @@ function loadLayers(era) {
       for (const d of ds) {
         Object.assign(out.polities, d.polities);
         for (const [k, rs] of Object.entries(d.rulers || {})) for (const r of rs) {
-          const key = `${k}|${r.name}|${r.from}`;
+          const key = `${k}|${r.id || r.name + "|" + r.from}`;
           if (!seen.has(key)) { seen.add(key); (out.rulers[k] ||= []).push(r); }
         }
         for (const p of d.people || []) if (!seen.has("p" + p.id)) { seen.add("p" + p.id); out.people.push(p); }
@@ -2349,12 +2367,24 @@ function loadLayers(era) {
       return out;
     }));
   // Periods of the other world regions share one file per region (the artifact caps its file count).
-  if (!state.layers[era.id]) state.layers[era.id] = era.worldMaps
+  if (!state.layers[era.id]) state.layers[era.id] = (era.worldMaps
     ? (state.layers["world-" + era.region] ||= loadJSON(`data/layers/world-${era.region}.json`).catch(() => ({}))).then((b) => b[era.id] || {})
-    : loadJSON(`data/layers/${era.id}.json`).catch(() => ({}));
+    : loadJSON(`data/layers/${era.id}.json`).catch(() => ({}))).then(normLayers);
   return state.layers[era.id];
 }
 
+// Fields kept ready for richer data: a reign may list several `titles` ([{title, title_zh, kind}]: 庙号, 谥号, 年号 …)
+// and a person several `places` ([{lon, lat, place, place_zh, role}], home first). Shown through the single fields.
+function normLayers(d) {
+  for (const rs of Object.values(d.rulers || {})) for (const r of rs) {
+    if (!r.title && !r.rank && r.titles?.length) Object.assign(r, { title: r.titles[0].title, title_zh: r.titles[0].title_zh });
+  }
+  for (const p of d.people || []) {
+    const h = p.places?.[0];
+    if (p.lat == null && h) Object.assign(p, { lat: h.lat, lon: h.lon, place: p.place ?? h.place, place_zh: p.place_zh ?? h.place_zh });
+  }
+  return d;
+}
 function rulerAt(name, year) {
   // In a handover year two reigns overlap; the newer ruler wins.
   return (state.layerData?.rulers?.[name] || []).findLast((r) => year >= r.from && year <= r.to);
@@ -4534,7 +4564,7 @@ const evTitleText = (ev) => zh() ? ev.title_zh || ev.title : ev.title;
 function compareEventPopup(ev) {
   cmp.popup?.remove();
   cmp.popup = new maplibregl.Popup({ className: "atlas-pop", maxWidth: "300px", offset: 14, focusAfterOpen: false }).setLngLat([ev.lon, ev.lat])
-    .setHTML(`<div class="pc-kind">${fmtYear(ev.year, ev.circa)} · ${esc(tx(ev, "place"))}</div><h4>${esc(evTitleText(ev))}</h4><p>${esc(tx(ev, "summary"))}</p>`)
+    .setHTML(`<div class="pc-kind">${evWhen(ev)} · ${esc(tx(ev, "place"))}</div><h4>${esc(evTitleText(ev))}</h4><p>${esc(tx(ev, "summary"))}</p>`)
     .addTo(cmp.map);
 }
 function renderCompareCard(era) {
@@ -4755,7 +4785,7 @@ async function renderStory() {
   const evs = visibleEvents();
   const i = evs.findIndex((e) => e.id === ev.id);
   const prev = evs[i - 1], next = evs[i + 1];
-  const when = ev.endYear ? `${fmtYear(ev.year, ev.circa)} – ${fmtYear(ev.endYear)}` : fmtYear(ev.year, ev.circa);
+  const when = evWhen(ev);
   const cat = t("cat")[ev.category] || ev.category;
   $("ev-count").textContent = i >= 0 ? `${i + 1} / ${evs.length}` : "";
   box.innerHTML = `
@@ -4881,12 +4911,17 @@ function checkMark(x) {
 function links(ev, d) {
   const zhUrl = wikiLink(d?.source_zh || ev.source_zh), enUrl = wikiLink(ev.source);
   const main = zh() ? zhUrl || enUrl : enUrl || zhUrl;
+  // More sources (`sources`: links, or {url, title, title_zh}) and the area the event belongs to (`area`, a place
+  // graph id) follow the other links.
+  const more = (ev.sources || []).map((x) => (typeof x === "string" ? { url: x } : x)).filter((x) => /^https?:/.test(x.url || ""))
+    .map((x) => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(tx(x, "title") || new URL(x.url).hostname)} ↗</a>`).join("");
+  const area = ev.area && areaById(ev.area) ? `<a href="#" data-area="${esc(ev.area)}">${esc(t("area").kind)} ›</a>` : "";
   const r = refLink(ev.refs);
-  if (r) return `<p class="story-links">` + ev.refs.map((ref) => `<a href="${esc(refLink(ref).href)}" title="${esc(r.label)}" target="_blank" rel="noopener">${esc(refLabel(ref))} ↗</a>`).join("") + `</p>`;
-  if (!main) return "";
+  if (r) return `<p class="story-links">` + ev.refs.map((ref) => `<a href="${esc(refLink(ref).href)}" title="${esc(r.label)}" target="_blank" rel="noopener">${esc(refLabel(ref))} ↗</a>`).join("") + more + area + `</p>`;
+  if (!main && !more && !area) return "";
   const other = zhUrl && enUrl ? (zh() ? enUrl : zhUrl) : null;
-  return `<p class="story-links"><a href="${esc(main)}" target="_blank" rel="noopener">${t("wiki")} ↗</a>` +
-    (other ? `<a href="${esc(other)}" target="_blank" rel="noopener">${t("wikiOther")} ↗</a>` : "") + `</p>`;
+  return `<p class="story-links">` + (main ? `<a href="${esc(main)}" target="_blank" rel="noopener">${t("wiki")} ↗</a>` : "") +
+    (other ? `<a href="${esc(other)}" target="_blank" rel="noopener">${t("wikiOther")} ↗</a>` : "") + more + area + `</p>`;
 }
 
 function flyToEvent(ev) {

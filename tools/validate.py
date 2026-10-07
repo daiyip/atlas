@@ -182,7 +182,29 @@ def check_events(rep, where, events):
         text(rep, w, e, "summary", required=False)
         text(rep, w, e, "place", required=False)
         check_layer_keys(rep, w, e)
+        check_event_extras(rep, w, e)
     return ids
+
+
+DATE = re.compile(r"^(-?\d{1,4})(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\d|3[01]))?)?$")
+
+
+def check_event_extras(rep, w, e):
+    """Optional fields of format 2: exact dates, an uncertain year range, more sources, an area."""
+    for k, yk in (("date", "year"), ("endDate", "endYear")):
+        if k in e:
+            m = DATE.match(str(e[k]))
+            if not m: rep.err(w, f"`{k}` {e[k]!r} should be YYYY, YYYY-MM or YYYY-MM-DD")
+            elif e.get(yk) != int(m.group(1)): rep.err(w, f"`{k}` {e[k]} is not in `{yk}` {e.get(yk)!r}")
+    if "year_range" in e:
+        r = e["year_range"]
+        if not (isinstance(r, list) and len(r) == 2 and all(map(is_int, r)) and r[0] <= e.get("year", r[0]) <= r[1]):
+            rep.err(w, "`year_range` should be [from, to] around `year`")
+    if "sources" in e:
+        if not isinstance(e["sources"], list) or not all(isinstance(x, str) or (isinstance(x, dict) and "url" in x) for x in e["sources"]):
+            rep.err(w, "`sources` should be a list of links or {url, title, title_zh}")
+    if "area" in e and not (isinstance(e["area"], str) and ":" in e["area"]):
+        rep.err(w, "`area` should be a place graph id like area:taiwan")
 
 
 def check_tours(rep, where, tours, era_ids, event_ids):

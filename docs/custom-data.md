@@ -107,6 +107,10 @@ they need no `snapshots`.
 | `category` | One of `war`, `politics`, `reform`, `rebellion`, `diplomacy`, `economy`, `culture`, `science`, `society`. |
 | `title`, `place`, `summary` (+ `_zh`) | Text for the list, the map card and the story view. |
 | `refs` | Optional, for the manifest's `refs` link. |
+| `date`, `endDate` | Optional exact dates, `"1949-10-01"` or `"1949-10"`, in `year` and `endYear`; shown in place of the years. `year` stays a whole year (format 2). |
+| `circa`, `year_range` | `circa: true` marks the year as approximate; `year_range: [from, to]` (format 2) gives the span it may fall in. |
+| `sources` | Optional, more links after the Wikipedia ones (format 2): URLs, or `{url, title, title_zh}`. |
+| `area` | Optional, a [place graph](places.md) area the event belongs to (format 2); the story links to its 地区史 card. `lat`/`lon` are still required. |
 | `layers` | Optional. Map layers the Auto layers switch turns on while this event's story is open, for example `["armies", "passes"]`. `[]` turns none on. Left out, keyword rules guess. Keys: `rulers`, `people`, `armies`, `routes`, `exchange`, `spread`, `passes`, `roads`, `walls`, `clans`, `capitals`, `faith`, `inventions`. |
 
 ## tours.json: guided tours
@@ -154,6 +158,20 @@ old words. Pictures are always shown as AI-generated. `base` must be on an allow
 atlas.daiyip.com. Each part is optional, and an atlas that predates `media` simply leaves it out, so it needs no new
 format.
 
+## Reading newer data
+
+So that data written for a newer atlas does as little harm as possible on an older one, every reader follows the same
+rules:
+
+- **Unknown keys are ignored.** A new optional field never stops a file from loading.
+- **Unknown values are shown as they are.** An event category or a person's field the page doesn't know is shown
+  under its own name, not dropped. (`tools/validate.py` still reports it, since a pack is checked against one format.)
+- **A field never changes meaning.** When a field needs a different shape, a new key carries it (`sources` beside
+  `source`, `date` beside `year`) and the old one keeps its meaning.
+- **Ids never change.** What other data, links and saved views point at stays valid. Merged places keep their old id
+  ([places.md](places.md#compatibility)).
+- **Whole years stay whole years.** Exact dates and uncertain ranges come in their own keys.
+
 ## Versions
 
 One number, the **Atlas format**, versions everything in a pack: the manifest, the data files (eras, events, tours,
@@ -182,7 +200,7 @@ format changes. The credits show both, for example "Atlas v223 · data format 2"
 | Format | First app version | Added |
 | --- | --- | --- |
 | 1 | v178 (earlier versions read format 1 only) | Everything in these pages: manifest, `eras.json`, `events.json`, `tours.json`, layers, plugins (API 1), `basemap`. |
-| 2 | v223 | The [place graph](places.md): `data.graph` (JSON or JSONL with `include`), and `atlas.places` for plugins (API 2). A format-1 pack reads as before; its region is the node `region:<pack id>`. |
+| 2 | v223 | The [place graph](places.md): `data.graph` (JSON or JSONL with `include`), and `atlas.places` for plugins (API 2). Events: `date`, `endDate`, `year_range`, `sources`, `area`. A format-1 pack reads as before; its region is the node `region:<pack id>`. |
 
 The atlas's own data declares its format the same way, in `data/manifest.json`.
 
