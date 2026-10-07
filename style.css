@@ -1092,8 +1092,9 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
   -webkit-mask-image: linear-gradient(#000 calc(100% - 28px), transparent); mask-image: linear-gradient(#000 calc(100% - 28px), transparent); }
 .immersive.touring.tour-reading .tour { display: block; }
 .tour-immersive[aria-pressed="true"], .tour-ctl .music-toggle[aria-pressed="true"] { background: var(--jade-soft); }
-.narr-toggle { display: inline-flex; align-items: center; gap: 4px; }
-.narr-ico { width: 16px; height: 16px; flex: none; fill: none; stroke: #8a8f96; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.tour-ctl :is(.narr-toggle, .music-toggle, .tour-immersive) { display: inline-flex; align-items: center; gap: 4px; }
+.tc-ico { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.narr-ico { width: 14px; height: 14px; flex: none; fill: none; stroke: #8a8f96; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .narr-toggle[data-voice="Charon"] { --vc: #2f6fd6; background: rgba(47, 111, 214, .08); }
 .narr-toggle[data-voice="Kore"] { --vc: #d23b3b; background: rgba(210, 59, 59, .08); }
 .narr-toggle[aria-pressed="true"] { border-color: var(--vc); color: var(--vc); }
@@ -1118,7 +1119,9 @@ html:lang(en) .mk-clan span { font-family: var(--font-body); }
   .tour { bottom: calc(var(--rail-h, 64px) + 8px + var(--bottom-gap, 8px)); width: calc(100% - 16px); padding: 10px 12px; }
   /* Immersive: the card sits low, lined up with the picture's 16px side margins */
   .immersive .tour { bottom: var(--bottom-gap, 8px); width: calc(100% - 32px); box-sizing: border-box; }
-  .tour-ctl .music-label { display: none; } /* just ♪ and 🔊 (with 男/女 when on) on phones */
+  .tour-ctl .music-label, .tour-ctl .tour-immersive .tl { display: none; } /* icons only on phones */
+  .tour-ctl :is(.narr-toggle, .music-toggle, .tour-immersive) { min-width: 34px; justify-content: center; }
+  .tour-ctl :is(.tc-ico, .narr-ico) { width: 16px; height: 16px; }
   .tour-ctl :is(.tour-prev, .tour-auto, .tour-story, .tour-next) .tl { display: none; } /* icons only on phones */
   .tour-ctl :is(.tour-prev, .tour-auto, .tour-story, .tour-next) { min-width: 34px; justify-content: center; }
   .tour-ctl :is(.tour-prev, .tour-auto, .tour-story, .tour-next) svg { width: 16px; height: 16px; }
