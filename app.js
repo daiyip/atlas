@@ -928,11 +928,20 @@ function baseStyle() {
           "heatmap-color": ["interpolate", ["linear"], ["heatmap-density"], 0, "rgba(255,236,160,0)", 0.15, "rgba(255,226,120,0.35)",
             0.35, "rgba(250,180,60,0.55)", 0.6, "rgba(232,110,40,0.68)", 0.85, "rgba(200,40,30,0.75)", 1, "rgba(150,10,30,0.8)"],
           "heatmap-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.85, 8, 0.55] } },
+      // The trail is one segment per step between data points; `age` counts steps back from now, so older steps
+      // fade and thin out, and an arrow on each step shows which way the centre moved.
       { id: "econ-trail", type: "line", source: "econTrail", filter: ["==", ["geometry-type"], "LineString"],
         layout: { "line-cap": "round", "line-join": "round" },
-        paint: { "line-color": "#5c120c", "line-width": 3, "line-opacity": 0.9 } },
+        paint: { "line-color": "#5c120c", "line-width": ["interpolate", ["linear"], ["get", "age"], 0, 3.2, 5, 1.4],
+                 "line-opacity": ["interpolate", ["linear"], ["get", "age"], 0, 0.95, 5, 0.3] } },
+      { id: "econ-trail-arrow", type: "symbol", source: "econTrail", filter: ["==", ["geometry-type"], "LineString"],
+        layout: { "symbol-placement": "line-center", "icon-image": "econ-arrow", "icon-rotation-alignment": "map",
+                  "icon-allow-overlap": true, "icon-size": ["interpolate", ["linear"], ["get", "age"], 0, 1, 5, 0.6] },
+        paint: { "icon-opacity": ["interpolate", ["linear"], ["get", "age"], 0, 1, 5, 0.25] } },
       { id: "econ-trail-dot", type: "circle", source: "econTrail", filter: ["==", ["geometry-type"], "Point"], paint: {
-          "circle-radius": 4, "circle-color": "#f6efe0", "circle-stroke-color": "#5c120c", "circle-stroke-width": 2 } },
+          "circle-radius": 4, "circle-color": "#f6efe0", "circle-stroke-color": "#5c120c", "circle-stroke-width": 2,
+          "circle-opacity": ["interpolate", ["linear"], ["get", "age"], 0, 1, 5, 0.35],
+          "circle-stroke-opacity": ["interpolate", ["linear"], ["get", "age"], 0, 1, 5, 0.35] } },
       { id: "admin-area-on", type: "fill", source: "adminAreas", filter: ["==", ["get", "i"], -1],
         paint: { "fill-color": "#d9b45a", "fill-opacity": 0.3 } },
       { id: "admin-area-line", type: "line", source: "adminAreas", layout: { "line-join": "round" },
@@ -2862,6 +2871,22 @@ function econFrame(d, metric, y) {
   const lerp = (u, v) => u + (v - u) * f;
   return { list, a, b, f, centre: [lerp(a.centre[0], b.centre[0]), lerp(a.centre[1], b.centre[1])], south: lerp(a.south, b.south) };
 }
+// An arrowhead drawn once on a canvas (symbol layers here carry icons only, no glyphs).
+function econArrow() {
+  if (map.hasImage("econ-arrow")) return;
+  const n = 32, c = document.createElement("canvas");
+  c.width = c.height = n;
+  const g = c.getContext("2d");
+  g.fillStyle = "#5c120c"; g.strokeStyle = "#f6efe0"; g.lineWidth = 3; g.lineJoin = "round";
+  g.beginPath(); g.moveTo(26, 16); g.lineTo(8, 6); g.lineTo(12, 16); g.lineTo(8, 26); g.closePath();
+  g.stroke(); g.fill();
+  map.addImage("econ-arrow", g.getImageData(0, 0, n, n), { pixelRatio: 2 });
+}
+function econZoomClass() {
+  const box = map.getContainer();
+  box.classList.toggle("econ-far", map.getZoom() < 5);
+  if (!econZoomClass.on) { econZoomClass.on = true; map.on("zoomend", econZoomClass); }
+}
 function renderEconomy() {
   const box = $("econ-box");
   const clear = () => {
@@ -2886,9 +2911,25 @@ function renderEconomy() {
     map.getSource("econ")?.setData({ type: "FeatureCollection", features: feats });
     const past = fr.list.filter((s) => s.year <= y);
     const line = [...past.map((s) => s.centre), fr.centre];
+    econArrow();
+    const segs = [];
+    for (let i = 1; i < line.length; i++) {
+      if (Math.hypot(line[i][0] - line[i - 1][0], line[i][1] - line[i - 1][1]) < 1e-6) continue;
+      segs.push({ type: "Feature", properties: { age: line.length - 1 - i }, geometry: { type: "LineString", coordinates: [line[i - 1], line[i]] } });
+    }
     map.getSource("econTrail")?.setData({ type: "FeatureCollection", features: [
-      ...(line.length > 1 ? [{ type: "Feature", properties: {}, geometry: { type: "LineString", coordinates: line } }] : []),
-      ...past.map((s) => pt(s.centre, { year: s.year })) ] });
+      ...segs, ...past.map((s, i) => pt(s.centre, { year: s.year, age: past.length - 1 - i })) ] });
+    // Each data point's year beside its dot; zoomed out only the latest few, so they don't pile up.
+    past.forEach((s, i) => {
+      // The latest dot under this year's centre marker needs no label of its own.
+      if (Math.hypot(s.centre[0] - fr.centre[0], s.centre[1] - fr.centre[1]) < 0.05) return;
+      const age = past.length - 1 - i, yl = document.createElement("div");
+      yl.className = "mk-econ-yr" + (age >= 3 ? " old" : "");
+      yl.style.opacity = String(Math.max(0.45, 1 - age * 0.12));
+      yl.textContent = fmtYear(s.year);
+      markers.econ.push(new maplibregl.Marker({ element: yl, anchor: "left", offset: [7, 0] }).setLngLat(s.centre).addTo(map));
+    });
+    econZoomClass();
     const el = document.createElement("div");
     el.className = "mk-econ";
     el.innerHTML = `<i></i><span>${esc(t(metric === "pop" ? "econCentrePop" : "econCentreWealth"))}</span>`;
