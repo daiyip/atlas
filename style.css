@@ -1868,3 +1868,32 @@ html[data-laypos="nowrap"]:not([data-laybtn]) .era-layers .chip.look b, html[dat
 html[data-layout="explorer"] .era-corner { gap: 4px; }
 .era-corner > .region-btn { flex-shrink: 1; min-width: 0; overflow: hidden; }
 .era-corner > .region-btn span { overflow: hidden; text-overflow: ellipsis; }
+
+/* 足迹: a person's life journey drawn whole, walked by the timeline (showTrail in app.js) */
+.trail { padding-top: 10px; }
+.touring .trail, .comparing .trail, .immersive .trail { display: none; }
+.trail .tour-title { color: var(--ink); }
+.trail p { margin: 4px 0 8px; }
+.trail .tr-note { margin: 6px 0 0; font-size: 10.5px; color: var(--muted); }
+.trail .chip[disabled] { opacity: .4; cursor: default; }
+.tr-dots { display: flex; align-items: center; gap: 0; margin: 8px 0 2px; }
+.tr-dots .tr-dot { flex: 1; position: relative; height: 18px; padding: 0; border: 0; background: none; cursor: pointer; }
+.tr-dots .tr-dot::before { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 2px; background: var(--rule); }
+.tr-dots .tr-dot.past::before, .tr-dots .tr-dot.now::before { background: #c8922a; }
+.tr-dots .tr-dot:first-child::before { left: 50%; }
+.tr-dots .tr-dot:last-child::before { right: 50%; }
+.tr-dots .tr-dot::after { content: ""; position: absolute; left: 50%; top: 4px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; box-sizing: border-box; border: 1.5px solid #8a5a12; background: var(--panel-solid, #fff); }
+.tr-dots .tr-dot.past::after { background: #c8922a; }
+.tr-dots .tr-dot.now::after { top: 1px; width: 16px; height: 16px; margin-left: -8px; background: #f0b429; border: 2.5px solid #fff; box-shadow: 0 0 0 1.5px #8a5a12; }
+.tr-dots .tr-dot:hover::after { box-shadow: 0 0 0 3px rgba(240, 180, 41, .45); }
+.trail-lab { padding: 1px 6px; border: 0; border-radius: 4px; background: rgba(255, 250, 240, .9); color: #4a3410; font: 500 11px/1.4 var(--font-body); white-space: nowrap; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+.trail-lab b { font: 600 10.5px var(--font-data, monospace); color: #8a5a12; margin-right: 2px; }
+.trail-lab.ahead { opacity: .55; }
+.trail-lab.now { z-index: 2; background: #f0b429; color: #2b1d05; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.35); }
+.trail-lab.now b { color: #2b1d05; }
+.trailing .maplibregl-marker:has(> .trail-lab.now) { z-index: 3; }
+.atlas-pop .pc-lives { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 6px; }
+.atlas-pop .pc-lives .pc-life { margin: 0; }
+.atlas-pop .pc-trail { border-color: #b8892b; color: #8a5a12; }
+.atlas-pop .pc-trail:hover { background: #c8922a; border-color: #c8922a; color: #fff; }
+.mk-person.moves small { white-space: nowrap; }
