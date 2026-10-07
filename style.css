@@ -633,6 +633,7 @@ html:lang(en) .mk-polity .ruler { font-family: var(--font-body); font-weight: 60
 .econ-now { margin: 4px 0 0; font-size: 12px; line-height: 1.5; }
 .econ-now b { color: var(--cinnabar); font-weight: 600; }
 .econ-now small { color: var(--muted); }
+.econ-go { font: inherit; font-size: 11px; margin-left: 4px; padding: 1px 8px; border: 1px solid var(--cinnabar); border-radius: 999px; background: none; color: var(--cinnabar); cursor: pointer; }
 .econ-box svg { display: block; width: 100%; height: 46px; margin-top: 2px; }
 .econ-half { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 2 3; opacity: 0.5; vector-effect: non-scaling-stroke; }
 .econ-line { fill: none; stroke: var(--cinnabar); stroke-width: 1.6; vector-effect: non-scaling-stroke; }
