@@ -6275,12 +6275,14 @@ function buildDial() {
   const g = dial.el.querySelector(".g-periods"), step = dialStep();
   g.innerHTML = "";
   eras.forEach((e, i) => {
-    const a = (-i * step * Math.PI) / 180, b = ((-i + 0.5) * step * Math.PI) / 180, x = 112 * Math.sin(a), y = -112 * Math.cos(a);
+    const a = (i * step * Math.PI) / 180, b = ((i + 0.5) * step * Math.PI) / 180, x = 112 * Math.sin(a), y = -112 * Math.cos(a);
     svgEl("line", { x1: 97 * Math.sin(b), y1: -97 * Math.cos(b), x2: 127 * Math.sin(b), y2: -127 * Math.cos(b), class: "p-sep" }, g);
-    svgEl("text", { x, y, class: "p-lab", transform: `rotate(${-i * step} ${x} ${y})` }, g).textContent = dialLabel(e);
+    svgEl("text", { x, y, class: "p-lab", transform: `rotate(${i * step} ${x} ${y})` }, g).textContent = dialLabel(e);
   });
   drawDial();
 }
+// Periods run clockwise round the ring, so later ones come up from the right and time reads left to right across
+// the top; the rings turn anticlockwise as time goes on.
 // give: degrees the ring is pushed past either end (it moves a third as far, like a rubber band).
 function drawDial(y = state.year, give = 0) {
   if (!dial.el || !dial.eras.length) return;
@@ -6289,8 +6291,8 @@ function drawDial(y = state.year, give = 0) {
   // The current period's name sits centred under the pointer; only while the period ring itself is turned does it
   // slide continuously (a period is centred halfway through, so letting go at its start keeps it centred).
   dial.rot = dial.drag?.gear === "era" && dial.drag.moved >= 3 ? (dialPos(y) - 0.5) * step : i * step;
-  dial.el.querySelector(".g-periods").setAttribute("transform", `rotate(${dial.rot + give / 3})`);
-  dial.el.querySelector(".g-ticks").setAttribute("transform", `rotate(${y * 3.6 + give / 3})`);
+  dial.el.querySelector(".g-periods").setAttribute("transform", `rotate(${-(dial.rot + give / 3)})`);
+  dial.el.querySelector(".g-ticks").setAttribute("transform", `rotate(${-(y * 3.6 + give / 3)})`);
   dial.el.querySelectorAll(".p-lab").forEach((t, k) => t.classList.toggle("on", k === i));
   const [num] = fmtYearParts(yr);
   dial.el.querySelector(".c-glyph").textContent = glyphOf(e);
@@ -6341,6 +6343,7 @@ function dialMove(ev) {
   let da = ((a - dr.a) * 180) / Math.PI;
   if (da > 180) da -= 360;
   if (da < -180) da += 360;
+  da = -da; // the ring follows the finger: turning it anticlockwise moves forward in time
   // (Touch events can arrive in bursts; a floor on the gap keeps a burst from reading as a flick.)
   const now = performance.now(), speed = (Math.abs(da) / Math.max(16, now - dr.t)) * 1000;
   dr.a = a; dr.t = now; dr.moved += Math.abs(da);
@@ -6379,7 +6382,7 @@ function dialUp() {
   // A click (or tap) on a period in the outer ring goes to its start.
   else if (dr.moved < 3 && dr.gear === "era") {
     const n = dial.eras.length, step = dialStep();
-    const i = ((Math.round((dial.rot - (dr.a0 * 180) / Math.PI) / step) % n) + n) % n;
+    const i = ((Math.round((dial.rot + (dr.a0 * 180) / Math.PI) / step) % n) + n) % n;
     setYear(Math.max(state.range.start, Math.min(state.range.end, dial.eras[i].start)));
   }
   else if (dr.gear === "era" && dr.moved >= 3) setYear(dial.eras[Math.min(dial.eras.length - 1, Math.floor(dr.pos))].start);
