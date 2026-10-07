@@ -1670,7 +1670,7 @@ html[data-ui] .settings .st-switch { color: var(--ink); }
 }
 .dial { position: absolute; z-index: 6; right: 16px; bottom: 16px; width: 260px; height: 260px; transform-origin: 100% 100%;
   transform: scale(var(--s, .34)); transition: transform .2s ease; border-radius: 50%; cursor: grab; outline: none;
-  touch-action: none; user-select: none; -webkit-user-select: none; filter: drop-shadow(0 6px 18px rgba(0,0,0,.4)); }
+  touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; filter: drop-shadow(0 6px 18px rgba(0,0,0,.4)); }
 .dial[hidden] { display: none; }
 .dial:focus-visible { box-shadow: 0 0 0 4px color-mix(in srgb, var(--cinnabar) 60%, transparent); }
 .dial svg { width: 100%; height: 100%; display: block; overflow: visible; }
@@ -1689,6 +1689,17 @@ html[lang="en"] .p-lab.on { font-size: 12px; }
 .c-sbtn { cursor: pointer; } .c-sbtn circle { fill: rgba(255,255,255,.08); stroke: currentColor; stroke-width: 1; }
 .c-speed { color: #aab7bb; } .c-sbtn text { font: 700 11px var(--font-display); fill: currentColor; text-anchor: middle; dominant-baseline: central; }
 html[lang="en"] .c-sbtn text { font: 700 14px var(--font-body); }
+/* The play button between 慢 and 快 (held to play, see DIAL_HOLD) and the ring that fills round the centre while it is held */
+.dial { --acc: #ff9a83; }
+.c-play { cursor: pointer; } .c-play circle { fill: color-mix(in srgb, var(--acc) 22%, transparent); stroke: var(--acc); stroke-width: 1.5; }
+.c-play-i { fill: var(--acc); }
+.dial.holding .c-play circle, .dial.playing .c-play circle { fill: color-mix(in srgb, var(--acc) 45%, transparent); }
+.c-hold { fill: none; stroke: var(--hold, var(--acc)); stroke-width: 5; stroke-linecap: round; opacity: 0; }
+.dial.holding .c-hold { opacity: 1; }
+.dial.small .c-hold { display: none; }
+.c-sub.hint { font-size: 10px; fill: var(--acc); }
+.dial[data-skin="luopan"] { --acc: #e2b866; --hold: #e0442a; } .dial[data-skin="sundial"] { --acc: #f3f7ee; }
+.dial[data-skin="glass"] { --acc: #7ff0d4; } .dial[data-skin="watch"] { --acc: #ff8a1f; }
 .c-sbtn.off { opacity: .35; cursor: default; } .dial.small .c-speed { opacity: 0; pointer-events: none; }
 .dial.small .c-glyph { font-size: 40px; transform: translateY(-14px); } .dial.small .c-year { font-size: 52px; transform: translateY(22px); }
 .dial.small .c-sub, .dial.small .g-ticks, .dial.small .g-periods, .dial.small .deco-under, .dial.small .deco-over { opacity: 0; }
