@@ -8,6 +8,7 @@ import base64, json, os, sys
 from openai import OpenAI
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ai_illustrate import RULES, MODELS, ROOT
+from usage import record
 CHUNK = 250
 
 def have(out, i):
@@ -49,6 +50,8 @@ def collect(client, out):
             for line in client.files.content(fid).text.splitlines():
                 r = json.loads(line)
                 body = (r.get("response") or {}).get("body") or {}
+                u = body.get("usage") or {}
+                if u: record(out, MODELS["openai"], r["custom_id"], u.get("input_tokens", 0), u.get("output_tokens", 0), batch=True)
                 if body.get("data"):
                     open(os.path.join(out, "openai", r["custom_id"] + ".webp"), "wb").write(base64.b64decode(body["data"][0]["b64_json"]))
                 else:

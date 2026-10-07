@@ -6,12 +6,15 @@ returned and the cost they come to at PRICES. Providers return tokens, not money
 price on Gemini.
 
 Usage: python3 tools/usage.py OUT_DIR [OUT_DIR ...]      # totals per model and day
-Imported by tools/ai_music.py, tools/ai_narration.py and tools/check_narration.py (record())."""
+Imported by tools/ai_music.py, tools/ai_narration.py, tools/check_narration.py and tools/ai_batch.py (record())."""
 import collections, json, os, sys, threading, time
 
 PRICES = {  # per million tokens ("in", "out") or per call ("call")
     "gemini-2.5-pro-preview-tts": {"in": 1.00, "out": 20.00},  # audio out is 25 tokens a second
     "gemini-2.5-pro-tts": {"in": 1.00, "out": 20.00},          # Cloud Text-to-Speech; out estimated from the audio length
+    "gemini-3.8-flash-tts": {"in": 0.50, "out": 10.00},        # assumed at the 2.5 Flash TTS price until published
+    "gemini-2.5-pro": {"in": 1.25, "out": 10.00},
+    "gpt-image-2": {"in": 5.00, "out": 40.00},                 # assumed at the gpt-image-1 price; image tokens out
     "gpt-4o-transcribe": {"in": 6.00, "out": 10.00},           # audio in, text out
     "lyria-3.5": {"call": 0.08},                               # priced per track; its token counts are logged too
 }

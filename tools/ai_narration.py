@@ -6,6 +6,7 @@ caption; a step without a script reads its caption as is.
 
 Usage: python3 tools/ai_narration.py OUT_DIR direct [tour id ...]       # parallel requests (THREADS, default 8)
        python3 tools/ai_narration.py OUT_DIR cloud [tour id ...]        # Cloud Text-to-Speech with ADC (no daily cap)
+       python3 tools/ai_narration.py OUT_DIR flash [tour id ...]        # Gemini 3.8 Flash TTS on Vertex AI with ADC
        python3 tools/ai_narration.py OUT_DIR submit [tour id ...]       # Gemini Batch Mode, half price
        python3 tools/ai_narration.py OUT_DIR collect                    # save finished batches
        python3 tools/ai_narration.py OUT_DIR run [tour id ...]          # submit and collect in a loop until done
@@ -22,6 +23,7 @@ from usage import record
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 MODEL, VOICES = "gemini-2.5-pro-preview-tts", ["Charon", "Kore"]
 CLOUD_MODEL, CLOUD_PROJECT = "gemini-2.5-pro-tts", os.environ.get("CLOUD_PROJECT", "freesolo-dev")
+FLASH_MODEL = "gemini-3.8-flash-tts"
 API = "https://generativelanguage.googleapis.com"
 STYLE = ("你是历史纪录片的旁白，讲一段历史故事，要有明显的重音和起伏，像在讲给听众听，而不是念稿。"
          "整体语速比平常稍快、流畅紧凑，停顿短而干脆。用标准普通话。")
@@ -91,10 +93,42 @@ def cloud_tts(key, caption, voice, tries=6):
             if e.code not in (429, 500, 502, 503) or k == tries - 1: raise
             time.sleep(15 * (k + 1))
 
-def direct(out, only, cloud=False):
+def flash_tts(key, caption, voice, tries=6):
+    """Gemini 3.8 Flash TTS on Vertex AI with ADC (CLOUD_PROJECT). It takes no system instruction, so the direction goes
+    in a director's-notes layout, which keeps it from being read out (mostly: tools/check_narration.py catches the
+    rest). Its audio comes hot and clips, so it is brought down to the level of the other clips (about -19.5 dBFS).
+    Returns 24 kHz mono 16-bit PCM."""
+    sc = SCRIPTS.get(key) or {}
+    text = (f"# AUDIO PROFILE: 历史纪录片旁白\n## DIRECTOR'S NOTES\n{STYLE.replace("整体语速比平常稍快、流畅紧凑，停顿短而干脆。", "")}语速平稳从容，不急不赶，句末稍作停顿。\n{sc.get('direct') or ''}\n"
+            f"## TRANSCRIPT\n{sc.get('script') or caption}")
+    body = {"contents": [{"role": "user", "parts": [{"text": text}]}], "generationConfig": {"responseModalities": ["AUDIO"],
+            "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
+    url = f"https://aiplatform.googleapis.com/v1/projects/{CLOUD_PROJECT}/locations/global/publishers/google/models/{FLASH_MODEL}:generateContent"
+    for k in range(tries):
+        try:
+            req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", "Authorization": "Bearer " + adc_token()})
+            r = json.load(urllib.request.urlopen(req, timeout=300)); break
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            if getattr(e, "code", 429) not in (429, 500, 502, 503) or k == tries - 1: raise
+            time.sleep(15 * (k + 1))
+    raw = base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
+    while raw[:4] == b"RIFF": raw = raw[raw.index(b"data") + 8:]  # a WAV header, sometimes two
+    import array
+    pcm = array.array("h", raw[:len(raw) // 2 * 2])
+    rms = (sum(x * x for x in pcm) / max(1, len(pcm))) ** 0.5 / 32768
+    gain = min(1.0, 10 ** (-19.5 / 20) / rms) if rms else 1.0
+    pcm = array.array("h", (int(x * gain) for x in pcm))
+    return pcm.tobytes(), r.get("usageMetadata") or {}
+
+def direct(out, only, cloud=False, flash=False):
     def one(job):
         key, caption, v, path = job
         try:
+            if flash:
+                pcm, u = flash_tts(key, caption, v)
+                record(out, FLASH_MODEL, os.path.basename(path), u.get("promptTokenCount", 0), u.get("candidatesTokenCount", 0))
+                with wave.open(path, "wb") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(pcm)
+                return
             if cloud:
                 data = cloud_tts(key, caption, v)
                 # Cloud TTS reports no usage: count the audio at 25 tokens a second (the text in is a few hundred tokens).
@@ -206,5 +240,5 @@ if __name__ == "__main__":
     sp = os.path.join(ROOT, "tools/narration_scripts.json")
     SCRIPTS = json.load(open(sp)) if os.path.exists(sp) else {}
     os.makedirs(out, exist_ok=True)
-    {"direct": lambda: direct(out, only), "cloud": lambda: direct(out, only, cloud=True), "submit": lambda: submit(out, only), "collect": lambda: collect(out),
+    {"direct": lambda: direct(out, only), "cloud": lambda: direct(out, only, cloud=True), "flash": lambda: direct(out, only, flash=True), "submit": lambda: submit(out, only), "collect": lambda: collect(out),
      "run": lambda: run(out, only), "status": lambda: status(out, only)}[cmd]()
