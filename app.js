@@ -27,11 +27,11 @@ const PACK_ONLY = PACK_URL && ["1", "true"].includes(new URLSearchParams(locatio
 const EMBED = new URLSearchParams(location.search).get("embed") === "1";
 if (EMBED) document.documentElement.classList.add("embed");
 // &mini=1 (with embed): a small inset map, such as beside a tour card. A tour step frames the leg from the last stop
-// to this one instead of flying in to the stop, and the era label, map buttons and route time go (as hide= below).
+// to this one instead of flying in to the stop, and the era label and map buttons go (as hide= below).
 const MINI = EMBED && new URLSearchParams(location.search).get("mini") === "1";
 // &hide=era,controls,credits,span (with embed): parts of the page the embedding site doesn't want. era: the period
 // label; controls: the zoom, compass and full-screen buttons; credits: the data credits button; span: a tour leg's time.
-const HIDE = new Set([...(MINI ? ["era", "controls", "span"] : []),
+const HIDE = new Set([...(MINI ? ["era", "controls"] : []),
   ...(EMBED ? (new URLSearchParams(location.search).get("hide") || "").split(",").map((x) => x.trim()) : [])]);
 for (const h of ["era", "controls", "credits", "span"]) if (HIDE.has(h)) document.documentElement.classList.add("hide-" + h);
 // Overview elevation tiles are bundled with the page (it works offline and in sandboxed previews): zoom 2-6 as PNG files,
@@ -5512,7 +5512,7 @@ function hideEventPic(forget) {
 }
 // Keep the spot clear of the tour card at the bottom and the ledger on the right.
 function tourPadding() {
-  if (MINI) return { top: 28, bottom: 28, left: 28, right: 28 };
+  if (MINI) return { top: 44, bottom: 28, left: 32, right: 32 }; // room for the names above the stops and the host's link
   if (EMBED) return { top: 50, bottom: 30, left: 30, right: 30 };
   const phone = innerWidth <= 720;
   const card = $("tour").offsetHeight || 160;
