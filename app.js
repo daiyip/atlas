@@ -225,6 +225,7 @@ function applyLang() {
   // A pack's own note replaces the China borders note.
   if (state.pack?.only) document.querySelector('[data-i18n="note"]').textContent = tx(state.pack.manifest, "note") || t("notePack");
   document.querySelectorAll("[data-i18n-title]").forEach((el) => { el.title = t(el.dataset.i18nTitle); el.setAttribute("aria-label", el.title); });
+  for (const [w, k] of [["prev", "tourPrev"], ["auto", "tourPlay"], ["story", "tourStory"], ["next", "tourNext"]]) tourBtn(w, $("tour").querySelector(".tour-" + w).dataset.key || k);
   iconChips();
   setMinButton($("era-min"), !!state.eraMin);
   renderLayoutChips();
@@ -5021,7 +5022,7 @@ async function showTrail(person, { fit = false } = {}) {
     renderPeople();
     return;
   }
-  if (state.tour) endTour();
+  if (state.tour) endTour(false);
   const reg = tourRegion(life);
   if (state.mode !== reg) setMode(reg);
   // Into their life: the nearest year of it.
@@ -5221,7 +5222,11 @@ async function startTour(id, i = 0, auto = false) {
   stop(); closeSearch();
   if (trail.life) showTrail(null);
   await illuSet("ai");
-  state.tour = { id, tr, i: 0, auto };
+  // Where the visitor was before the tour (kept when one tour follows another): ending the tour goes back there.
+  const c = map.getCenter();
+  const before = state.tour?.before || { year: state.year, mode: state.mode, win: state.win, scope: state.scope,
+    cam: { center: [c.lng, c.lat], zoom: map.getZoom(), bearing: map.getBearing(), pitch: map.getPitch() } };
+  state.tour = { id, tr, i: 0, auto, before };
   applyLayout();
   syncMusic();
   setMode(tourRegion(tr));
@@ -5322,8 +5327,8 @@ function tourCard() {
   a.hidden = !r;
   if (r) { a.href = r.href; a.title = r.label; a.textContent = `${refLabel(r.ref)} ↗`; }
   box.querySelector(".tour-prev").disabled = i === 0;
-  box.querySelector(".tour-next").textContent = i === tr.steps.length - 1 ? t("tourEnd") : t("tourNext");
-  box.querySelector(".tour-auto").textContent = tour.auto ? t("tourPause") : t("tourPlay");
+  tourBtn("next", i === tr.steps.length - 1 ? "tourEnd" : "tourNext");
+  tourBtn("auto", tour.auto ? "tourPause" : "tourPlay");
   box.querySelector(".tour-bar i").style.width = ((i + 1) / tr.steps.length) * 100 + "%";
   placeTourPic();
   syncTourTop();
@@ -5484,7 +5489,18 @@ function tourPause() {
   const tour = state.tour; if (!tour) return;
   tour.auto = false; clearTimeout(tour.timer);
   stopNarration();
-  $("tour").querySelector(".tour-auto").textContent = t("tourPlay");
+  tourBtn("auto", "tourPlay");
+}
+// The tour's 上一步 / 播放 / 读这段故事 / 下一步 buttons: an icon and a label (phones show the icon only), named for screen readers either way.
+const TOUR_ICONS = {
+  tourPrev: '<path d="M15 5l-7 7 7 7"/>', tourNext: '<path d="M9 5l7 7-7 7"/>', tourEnd: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  tourPlay: '<path d="M7.5 5v14l11-7z" fill="currentColor"/>', tourStory: '<path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/>', tourPause: '<path d="M8 5v14M16 5v14" stroke-width="3.2"/>',
+};
+function tourBtn(which, key) {
+  const b = $("tour").querySelector(".tour-" + which);
+  b.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${TOUR_ICONS[key]}</svg><span class="tl">${esc(t(key))}</span>`;
+  b.dataset.key = key;
+  b.setAttribute("aria-label", t(key)); b.title = t(key);
 }
 // 沉浸 (immersive): during a tour, every panel but the tour card folds away and the step's picture grows. The choice is
 // remembered for the next tour; reading the story or ending the tour leaves it.
@@ -5501,10 +5517,13 @@ function setImmersive(on, remember = true) {
   syncTourTop();
   map.easeTo({ padding: tourPadding(), duration: 600 }); // keep the step's spot in view in the space that is left
 }
-function endTour() {
+// Ending or closing a tour puts the timeline and the camera back where they were before it started; `back` is false
+// when something else (a life journey) takes over the map.
+function endTour(back = true) {
   if (!state.tour) return;
   setImmersive(false, false);
   clearTimeout(state.tour.timer);
+  const { before } = state.tour;
   state.tour = null;
   applyLayout();
   stopNarration();
@@ -5520,6 +5539,12 @@ function endTour() {
   syncAuto();
   renderArmies();
   map.setPadding({ top: 0, bottom: 0, left: 0, right: 0 });
+  if (back && before) {
+    if (before.mode !== state.mode) setMode(before.mode);
+    if (state.zoom && before.win) { state.scope = before.scope; state.win = before.win; refreshTimeline(); }
+    map.flyTo({ ...before.cam, duration: 1600, essential: true });
+    setYear(before.year).then(() => { renderLedger(); saveView(); });
+  }
   saveView();
 }
 // A leg of a journey is drawn as a gentle bow, not a ruler line: a quadratic curve bent to the left of travel by
@@ -6150,6 +6175,7 @@ function setNarration(on, remember = true) {
     const inTour = !!b.closest(".tour-ctl");
     b.querySelector(".music-label").textContent = (inTour ? " " : "") + (on ? (inTour ? "" : t("tourNarr").trim() + " · ") + t("voices")[state.voice] : t("tourNarr").trim());
     b.querySelector(".narr-short").textContent = on ? t("voices")[state.voice].slice(0, 1) : "";
+    b.dataset.voice = on ? state.voice : "off"; // the speaker is drawn blue (male), red (female) or grey (off)
   }
   if (remember) try { localStorage.setItem("atlas-narration", on ? "1" : "0"); localStorage.setItem("atlas-voice", state.voice); } catch {}
   if (state.tour && on) narrateStep(state.tour, state.tour.i); else stopNarration();
@@ -6459,12 +6485,14 @@ function buildDial() {
   const g = dial.el.querySelector(".g-periods"), step = dialStep();
   g.innerHTML = "";
   eras.forEach((e, i) => {
-    const a = (-i * step * Math.PI) / 180, b = ((-i + 0.5) * step * Math.PI) / 180, x = 112 * Math.sin(a), y = -112 * Math.cos(a);
+    const a = (i * step * Math.PI) / 180, b = ((i + 0.5) * step * Math.PI) / 180, x = 112 * Math.sin(a), y = -112 * Math.cos(a);
     svgEl("line", { x1: 97 * Math.sin(b), y1: -97 * Math.cos(b), x2: 127 * Math.sin(b), y2: -127 * Math.cos(b), class: "p-sep" }, g);
-    svgEl("text", { x, y, class: "p-lab", transform: `rotate(${-i * step} ${x} ${y})` }, g).textContent = dialLabel(e);
+    svgEl("text", { x, y, class: "p-lab", transform: `rotate(${i * step} ${x} ${y})` }, g).textContent = dialLabel(e);
   });
   drawDial();
 }
+// Periods run clockwise round the ring, so later ones come up from the right and time reads left to right across
+// the top; the rings turn anticlockwise as time goes on.
 // give: degrees the ring is pushed past either end (it moves a third as far, like a rubber band).
 function drawDial(y = state.year, give = 0) {
   if (!dial.el || !dial.eras.length) return;
@@ -6473,8 +6501,8 @@ function drawDial(y = state.year, give = 0) {
   // The current period's name sits centred under the pointer; only while the period ring itself is turned does it
   // slide continuously (a period is centred halfway through, so letting go at its start keeps it centred).
   dial.rot = dial.drag?.gear === "era" && dial.drag.moved >= 3 ? (dialPos(y) - 0.5) * step : i * step;
-  dial.el.querySelector(".g-periods").setAttribute("transform", `rotate(${dial.rot + give / 3})`);
-  dial.el.querySelector(".g-ticks").setAttribute("transform", `rotate(${y * 3.6 + give / 3})`);
+  dial.el.querySelector(".g-periods").setAttribute("transform", `rotate(${-(dial.rot + give / 3)})`);
+  dial.el.querySelector(".g-ticks").setAttribute("transform", `rotate(${-(y * 3.6 + give / 3)})`);
   dial.el.querySelectorAll(".p-lab").forEach((t, k) => t.classList.toggle("on", k === i));
   const [num] = fmtYearParts(yr);
   dial.el.querySelector(".c-glyph").textContent = glyphOf(e);
@@ -6525,6 +6553,7 @@ function dialMove(ev) {
   let da = ((a - dr.a) * 180) / Math.PI;
   if (da > 180) da -= 360;
   if (da < -180) da += 360;
+  da = -da; // the ring follows the finger: turning it anticlockwise moves forward in time
   // (Touch events can arrive in bursts; a floor on the gap keeps a burst from reading as a flick.)
   const now = performance.now(), speed = (Math.abs(da) / Math.max(16, now - dr.t)) * 1000;
   dr.a = a; dr.t = now; dr.moved += Math.abs(da);
@@ -6563,7 +6592,7 @@ function dialUp() {
   // A click (or tap) on a period in the outer ring goes to its start.
   else if (dr.moved < 3 && dr.gear === "era") {
     const n = dial.eras.length, step = dialStep();
-    const i = ((Math.round((dial.rot - (dr.a0 * 180) / Math.PI) / step) % n) + n) % n;
+    const i = ((Math.round((dial.rot + (dr.a0 * 180) / Math.PI) / step) % n) + n) % n;
     setYear(Math.max(state.range.start, Math.min(state.range.end, dial.eras[i].start)));
   }
   else if (dr.gear === "era" && dr.moved >= 3) setYear(dial.eras[Math.min(dial.eras.length - 1, Math.floor(dr.pos))].start);

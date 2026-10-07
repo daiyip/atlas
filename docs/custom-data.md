@@ -193,14 +193,14 @@ The format goes up when the atlas gains something a pack may rely on, such as a 
 an older atlas would silently get wrong. Fields an older atlas can safely ignore don't raise it. Set `atlas` to the
 lowest format that has everything your pack uses:
 
-The format is numbered separately from the app. The app version (`?v=`, shown as "Atlas v223" in the map credits)
+The format is numbered separately from the app. The app version (`?v=`, shown as "Atlas v227" in the map credits)
 goes up with every release; the format only goes up when packs need to know, so the table below is the full list of
-format changes. The credits show both, for example "Atlas v223 · data format 2".
+format changes. The credits show both, for example "Atlas v227 · data format 2".
 
 | Format | First app version | Added |
 | --- | --- | --- |
 | 1 | v178 (earlier versions read format 1 only) | Everything in these pages: manifest, `eras.json`, `events.json`, `tours.json`, layers, plugins (API 1), `basemap`. |
-| 2 | v223 | The [place graph](places.md): `data.graph` (JSON or JSONL with `include`), and `atlas.places` for plugins (API 2). Events: `date`, `endDate`, `year_range`, `sources`, `area`. A format-1 pack reads as before; its region is the node `region:<pack id>`. |
+| 2 | v227 | The [place graph](places.md): `data.graph` (JSON or JSONL with `include`), and `atlas.places` for plugins (API 2). Events: `date`, `endDate`, `year_range`, `sources`, `area`. A format-1 pack reads as before; its region is the node `region:<pack id>`. |
 
 The atlas's own data declares its format the same way, in `data/manifest.json`.
 
