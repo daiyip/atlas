@@ -259,10 +259,35 @@ async function loadBorders(path) {
 }
 
 async function loadJSON(path) {
-  // Revalidate, so a browser holding an older data file picks up the new one after a publish.
-  const res = await fetch(BASE + path, { cache: "no-cache" });
-  if (!res.ok) throw new Error(`Could not load ${path} (${res.status})`);
-  return res.json();
+  bootFile(1);
+  try {
+    // Revalidate, so a browser holding an older data file picks up the new one after a publish.
+    const res = await fetch(BASE + path, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`Could not load ${path} (${res.status})`);
+    return await res.json();
+  } finally { bootFile(0); }
+}
+
+// 加载中: the bar under the "Loading" note (index.html #boot) fills as the start-up files arrive; it goes once the map
+// and the first period are drawn. About this many files load before the map; more simply move the bar on more slowly.
+const boot = { on: document.documentElement.classList.contains("booting"), asked: 0, got: 0, expect: 16, p: 0 };
+function bootFile(start) {
+  if (!boot.on) return;
+  if (start) boot.asked++; else boot.got++;
+  bootProgress(0.1 + 0.75 * boot.got / Math.max(boot.expect, boot.asked));
+}
+function bootProgress(p) {
+  if (!boot.on || p <= (boot.p || 0)) return; // files asked for later never move the bar back
+  boot.p = p;
+  $("boot").style.setProperty("--boot", p.toFixed(3));
+  $("boot-p").textContent = Math.round(p * 100) + "%";
+}
+function bootDone(err) {
+  if (!boot.on) return;
+  if (err) { $("boot-t").textContent = t("loadError") + err.message; $("boot").classList.add("failed"); return; }
+  bootProgress(1);
+  boot.on = false;
+  document.documentElement.classList.remove("booting");
 }
 
 // Hypsometric tint: sea, lowland plains, loess and hills, plateau, high peaks.
@@ -6035,8 +6060,11 @@ function layoutNow() {
 function applyLayout() {
   const L = layoutNow(), root = document.documentElement;
   if (L === state.layoutShown) return;
+  const bootFold = $("ledger").dataset.boot === "fold";
+  delete $("ledger").dataset.boot;
   // 一览 folds the ledger to its tabs (it can still be opened); leaving it unfolds a ledger it folded.
-  if (L === "glance") { state.glanceFolded = !$("ledger").classList.contains("collapsed"); if (state.glanceFolded) foldLedger(true); }
+  // A ledger index.html folded before the first paint for 一览 counts as folded by it.
+  if (L === "glance") { state.glanceFolded = !$("ledger").classList.contains("collapsed") || bootFold; if (state.glanceFolded) foldLedger(true); }
   else if (state.layoutShown === "glance" && state.glanceFolded) { state.glanceFolded = false; foldLedger(false); }
   // Docked panels (阅读's side panel; both 研究 panels) fold with their pins, not by minimising; one that was
   // minimised before opens again so the dock is never an empty column.
@@ -6789,6 +6817,7 @@ async function init() {
     maxPitch: 65, minZoom: 1.6, maxZoom: 9.5,
     attributionControl: false,
   });
+  bootProgress(0.88);
   // The flat styles' coast is already in the style; don't fetch it again when the look is applied on load.
   if (typeof style.sources.land.data === "string") map._landLoaded = true;
   // Full screen takes the whole app (panels included); browsers without the Fullscreen API (iPhone Safari) get none.
@@ -6838,6 +6867,7 @@ async function init() {
   map.on("zoomend", setTerrainForZoom);
   map.on("styleimagemissing", (e) => { if (e.id === "hatch") addHatch(map); });
   map.on("load", async () => {
+    bootProgress(0.95);
     setTerrainForZoom();
     applyLook();
     renderGeo();
@@ -6859,6 +6889,7 @@ async function init() {
     if (state.pendingTour) startTour(...state.pendingTour);
     const ev = state.events.find((e) => e.id === state.selected);
     if (ev && !state.fromLink) map.easeTo({ center: [ev.lon - 4, ev.lat - 3], duration: 0 });
+    bootDone();
   });
 
   // Dragging the rail (slider, era bands or ticks) shows a tag with the period and year under the finger.
@@ -7204,5 +7235,6 @@ async function init() {
 
 init().catch((err) => {
   console.error(err);
+  bootDone(err);
   $("era-summary").textContent = t("loadError") + err.message;
 });
