@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=205">
+<link rel="stylesheet" href="style.css?v=209">
 </head>
 <body>
 <div id="app">
@@ -53,6 +53,7 @@
         <button type="button" class="chip look" id="look-btn" aria-haspopup="menu" aria-expanded="false"></button>
         <button type="button" class="chip ico" id="t-3d" aria-pressed="true" data-tip="t3d"></button>
         <button type="button" class="chip ico" id="t-geo" aria-pressed="true" data-tip="geo"></button>
+        <button type="button" class="chip ico layer" id="l-climate" aria-pressed="false" data-tip="climate"></button>
       </div>
       <div class="lg"><span data-i18n="g_pol">Power</span>
         <button type="button" class="chip ico" id="t-neighbours" aria-pressed="true" data-tip="neighbours"></button>
@@ -80,6 +81,7 @@
     </div>
     <div class="pop-chart" id="pop-chart" hidden></div>
     <div class="econ-box" id="econ-box" hidden></div>
+    <div class="pop-chart clim-chart" id="clim-chart" hidden></div>
   </section>
 
   <section class="settings panel" id="settings" role="dialog" tabindex="-1" aria-labelledby="st-title" hidden>
@@ -189,6 +191,6 @@
   </section>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=205"></script>
+<script src="app.js?v=209"></script>
 </body>
 </html>
