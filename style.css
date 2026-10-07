@@ -1680,10 +1680,15 @@ html[lang="en"] .p-lab.on { font-size: 12px; }
 .t-min { stroke: color-mix(in srgb, var(--ink) 35%, transparent); stroke-width: 1; } .t-maj { stroke: var(--ink); stroke-width: 2; }
 .c-glyph { font: 700 22px var(--font-display); fill: #ff9a83; text-anchor: middle; }
 .c-year { font: 600 34px var(--font-data); fill: #fff; text-anchor: middle; font-variant-numeric: tabular-nums; }
-.c-sub { font: 500 11px var(--font-body); fill: #aab7bb; text-anchor: middle; }
+.c-sub { font: 700 13px var(--font-data); fill: #aab7bb; text-anchor: middle; dominant-baseline: central; }
+/* 慢/快: the playback speed, stepped from inside the dial */
+.c-sbtn { cursor: pointer; } .c-sbtn circle { fill: rgba(255,255,255,.08); stroke: currentColor; stroke-width: 1; }
+.c-speed { color: #aab7bb; } .c-sbtn text { font: 700 11px var(--font-display); fill: currentColor; text-anchor: middle; dominant-baseline: central; }
+html[lang="en"] .c-sbtn text { font: 700 14px var(--font-body); }
+.c-sbtn.off { opacity: .35; cursor: default; } .dial.small .c-speed { opacity: 0; pointer-events: none; }
 .dial.small .c-glyph { font-size: 40px; transform: translateY(-14px); } .dial.small .c-year { font-size: 52px; transform: translateY(22px); }
 .dial.small .c-sub, .dial.small .g-ticks, .dial.small .g-periods, .dial.small .deco-under, .dial.small .deco-over { opacity: 0; }
-.dial .g-ticks, .dial .g-periods, .dial .deco-under, .dial .deco-over, .c-sub { transition: opacity .15s; }
+.dial .g-ticks, .dial .g-periods, .dial .deco-under, .dial .deco-over, .c-speed { transition: opacity .15s; }
 html.embed .dial, .comparing .dial, .touring .dial, .immersive .dial { display: none !important; }
 @media (prefers-reduced-motion: reduce) { .dial { transition: none; } }
 /* 罗盘 Luopan: a bronze geomancer's compass */
@@ -1695,7 +1700,7 @@ html.embed .dial, .comparing .dial, .touring .dial, .immersive .dial { display: 
 .dial[data-skin="luopan"] .p-sep { stroke: rgba(43,22,5,.55); }
 .dial[data-skin="luopan"] .t-min { stroke: rgba(43,22,5,.6); } .dial[data-skin="luopan"] .t-maj { stroke: #2b1605; stroke-width: 2.5; }
 .dial[data-skin="luopan"] .c-glyph { fill: #e2b866; } .dial[data-skin="luopan"] .c-year { fill: #f5e2b8; font-family: var(--font-display); }
-.dial[data-skin="luopan"] .c-sub { fill: #b9955a; }
+.dial[data-skin="luopan"] .c-sub { fill: #e2b866; } .dial[data-skin="luopan"] .c-speed { color: #d9b36a; } .dial[data-skin="luopan"] .c-sbtn circle { fill: #3a2618; } .dial[data-skin="luopan"] .c-sbtn text { fill: #f5e2b8; }
 .dial[data-skin="luopan"] .d-notch { fill: #c0281a; } .dial[data-skin="luopan"] .d-hair { stroke: #c0281a; stroke-width: 2; }
 .dial .lp-ring { fill: none; stroke: rgba(43,22,5,.5); stroke-width: .8; }
 .dial .lp-dot { fill: #2b1605; }
@@ -1708,7 +1713,7 @@ html.embed .dial, .comparing .dial, .touring .dial, .immersive .dial { display: 
 .dial[data-skin="sundial"] .p-sep { stroke: rgba(60,80,55,.35); }
 .dial[data-skin="sundial"] .t-min { stroke: rgba(60,80,55,.5); } .dial[data-skin="sundial"] .t-maj { stroke: #33493a; }
 .dial[data-skin="sundial"] .c-glyph { fill: #f3f7ee; } .dial[data-skin="sundial"] .c-year { fill: #fff; font-family: var(--font-display); }
-.dial[data-skin="sundial"] .c-sub { fill: #d6e8dc; }
+.dial[data-skin="sundial"] .c-sub { fill: #f3f7ee; } .dial[data-skin="sundial"] .c-speed { color: #e6f1e9; }
 .dial[data-skin="sundial"] .d-notch { fill: #33493a; } .dial[data-skin="sundial"] .d-hair { stroke: none; }
 .dial .sd-shadow { fill: url(#g-shadow); }
 .dial .sd-gnomon { fill: #5d6b57; }

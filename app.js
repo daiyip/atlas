@@ -122,7 +122,7 @@ const UI = {
     hint: ["点击朝代跳转 · 按 + 放大时间轴", (era) => `${era} · 每一段是一幅地图`, (era) => `${era} · 数十年视图`],
     play: "播放", pause: "暂停", year: "年份", loadError: "地图数据无法载入。",
     detail: "详略", levels: ["大事", "要事", "细目"], allCats: "全部", cat: { war: "战争", politics: "政治", reform: "改革", rebellion: "起义", culture: "文化", economy: "经济", diplomacy: "外交", science: "科技", society: "社会" },
-    layers: "图层", settings: "设置", stStyle: "面板风格", stLook: "外观", stPanel: "面板颜色", stMapStyle: "地图样式", stRail: "时间轴", stRailStyle: "样式", stLayout: "布局", stAutoLayout: "自动布局", stAutoLayoutHint: "导览时转为导览布局，读故事时转为阅读布局，播放时转为一览，之后回到所选布局", stPins: "研究布局：固定两侧面板", stPinsHint: "取消固定后，面板收成屏幕边上的标签", pin: "固定面板", unpin: "取消固定", exLayers: "图层", stFull: "完整", stSlim: "精简", stDial: "拨盘", stDialLook: "拨盘样式", dialTap: "年 · 轻点播放", dialTapStop: "年 · 轻点暂停", dialLabel: "年份拨盘：按住转动，外圈换朝代，内圈换年份，轻点中心播放", stContent: "内容", stAI: "AI 插图", stNarr: "导览旁白", stOff: "关", stLang: "语言", stLocal: "设置只保存在这台设备上", stReset: "恢复默认", g_ai: "AI", g_map: "地图", g_look: "底图", g_pol: "政治", g_war: "军事", g_move: "交通", g_cul: "人文", g_pack: "专题", g_panel: "面板", panelOp: "不透明度", panelCustom: "自定义…", rulers: "君主", armies: "军队", routes: "路线", forces: "参战双方", ruler: "在位：",
+    layers: "图层", settings: "设置", stStyle: "面板风格", stLook: "外观", stPanel: "面板颜色", stMapStyle: "地图样式", stRail: "时间轴", stRailStyle: "样式", stLayout: "布局", stAutoLayout: "自动布局", stAutoLayoutHint: "导览时转为导览布局，读故事时转为阅读布局，播放时转为一览，之后回到所选布局", stPins: "研究布局：固定两侧面板", stPinsHint: "取消固定后，面板收成屏幕边上的标签", pin: "固定面板", unpin: "取消固定", exLayers: "图层", stFull: "完整", stSlim: "精简", stDial: "拨盘", stDialLook: "拨盘样式", slower: "慢", faster: "快", dialLabel: "年份拨盘：按住转动，外圈换朝代，内圈换年份，轻点中心播放，慢/快调播放速度", stContent: "内容", stAI: "AI 插图", stNarr: "导览旁白", stOff: "关", stLang: "语言", stLocal: "设置只保存在这台设备上", stReset: "恢复默认", g_ai: "AI", g_map: "地图", g_look: "底图", g_pol: "政治", g_war: "军事", g_move: "交通", g_cul: "人文", g_pack: "专题", g_panel: "面板", panelOp: "不透明度", panelCustom: "自定义…", rulers: "君主", armies: "军队", routes: "路线", forces: "参战双方", ruler: "在位：",
     reign: (a, b) => `${a}–${b}年在位`, troops: "兵力", unknown: "不详", losses: "伤亡",
     result: { won: "胜", lost: "败", draw: "平" },
     units: { infantry: "步兵", cavalry: "骑兵", chariots: "战车", archers: "弓兵", crossbows: "弩兵", navy: "水军", siege: "攻城", firearms: "火器", artillery: "火炮", elephants: "象兵" },
@@ -151,7 +151,7 @@ const UI = {
     hint: ["Click a dynasty to jump · + to zoom in", (era) => `${era} · each segment is one map`, (era) => `${era} · decades view`],
     play: "Play timeline", pause: "Pause timeline", year: "Year", loadError: "The map data could not be loaded. ",
     detail: "Detail", levels: ["Key", "Major", "All"], allCats: "All", cat: { war: "War", politics: "Politics", reform: "Reform", rebellion: "Uprising", culture: "Culture", economy: "Economy", diplomacy: "Diplomacy", science: "Science", society: "Society" },
-    layers: "Layers", settings: "Settings", stStyle: "Panel style", stLook: "Appearance", stPanel: "Panel colour", stMapStyle: "Map style", stRail: "Timeline", stRailStyle: "Style", stLayout: "Layout", stAutoLayout: "Auto layout", stAutoLayoutHint: "A tour switches to Cinema, a story to Reader, playback to Glance, then back to your layout", stPins: "Explorer: pin both side panels", stPinsHint: "Unpinned panels fold to tabs on the screen edge", pin: "Pin panel", unpin: "Unpin panel", exLayers: "Layers", stFull: "Full", stSlim: "Slim", stDial: "Dial", stDialLook: "Dial look", dialTap: "tap to play", dialTapStop: "tap to pause", dialLabel: "Year dial: press and turn; the outer ring changes period, the inner ring the year; tap the centre to play", stContent: "Content", stAI: "AI pictures", stNarr: "Tour narration", stOff: "Off", stLang: "Language", stLocal: "Settings are kept on this device only", stReset: "Reset", g_ai: "AI", g_map: "Map", g_look: "Style", g_pol: "Power", g_war: "War", g_move: "Travel", g_cul: "Culture", g_pack: "Pack", g_panel: "Panels", panelOp: "Opacity", panelCustom: "Custom…", rulers: "Rulers", armies: "Armies", routes: "Routes", forces: "Forces", ruler: "Ruler: ",
+    layers: "Layers", settings: "Settings", stStyle: "Panel style", stLook: "Appearance", stPanel: "Panel colour", stMapStyle: "Map style", stRail: "Timeline", stRailStyle: "Style", stLayout: "Layout", stAutoLayout: "Auto layout", stAutoLayoutHint: "A tour switches to Cinema, a story to Reader, playback to Glance, then back to your layout", stPins: "Explorer: pin both side panels", stPinsHint: "Unpinned panels fold to tabs on the screen edge", pin: "Pin panel", unpin: "Unpin panel", exLayers: "Layers", stFull: "Full", stSlim: "Slim", stDial: "Dial", stDialLook: "Dial look", slower: "−", faster: "+", dialLabel: "Year dial: press and turn; the outer ring changes period, the inner ring the year; tap the centre to play; − and + set the speed", stContent: "Content", stAI: "AI pictures", stNarr: "Tour narration", stOff: "Off", stLang: "Language", stLocal: "Settings are kept on this device only", stReset: "Reset", g_ai: "AI", g_map: "Map", g_look: "Style", g_pol: "Power", g_war: "War", g_move: "Travel", g_cul: "Culture", g_pack: "Pack", g_panel: "Panels", panelOp: "Opacity", panelCustom: "Custom…", rulers: "Rulers", armies: "Armies", routes: "Routes", forces: "Forces", ruler: "Ruler: ",
     reign: (a, b) => `r. ${a}–${b}`, troops: "Troops", unknown: "unknown", losses: "Losses",
     result: { won: "Won", lost: "Lost", draw: "Draw" },
     units: { infantry: "Infantry", cavalry: "Cavalry", chariots: "Chariots", archers: "Archers", crossbows: "Crossbows", navy: "Navy", siege: "Siege", firearms: "Firearms", artillery: "Artillery", elephants: "Elephants" },
@@ -6273,7 +6273,7 @@ function makeDial() {
     <circle r="128" class="d-outer"/><circle r="95" class="d-inner"/><circle r="60" class="d-core"/><g class="deco-under"></g>
     <g class="g-periods"></g><g class="g-ticks"></g>
     <path d="M0 -129 L-6 -138 L6 -138 Z" class="d-notch"/><line x1="0" y1="-95" x2="0" y2="-62" class="d-hair"/><g class="deco-over"></g>
-    <text y="-18" class="c-glyph"></text><text y="14" class="c-year"></text><text y="36" class="c-sub"></text></svg>`;
+    <text y="-18" class="c-glyph"></text><text y="14" class="c-year"></text><g class="c-speed"><g class="c-sbtn" data-d="-1"><circle cx="-30" cy="40" r="11"/><text x="-30" y="40"></text></g><text x="0" y="40" class="c-sub"></text><g class="c-sbtn" data-d="1"><circle cx="30" cy="40" r="11"/><text x="30" y="40"></text></g></g></svg>`;
   $("app").append(el);
   const ticks = el.querySelector(".g-ticks");
   for (let k = 0; k < 100; k++) {
@@ -6325,7 +6325,12 @@ function drawDial(y = state.year, give = 0) {
   const [num] = fmtYearParts(yr);
   dial.el.querySelector(".c-glyph").textContent = glyphOf(e);
   dial.el.querySelector(".c-year").textContent = num;
-  dial.el.querySelector(".c-sub").textContent = t(state.playing ? "dialTapStop" : "dialTap");
+  dial.el.querySelector(".c-sub").textContent = speedText(state.speed);
+  dial.el.querySelectorAll(".c-sbtn").forEach((b) => {
+    const d = +b.dataset.d;
+    b.querySelector("text").textContent = t(d < 0 ? "slower" : "faster");
+    b.classList.toggle("off", !SPEEDS[SPEEDS.indexOf(state.speed) + d]);
+  });
   dial.el.setAttribute("aria-label", t("dialLabel"));
   dial.el.setAttribute("aria-valuemin", dial.eras[0].start);
   dial.el.setAttribute("aria-valuemax", dial.eras.at(-1).end);
@@ -6362,6 +6367,8 @@ function dialDown(ev) {
   const c = dialCentre(), d = Math.hypot(ev.clientX - c.x, ev.clientY - c.y);
   const a = Math.atan2(ev.clientX - c.x, c.y - ev.clientY);
   dial.drag = { c, gear: !wasOpen ? "year" : d < 60 ? "core" : d < 95 ? "year" : "era", a, a0: a, t: performance.now(), moved: 0, over: 0, pos: dialIdx(state.year) + 0.5 };
+  // The 慢/快 buttons under the year step the playback speed.
+  if (dial.drag.gear === "core") dial.drag.sbtn = [...dial.el.querySelectorAll(".c-sbtn")].find((b) => Math.hypot(ev.clientX - c.x - 30 * b.dataset.d, ev.clientY - c.y - 40) < 15);
   if (dial.drag.gear !== "core" && state.playing) stop();
 }
 function dialMove(ev) {
@@ -6406,7 +6413,8 @@ function dialUp() {
   const dr = dial.drag;
   if (!dr) return;
   dial.drag = null;
-  if (dr.moved < 3 && dr.gear === "core") { play(); drawDial(); }
+  if (dr.moved < 3 && dr.sbtn) { const v = SPEEDS[SPEEDS.indexOf(state.speed) + +dr.sbtn.dataset.d]; if (v) setSpeed(v, true); drawDial(); }
+  else if (dr.moved < 3 && dr.gear === "core") { play(); drawDial(); }
   // A click (or tap) on a period in the outer ring goes to its start.
   else if (dr.moved < 3 && dr.gear === "era") {
     const n = dial.eras.length, step = dialStep();
