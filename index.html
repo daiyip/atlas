@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&display=swap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
-<link rel="stylesheet" href="style.css?v=228">
+<link rel="stylesheet" href="style.css?v=229">
 <script>
 // Before the first paint: the saved look of the page (panel style and colour, layout, map style, language), so it
 // never opens in the default one and then jumps. app.js applies the same settings again once it runs.
@@ -26,7 +26,7 @@
   var qs = new URLSearchParams(location.search), hs = new URLSearchParams(location.hash.slice(1));
   var set = function (k, v, dflt, ok) { if (v && v !== dflt && ok.indexOf(v) >= 0) d.setAttribute(k, v); };
   d.classList.add("booting");
-  set("data-ui", get("atlas-ui"), "classic", ["paper", "glass", "editorial", "lacquer"]);
+  set("data-ui", get("atlas-ui") || "glass", "classic", ["paper", "glass", "editorial", "lacquer"]);
   set("data-laybtn", get("atlas-laybtn"), "icon", ["text", "both"]);
   set("data-laypos", get("atlas-laypos"), "group", ["nowrap", "wrap"]);
   set("data-layout", get("atlas-layout"), "classic", ["glance", "reader", "cinema", "explorer"]);
@@ -42,7 +42,7 @@
   var lang = [hs.get("l"), qs.get("lang"), get("atlas-lang")].filter(function (l) { return l === "zh" || l === "en"; })[0] || "zh";
   d.lang = lang === "zh" ? "zh-CN" : "en";
   // Panel colour: same as applyPanel() in app.js.
-  var c = (get("atlas-panel-color") || "").toLowerCase(), op = parseFloat(get("atlas-panel-op"));
+  var c = (get("atlas-panel-color") || "").toLowerCase(), op = parseFloat(get("atlas-panel-op") || "0.55");  // first visit: 毛玻璃 at 55%
   if (/^#[0-9a-f]{6}$/.test(c)) {
     var rgb = [1, 3, 5].map(function (i) { return parseInt(c.slice(i, i + 2), 16); });
     var lin = rgb.map(function (v) { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); });
@@ -238,7 +238,7 @@
   if (get("atlas-lean") === "1") era.classList.add("lean");
   if (get("atlas-rail-slim") === "1") rail.classList.add("slim");
   if (get("atlas-rail-min") === "1") { rail.classList.add("min"); app.classList.add("rail-folded"); }
-  if (get("atlas-dial") === "1") app.classList.add("dial-mode");
+  if (get("atlas-dial") !== "0") app.classList.add("dial-mode");  // the dial unless switched to the bar
   // A phone opens with the side panel folded; 一览 folds it too (applyLayout reads data-boot to unfold it on leaving).
   var glance = document.documentElement.getAttribute("data-layout") === "glance";
   if (phone || glance) ledger.classList.add("collapsed");
@@ -247,6 +247,6 @@
 })();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
-<script src="app.js?v=228"></script>
+<script src="app.js?v=229"></script>
 </body>
 </html>
