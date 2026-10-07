@@ -7,7 +7,8 @@ shows them; see combined_maps in build_countries.py), counts which polity holds 
 holding it). Shares under MIN_SHARE are dropped; consecutive maps with the same holders make one run.
 
 Written back into data/areas.json for each area:
-  region   the region whose outline holds the area's centre (the timeline the app follows)
+  region   the region whose outline holds the area's centre (the timeline the app follows); a child area (`parent`,
+           another area's id: 吐鲁番盆地 in 新疆) takes its parent's
   runs     [[from, to, [[name, name_zh, percent, colour], …]], …]; name null = no polity on the map there.
 The holders are only as good as the maps: rerun after border changes.
 
@@ -43,7 +44,9 @@ def main():
     for A in D["areas"]:
         pts = samples(A["poly"])
         c = Polygon(A["poly"]).centroid
-        A["region"] = next((r["id"] for r in regions if len(r.get("polygon") or []) > 2 and in_poly(c.x, c.y, r["polygon"])), "china")
+        # A child area (`parent`, another area's id) follows its parent's region.
+        par = next((x for x in D["areas"] if x["id"] == A.get("parent")), None)
+        A["region"] = par["region"] if par and par.get("region") else next((r["id"] for r in regions if len(r.get("polygon") or []) > 2 and in_poly(c.x, c.y, r["polygon"])), "china")
         runs = []
         for a, b, key in maps:
             if a > TODAY: break

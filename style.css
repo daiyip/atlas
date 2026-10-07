@@ -2057,3 +2057,6 @@ html.sat .pc-dispute .pc-badge { color: #e58a74; }
 .ar-evs .pc-events button:hover { background: rgba(217, 151, 26, 0.12); }
 .ar-evs .pc-events button.now { background: rgba(217, 151, 26, 0.16); }
 .ar-evs .pc-events span { font: 500 11px var(--font-mono, monospace); color: var(--cinnabar); margin-right: 4px; }
+.ar-path { margin: 4px 0 0; font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 3px 4px; }
+.ar-path .chip, .ar-kids .chip { font-size: 11px; padding: 1px 7px; border-style: dashed; border-color: #d9971a; }
+.ar-kids > span { margin-right: 2px; }
