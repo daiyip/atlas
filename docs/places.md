@@ -21,9 +21,10 @@ The format is part of the [Atlas format](custom-data.md#versions) from format 2.
 | `type` | Optional, a finer kind in one word: a polity's `dynasty`, `regime`, `tribe`; an area's `basin`, `island`. |
 | `name`, `name_zh` | Display names. |
 | `from`, `to` | The years the thing existed, both included; negative is BCE, there is no year 0; missing or `null` = no limit (`to: null` = still exists). Areas usually have neither. |
-| `geo` | Where it is: `poly` (an outline `[[lon, lat], …]`), `src` (`"<file in data/>#<id>"`, a feature in another file such as `disputes.json#kurils`), `label` (`[lon, lat]`). An extent that changed over time uses `shapes` instead of `poly`: `[{from, to, poly}]`, years not overlapping. |
+| `geo` | Where it is: `point` (`[lon, lat]`, for a city), `poly` (an outline `[[lon, lat], …]`), `src` (`"<file in data/>#<id>"`, a feature in another file such as `disputes.json#kurils`), `label` (`[lon, lat]`). An extent that changed over time uses `shapes` instead of `poly`: `[{from, to, poly}]`, years not overlapping. |
 | `date_from`, `date_to` | Optional exact dates, `"1949-10-01"` or `"1949-10"`, in the years `from` and `to`. `from`/`to` always stay whole years; the same keys work on edges. |
 | `intro`, `intro_zh` | A line or two about the place. |
+| `names` | Names over time: `[{from, to, name, name_zh, …}]` (长安, 大兴, 西安). `name` is the one to show when no year is given. |
 | `notes` | `[{from, to, en, zh, disputed}]`: what a reader should know about some years (no state held it, a contested status). `disputed: true` marks the years on the 地区史 strip. |
 | `replacedBy` | When two nodes turn out to be one: the id to use instead. The old id stays and still resolves. |
 
@@ -32,13 +33,18 @@ The format is part of the [Atlas format](custom-data.md#versions) from format 2.
 | `group` | `group:east-asia` 东亚 | its regions |
 | `region` | `region:china` 中国与东亚大陆 | `regions.json` (its timeline and outline) |
 | `area` | `area:taiwan`, `area:turpan` | a hand-drawn outline that does not change |
-| `polity` | `polity:qing`, `polity:roc` | the border maps, through `name` edges |
+| `polity` | `polity:qing`, `polity:roc`, `polity:goryeo-918` | the border maps, through `name` edges |
 | `map` | `map:Qing`, `map:China` | a name as drawn on the border maps |
 | `admin` | (reserved) 西州, 台湾府 | a seat, with a sketch area |
-| `city` | (reserved) 长安 | a point |
+| `city` | `city:xian` 西安 (镐京, 长安, 大兴 …) | a point, `geo.point`; its names over time in `names` |
 
-`admin` and `city` are reserved: the format accepts them now, so prefectures and counties can be added later without
-a new format, but the atlas does not draw them yet.
+`admin` is reserved: the format accepts it now, so prefectures and counties can be added later without a new
+format, but the atlas has none yet.
+
+Every country on the maps has a polity id. The country table (`lineages.json`) gives the ones it knows, joining the
+names a country goes by (`polity:england`: Wessex, England, Great Britain …). Every other run of a name on the maps is
+a polity of its own, named after its first year (`polity:goryeo-918`), and keeps its id when the maps are rebuilt (the
+build matches it to the old run it overlaps most). So any name on the maps in any year resolves to one polity.
 
 ## Edges
 
@@ -150,6 +156,14 @@ What is in the graph so far, and what still lives elsewhere:
 | claims on the disputed places | dispute shapes and cards: `disputes.json` |
 | polities and the names they go by (built) | the country table: `lineages.json`, which `build_graph.py` turns into polity nodes and `name` edges |
 | who held each area (built) | country periods: `country-periods.json` |
+| cities, with their names over time (built) | the city layer: `places.json`, one entry per span (`build_graph.py` makes `city:<key>`, the id without its `-<n>`) |
+
+## Other data points here by id
+
+Names on the maps change when the maps are rebuilt; ids don't. So events, people, reigns and capitals name their
+countries by polity id in `polities`, written by `tools/link_ids.py` next to the map names (`states`, the key a reign
+is filed under), which stay for display and for older readers. An event's `places` are city keys: `xian` is
+`city:xian`.
 
 ## Packs
 
@@ -180,5 +194,5 @@ python3 tools/validate.py my-pack     # a pack, including its graph
 After border changes, or after editing `lineages.json`, `regions.json` or a hand-written graph file:
 
 ```sh
-python3 tools/build_graph.py && python3 tools/check_graph.py
+python3 tools/build_graph.py && python3 tools/link_ids.py && python3 tools/check_graph.py
 ```

@@ -71,6 +71,8 @@ def check(path, ns=None, base=None):
         for k in ("from", "to"): date_ok(n, k, where(n) + ": " + nid, errs)
         if n.get("from") is not None and n.get("to") is not None and n["from"] > n["to"]: errs.append(f"{where(n)}: {nid}: from after to")
         geo = n.get("geo") or {}
+        if "point" in geo and not (isinstance(geo["point"], list) and len(geo["point"]) == 2 and all(isinstance(v, (int, float)) for v in geo["point"])):
+            errs.append(f"{where(n)}: {nid}: geo.point should be [lon, lat]")
         for x in [geo] + list(geo.get("shapes") or []):
             if "poly" in x and len(x["poly"]) < 3: errs.append(f"{where(n)}: {nid}: an outline needs three points")
             if "src" in x:

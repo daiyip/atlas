@@ -111,6 +111,7 @@ they need no `snapshots`.
 | `circa`, `year_range` | `circa: true` marks the year as approximate; `year_range: [from, to]` (format 2) gives the span it may fall in. |
 | `sources` | Optional, more links after the Wikipedia ones (format 2): URLs, or `{url, title, title_zh}`. |
 | `area` | Optional, a [place graph](places.md) area the event belongs to (format 2); the story links to its 地区史 card. `lat`/`lon` are still required. |
+| `polities` | Optional, the countries the event involves, as [place graph](places.md) polity ids (`polity:qing`) (format 2). |
 | `layers` | Optional. Map layers the Auto layers switch turns on while this event's story is open, for example `["armies", "passes"]`. `[]` turns none on. Left out, keyword rules guess. Keys: `rulers`, `people`, `armies`, `routes`, `exchange`, `spread`, `passes`, `roads`, `walls`, `clans`, `capitals`, `faith`, `inventions`. |
 
 ## tours.json: guided tours
