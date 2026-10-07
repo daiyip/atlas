@@ -43,13 +43,18 @@ def samples(poly):
     return pts or [g.representative_point()]
 
 
-def held(area, maps, features):
-    """[[from, to, [[name, name_zh, percent, colour], …]], …] for one outline; name None = no state there."""
-    pts = samples(area["geo"]["poly"])
+def held(poly, maps, features, lo=None, hi=None):
+    """[[from, to, [[name, name_zh, percent, colour], …]], …] for one outline in years lo..hi (None = no limit);
+    name None = no state there."""
+    pts = samples(poly)
     runs = []
     for a, b, key in maps:
-        if a > TODAY: break
+        if a > TODAY or (hi is not None and a > hi): break
         b = min(b, TODAY)   # the last world map may be dated after today
+        if lo is not None:
+            if b < lo: continue
+            a = max(a, lo)
+        if hi is not None: b = min(b, hi)
         fs, tree = features(key)
         count = {}
         for pt in pts:
@@ -102,8 +107,11 @@ def main():
     maps, features = combined_maps()
     span = [maps[0][0], TODAY]
     for A in G["nodes"]:
-        if A["kind"] != "area" or "poly" not in A.get("geo", {}): continue
-        runs = held(A, maps, features)
+        geo = A.get("geo") or {}
+        # One outline, or one per span of years (geo.shapes) for an area whose extent changed.
+        shapes = [{"poly": geo["poly"]}] if geo.get("poly") else [x for x in geo.get("shapes", []) if x.get("poly")]
+        if A["kind"] != "area" or A.get("replacedBy") or not shapes: continue
+        runs = [r for x in shapes for r in held(x["poly"], maps, features, x.get("from"), x.get("to"))]
         for a, b, hold in runs:
             for n, z, pct, c in hold:
                 if n: edges.append({"child": A["id"], "parent": map_node(n, z, c), "rel": "held", "from": a, "to": b, "share": pct, "by": "maps"})

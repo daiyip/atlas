@@ -1977,20 +1977,22 @@ async function graphRecords(url, seen = []) {
   else { const d = await res.json(); recs = [...(d.atlas != null ? [{ atlas: d.atlas }] : []), ...(d.include ? [{ include: d.include }] : []), ...(d.nodes || []), ...(d.edges || [])]; }
   // A file whose header asks for a newer format is left out (with its includes), like a layer that needs one: the
   // rest of the graph still loads.
-  const head = recs.find((r) => r.atlas != null && !r.id && !r.child);
+  const head = recs.find((r) => r.atlas != null && !r.child && !r.id);
   if (head && formatOf(head) > FORMAT) { console.warn(`${url.pathname} skipped: it needs Atlas format ${head.atlas}, this page reads ${FORMAT}.`); return []; }
   const parts = await Promise.all(recs.map((r) => (r.include ? Promise.all([r.include].flat().map((p) => graphRecords(new URL(p, url), [...seen, url.href]))).then((l) => l.flat()) : [r])));
   return parts.flat();
 }
 async function readGraph(url, out, ns) {
   for (const r of await graphRecords(url)) {
-    if (r.id) {
+    // An edge has `child` (and may have an id of its own); a node has an id and no `child`.
+    if (r.child) {
+      if (!GRAPH_RELS.has(r.rel)) continue;
+      if (ns && !r.child.startsWith(ns + ":")) console.warn(`Edge ${r.child} ${r.rel} ${r.parent} skipped: a pack only adds edges from its own places.`);
+      else out.edges.push(r);
+    } else if (r.id) {
       if (ns && !r.id.startsWith(ns + ":")) console.warn(`Place ${r.id} skipped: a pack's ids start with "${ns}:".`);
       else if (out.nodes.has(r.id)) console.warn(`Place ${r.id} is defined twice; the first one is kept.`);
       else out.nodes.set(r.id, r);
-    } else if (r.child && GRAPH_RELS.has(r.rel)) {
-      if (ns && !r.child.startsWith(ns + ":")) console.warn(`Edge ${r.child} ${r.rel} ${r.parent} skipped: a pack only adds edges from its own places.`);
-      else out.edges.push(r);
     } else if (r.span) out.span ||= r.span;
   }
 }
@@ -2038,18 +2040,43 @@ function placePath(id, y) {
   return out;
 }
 // Who held a place in year y: [{id, polity, share}], a map name resolved to its country by `name` edges.
-const placeHeld = (id, y) => placeUp(id, "held", y).map((e) => ({ id: e.parent, polity: e.parent.startsWith("map:") ? placeUp(e.parent, "name", y)[0]?.parent || null : e.parent, share: e.share ?? 100 }));
+// Hand-written `held` edges win over ones worked out from the maps (by: "maps") in the years they cover.
+function heldEdges(id, y) {
+  const es = placeUp(id, "held", y), hand = es.filter((e) => e.by !== "maps");
+  if (y !== undefined) return hand.length ? hand : es;
+  if (!hand.length) return es;
+  const out = [...hand];
+  for (const e of es) if (e.by === "maps") {
+    // The years of e that no hand edge covers, as pieces.
+    let pieces = [[e.from ?? -1e6, e.to ?? 1e6]];
+    for (const h of hand) {
+      const a = h.from ?? -1e6, b = h.to ?? 1e6;
+      pieces = pieces.flatMap(([x, z]) => (b < x || a > z ? [[x, z]] : [...(x < a ? [[x, a - 1]] : []), ...(b < z ? [[b + 1, z]] : [])]));
+    }
+    for (const [x, z] of pieces) out.push({ ...e, from: x === -1e6 ? e.from : x, to: z === 1e6 ? e.to : z });
+  }
+  return out;
+}
+const placeHeld = (id, y) => heldEdges(id, y).map((e) => ({ id: e.parent, polity: e.parent.startsWith("map:") ? placeUp(e.parent, "name", y)[0]?.parent || null : e.parent, share: e.share ?? 100 }));
+// A node's outline in year y: geo.poly, or the one of geo.shapes ([{from, to, poly}]) whose years hold y (y undefined:
+// the latest). null when it has none to draw.
+function shapeAt(n, y) {
+  const g = n.geo || {};
+  if (g.poly?.length > 2) return g.poly;
+  const l = (g.shapes || []).filter((x) => x.poly?.length > 2);
+  return (y === undefined ? l.at(-1) : l.find((x) => edgeAt(x, y)))?.poly || null;
+}
 // The areas with an outline, in the shape the 地区史 card reads: `runs` [[from, to, [[name, name_zh, %, colour], …]], …]
 // rebuilt from the `held` edges, with the years no state held filled in (name null) across the maps' span.
 function buildAreas(g) {
   const out = [];
   for (const n of g.nodes.values()) {
-    if (n.kind !== "area" || n.replacedBy || !(n.geo?.poly?.length > 2)) continue;
+    if (n.kind !== "area" || n.replacedBy || !shapeAt(n)) continue;
     const path = placePath(n.id);
     const par = path.slice(1).find((p) => p.startsWith("area:") || /^[^:]+:area:/.test(p));
     const reg = path.find((p) => g.nodes.get(p)?.kind === "region");
     const byYears = new Map();
-    for (const e of placeUp(n.id, "held")) {
+    for (const e of heldEdges(n.id)) {
       const k = `${e.from ?? g.span?.[0] ?? -3000}|${e.to ?? g.span?.[1] ?? 2026}`;
       (byYears.get(k) || byYears.set(k, []).get(k)).push(e);
     }
@@ -2067,7 +2094,7 @@ function buildAreas(g) {
       prev = to;
     }
     if (byMaps && g.span && prev < g.span[1] && runs.length) runs.push([prev + 1, g.span[1], [[null, "", 100, ""]]]);
-    out.push({ id: n.id, name: n.name, name_zh: n.name_zh || n.name, poly: n.geo.poly, intro: n.intro || "", intro_zh: n.intro_zh || n.intro || "",
+    out.push({ id: n.id, name: n.name, name_zh: n.name_zh || n.name, get poly() { return shapeAt(n, state.year) || shapeAt(n); }, intro: n.intro || "", intro_zh: n.intro_zh || n.intro || "",
       notes: n.notes || [], parent: par || null, region: reg ? reg.slice(7) : state.home, runs, claims: placeUp(n.id, "claim") });
   }
   return out.filter((a) => a.runs.length || a.notes.length);
@@ -2176,6 +2203,7 @@ function renderAreaCard() {
   box.hidden = !a;
   $("ledger").classList.toggle("has-area", !!a);
   if (!a) return;
+  if (placeNode(a.id)?.geo?.shapes) { a.evs = null; drawArea(); }   // an outline that changes with the year
   const A = t("area"), y = state.year, st = areaStretches(a), col = areaColours(st);
   const lo = st[0].from, hi = st.at(-1).to, sc = areaScale(lo, hi);
   const cur = st.find((s) => y >= s.from && y <= s.to);

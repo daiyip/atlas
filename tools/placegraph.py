@@ -1,7 +1,7 @@
 """Read and write the place graph (format: docs/places.md).
 
 A graph file is either JSON, an object {"atlas", "note", "include", "nodes", "edges"} (all optional), or JSONL, one
-record per line: a node (it has `id`), an edge (it has `child`), an include ({"include": "path" or [paths]}) or a
+record per line: an edge (it has `child`, and may have an `id` too), a node (it has `id` and no `child`), an include ({"include": "path" or [paths]}) or a
 header ({"atlas": 2, "note": …}). Include paths are relative to the including file; includes may nest but not loop.
 An id may be defined once only."""
 import json, os
@@ -36,8 +36,8 @@ def load(path, skip=(), _seen=None, _out=None):
         if "include" in r:
             for p in [r["include"]] if isinstance(r["include"], str) else r["include"]:
                 if p not in skip: load(os.path.join(os.path.dirname(path), p), skip, seen, out)
+        elif "child" in r: out["edges"].append({**r, "_file": rel, "_line": i})   # an edge may have an id of its own
         elif "id" in r: out["nodes"].append({**r, "_file": rel, "_line": i})
-        elif "child" in r: out["edges"].append({**r, "_file": rel, "_line": i})
         elif not ({"atlas", "note", "span"} & r.keys()): raise GraphError(f"{rel}:{i}: neither a node, an edge nor an include")
     if top:
         ids = {}

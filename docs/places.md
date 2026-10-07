@@ -16,11 +16,13 @@ The format is part of the [Atlas format](custom-data.md#versions) from format 2.
 
 | Key | Meaning |
 | --- | --- |
-| `id` | `<kind>:<name>`, unique, and **never changed or removed** once published. A pack's ids start with its own id: `demo:area:cyprus`. |
-| `kind` | One of the kinds below. |
+| `id` | `<kind>:<name>`, unique, and **never changed or removed** once published. The prefix is the kind when the id was made; if the kind changes later the id stays. A pack's ids start with its own id: `demo:area:cyprus`. |
+| `kind` | One of the kinds below. Kept coarse: finer distinctions go in `type`. |
+| `type` | Optional, a finer kind in one word: a polity's `dynasty`, `regime`, `tribe`; an area's `basin`, `island`. |
 | `name`, `name_zh` | Display names. |
 | `from`, `to` | The years the thing existed, both included; negative is BCE, there is no year 0; missing or `null` = no limit (`to: null` = still exists). Areas usually have neither. |
-| `geo` | Where it is: `poly` (an outline `[[lon, lat], …]`), `src` (`"<file in data/>#<id>"`, a feature in another file such as `disputes.json#kurils`), `label` (`[lon, lat]`). |
+| `geo` | Where it is: `poly` (an outline `[[lon, lat], …]`), `src` (`"<file in data/>#<id>"`, a feature in another file such as `disputes.json#kurils`), `label` (`[lon, lat]`). An extent that changed over time uses `shapes` instead of `poly`: `[{from, to, poly}]`, years not overlapping. |
+| `date_from`, `date_to` | Optional exact dates, `"1949-10-01"` or `"1949-10"`, in the years `from` and `to`. `from`/`to` always stay whole years; the same keys work on edges. |
 | `intro`, `intro_zh` | A line or two about the place. |
 | `notes` | `[{from, to, en, zh, disputed}]`: what a reader should know about some years (no state held it, a contested status). `disputed: true` marks the years on the 地区史 strip. |
 | `replacedBy` | When two nodes turn out to be one: the id to use instead. The old id stays and still resolves. |
@@ -52,14 +54,15 @@ a new format, but the atlas does not draw them yet.
 | `part` | a state under another (vassal, protectorate) | polity → polity | yes | yes |
 | `name` | a name on the border maps means this state | map → polity | yes | yes |
 
-Other keys: `share` (percent of the place, for `held`), `by` (`"maps"`: worked out by a script from the maps, or
+Other keys: `id` (optional, for citing or correcting one edge; unique among edges and nodes), `share` (percent of the place, for `held`), `by` (`"maps"`: worked out by a script from the maps, or
 `"hand"`, the default), `disputed`, `dispute` (the id in `data/disputes.json` whose card tells the story), `note` and
 `note_zh`.
 
 Rules (checked by `tools/check_graph.py`):
 
-- `in` edges form a tree: one parent each, no loops. So the path above a place (东亚 › 中国 › 新疆 › 吐鲁番盆地) never
-  depends on the year; what changes with the year is who held it. `in` is geography, not sovereignty: a disputed
+- `in` edges form a tree in every year: one parent per year, no loops. Areas have one parent for all time, so the path
+  above them (东亚 › 中国 › 新疆 › 吐鲁番盆地) never changes; a prefecture or county may move to another parent, with
+  years on its `in` edges. `in` is geography, not sovereignty: a disputed
   place sits under the region whose outline holds it, or under the group when it falls between regions.
 - `held`, `claim` and `part` edges fall within the years both their nodes existed.
 - The `held` shares of one place in one year add up to 100 at most (give or take rounding). What is missing is land no
@@ -67,7 +70,8 @@ Rules (checked by `tools/check_graph.py`):
 - `claim` is for places whose status is really disputed (those in `data/disputes.json`), not every claim a state
   ever made.
 - `part` is defined now but not drawn yet.
-- When a hand edge and one worked out from the maps disagree, the hand one wins.
+- When a hand `held` edge and ones worked out from the maps cover the same years, the hand one wins: the map edges
+  count only in the years no hand edge covers.
 
 ## Asking the graph
 
@@ -85,7 +89,7 @@ Plugins get the same through [`atlas.places`](plugins.md#the-atlas-object).
 A graph file is either:
 
 - **JSON**: `{"atlas": 2, "note": "…", "include": [...], "nodes": [...], "edges": [...]}`, each key optional, or
-- **JSONL**: one record per line. A line with `id` is a node, a line with `child` is an edge, `{"include": "path"}`
+- **JSONL**: one record per line. A line with `child` is an edge (it may have an `id` too), a line with `id` and no `child` is a node, `{"include": "path"}`
   (or a list) pulls in other files, and a line with only `atlas`, `note` or `span` is a header.
 
 Include paths are relative to the file that names them. Includes may nest but must not loop. An id may be defined
@@ -105,6 +109,11 @@ is also built so that an older atlas can read newer graph data where that is saf
   it includes, and loads the rest, the way it skips a layer that needs a newer format.
 - **Ids never change**: merged nodes keep their old id with `replacedBy`, and edges, links and saved views that use
   the old id resolve to the new node.
+
+Things that will likely come and need no new format: names that change with time (a dated `names` list), uncertain
+years (`approx`), sources and confidence on edges, more languages (`name_ja`), lazily loaded includes. Prepared for
+already: edges with ids, `in` parents that change with time, finer kinds (`type`), outlines that change with time
+(`geo.shapes`), hand edges overriding map ones, exact dates (`date_from`).
 
 What would still need a new format number: changing what an existing relation or key means, for example letting a
 node lie `in` two places in the same year. `tools/check_graph.py` checks against the current format, so it reports
