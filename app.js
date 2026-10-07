@@ -3204,7 +3204,8 @@ function placeCard(p) {
       <div class="pc-axis"><span>${fmtYear(lo)}</span><span>${hi >= 1912 ? (zh() ? "清末" : "1912") : fmtYear(hi)}</span></div>
       ${ranks.length > 1 ? `<div class="pc-legend">${ranks.map((r) => `<span><i class="r-${r}"></i>${esc(t("pranks")[r] || "")}</span>`).join("")}</div>` : ""}</div>` : "";
   const here = all.filter((ev) => ev.year >= p.from && ev.year <= p.to), top = here.filter((ev) => ev.level === 1);
-  const chips = top.length && top.length < here.length
+  // Long lists open on the key events (要事) with a switch to all; a short one shows everything.
+  const chips = here.length > 8 && top.length && top.length < here.length
     ? `<span class="pc-cf" role="group"><button type="button" data-cf="top" aria-pressed="true">${t("cityTop")}</button><button type="button" data-cf="all" aria-pressed="false">${t("cityAll")}</button></span>` : "";
   const list = here.length ? `<p class="pc-works"><b>${t("cityHere")(here.length, all.length)}</b>${chips}</p>
     <div class="pc-evwrap${chips ? " top" : ""}">${eventButtons(here, (ev) => ev.level === 1)}</div>` : all.length ? `<p class="pc-meta">${t("cityNone")(all.length)}</p>` : "";
