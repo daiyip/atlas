@@ -171,6 +171,8 @@ const nameOf = (o) => (zh() ? o.name_zh || o.name : o.name);
 // A region (a geographic area: 欧洲与地中海, 中国与东亚大陆) by its short name: 欧洲, 中国.
 const regionShort = (r) => (zh() ? r.short_zh || r.name_zh : r.short || r.name);
 const bandName = (e) => (zh() ? e.glyph : e.short || e.name); // the period on the timeline
+// The seal: a pack can give an English one (`glyph_en`) for its Chinese glyph; the atlas's own periods keep theirs.
+const glyphOf = (e) => (!zh() && e.glyph_en) || e.glyph;
 
 function fmtYear(y, circa) {
   const n = y === 0 ? 1 : Math.abs(y);
@@ -1517,8 +1519,10 @@ function setEra(era, quiet) {
   state.era = era;
   syncMusic();
   const seal = $("era-glyph");
-  seal.textContent = era.seal || era.glyph;
-  seal.classList.toggle("double", (era.seal || era.glyph).length > 1);
+  const g = era.seal || glyphOf(era);
+  seal.textContent = g;
+  seal.classList.toggle("double", g.length > 1);
+  seal.classList.toggle("latin", /^[\x20-\x7e]+$/.test(g));
   const civ = era.region === "world" ? { seal: "#56606a" } : state.regionById[era.region];
   const color = era.region === "china" ? null : era.color || civ?.seal || civ?.color;
   seal.classList.toggle("civ", !!color);
@@ -1969,7 +1973,9 @@ function rulerText(r) {
 }
 
 // Layers switched on for the story being read or the tour step being shown ("auto layers"); they go off again after.
-const shown = (k) => state.show[k] || !!state.auto[k];
+// Layers drawn from the atlas's own China data, which it loads by itself, stay off for a pack shown alone.
+const OWN_DATA = ["admin", "economy"];
+const shown = (k) => !(state.pack?.only && OWN_DATA.includes(k)) && (state.show[k] || !!state.auto[k]);
 const AUTO_RULES = [
   [["armies", "passes"], (c, x) => c === "war" || c === "rebellion" || /之战|战役|大战|围攻|攻破|北伐|西征|东征|南征|出兵|起兵|起义|击败|大败|会战|叛乱/.test(x)],
   [["walls"], (c, x) => /长城|边塞|匈奴|突厥|蒙古|瓦剌|鞑靼|鲜卑|柔然|边墙/.test(x)],
@@ -5781,7 +5787,7 @@ function renderEdgeTabs() {
   const l = $("edge-l"), r = $("edge-r");
   if (r) r.innerHTML = esc(t(state.tab === "people" ? "people_l" : state.tab));
   if (!l || !state.era) return;
-  l.innerHTML = `<span class="sl">${esc((state.era.glyph || "").slice(0, 1))}</span>${esc(zh() ? state.era.name_zh || state.era.glyph : bandName(state.era))}<small>${esc(fmtYear(state.year))}</small>`;
+  l.innerHTML = `<span class="sl">${esc((glyphOf(state.era) || "").slice(0, 1))}</span>${esc(zh() ? state.era.name_zh || state.era.glyph : bandName(state.era))}<small>${esc(fmtYear(state.year))}</small>`;
 }
 const layoutIcon = (id) => `<svg viewBox="-2 -2 60 44" aria-hidden="true"><rect x="-1" y="-1" width="58" height="42" rx="5" fill="none" stroke="currentColor" stroke-width="3"/><g fill="currentColor">${LAYOUTS.find((l) => l.id === id).svg}</g></svg>`;
 function renderLayoutChips() {
@@ -5986,7 +5992,7 @@ function drawDial(y = state.year, give = 0) {
   dial.el.querySelector(".g-ticks").setAttribute("transform", `rotate(${y * 3.6 + give / 3})`);
   dial.el.querySelectorAll(".p-lab").forEach((t, k) => t.classList.toggle("on", k === i));
   const [num] = fmtYearParts(yr);
-  dial.el.querySelector(".c-glyph").textContent = e.glyph;
+  dial.el.querySelector(".c-glyph").textContent = glyphOf(e);
   dial.el.querySelector(".c-year").textContent = num;
   dial.el.querySelector(".c-sub").textContent = t(state.playing ? "dialTapStop" : "dialTap");
   dial.el.setAttribute("aria-label", t("dialLabel"));
@@ -6717,6 +6723,7 @@ async function init() {
   try { state.econMetric = localStorage.getItem("atlas-econ") || "pop"; } catch {}
   // Layer choices are remembered per browser.
   try { Object.assign(state.show, JSON.parse(localStorage.getItem("atlas-layers") || "{}")); } catch {}
+  if (state.pack?.only) for (const k of OWN_DATA) $("l-" + k).hidden = true;
   for (const k of Object.keys(state.show)) {
     $("l-" + k).setAttribute("aria-pressed", String(state.show[k]));
     $("l-" + k).addEventListener("click", () => {

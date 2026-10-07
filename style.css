@@ -106,6 +106,7 @@ body {
 .era-snap { grid-column: 1 / -1; margin: 6px 0 0; font-size: 12px; font-weight: 500; color: var(--jade); }
 .era-note { grid-column: 1 / -1; margin: 4px 0 0; font-size: 11px; color: var(--muted); font-style: italic; }
 .seal.double { font-size: 21px; letter-spacing: -0.02em; }
+.seal.latin { font-size: 17px; letter-spacing: 0; }
 
 .chip {
   appearance: none;
@@ -410,6 +411,7 @@ html:lang(en) .mk-polity.minor small { display: none; }
   }
   .seal { width: 38px; height: 38px; font-size: 24px; grid-row: span 2; box-shadow: inset 0 0 0 2px var(--seal-bg), inset 0 0 0 3px var(--seal-ink); }
   .seal.double { font-size: 14px; }
+  .seal.latin { font-size: 12px; }
   .era-name { font-size: 15px; }
   .era-zh { display: none; }
   .era-year { font-size: 18px; }
@@ -1221,6 +1223,7 @@ html.embed .era-zh, html.embed .pop-chart { display: none !important; }
 html.embed .era { top: 8px; left: 8px; width: auto; max-width: calc(100% - 16px); padding: 6px 12px 6px 8px; gap: 0 8px; }
 html.embed .era > .seal { width: 30px; height: 30px; font-size: 18px; grid-row: 1 / span 2; }
 html.embed .seal.double { font-size: 11px; }
+html.embed .seal.latin { font-size: 10px; }
 html.embed .era-name { font-size: 14px; grid-area: 1 / 2; }
 html.embed .era-year { font-size: 15px; grid-area: 2 / 2; }
 .cmp-card .cmp-top + .cmp-top { margin-top: 6px; }

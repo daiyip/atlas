@@ -80,7 +80,8 @@ shown.
 }
 ```
 
-Periods must follow each other with no gaps. `glyph` is the seal in the era card (one or two characters). `short`
+Periods must follow each other with no gaps. `glyph` is the seal in the era card (one or two characters);
+`glyph_en`, if given, replaces it when the atlas is in English (up to three letters). `short`
 and `tiny` are the labels on the timeline when space runs out. A pack's periods use the atlas's world border maps, so
 they need no `snapshots`.
 
