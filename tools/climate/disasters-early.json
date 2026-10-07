@@ -1,0 +1,1380 @@
+[
+ {
+  "id": "drought-4-2ka",
+  "kind": "drought",
+  "from": -2200,
+  "to": -1900,
+  "circa": true,
+  "name": "4.2-kiloyear aridity event",
+  "name_zh": "4.2ka干旱期",
+  "lon": 110,
+  "lat": 37,
+  "r_km": 900,
+  "area": "Northern China and the Loess Plateau",
+  "area_zh": "华北与黄土高原",
+  "summary": "A centuries-long drying and cooling of the monsoon margin coincided with the decline of the Longshan cultures and fortified sites such as Shimao.",
+  "summary_zh": "季风边缘带持续数百年变干变冷，与龙山文化衰落及石峁等城址的废弃大体同时。",
+  "events": [
+   "shimao-stone-city"
+  ],
+  "source": "https://en.wikipedia.org/wiki/4.2-kiloyear_event"
+ },
+ {
+  "id": "great-flood-yu",
+  "kind": "flood",
+  "from": -2100,
+  "to": -2000,
+  "circa": true,
+  "name": "Great Flood of Gun and Yu",
+  "name_zh": "大禹治水洪水",
+  "lon": 114,
+  "lat": 35,
+  "r_km": 600,
+  "area": "Middle and lower Yellow River plain",
+  "area_zh": "黄河中下游平原",
+  "summary": "Tradition recalls generations of flooding tamed by Yu's dredging; his success is credited with founding the hereditary Xia dynasty. Geologists link it to an outburst flood near Jishi Gorge around 1920 BCE.",
+  "summary_zh": "传说洪水泛滥历时数代，禹疏导河道治水成功，由此开创世袭的夏朝；地质学者将其与约公元前1920年积石峡溃坝洪水相联系。",
+  "events": [
+   "yu-founds-xia",
+   "yu-assembly-at-tushan"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Great_Flood_(China)"
+ },
+ {
+  "id": "lajia-quake",
+  "kind": "quake",
+  "from": -2000,
+  "to": -2000,
+  "circa": true,
+  "name": "Lajia earthquake and flood",
+  "name_zh": "喇家地震洪水",
+  "lon": 102.8,
+  "lat": 35.85,
+  "r_km": 100,
+  "area": "Guanting basin, upper Yellow River (Qinghai)",
+  "area_zh": "青海官亭盆地（黄河上游）",
+  "summary": "An earthquake followed by mudflows and Yellow River floods buried the Qijia-culture village of Lajia, preserving victims in their houses.",
+  "summary_zh": "地震之后泥石流与黄河洪水接踵而至，掩埋了齐家文化喇家聚落，罹难者遗骸保存在房址中。",
+  "events": [
+   "lajia-disaster"
+  ]
+ },
+ {
+  "id": "xia-end-yiluo-dry",
+  "kind": "drought",
+  "from": -1610,
+  "to": -1600,
+  "circa": true,
+  "name": "Drying of the Yi and Luo",
+  "name_zh": "伊洛竭夏亡",
+  "lon": 112.6,
+  "lat": 34.7,
+  "r_km": 250,
+  "area": "Yi–Luo basin (Erlitou heartland)",
+  "area_zh": "伊洛河流域（二里头腹地）",
+  "summary": "Later texts say the Yi and Luo rivers ran dry and the earth shook under Jie, omens taken to mark the fall of Xia to Tang of Shang.",
+  "summary_zh": "《国语》等称夏桀之时伊、洛竭而地震，被视为夏亡于商汤的征兆。",
+  "events": [
+   "jie-of-xia",
+   "mingtiao"
+  ]
+ },
+ {
+  "id": "tang-seven-year-drought",
+  "kind": "drought",
+  "from": -1600,
+  "to": -1594,
+  "circa": true,
+  "name": "Seven-year drought of Tang",
+  "name_zh": "商汤七年大旱",
+  "lon": 113.5,
+  "lat": 34.6,
+  "r_km": 500,
+  "area": "Shang heartland, Henan",
+  "area_zh": "商王畿（河南）",
+  "summary": "Early Shang tradition tells of a seven-year drought ended when Tang offered himself in prayer at the Mulberry Grove, a founding myth of royal rainmaking.",
+  "summary_zh": "传说商初大旱七年，汤以身为牺牲祷于桑林而天降雨，成为王者祈雨的典范。",
+  "events": [
+   "tang-prays-at-mulberry-grove"
+  ]
+ },
+ {
+  "id": "shang-river-floods",
+  "kind": "river",
+  "from": -1420,
+  "to": -1300,
+  "circa": true,
+  "name": "Floods behind Shang capital moves",
+  "name_zh": "商代河患迁都",
+  "lon": 114.5,
+  "lat": 35.5,
+  "r_km": 350,
+  "area": "Lower Yellow River, Henan–Hebei",
+  "area_zh": "豫北冀南黄河下游",
+  "summary": "Traditional accounts blame repeated Yellow River floods (e.g. Geng 'ruined by the river' under Zu Yi) for the Shang capital moving from Ao to Xing and finally to Yin.",
+  "summary_zh": "传统记载将商代屡次迁都归因于河患，如祖乙“圮于耿”，都城由隞迁邢，终至盘庚迁殷。",
+  "events": [
+   "zhongding-moves-to-ao",
+   "zu-yi-moves-to-xing",
+   "yin"
+  ]
+ },
+ {
+  "id": "zhou-xiao-cold",
+  "kind": "cold",
+  "from": -900,
+  "to": -890,
+  "circa": true,
+  "name": "Western Zhou cold spell",
+  "name_zh": "周孝王江汉俱冻",
+  "lon": 112,
+  "lat": 32,
+  "r_km": 700,
+  "area": "Han and Yangtze valleys",
+  "area_zh": "江汉流域",
+  "summary": "The Bamboo Annals record that under King Xiao great hail killed oxen and horses and the Han and Yangtze froze, part of a cold phase of the early first millennium BCE.",
+  "summary_zh": "《竹书纪年》载孝王时大雨雹，牛马死，江、汉俱冻，反映公元前一千纪初的寒冷期。",
+  "events": [
+   "feizi-granted-qin"
+  ]
+ },
+ {
+  "id": "gonghe-drought",
+  "kind": "drought",
+  "from": -830,
+  "to": -822,
+  "circa": true,
+  "name": "Great drought of Gonghe and King Xuan",
+  "name_zh": "共和宣王大旱",
+  "lon": 108.8,
+  "lat": 34.3,
+  "r_km": 500,
+  "area": "Guanzhong and the Zhou royal domain",
+  "area_zh": "关中与周王畿",
+  "summary": "A multi-year drought late in the Gonghe regency, remembered in the ode 'Yun Han', greeted King Xuan's accession and strained the Zhou restoration.",
+  "summary_zh": "共和末年连年大旱，延续至宣王初年，《诗经·云汉》即咏此旱，困扰宣王中兴。",
+  "events": [
+   "gonghe",
+   "king-xuan-restoration"
+  ]
+ },
+ {
+  "id": "three-rivers-quake",
+  "kind": "quake",
+  "from": -780,
+  "to": -780,
+  "name": "Three Rivers earthquake",
+  "name_zh": "三川皆震",
+  "lon": 107.8,
+  "lat": 34.4,
+  "r_km": 250,
+  "area": "Wei, Jing and Luo valleys, Guanzhong",
+  "area_zh": "关中泾、渭、洛三川",
+  "summary": "The Jing, Wei and Luo rivers shook and ran dry and Mount Qi collapsed; the Grand Historian of Zhou read it as a sign of doom, and Haojing fell nine years later.",
+  "summary_zh": "西周幽王二年泾、渭、洛三川皆震，川竭岐山崩，伯阳父以为周将亡；九年后镐京陷落，平王东迁。",
+  "events": [
+   "three-rivers-earthquake",
+   "haojing-falls",
+   "move-east"
+  ]
+ },
+ {
+  "id": "jin-qin-famine",
+  "kind": "famine",
+  "from": -647,
+  "to": -645,
+  "name": "Famine of Jin and Qin",
+  "name_zh": "晋秦饥荒",
+  "lon": 111,
+  "lat": 35.3,
+  "r_km": 350,
+  "area": "Southern Shanxi and Guanzhong",
+  "area_zh": "晋南与关中",
+  "summary": "Qin shipped grain to famine-struck Jin in the 'boat relief'; when Qin starved next year Jin refused aid, leading to war and Duke Hui's capture at Hanyuan.",
+  "summary_zh": "晋饥，秦输粟于晋，即“泛舟之役”；次年秦饥而晋闭籴，两国交兵，晋惠公被俘于韩原。",
+  "events": [
+   "boat-relief-to-jin",
+   "battle-of-hanyuan"
+  ]
+ },
+ {
+  "id": "yellow-river-602bc",
+  "kind": "river",
+  "from": -602,
+  "to": -602,
+  "name": "First recorded Yellow River shift",
+  "name_zh": "周定王五年河徙",
+  "lon": 115.5,
+  "lat": 36,
+  "r_km": 350,
+  "area": "Lower Yellow River, Hebei–Shandong",
+  "area_zh": "黄河下游冀鲁",
+  "summary": "The Yellow River abandoned its northern 'Yu course' at Sujukou, the first course change recorded in the sources.",
+  "summary_zh": "周定王五年河徙宿胥口，黄河离开“禹河”故道，是史载第一次大改道。",
+  "events": [],
+  "source": "https://en.wikipedia.org/wiki/Course_changes_of_the_Yellow_River"
+ },
+ {
+  "id": "liangshan-collapse",
+  "kind": "quake",
+  "from": -586,
+  "to": -586,
+  "name": "Collapse of Mount Liang",
+  "name_zh": "晋梁山崩",
+  "lon": 110.4,
+  "lat": 35.6,
+  "r_km": 120,
+  "area": "Hancheng area, Jin",
+  "area_zh": "晋国梁山（今韩城一带）",
+  "summary": "Mount Liang collapsed and blocked the Yellow River for three days, an event that alarmed the court of Jin.",
+  "summary_zh": "鲁成公五年梁山崩，壅河三日不流，晋君为之降服减膳。",
+  "events": []
+ },
+ {
+  "id": "song-zheng-famine-544",
+  "kind": "famine",
+  "from": -544,
+  "to": -544,
+  "name": "Famine in Zheng and Song",
+  "name_zh": "郑宋饥荒",
+  "lon": 114.2,
+  "lat": 34.5,
+  "r_km": 200,
+  "area": "Zheng and Song, central plain",
+  "area_zh": "中原郑、宋",
+  "summary": "Zheng and Song suffered famine; the Han clan of Zheng and Zihan of Song distributed grain, boosting the standing of ministers such as Zichan's circle.",
+  "summary_zh": "郑、宋饥，郑子皮发粟、宋子罕请贷，卿族以赈济收揽民心，子产随即执政。",
+  "events": [
+   "zichan-governs-zheng"
+  ]
+ },
+ {
+  "id": "qin-locust-243bc",
+  "kind": "locust",
+  "from": -243,
+  "to": -243,
+  "name": "Locust plague and epidemic in Qin",
+  "name_zh": "秦王政四年蝗疫",
+  "lon": 108.9,
+  "lat": 34.4,
+  "r_km": 600,
+  "area": "Qin and the realm",
+  "area_zh": "秦国及天下",
+  "summary": "Locusts came from the east and blotted out the sky, followed by epidemic; Qin sold rank for grain, an early sign of Lü Buwei's fiscal expedients.",
+  "summary_zh": "秦王政四年蝗虫从东方来，蔽天，天下疫；秦令百姓纳粟千石拜爵一级。",
+  "events": [
+   "ying-zheng-king",
+   "lu-buwei-chancellor"
+  ]
+ },
+ {
+  "id": "chu-han-famine",
+  "kind": "famine",
+  "from": -205,
+  "to": -205,
+  "name": "Guanzhong famine of the Chu–Han war",
+  "name_zh": "汉二年关中大饥",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 300,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "toll": "Cannibalism; mass relocation to Shu",
+  "toll_zh": "人相食，令民就食蜀汉",
+  "summary": "During the Chu–Han war rice cost 5,000 cash a measure and people ate each other; Liu Bang sent the starving to Shu and Han while holding Xingyang.",
+  "summary_zh": "楚汉相争之际关中大饥，米斛五千，人相食，刘邦令民就食蜀汉，坚守荥阳。",
+  "events": [
+   "battle-of-pengcheng",
+   "siege-of-xingyang"
+  ]
+ },
+ {
+  "id": "wen-drought-158bc",
+  "kind": "drought",
+  "from": -158,
+  "to": -158,
+  "name": "Drought and locusts under Emperor Wen",
+  "name_zh": "文帝后元旱蝗",
+  "lon": 112,
+  "lat": 35,
+  "r_km": 600,
+  "area": "North China",
+  "area_zh": "北方各郡",
+  "summary": "Drought and locusts struck while the Xiongnu raided Shang and Yunzhong, forcing Emperor Wen to open hunting parks and sell rank for grain.",
+  "summary_zh": "文帝后元六年天下旱蝗，匈奴入上郡、云中，朝廷弛山泽、令民入粟拜爵以济饥。",
+  "events": [
+   "xiliu-camp"
+  ]
+ },
+ {
+  "id": "huzi-breach",
+  "kind": "river",
+  "from": -132,
+  "to": -109,
+  "name": "Huzi breach of the Yellow River",
+  "name_zh": "瓠子决口",
+  "lon": 115.1,
+  "lat": 35.75,
+  "r_km": 450,
+  "area": "Puyang to the Huai basin",
+  "area_zh": "濮阳以下至淮泗",
+  "summary": "The Yellow River broke at Huzi and flooded sixteen commanderies for over twenty years; Emperor Wu finally led the closing of the breach in 109 BCE.",
+  "summary_zh": "元光三年河决瓠子，东南注巨野，通于淮泗，泛滥十六郡二十余年，元封二年武帝亲临堵口。",
+  "events": [
+   "huzi-dike"
+  ]
+ },
+ {
+  "id": "guandong-flood-120bc",
+  "kind": "flood",
+  "from": -120,
+  "to": -120,
+  "name": "Guandong floods and resettlement",
+  "name_zh": "元狩山东水灾",
+  "lon": 116,
+  "lat": 35.5,
+  "r_km": 500,
+  "area": "East of the passes (Shandong–Henan)",
+  "area_zh": "关东（山东、河南）",
+  "toll": "725,000 resettled",
+  "toll_zh": "徙民七十二万五千口",
+  "summary": "Floods left the eastern plain starving; Emperor Wu moved over 700,000 people to the northwest frontier, helping push the state monopolies of salt and iron.",
+  "summary_zh": "元狩三年山东被水灾，民多饥乏，汉廷徙贫民七十余万口于关西及朔方以南新秦中，财政困窘促成盐铁官营。",
+  "events": [
+   "salt-iron",
+   "recovery-of-henan"
+  ]
+ },
+ {
+  "id": "xiongnu-snow-89bc",
+  "kind": "cold",
+  "from": -89,
+  "to": -89,
+  "name": "Xiongnu snow disaster after Li Guangli",
+  "name_zh": "匈奴连雨雪",
+  "lon": 106,
+  "lat": 46,
+  "r_km": 700,
+  "area": "Mongolian steppe",
+  "area_zh": "漠北草原",
+  "summary": "After the Xiongnu sacrificed the captured general Li Guangli, months of snow killed livestock and brought disease and crop failure, weakening the Shanyu.",
+  "summary_zh": "匈奴杀李广利以祠，随后连雨雪数月，畜产死，人民疫病，谷稼不熟，单于恐惧。",
+  "events": [
+   "li-guangli-surrenders"
+  ]
+ },
+ {
+  "id": "xiongnu-snow-71bc",
+  "kind": "cold",
+  "from": -71,
+  "to": -71,
+  "name": "Great snow on the Xiongnu",
+  "name_zh": "匈奴大雨雪",
+  "lon": 104,
+  "lat": 45,
+  "r_km": 700,
+  "area": "Mongolian steppe",
+  "area_zh": "漠北草原",
+  "summary": "Returning from war with the Wusun and Han, the Xiongnu were caught by a snowfall over ten feet deep; fewer than one in ten people and herds survived.",
+  "summary_zh": "本始三年匈奴击乌孙还，会天大雨雪，一日深丈余，人民畜产冻死，还者不能什一，从此衰耗。",
+  "events": [
+   "five-generals-campaign"
+  ]
+ },
+ {
+  "id": "xiongnu-famine-68bc",
+  "kind": "famine",
+  "from": -68,
+  "to": -68,
+  "name": "Xiongnu famine",
+  "name_zh": "匈奴大饥",
+  "lon": 104,
+  "lat": 46,
+  "r_km": 700,
+  "area": "Mongolian steppe",
+  "area_zh": "漠北草原",
+  "summary": "Famine killed six or seven tenths of the Xiongnu people and stock, setting the stage for the succession wars and Huhanye's submission to Han.",
+  "summary_zh": "地节二年匈奴饥，人民畜产死十六七，内乱随之，终致呼韩邪单于附汉。",
+  "events": [
+   "western-regions",
+   "huhanye"
+  ]
+ },
+ {
+  "id": "quake-70bc",
+  "kind": "quake",
+  "from": -70,
+  "to": -70,
+  "name": "Earthquake of 49 commanderies",
+  "name_zh": "本始四年地震",
+  "lon": 118,
+  "lat": 36,
+  "r_km": 450,
+  "area": "Shandong and the eastern plain",
+  "area_zh": "山东诸郡",
+  "toll": "6,000+ dead",
+  "toll_zh": "死六千余人",
+  "summary": "Earthquakes struck 49 commanderies and kingdoms, collapsing mountains and killing over 6,000 in Beihai and Langya; Emperor Xuan issued a penitential amnesty.",
+  "summary_zh": "本始四年郡国四十九地震，或山崩水出，北海、琅邪坏祖宗庙，杀六千余人，宣帝下诏罪己大赦。",
+  "events": []
+ },
+ {
+  "id": "guandong-famine-48bc",
+  "kind": "famine",
+  "from": -48,
+  "to": -46,
+  "name": "Guandong famine of Emperor Yuan",
+  "name_zh": "初元关东大饥",
+  "lon": 116,
+  "lat": 35.5,
+  "r_km": 550,
+  "area": "Guandong",
+  "area_zh": "关东",
+  "toll": "Cannibalism reported",
+  "toll_zh": "人相食",
+  "summary": "Floods and famine in the east led to cannibalism; the cost of relief was a key argument for abandoning the commanderies on Hainan.",
+  "summary_zh": "初元年间关东连年水灾，大饥，人相食；贾捐之以关东困乏为由，力主罢弃珠崖郡。",
+  "events": [
+   "abandon-zhuya"
+  ]
+ },
+ {
+  "id": "dongjun-breach-29bc",
+  "kind": "river",
+  "from": -29,
+  "to": -29,
+  "name": "Dongjun breach",
+  "name_zh": "建始东郡河决",
+  "lon": 115.3,
+  "lat": 35.9,
+  "r_km": 350,
+  "area": "Dongjun to Pingyuan",
+  "area_zh": "东郡至平原",
+  "summary": "The river broke at Dongjun and flooded four commanderies and 32 counties; Wang Yanshi closed it in 36 days, and Emperor Cheng renamed the era 'River Calm'.",
+  "summary_zh": "建始四年河决东郡金堤，灌四郡三十二县；王延世三十六日堵塞，改元河平。",
+  "events": [
+   "yellow-river-dongjun"
+  ]
+ },
+ {
+  "id": "wei-commandery-shift-11",
+  "kind": "river",
+  "from": 11,
+  "to": 69,
+  "name": "Yellow River shift under Wang Mang",
+  "name_zh": "王莽始建国河徙",
+  "lon": 115.5,
+  "lat": 36.2,
+  "r_km": 500,
+  "area": "Weijun to the Shandong plain",
+  "area_zh": "魏郡以东至山东",
+  "summary": "The river burst at Weijun and wandered unchecked for nearly sixty years across the plain, displacing farmers who later fed the Red Eyebrow revolt; Wang Jing finally fixed its new course in 69 CE.",
+  "summary_zh": "始建国三年河决魏郡，泛滥清河以东数郡，王莽不塞，河水改道横流近六十年，流民后成赤眉之众；永平十二年王景治河始定。",
+  "events": [
+   "yellow-river-11",
+   "red-eyebrows",
+   "wang-jing-yellow-river"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Course_changes_of_the_Yellow_River"
+ },
+ {
+  "id": "xin-drought-locusts",
+  "kind": "drought",
+  "from": 14,
+  "to": 22,
+  "name": "Drought and locusts of the late Xin",
+  "name_zh": "新莽末旱蝗",
+  "lon": 113,
+  "lat": 33.5,
+  "r_km": 800,
+  "area": "Jing province, Shandong and the north",
+  "area_zh": "荆州、青徐及北方",
+  "summary": "Years of drought and locusts in the Tianfeng era drove famished peasants into the Lülin hills and the Red Eyebrow bands, the revolts that toppled Wang Mang.",
+  "summary_zh": "天凤年间连年旱蝗，饥民相聚为盗，荆州有绿林，青徐有赤眉，终覆新莽。",
+  "events": [
+   "lu-mu-uprising",
+   "lulin",
+   "red-eyebrows"
+  ]
+ },
+ {
+  "id": "xin-locusts-22",
+  "kind": "locust",
+  "from": 22,
+  "to": 23,
+  "name": "Locusts reach Chang'an",
+  "name_zh": "地皇蝗蔽天",
+  "lon": 109,
+  "lat": 34.5,
+  "r_km": 700,
+  "area": "From Guandong to Chang'an",
+  "area_zh": "关东至长安",
+  "toll": "Hundreds of thousands of refugees",
+  "toll_zh": "流民数十万",
+  "summary": "Locusts flew from the east into Chang'an; hundreds of thousands of refugees poured into the capital and many died, as rebel armies closed in.",
+  "summary_zh": "地皇三年蝗从东方来，飞蔽天，至长安；流民入关数十万，饿死者十之七八，绿林诸军随即兵临。",
+  "events": [
+   "kunyang",
+   "wang-mang-death"
+  ]
+ },
+ {
+  "id": "sanfu-famine-26",
+  "kind": "famine",
+  "from": 26,
+  "to": 27,
+  "name": "Famine of the Three Capital regions",
+  "name_zh": "三辅大饥",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 250,
+  "area": "Guanzhong",
+  "area_zh": "关中三辅",
+  "toll": "Cities depopulated",
+  "toll_zh": "城郭皆空，白骨蔽野",
+  "summary": "With Guanzhong ravaged, cannibalism spread and the cities emptied; the starving Red Eyebrows abandoned Chang'an and surrendered to Liu Xiu.",
+  "summary_zh": "建武二年三辅大饥，人相食，城郭皆空，白骨蔽野；赤眉无食弃长安东归，次年降于光武。",
+  "events": [
+   "chimei-take-changan",
+   "chimei-surrender"
+  ]
+ },
+ {
+  "id": "xiongnu-drought-46",
+  "kind": "drought",
+  "from": 46,
+  "to": 47,
+  "name": "Xiongnu drought and locusts",
+  "name_zh": "匈奴旱蝗",
+  "lon": 108,
+  "lat": 44,
+  "r_km": 800,
+  "area": "Mongolian steppe",
+  "area_zh": "漠北草原",
+  "summary": "Drought and locusts left thousands of li bare and killed over half of the Xiongnu people and herds, prompting the split of the Southern Xiongnu, who submitted to Han in 48.",
+  "summary_zh": "建武二十二年匈奴中连年旱蝗，赤地数千里，草木尽枯，人畜饥疫死耗大半，南匈奴遂分立附汉。",
+  "events": [
+   "xiongnu-split"
+  ]
+ },
+ {
+  "id": "yongchu-disasters",
+  "kind": "flood",
+  "from": 107,
+  "to": 110,
+  "name": "Yongchu floods and famine",
+  "name_zh": "永初水旱",
+  "lon": 113,
+  "lat": 35,
+  "r_km": 800,
+  "area": "North China and Liang province",
+  "area_zh": "北方诸郡",
+  "summary": "Floods in 41 commanderies, droughts, locusts and quakes beset the Deng regency, overlapping with the great Qiang revolt and the abandonment of the Western Regions.",
+  "summary_zh": "永初元年郡国四十一雨水，此后连年水旱蝗震，邓太后临朝赈济，西羌大乱，西域亦弃。",
+  "events": [
+   "deng-sui-regency",
+   "great-qiang-rebellion",
+   "western-regions-abandoned"
+  ]
+ },
+ {
+  "id": "longxi-quake-138",
+  "kind": "quake",
+  "from": 138,
+  "to": 138,
+  "name": "Longxi earthquake",
+  "name_zh": "陇西地震",
+  "lon": 104.6,
+  "lat": 35,
+  "r_km": 250,
+  "area": "Longxi, Gansu",
+  "area_zh": "陇西",
+  "summary": "An earthquake in Longxi was detected in Luoyang by Zhang Heng's seismoscope before couriers arrived, vindicating the device.",
+  "summary_zh": "永和三年陇西地震，张衡地动仪于洛阳先行感知，驿使数日后至，证其灵验。",
+  "events": [
+   "longxi-earthquake-detected",
+   "zhang-heng"
+  ]
+ },
+ {
+  "id": "han-epidemics-171",
+  "kind": "plague",
+  "from": 171,
+  "to": 185,
+  "name": "Late Han epidemics",
+  "name_zh": "东汉末大疫",
+  "lon": 115,
+  "lat": 35,
+  "r_km": 800,
+  "area": "Eastern plain and Luoyang",
+  "area_zh": "关东与洛阳",
+  "summary": "Epidemics in 171, 173, 179, 182 and 185 swept the eastern plain; Zhang Jue's faith-healing Way of Great Peace grew among the sick and launched the Yellow Turban revolt.",
+  "summary_zh": "建宁四年、熹平二年、光和二年、五年、中平二年屡发大疫，张角以符水治病传太平道，聚众起事为黄巾。",
+  "events": [
+   "yellow-turbans"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion"
+ },
+ {
+  "id": "sanfu-drought-194",
+  "kind": "drought",
+  "from": 194,
+  "to": 195,
+  "name": "Guanzhong drought and famine",
+  "name_zh": "兴平三辅大旱",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 300,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "toll": "Cannibalism; Guanzhong depopulated",
+  "toll_zh": "人相食，关中无复人迹",
+  "summary": "Drought and locusts made grain worth 500,000 cash a measure and people ate each other; the collapse of Guanzhong drove Emperor Xian to flee east.",
+  "summary_zh": "兴平元年三辅大旱，谷一斛五十万，人相食，白骨委积；关中残破，献帝次年东归。",
+  "events": [
+   "emperor-xian-flight",
+   "xian-to-xu"
+  ]
+ },
+ {
+  "id": "yan-locusts-194",
+  "kind": "locust",
+  "from": 194,
+  "to": 195,
+  "name": "Yan province locusts",
+  "name_zh": "兖州蝗灾",
+  "lon": 116,
+  "lat": 35.4,
+  "r_km": 300,
+  "area": "Yan province (western Shandong)",
+  "area_zh": "兖州",
+  "summary": "Locusts halted the fighting between Cao Cao and Lü Bu at Puyang as both armies ran out of food; the famine pushed Cao to set up military farms (tuntian).",
+  "summary_zh": "兴平元年蝗虫起，百姓大饿，曹操与吕布相持濮阳，因乏粮各引去；饥荒促成曹操屯田之制。",
+  "events": [
+   "battle-of-puyang",
+   "cao-tuntian"
+  ]
+ },
+ {
+  "id": "red-cliffs-plague",
+  "kind": "plague",
+  "from": 208,
+  "to": 208,
+  "name": "Plague in Cao Cao's army",
+  "name_zh": "赤壁军中疫",
+  "lon": 113.6,
+  "lat": 29.9,
+  "r_km": 150,
+  "area": "Middle Yangtze, Red Cliffs",
+  "area_zh": "长江中游赤壁",
+  "summary": "Disease struck Cao Cao's northern troops on the Yangtze, contributing to his defeat at Red Cliffs and the partition into Three Kingdoms.",
+  "summary_zh": "曹军北人南下水土不服，军中大疫，与火攻之败共同导致赤壁战败，三分之势遂成。",
+  "events": [
+   "red-cliffs"
+  ]
+ },
+ {
+  "id": "jianan-plague-217",
+  "kind": "plague",
+  "from": 217,
+  "to": 217,
+  "name": "Jian'an plague",
+  "name_zh": "建安大疫",
+  "lon": 114,
+  "lat": 34.5,
+  "r_km": 700,
+  "area": "North China",
+  "area_zh": "北方",
+  "summary": "A great epidemic killed whole households and four of the Seven Scholars of Jian'an; it weakened Wei on the eve of its fights in Hanzhong and Fancheng.",
+  "summary_zh": "建安二十二年大疫，家家有僵尸之痛，建安七子中四人同岁而亡。",
+  "events": [
+   "jianan-plague",
+   "battle-of-dingjun"
+  ]
+ },
+ {
+  "id": "luoyang-plague-275",
+  "kind": "plague",
+  "from": 275,
+  "to": 275,
+  "name": "Luoyang plague of 275",
+  "name_zh": "咸宁大疫",
+  "lon": 112.45,
+  "lat": 34.7,
+  "r_km": 300,
+  "area": "Luoyang",
+  "area_zh": "洛阳",
+  "toll": "Over half of Luoyang reported dead",
+  "toll_zh": "洛阳死者太半",
+  "summary": "An epidemic killed more than half the people of the capital, Luoyang, a decade after the Jin founding.",
+  "summary_zh": "咸宁元年大疫，洛阳死者以万数，或云太半。",
+  "events": [
+   "jin-founded"
+  ]
+ },
+ {
+  "id": "guanzhong-drought-296",
+  "kind": "drought",
+  "from": 296,
+  "to": 298,
+  "name": "Guanzhong drought and plague",
+  "name_zh": "元康关中旱疫",
+  "lon": 107,
+  "lat": 34.5,
+  "r_km": 450,
+  "area": "Guanzhong and Qin–Yong",
+  "area_zh": "关中秦雍",
+  "toll": "~100,000 refugees to Shu",
+  "toll_zh": "流民十万余口入蜀",
+  "summary": "Years of drought and epidemic, with rice at 10,000 cash a measure, fuelled Qi Wannian's revolt and drove 100,000 refugees into Hanzhong and Shu under Li Te.",
+  "summary_zh": "元康年间关中连年大旱疾疫，米斛万钱，氐羌齐万年起兵，略阳、天水六郡流民十万入汉中、巴蜀，李特由此起事。",
+  "events": [
+   "qi-wannian-rebellion",
+   "li-te-uprising",
+   "xi-rong-lun"
+  ]
+ },
+ {
+  "id": "yongjia-drought-locusts",
+  "kind": "drought",
+  "from": 309,
+  "to": 311,
+  "name": "Yongjia drought and locusts",
+  "name_zh": "永嘉旱蝗",
+  "lon": 113,
+  "lat": 35,
+  "r_km": 800,
+  "area": "North China",
+  "area_zh": "北方六州",
+  "summary": "In 309 the Yangtze, Han, Yellow and Luo were fordable; in 310 locusts swept six provinces, and famine helped Liu Yao and Shi Le sack Luoyang in 311, sending northern clans south.",
+  "summary_zh": "永嘉三年大旱，江汉河洛皆竭可涉；四年幽并司冀秦雍六州大蝗，草木牛马毛皆尽；饥荒中刘曜、石勒攻陷洛阳，衣冠南渡。",
+  "events": [
+   "yongjia",
+   "battle-of-ningping",
+   "fall-of-changan-316"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Disaster_of_Yongjia"
+ },
+ {
+  "id": "bohai-frozen-336",
+  "kind": "cold",
+  "from": 336,
+  "to": 336,
+  "name": "Liaodong Bay freezes",
+  "name_zh": "慕容皝踏冰渡海",
+  "lon": 121.5,
+  "lat": 40.5,
+  "r_km": 250,
+  "area": "Liaodong Bay",
+  "area_zh": "辽东湾",
+  "summary": "The bay froze hard enough for Murong Huang to lead his army across the ice and defeat his brother Murong Ren, a sign of the cold fourth century.",
+  "summary_zh": "咸康二年海冰坚厚，慕容皝率军踏冰渡海三百余里袭灭慕容仁，反映四世纪寒冷气候。",
+  "events": [
+   "former-yan-founded"
+  ]
+ },
+ {
+  "id": "pingcheng-famine-487",
+  "kind": "drought",
+  "from": 487,
+  "to": 488,
+  "name": "Pingcheng drought and famine",
+  "name_zh": "太和代京大饥",
+  "lon": 113.3,
+  "lat": 40.1,
+  "r_km": 350,
+  "area": "Dai region around Pingcheng",
+  "area_zh": "代北平城",
+  "summary": "Drought brought severe famine to the Northern Wei capital region and Xiaowen let the starving leave to seek food; the cold, dry north was among reasons for moving to Luoyang in 493.",
+  "summary_zh": "太和十一年大旱，京都民饥，诏听民出关就食；平城寒旱、漕运艰难，为孝文帝迁都洛阳的原因之一。",
+  "events": [
+   "xiaowen",
+   "ban-xianbei-customs"
+  ]
+ },
+ {
+  "id": "fushan-dam-burst",
+  "kind": "flood",
+  "from": 516,
+  "to": 516,
+  "name": "Fushan dam burst",
+  "name_zh": "浮山堰溃",
+  "lon": 117.7,
+  "lat": 33.1,
+  "r_km": 180,
+  "area": "Huai River below Shouyang",
+  "area_zh": "淮河寿阳以下",
+  "toll": "100,000+ drowned",
+  "toll_zh": "十余万口漂没",
+  "summary": "The huge dam Liang built across the Huai to flood Wei-held Shouyang collapsed in autumn floods, drowning over 100,000 people downstream.",
+  "summary_zh": "梁筑浮山堰欲灌北魏寿阳，天监十五年秋淮水暴涨堰坏，沿淮城戍村落十余万口皆漂入海。",
+  "events": [
+   "fushan-dam"
+  ]
+ },
+ {
+  "id": "six-garrisons-famine",
+  "kind": "famine",
+  "from": 523,
+  "to": 524,
+  "name": "Northern frontier famine",
+  "name_zh": "六镇饥荒",
+  "lon": 110,
+  "lat": 41.5,
+  "r_km": 600,
+  "area": "Northern frontier and Rouran steppe",
+  "area_zh": "北边六镇与柔然",
+  "summary": "Famine on the steppe sent Anagui's Rouran raiding; starving garrison troops refused relief were the spark of the Six Garrisons revolt that wrecked Northern Wei.",
+  "summary_zh": "正光四年柔然大饥，阿那瓌入寇；怀荒镇民请粮不给，杀镇将起事，六镇之乱由此爆发。",
+  "events": [
+   "six-garrisons"
+  ]
+ },
+ {
+  "id": "volcanic-winter-536",
+  "kind": "cold",
+  "from": 535,
+  "to": 537,
+  "name": "536 volcanic winter",
+  "name_zh": "大统年间寒冻饥荒",
+  "lon": 109,
+  "lat": 34.5,
+  "r_km": 900,
+  "area": "Guanzhong, North China and the south",
+  "area_zh": "关中、北方及江南",
+  "toll": "Western Wei: 70–80% of Guanzhong said to die",
+  "toll_zh": "关中死者十七八",
+  "summary": "A volcanic dust veil dimmed the sun; Liang saw 'yellow dust falling like snow' and summer frost, while Guanzhong starved and Western Wei faced Gao Huan's invasion at Shayuan.",
+  "summary_zh": "536年火山尘幕遮日，南朝“雨黄尘如雪”、夏霜；关中大饥，人相食，死者十七八，东魏乘机西进而有沙苑之战。",
+  "events": [
+   "shayuan",
+   "battle-of-xiaoguan"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Volcanic_winter_of_536"
+ },
+ {
+  "id": "liang-jiangnan-famine",
+  "kind": "famine",
+  "from": 549,
+  "to": 552,
+  "name": "Jiangnan famine of Hou Jing's war",
+  "name_zh": "侯景乱江南大饥",
+  "lon": 119.5,
+  "lat": 31.5,
+  "r_km": 350,
+  "area": "Lower Yangtze (Jiangnan)",
+  "area_zh": "江南",
+  "toll": "Jiangnan largely depopulated",
+  "toll_zh": "千里绝烟",
+  "summary": "War with Hou Jing, drought and locusts emptied the lower Yangtze; 'for a thousand li no smoke rose', ending the prosperity of the southern dynasties' heartland.",
+  "summary_zh": "侯景之乱中旱蝗相继，江南大饥，千里绝烟，人迹罕见，白骨成聚，南朝元气大伤。",
+  "events": [
+   "hou-jing",
+   "jiangling-falls"
+  ]
+ },
+ {
+  "id": "jinyang-snow-564",
+  "kind": "cold",
+  "from": 563,
+  "to": 564,
+  "name": "Snow at the siege of Jinyang",
+  "name_zh": "晋阳大雪",
+  "lon": 112.5,
+  "lat": 37.8,
+  "r_km": 200,
+  "area": "Jinyang (Taiyuan)",
+  "area_zh": "晋阳",
+  "summary": "Weeks of heavy snow broke the Zhou–Turk siege of Northern Qi's Jinyang; frozen and starving, the allies retreated with heavy losses.",
+  "summary_zh": "北周与突厥围晋阳，大雪数旬，平地数尺，联军冻馁，大败而退。",
+  "events": [
+   "siege-of-jinyang"
+  ]
+ },
+ {
+  "id": "turk-famine-583",
+  "kind": "famine",
+  "from": 581,
+  "to": 583,
+  "name": "Turkic famine and split",
+  "name_zh": "突厥饥荒",
+  "lon": 108,
+  "lat": 45,
+  "r_km": 700,
+  "area": "Mongolian steppe",
+  "area_zh": "漠北草原",
+  "summary": "Drought and famine forced the Turks to grind bones for food just as Sui struck back; the Khaganate split into eastern and western halves.",
+  "summary_zh": "开皇初突厥连年饥荒，屑骨为粮，又遭隋军反击，遂分裂为东西二部。",
+  "events": [
+   "gokturk-split",
+   "battle-of-baidao"
+  ]
+ },
+ {
+  "id": "guanzhong-drought-594",
+  "kind": "drought",
+  "from": 594,
+  "to": 595,
+  "name": "Guanzhong drought of 594",
+  "name_zh": "开皇关中大旱",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 300,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "summary": "Drought forced Emperor Wen to lead the starving of the capital east to Luoyang to eat, exposing the capital's dependence on grain from the east.",
+  "summary_zh": "开皇十四年关中大旱，人饥，文帝率百姓就食洛阳，暴露京师对关东漕粮的依赖。",
+  "events": [
+   "guangtong-canal",
+   "eastern-capital-luoyang"
+  ]
+ },
+ {
+  "id": "sui-floods-611",
+  "kind": "flood",
+  "from": 611,
+  "to": 611,
+  "name": "Shandong–Henan floods of 611",
+  "name_zh": "大业七年山东大水",
+  "lon": 116,
+  "lat": 36.5,
+  "r_km": 450,
+  "area": "Shandong and Henan plain",
+  "area_zh": "山东、河南",
+  "summary": "Floods drowned more than thirty commanderies just as the Goguryeo war levies began; Wang Bo and Dou Jiande rose at Changbai mountain and Gaoji.",
+  "summary_zh": "大业七年山东、河南大水，漂没三十余郡，又值征辽之役，王薄起于长白山，窦建德等起兵。",
+  "events": [
+   "sui-uprisings",
+   "goguryeo-campaign",
+   "dou-jiande-king"
+  ]
+ },
+ {
+  "id": "sui-drought-plague-612",
+  "kind": "plague",
+  "from": 612,
+  "to": 612,
+  "name": "Drought and plague of 612",
+  "name_zh": "大业八年旱疫",
+  "lon": 116,
+  "lat": 36,
+  "r_km": 500,
+  "area": "Shandong",
+  "area_zh": "山东",
+  "summary": "Great drought followed by epidemic killed many, worst in Shandong, while the failed Goguryeo campaign drained men and grain; revolts multiplied.",
+  "summary_zh": "大业八年天下旱，复大疫，人多死，山东尤甚；征辽失利，盗贼蜂起。",
+  "events": [
+   "goguryeo-campaign",
+   "yang-xuangan"
+  ]
+ },
+ {
+  "id": "turk-snow-627",
+  "kind": "cold",
+  "from": 627,
+  "to": 629,
+  "name": "Great snow of the Eastern Turks",
+  "name_zh": "突厥大雪",
+  "lon": 109,
+  "lat": 43,
+  "r_km": 700,
+  "area": "Mongolian steppe",
+  "area_zh": "漠南漠北",
+  "summary": "Deep snow killed the Eastern Turks' herds and set off famine and revolts against Illig Qaghan; Tang seized the chance and destroyed the khaganate in 630.",
+  "summary_zh": "贞观初突厥大雪，平地数尺，羊马多死，人大饥，诸部叛离颉利；唐乘机出兵，四年灭东突厥。",
+  "events": [
+   "eastern-turks"
+  ]
+ },
+ {
+  "id": "zhenguan-locusts",
+  "kind": "locust",
+  "from": 628,
+  "to": 628,
+  "name": "Locusts of 628",
+  "name_zh": "贞观二年蝗",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 400,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "summary": "Drought and locusts struck the capital region; Taizong famously swallowed locusts in the park, and ransomed children sold in the famine.",
+  "summary_zh": "贞观二年京畿旱蝗，太宗入苑吞蝗以示与民同忧，并出御府金帛赎回饥民所鬻子女。",
+  "events": [
+   "reign-of-zhenguan"
+  ]
+ },
+ {
+  "id": "guanzhong-famine-682",
+  "kind": "famine",
+  "from": 682,
+  "to": 682,
+  "name": "Guanzhong famine of 682",
+  "name_zh": "永淳关中大饥",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 300,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "toll": "Cannibalism; dead lining the roads",
+  "toll_zh": "死者枕藉于路",
+  "summary": "Floods, locusts and epidemic sent rice to 300 cash a measure; Emperor Gaozong took the court to Luoyang to eat, where Wu Zetian later based her regime.",
+  "summary_zh": "永淳元年关中先水后旱、蝗疫，米斗三百，人相食；高宗率百官就食东都，洛阳由此成为武周神都。",
+  "events": [
+   "wu-zetian"
+  ]
+ },
+ {
+  "id": "yao-chong-locusts-716",
+  "kind": "locust",
+  "from": 715,
+  "to": 716,
+  "name": "Kaiyuan locusts",
+  "name_zh": "开元四年蝗",
+  "lon": 115,
+  "lat": 35,
+  "r_km": 500,
+  "area": "Henan and Hebei",
+  "area_zh": "河南、河北",
+  "summary": "Against fears that killing locusts angered Heaven, chancellor Yao Chong ordered them burned and buried, saving the harvest.",
+  "summary_zh": "开元三、四年山东大蝗，姚崇力排众议，令夜设火、坑焚掩埋，蝗害得以遏止。",
+  "events": [
+   "yao-chong-locusts",
+   "kaiyuan"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Yao_Chong"
+ },
+ {
+  "id": "qinzhou-quake-734",
+  "kind": "quake",
+  "from": 734,
+  "to": 734,
+  "name": "Qinzhou earthquake",
+  "name_zh": "开元秦州地震",
+  "lon": 105.7,
+  "lat": 34.6,
+  "r_km": 200,
+  "area": "Qinzhou (Tianshui)",
+  "area_zh": "秦州",
+  "toll": "4,000+ dead",
+  "toll_zh": "压死四千余人",
+  "summary": "A strong quake destroyed Qinzhou's walls and buildings and killed over 4,000; the prefecture seat was moved.",
+  "summary_zh": "开元二十二年秦州地震，廨宇及居人庐舍崩坏殆尽，压死四千余人，州治移徙。",
+  "events": []
+ },
+ {
+  "id": "tianbao-rains-754",
+  "kind": "flood",
+  "from": 754,
+  "to": 754,
+  "name": "Tianbao autumn rains",
+  "name_zh": "天宝十三载霖雨",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 350,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "summary": "Sixty days of rain ruined the harvest; Yang Guozhong showed the emperor good grain and silenced reports, a famous image of the cover-ups before An Lushan rebelled.",
+  "summary_zh": "天宝十三载秋霖雨六十余日，京城米贵；杨国忠取禾之善者献之，言雨不害稼，次年安禄山起兵。",
+  "events": [
+   "an-lushan"
+  ]
+ },
+ {
+  "id": "jiangdong-plague-762",
+  "kind": "plague",
+  "from": 762,
+  "to": 762,
+  "name": "Jiangdong epidemic",
+  "name_zh": "宝应江东大疫",
+  "lon": 120,
+  "lat": 30.5,
+  "r_km": 300,
+  "area": "Zhejiang and Jiangnan",
+  "area_zh": "浙东浙西",
+  "summary": "After war and heavy taxes, a great epidemic in the southeast killed over half the people, as Yuan Chao's rebellion swept Zhejiang.",
+  "summary_zh": "宝应元年江东大疫，死者过半，袁晁乘乱起于台州。",
+  "events": []
+ },
+ {
+  "id": "zhenyuan-locusts-785",
+  "kind": "locust",
+  "from": 784,
+  "to": 785,
+  "name": "Zhenyuan locusts and drought",
+  "name_zh": "贞元蝗旱",
+  "lon": 108.9,
+  "lat": 34.5,
+  "r_km": 800,
+  "area": "From the coast to Gansu",
+  "area_zh": "东自海西尽河陇",
+  "toll": "Starved dead lined the roads",
+  "toll_zh": "饿殍枕道",
+  "summary": "Locusts darkened the sky from the sea to the Gansu corridor, eating even the hair off animals; the famine came amid the Jingyuan mutiny and the revolts of the four princes.",
+  "summary_zh": "兴元、贞元之际蝗旱相继，东自海，西尽河陇，群飞蔽天，草木牛畜毛靡有孑遗，饿殍枕道。",
+  "events": [
+   "fengtian-penitential-edict",
+   "four-princes-rebellion"
+  ]
+ },
+ {
+  "id": "guanzhong-drought-804",
+  "kind": "drought",
+  "from": 803,
+  "to": 804,
+  "name": "Guanzhong drought of 803–804",
+  "name_zh": "贞元关中大旱",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 300,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "summary": "Drought ruined Guanzhong while officials still pressed taxes; Han Yu was exiled for reporting it, and the misrule fed the reform push of 805.",
+  "summary_zh": "贞元十九年至二十年关中大旱，京兆尹李实仍急征租税，韩愈上书言之被贬阳山；次年永贞革新。",
+  "events": [
+   "yongzhen-reform"
+  ]
+ },
+ {
+  "id": "uyghur-snow-839",
+  "kind": "cold",
+  "from": 839,
+  "to": 840,
+  "name": "Uyghur famine and snow",
+  "name_zh": "回鹘大雪疫",
+  "lon": 102.7,
+  "lat": 47.4,
+  "r_km": 700,
+  "area": "Orkhon valley, Mongolia",
+  "area_zh": "漠北鄂尔浑河流域",
+  "summary": "Famine, epidemic and heavy snow killed the Uyghurs' sheep and horses; weakened, the khaganate fell to the Kyrgyz in 840 and its people fled south and west.",
+  "summary_zh": "开成四年回鹘饥疫，又大雪，羊马多死，次年为黠戛斯所破，部众南迁西走。",
+  "events": [
+   "uyghur-collapse"
+  ]
+ },
+ {
+  "id": "xiantong-drought-873",
+  "kind": "drought",
+  "from": 873,
+  "to": 875,
+  "name": "Drought and locusts before Huang Chao",
+  "name_zh": "乾符旱蝗",
+  "lon": 115.5,
+  "lat": 35,
+  "r_km": 600,
+  "area": "Henan, Shandong and the Huai",
+  "area_zh": "河南、山东、淮北",
+  "summary": "Drought and locusts left the eastern plain without harvests while taxes kept being pressed; Wang Xianzhi and Huang Chao rose in 874–875.",
+  "summary_zh": "咸通末、乾符初关东连年旱蝗，州县不以实闻，租税不减，王仙芝、黄巢相继起事。",
+  "events": [
+   "huang-chao"
+  ],
+  "source": "https://en.wikipedia.org/wiki/Huang_Chao"
+ },
+ {
+  "id": "huainan-famine-886",
+  "kind": "famine",
+  "from": 886,
+  "to": 888,
+  "name": "Huainan famine and siege of Yangzhou",
+  "name_zh": "淮南大饥",
+  "lon": 119.4,
+  "lat": 32.4,
+  "r_km": 250,
+  "area": "Yangzhou and Huainan",
+  "area_zh": "扬州与淮南",
+  "toll": "Yangzhou largely depopulated",
+  "toll_zh": "扬州户口殆尽",
+  "summary": "Locusts and war brought famine; in besieged Yangzhou people ate each other and the city's riches were lost, before Yang Xingmi took control of Huainan.",
+  "summary_zh": "光启年间淮南蝗旱，秦彦、毕师铎、孙儒相攻，扬州被围，城中人相食，繁华荡尽，杨行密终据淮南。",
+  "events": [
+   "yang-xingmi-yangzhou",
+   "qin-fu-yin"
+  ]
+ },
+ {
+  "id": "tongguang-floods-925",
+  "kind": "flood",
+  "from": 925,
+  "to": 925,
+  "name": "Floods of 925",
+  "name_zh": "同光三年大水",
+  "lon": 114.3,
+  "lat": 35,
+  "r_km": 600,
+  "area": "Henan and Hebei",
+  "area_zh": "河南、河北",
+  "summary": "Floods ruined harvests and soldiers' families starved in Luoyang while the court hoarded; discontent fed the mutinies that killed Zhuangzong in 926.",
+  "summary_zh": "同光三年天下大水，洛阳军士妻子饿死，而宫中聚敛不恤，次年兵变，庄宗遇弑。",
+  "events": [
+   "zhuangzong-killed",
+   "mingzong-accession"
+  ]
+ },
+ {
+  "id": "jin-locusts-943",
+  "kind": "locust",
+  "from": 943,
+  "to": 944,
+  "name": "Later Jin drought and locusts",
+  "name_zh": "天福开运旱蝗",
+  "lon": 115,
+  "lat": 35.5,
+  "r_km": 600,
+  "area": "Central plain",
+  "area_zh": "中原",
+  "toll": "Hundreds of thousands dead",
+  "toll_zh": "饿死者数十万",
+  "summary": "Drought and locusts killed hundreds of thousands, while officials kept seizing grain; the weakened Later Jin broke with the Khitan and fell in 947.",
+  "summary_zh": "天福八年春旱夏蝗，天下饥，民饿死者数十万，而括民谷不止；后晋国力衰竭，终为契丹所灭。",
+  "events": [
+   "battle-of-yangcheng",
+   "liao-takes-kaifeng"
+  ]
+ },
+ {
+  "id": "huazhou-breach-944",
+  "kind": "river",
+  "from": 944,
+  "to": 944,
+  "name": "Huazhou breach of 944",
+  "name_zh": "开运滑州河决",
+  "lon": 114.6,
+  "lat": 35.6,
+  "r_km": 250,
+  "area": "Huazhou to Yunzhou (Henan–Shandong)",
+  "area_zh": "滑州以下汴曹单濮郓",
+  "summary": "The Yellow River broke at Huazhou and flooded five prefectures around Liangshan marsh, which grew into the vast lake of later legend.",
+  "summary_zh": "开运元年河决滑州，浸汴、曹、单、濮、郓五州，环梁山合于汶，梁山泊由此扩大。",
+  "events": []
+ },
+ {
+  "id": "zhou-river-954",
+  "kind": "river",
+  "from": 954,
+  "to": 955,
+  "name": "Yellow River breaches under Later Zhou",
+  "name_zh": "显德河决",
+  "lon": 115.8,
+  "lat": 36.2,
+  "r_km": 250,
+  "area": "Yangliu and the Shandong reaches",
+  "area_zh": "杨刘以下山东河段",
+  "summary": "Repeated breaches since the 940s flooded Shandong until Shizong sent Li Gu with 60,000 labourers to rebuild the dikes, part of Later Zhou's revival.",
+  "summary_zh": "显德元年河决杨刘，东流数十州，世宗命李谷发丁夫六万筑堤，河患稍息。",
+  "events": [
+   "chai-rong-accession"
+  ]
+ },
+ {
+  "id": "wudu-landslide-186bc",
+  "kind": "quake",
+  "from": -186,
+  "to": -186,
+  "name": "Wudu mountain collapse",
+  "name_zh": "高后武都山崩",
+  "lon": 105.2,
+  "lat": 33.6,
+  "r_km": 150,
+  "area": "Wudu, southern Gansu",
+  "area_zh": "武都（陇南）",
+  "toll": "760 dead",
+  "toll_zh": "杀七百六十人",
+  "summary": "A mountain collapse in Wudu killed 760 people, and a further quake there in 180 BCE added to the omens of Empress Lü's last years.",
+  "summary_zh": "高后二年武都道山崩，杀七百六十人，后又地震，被视为吕后专政之灾异。",
+  "events": [
+   "empress-lu"
+  ]
+ },
+ {
+  "id": "guandong-refugees-107bc",
+  "kind": "famine",
+  "from": -107,
+  "to": -107,
+  "name": "Two million Guandong refugees",
+  "name_zh": "元封关东流民",
+  "lon": 116,
+  "lat": 35.5,
+  "r_km": 500,
+  "area": "Guandong",
+  "area_zh": "关东",
+  "toll": "2,000,000 refugees",
+  "toll_zh": "流民二百万口",
+  "summary": "After years of floods and wartime levies two million people were adrift in the east, 400,000 of them off the registers; the court debated mass resettlement.",
+  "summary_zh": "元封四年关东流民二百万口，无名数者四十万，公卿议请徙流民于边。",
+  "events": [
+   "pingzhun-junshu"
+  ]
+ },
+ {
+  "id": "liangzhou-quakes-143",
+  "kind": "quake",
+  "from": 143,
+  "to": 144,
+  "name": "Liang province earthquake swarm",
+  "name_zh": "汉安凉州地震",
+  "lon": 103.5,
+  "lat": 36,
+  "r_km": 350,
+  "area": "Liang province (Gansu)",
+  "area_zh": "凉州",
+  "summary": "Liang province shook 180 times within a year, splitting mountains and valleys and wrecking towns amid the long Qiang wars.",
+  "summary_zh": "汉安二年凉州地百八十震，山谷坼裂，城寺坏，适逢羌乱连年。",
+  "events": []
+ },
+ {
+  "id": "guangling-freeze-225",
+  "kind": "cold",
+  "from": 225,
+  "to": 225,
+  "name": "Freezing of the Huai–Yangtze canals",
+  "name_zh": "黄初广陵冰冻",
+  "lon": 119.4,
+  "lat": 32.4,
+  "r_km": 200,
+  "area": "Guangling, lower Yangtze",
+  "area_zh": "广陵",
+  "summary": "A severe winter froze the waterways so that Cao Pi's fleet could not enter the Yangtze; he abandoned his invasion of Wu, sighing that Heaven divided north and south.",
+  "summary_zh": "黄初六年冬大寒，水道冰，舟不得入江，曹丕临江叹“天所以限南北也”，引军还。",
+  "events": [
+   "cao-pi-guangling"
+  ]
+ },
+ {
+  "id": "bingzhou-famine-306",
+  "kind": "famine",
+  "from": 305,
+  "to": 307,
+  "name": "Bing province famine and the Qihuo",
+  "name_zh": "并州饥荒乞活",
+  "lon": 112.5,
+  "lat": 37.8,
+  "r_km": 350,
+  "area": "Bing province (Shanxi)",
+  "area_zh": "并州",
+  "toll": "20,000+ households migrated",
+  "toll_zh": "二万余户流移",
+  "summary": "Famine and Xiongnu war emptied Shanxi; some 20,000 households followed Sima Teng to Hebei to beg food, forming the armed 'Qihuo' refugee bands.",
+  "summary_zh": "永兴、光熙年间并州饥荒，又值刘渊起兵，吏民二万余户随司马腾就谷冀州，号为“乞活”。",
+  "events": [
+   "han-zhao"
+  ]
+ },
+ {
+  "id": "guanzhong-famine-709",
+  "kind": "famine",
+  "from": 709,
+  "to": 709,
+  "name": "Guanzhong famine of 709",
+  "name_zh": "景龙关中饥",
+  "lon": 108.9,
+  "lat": 34.3,
+  "r_km": 300,
+  "area": "Guanzhong",
+  "area_zh": "关中",
+  "summary": "Rice reached 100 cash a measure and officials urged a move to Luoyang, but Zhongzong refused to become a 'grain-chasing Son of Heaven'.",
+  "summary_zh": "景龙三年关中饥，米斗百钱，群臣请幸东都，中宗以“岂有逐粮天子”拒之。",
+  "events": []
+ }
+]

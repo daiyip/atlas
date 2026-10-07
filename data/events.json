@@ -2160,7 +2160,8 @@
   },
   "layers": [
    "rulers",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -2187,7 +2188,8 @@
   "states": [],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%A6%B9",
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -2292,7 +2294,8 @@
   "people": [],
   "states": [],
   "layers": [
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -2412,7 +2415,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "jp-oyu-stone-circles",
@@ -3252,7 +3257,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -3367,7 +3373,8 @@
   },
   "layers": [
    "armies",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -3607,7 +3614,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%95%86%E6%B1%A4",
   "layers": [
-   "faith"
+   "faith",
+   "climate"
   ]
  },
  {
@@ -4253,7 +4261,8 @@
   },
   "layers": [
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -4346,7 +4355,8 @@
   },
   "layers": [
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -4640,7 +4650,8 @@
   },
   "layers": [
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -7169,7 +7180,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -7360,7 +7372,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -7396,7 +7409,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -8077,7 +8091,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -8181,7 +8196,8 @@
   "layers": [
    "armies",
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -8216,7 +8232,8 @@
   },
   "layers": [
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -9573,7 +9590,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%A7%A6%E7%A9%86%E5%85%AC",
   "layers": [
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -9631,7 +9649,8 @@
    "Qin"
   ],
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -11450,7 +11469,8 @@
    "s": "ok"
   },
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -18376,7 +18396,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -18513,7 +18534,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -20694,7 +20716,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "battle-of-jingxing",
@@ -20756,7 +20780,9 @@
   "states": [
    "Han"
   ],
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "battle-of-wei-river",
@@ -21435,7 +21461,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -22139,7 +22166,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "land-tax-one-thirtieth",
@@ -23024,7 +23053,8 @@
    "s": "ok"
   },
   "layers": [
-   "walls"
+   "walls",
+   "climate"
   ]
  },
  {
@@ -23284,7 +23314,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "wuzhu",
@@ -23687,7 +23719,8 @@
    "s": "ok"
   },
   "layers": [
-   "roads"
+   "roads",
+   "climate"
   ]
  },
  {
@@ -23846,7 +23879,9 @@
    "Han"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E9%BB%84%E6%B2%B3",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "kr-four-commanderies",
@@ -24476,7 +24511,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "luntai-edict",
@@ -24820,7 +24857,8 @@
    "Xiongnu"
   ],
   "layers": [
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -25037,7 +25075,8 @@
   },
   "layers": [
    "exchange",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -25265,7 +25304,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -25407,7 +25447,9 @@
    "Hainan"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eu-julian-calendar",
@@ -25713,7 +25755,9 @@
    "Han"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E9%BB%84%E6%B2%B3",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "sa-pali-canon-written",
@@ -26496,7 +26540,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "wangtian-repealed",
@@ -26621,7 +26667,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "huoquan-huobu",
@@ -26714,7 +26762,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -26747,7 +26796,8 @@
   },
   "layers": [
    "armies",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -26938,7 +26988,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -27009,7 +27060,8 @@
   },
   "layers": [
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -27237,7 +27289,8 @@
   },
   "layers": [
    "capitals",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -27270,7 +27323,8 @@
    "s": "ok"
   },
   "layers": [
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -27663,7 +27717,8 @@
    "s": "ok"
   },
   "layers": [
-   "walls"
+   "walls",
+   "climate"
   ]
  },
  {
@@ -28036,7 +28091,9 @@
   "states": [
    "Han"
   ],
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "yongchang-commandery",
@@ -29002,7 +29059,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "ban-zhao-lessons",
@@ -29059,7 +29118,9 @@
    "Han"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%BE%8C%E6%97%8F",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "western-regions-abandoned",
@@ -29089,7 +29150,8 @@
    "s": "ok"
   },
   "layers": [
-   "exchange"
+   "exchange",
+   "climate"
   ]
  },
  {
@@ -29344,7 +29406,8 @@
    "s": "ok"
   },
   "layers": [
-   "inventions"
+   "inventions",
+   "climate"
   ]
  },
  {
@@ -29425,7 +29488,8 @@
   ],
   "layers": [
    "inventions",
-   "roads"
+   "roads",
+   "climate"
   ]
  },
  {
@@ -30194,7 +30258,8 @@
   },
   "layers": [
    "armies",
-   "faith"
+   "faith",
+   "climate"
   ]
  },
  {
@@ -30782,7 +30847,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "sun-ce-jiangdong",
@@ -30852,7 +30919,8 @@
   },
   "layers": [
    "routes",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -30888,7 +30956,8 @@
    "s": "ok"
   },
   "layers": [
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -30921,7 +30990,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "yuan-shu-emperor",
@@ -31450,7 +31521,8 @@
   },
   "layers": [
    "armies",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -31882,7 +31954,8 @@
    "s": "ok"
   },
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -31917,7 +31990,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "fancheng",
@@ -32438,7 +32513,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cao-rui-succeeds",
@@ -34652,7 +34729,8 @@
   },
   "layers": [
    "rulers",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -35329,7 +35407,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "xi-rong-lun",
@@ -35353,7 +35433,9 @@
   "states": [
    "Jin"
   ],
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "crown-prince-yu-deposed",
@@ -35561,7 +35643,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "zhang-gui-liangzhou",
@@ -35767,7 +35851,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -35934,7 +36019,8 @@
   "layers": [
    "armies",
    "routes",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -35966,7 +36052,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eu-milvian-bridge",
@@ -36233,7 +36321,8 @@
   },
   "layers": [
    "armies",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -36820,7 +36909,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -41135,7 +41225,8 @@
    "s": "ok"
   },
   "layers": [
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -41225,7 +41316,9 @@
    "Northern Wei"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E9%AD%8F%E5%AD%9D%E6%96%87%E5%B8%9D",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "shaolin-founded",
@@ -41795,7 +41888,9 @@
    "Liang"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E8%90%A7%E8%A1%8D",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "yongning-pagoda",
@@ -42038,7 +42133,8 @@
   ],
   "layers": [
    "armies",
-   "walls"
+   "walls",
+   "climate"
   ]
  },
  {
@@ -42624,7 +42720,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -42654,7 +42751,8 @@
    "Western Wei"
   ],
   "layers": [
-   "passes"
+   "passes",
+   "climate"
   ]
  },
  {
@@ -43160,7 +43258,8 @@
   "layers": [
    "armies",
    "routes",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -43480,7 +43579,8 @@
   },
   "layers": [
    "armies",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -43892,7 +43992,9 @@
    "Turks"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%8C%97%E5%91%A8",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "northern-qi-code",
@@ -44591,7 +44693,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E7%AA%81%E5%8E%A5%E6%B1%97%E5%9B%BD",
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -44658,7 +44761,8 @@
    "s": "ok"
   },
   "layers": [
-   "passes"
+   "passes",
+   "climate"
   ]
  },
  {
@@ -44687,7 +44791,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%BF%90%E6%B2%B3",
   "layers": [
-   "roads"
+   "roads",
+   "climate"
   ]
  },
  {
@@ -45483,7 +45588,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%B4%9B%E9%98%B3%E5%B8%82",
   "layers": [
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -45855,7 +45961,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "goguryeo-campaign",
@@ -45891,7 +45999,8 @@
   },
   "layers": [
    "armies",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -45924,7 +46033,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -46252,7 +46362,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "tang-founded",
@@ -46672,7 +46784,8 @@
    "Tang Empire"
   ],
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -46835,7 +46948,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -48945,7 +49059,8 @@
   },
   "layers": [
    "rulers",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -49672,7 +49787,8 @@
   "layers": [
    "capitals",
    "people",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -49778,7 +49894,8 @@
   },
   "layers": [
    "people",
-   "inventions"
+   "inventions",
+   "climate"
   ]
  },
  {
@@ -50879,7 +50996,8 @@
   "layers": [
    "armies",
    "routes",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -51901,7 +52019,8 @@
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%94%90%E5%BE%B7%E5%AE%97",
   "layers": [
    "rulers",
-   "clans"
+   "clans",
+   "climate"
   ]
  },
  {
@@ -51997,7 +52116,8 @@
   ],
   "layers": [
    "people",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -52836,7 +52956,8 @@
   },
   "layers": [
    "rulers",
-   "clans"
+   "clans",
+   "climate"
   ]
  },
  {
@@ -53623,7 +53744,8 @@
   },
   "layers": [
    "rulers",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -54278,7 +54400,8 @@
   "layers": [
    "armies",
    "routes",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -54484,7 +54607,8 @@
    "s": "ok"
   },
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -54682,7 +54806,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -56146,7 +56271,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -56181,7 +56307,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -57035,7 +57162,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -57142,7 +57270,8 @@
   "layers": [
    "armies",
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -57623,7 +57752,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -60412,7 +60542,8 @@
    "s": "ok"
   },
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -60637,7 +60768,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "na-cahokia",
@@ -61221,7 +61354,8 @@
   },
   "layers": [
    "people",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -62769,7 +62903,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%AE%8B%E5%BE%BD%E5%AE%97",
   "layers": [
-   "roads"
+   "roads",
+   "climate"
   ]
  },
  {
@@ -63427,7 +63562,8 @@
   "layers": [
    "armies",
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -63527,7 +63663,8 @@
   ],
   "layers": [
    "people",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -65140,7 +65277,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%9C%B1%E7%86%B9",
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -65785,7 +65923,9 @@
    "Jin"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%B7%AE%E6%B2%B3",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "shaoxi-abdication",
@@ -67282,7 +67422,8 @@
    "s": "ok"
   },
   "layers": [
-   "inventions"
+   "inventions",
+   "climate"
   ]
  },
  {
@@ -67382,7 +67523,8 @@
   },
   "layers": [
    "armies",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -67413,7 +67555,8 @@
   },
   "layers": [
    "armies",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -68345,7 +68488,8 @@
   "layers": [
    "armies",
    "passes",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -68511,7 +68655,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -71590,7 +71735,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "three-histories",
@@ -71930,7 +72077,8 @@
   },
   "layers": [
    "armies",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -71987,7 +72135,9 @@
    "Yuan"
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E5%90%95%E5%98%89_(%E7%94%BB%E5%AE%B6)",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "xu-shouhui-tianwan",
@@ -72085,7 +72235,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "sea-lan-xang",
@@ -72150,7 +72302,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -72378,7 +72531,8 @@
   },
   "layers": [
    "capitals",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -72795,7 +72949,8 @@
   },
   "layers": [
    "rulers",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -75660,7 +75815,8 @@
   "layers": [
    "armies",
    "passes",
-   "walls"
+   "walls",
+   "climate"
   ]
  },
  {
@@ -76715,7 +76871,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -79796,7 +79953,9 @@
    "n": "English Wikipedia says about 100,000 direct deaths; 830,000 is the total drop in registered population including those who fled.",
    "n_zh": "英文维基称直接死亡约10万人，83万为户籍人口总减少数（含迁离者）；中文维基称83万人死亡。"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "macau",
@@ -80474,7 +80633,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "manila-galleon-silver",
@@ -80663,7 +80824,8 @@
    "s": "ok"
   },
   "layers": [
-   "inventions"
+   "inventions",
+   "climate"
   ]
  },
  {
@@ -80852,7 +81014,8 @@
    "s": "ok"
   },
   "layers": [
-   "clans"
+   "clans",
+   "climate"
   ]
  },
  {
@@ -81401,7 +81564,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "kr-myeongnyang",
@@ -82442,7 +82607,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -83276,7 +83442,8 @@
   ],
   "source_zh": "https://zh.wikipedia.org/wiki/%E6%9D%8E%E8%87%AA%E6%88%90",
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -83312,7 +83479,8 @@
    "s": "ok"
   },
   "layers": [
-   "roads"
+   "roads",
+   "climate"
   ]
  },
  {
@@ -83976,7 +84144,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -84037,7 +84206,9 @@
   "check": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "battle-of-tongguan-1643",
@@ -84071,7 +84242,8 @@
    "s": "ok"
   },
   "layers": [
-   "passes"
+   "passes",
+   "climate"
   ]
  },
  {
@@ -84141,7 +84313,8 @@
   "layers": [
    "armies",
    "passes",
-   "routes"
+   "routes",
+   "climate"
   ]
  },
  {
@@ -84178,7 +84351,8 @@
   },
   "layers": [
    "capitals",
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -84557,7 +84731,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "fifth-dalai-lama-visit",
@@ -85016,7 +85192,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -85394,7 +85571,9 @@
   "check": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "albazin",
@@ -89083,7 +89262,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -89217,7 +89397,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "sa-ranjit-singh",
@@ -89988,7 +90170,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eu-1814-congress-of-vienna",
@@ -91733,7 +91917,8 @@
    "n_zh": "英文维基称其为继被拒绝的1841年《穿鼻草约》之后的第二个不平等条约；中文维基称其为清朝战败后签订的首个条约。"
   },
   "layers": [
-   "exchange"
+   "exchange",
+   "climate"
   ]
  },
  {
@@ -92245,7 +92430,8 @@
   "layers": [
    "armies",
    "routes",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -92435,7 +92621,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eu-1853-crimean-war",
@@ -92680,7 +92868,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -93777,7 +93966,8 @@
    "s": "ok"
   },
   "layers": [
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -95122,7 +95312,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "reconquest-of-xinjiang",
@@ -95156,7 +95348,9 @@
   "sum": {
    "s": "ok"
   },
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "na-telephone",
@@ -97568,7 +97762,8 @@
   },
   "layers": [
    "armies",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -98353,7 +98548,8 @@
    "s": "ok"
   },
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -98791,7 +98987,8 @@
    "s": "ok"
   },
   "layers": [
-   "people"
+   "people",
+   "climate"
   ]
  },
  {
@@ -98855,7 +99052,8 @@
    "s": "ok"
   },
   "layers": [
-   "armies"
+   "armies",
+   "climate"
   ]
  },
  {
@@ -98981,7 +99179,8 @@
    "s": "ok"
   },
   "layers": [
-   "roads"
+   "roads",
+   "climate"
   ]
  },
  {
@@ -99820,7 +100019,8 @@
   ],
   "statesBy": "geo",
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -101560,7 +101760,8 @@
   "statesBy": "geo",
   "layers": [
    "rulers",
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -102054,7 +102255,9 @@
    "Chinese Warlords"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "jp-mukden-incident",
@@ -102177,7 +102380,8 @@
   ],
   "statesBy": "geo",
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -102529,7 +102733,8 @@
   "statesBy": "geo",
   "layers": [
    "roads",
-   "passes"
+   "passes",
+   "climate"
   ]
  },
  {
@@ -103062,7 +103267,9 @@
    "Republic of China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cn-battle-of-wuhan",
@@ -103089,7 +103296,8 @@
   ],
   "statesBy": "geo",
   "layers": [
-   "capitals"
+   "capitals",
+   "climate"
   ]
  },
  {
@@ -103954,7 +104162,9 @@
    "Republic of China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "jp-atomic-bombings",
@@ -105566,7 +105776,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cn-volunteers-enter-korea",
@@ -105947,7 +106159,9 @@
    "USSR"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eg-algerian-war",
@@ -106699,7 +106913,8 @@
   ],
   "statesBy": "geo",
   "layers": [
-   "inventions"
+   "inventions",
+   "climate"
   ]
  },
  {
@@ -106725,7 +106940,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cn-tibetan-uprising-1959",
@@ -107665,7 +107882,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eg-six-day-war",
@@ -109019,7 +109238,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cn-mao-death-gang-of-four",
@@ -109046,7 +109267,8 @@
   ],
   "statesBy": "geo",
   "layers": [
-   "rulers"
+   "rulers",
+   "climate"
   ]
  },
  {
@@ -109186,7 +109408,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cn-household-responsibility",
@@ -111194,7 +111418,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "jp-hanshin-earthquake",
@@ -112242,7 +112468,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "me-iraq-war",
@@ -112765,7 +112993,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "cn-wenchuan-earthquake",
@@ -112789,7 +113019,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eu-2009-european-debt-crisis",
@@ -114036,7 +114268,9 @@
    "China"
   ],
   "statesBy": "geo",
-  "layers": []
+  "layers": [
+   "climate"
+  ]
  },
  {
   "id": "eu-2020-covid-19-europe",
