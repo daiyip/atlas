@@ -92,6 +92,24 @@ Include paths are relative to the file that names them. Includes may nest but mu
 once in the whole graph; a second definition is an error, never a silent override. The order of lines doesn't
 matter.
 
+## Compatibility
+
+Older packs keep working: a newer atlas reads every older format (see [Versions](custom-data.md#versions)). The graph
+is also built so that an older atlas can read newer graph data where that is safe:
+
+- **Unknown keys, node kinds and relations are ignored.** A future relation or a new field on a node doesn't stop an
+  older atlas from reading the rest. It just doesn't use them.
+- **Every edge already has years**, so a relation that later turns out to change with time (even `in`) needs no new
+  shape. An older atlas follows the edge valid in the year it asks about.
+- **A file can ask for a newer format** with a header line `{"atlas": 3}`. An older atlas skips that file and the files
+  it includes, and loads the rest, the way it skips a layer that needs a newer format.
+- **Ids never change**: merged nodes keep their old id with `replacedBy`, and edges, links and saved views that use
+  the old id resolve to the new node.
+
+What would still need a new format number: changing what an existing relation or key means, for example letting a
+node lie `in` two places in the same year. `tools/check_graph.py` checks against the current format, so it reports
+unknown kinds and relations as errors.
+
 ## How the files are organised
 
 This is a convention, not part of the format: the files can be split and moved without changing anything that reads

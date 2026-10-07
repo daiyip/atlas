@@ -1974,7 +1974,11 @@ async function graphRecords(url, seen = []) {
   if (!res.ok) throw new Error(`Could not load ${url.pathname} (${res.status})`);
   let recs;
   if (url.pathname.endsWith(".jsonl")) recs = (await res.text()).split("\n").filter((l) => l.trim()).map((l) => JSON.parse(l));
-  else { const d = await res.json(); recs = [...(d.include ? [{ include: d.include }] : []), ...(d.nodes || []), ...(d.edges || [])]; }
+  else { const d = await res.json(); recs = [...(d.atlas != null ? [{ atlas: d.atlas }] : []), ...(d.include ? [{ include: d.include }] : []), ...(d.nodes || []), ...(d.edges || [])]; }
+  // A file whose header asks for a newer format is left out (with its includes), like a layer that needs one: the
+  // rest of the graph still loads.
+  const head = recs.find((r) => r.atlas != null && !r.id && !r.child);
+  if (head && formatOf(head) > FORMAT) { console.warn(`${url.pathname} skipped: it needs Atlas format ${head.atlas}, this page reads ${FORMAT}.`); return []; }
   const parts = await Promise.all(recs.map((r) => (r.include ? Promise.all([r.include].flat().map((p) => graphRecords(new URL(p, url), [...seen, url.href]))).then((l) => l.flat()) : [r])));
   return parts.flat();
 }
@@ -2004,6 +2008,9 @@ function placeGraph() {
       await readGraph(new URL(m.data.graph, state.pack.url), g, m.id).catch((e) => console.warn("The pack's places:", e.message));
     }
     g.up = new Map(); g.down = new Map();
+    // Edges to a replaced id count for the node that replaced it.
+    const real = (id) => { for (let i = 0; i < 8 && g.nodes.get(id)?.replacedBy; i++) id = g.nodes.get(id).replacedBy; return id; };
+    g.edges = g.edges.map((e) => (g.nodes.get(e.child)?.replacedBy || g.nodes.get(e.parent)?.replacedBy ? { ...e, child: real(e.child), parent: real(e.parent) } : e));
     for (const e of g.edges) {
       if (!g.nodes.has(e.child) || !g.nodes.has(e.parent)) continue;
       (g.up.get(e.child) || g.up.set(e.child, []).get(e.child)).push(e);
@@ -2016,12 +2023,17 @@ function placeGraph() {
   })().catch((e) => { console.warn(e); state.graph = { nodes: new Map(), edges: [], up: new Map(), down: new Map() }; state.areas = []; });
   return null;
 }
-const placeNode = (id) => state.graph?.nodes.get(id);
+// An id that was merged into another (`replacedBy`) still works: it resolves to the node that replaced it.
+function placeId(id) {
+  for (let i = 0, n; i < 8 && (n = state.graph?.nodes.get(id))?.replacedBy; i++) id = n.replacedBy;
+  return id;
+}
+const placeNode = (id) => state.graph?.nodes.get(placeId(id));
 // Edges up from a place (rel: "in", "held" …), in a given year or (year undefined) all of them.
-const placeUp = (id, rel, y) => (state.graph?.up.get(id) || []).filter((e) => e.rel === rel && (y === undefined || edgeAt(e, y)));
+const placeUp = (id, rel, y) => (state.graph?.up.get(placeId(id)) || []).filter((e) => e.rel === rel && (y === undefined || edgeAt(e, y)));
 // Where a place lies: [itself, its parent, … up to its group], following `in` edges in year y.
 function placePath(id, y) {
-  const out = [id];
+  const out = [placeId(id)];
   for (let e = placeUp(id, "in", y)[0]; e && !out.includes(e.parent); e = placeUp(e.parent, "in", y)[0]) out.push(e.parent);
   return out;
 }
@@ -2032,7 +2044,7 @@ const placeHeld = (id, y) => placeUp(id, "held", y).map((e) => ({ id: e.parent, 
 function buildAreas(g) {
   const out = [];
   for (const n of g.nodes.values()) {
-    if (n.kind !== "area" || !(n.geo?.poly?.length > 2)) continue;
+    if (n.kind !== "area" || n.replacedBy || !(n.geo?.poly?.length > 2)) continue;
     const path = placePath(n.id);
     const par = path.slice(1).find((p) => p.startsWith("area:") || /^[^:]+:area:/.test(p));
     const reg = path.find((p) => g.nodes.get(p)?.kind === "region");
@@ -2068,7 +2080,7 @@ function buildAreas(g) {
 // the ledger: a strip of holders through time (click to go to a year), the stretches as a list, the notes, the area's
 // events and a generated tour. The outline is drawn on the map while the card is open.
 const areaData = () => (state.graph ? state.areas : (placeGraph(), null));
-const areaById = (id) => (state.areas || []).find((a) => a.id === id);
+const areaById = (id) => (state.areas || []).find((a) => a.id === placeId(id));
 // Areas form a tree that does not change with time (新疆 › 吐鲁番盆地, `in` edges); who holds an area changes with the
 // year (`runs`). A point's chain runs from the smallest area holding it up to the largest.
 const areaParent = (a) => a.parent && areaById(a.parent);
