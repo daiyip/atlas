@@ -203,6 +203,8 @@ def check_event_extras(rep, w, e):
     if "sources" in e:
         if not isinstance(e["sources"], list) or not all(isinstance(x, str) or (isinstance(x, dict) and "url" in x) for x in e["sources"]):
             rep.err(w, "`sources` should be a list of links or {url, title, title_zh}")
+    if "polities" in e and not (isinstance(e["polities"], list) and all(isinstance(x, str) and x.startswith(("polity:",)) or ":polity:" in str(x) for x in e["polities"])):
+        rep.err(w, "`polities` should be a list of polity ids like polity:qing")
     if "area" in e and not (isinstance(e["area"], str) and ":" in e["area"]):
         rep.err(w, "`area` should be a place graph id like area:taiwan")
 
@@ -426,6 +428,15 @@ def check_builtin():
             if l.get("event") and isinstance(events, list) and l["event"] not in event_ids:
                 rep.err(where, f"unknown event {l['event']!r}")
     check_places(rep, "data/graph.json", ROOT / "data/graph.json")
+    # Ids other data points at (tools/link_ids.py) must be in the graph.
+    try:
+        import placegraph
+        known = {n["id"] for n in placegraph.load(str(ROOT / "data/graph.json"))["nodes"]}
+        evs = json.load(open(ROOT / "data/events.json", encoding="utf-8"))
+        bad = sorted({x for e in evs for x in e.get("polities") or [] if x not in known})
+        if bad: rep.err("data/events.json", f"`polities` not in the place graph: {', '.join(bad[:5])}")
+    except Exception as e:
+        rep.warn("data/graph.json", f"could not check ids against it: {e}")
     return rep
 
 

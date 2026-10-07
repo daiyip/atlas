@@ -5,8 +5,11 @@ outlines, introductions and notes, where each sits (`in` edges), and claims on d
 the atlas's other files and maps already know, so nothing is kept twice (maps.jsonl is the last file graph.json includes):
 
   group, region nodes and their `in` edges   from data/regions.json
-  polity nodes                               from the country table, data/lineages.json (`start`/`end`)
+  polity nodes                               from the country table, data/lineages.json (`start`/`end`), and one
+                                             for every other run of a name on the maps (by: "maps"; ids kept
+                                             from the last build), so every name in every year means a polity
   map nodes and `name` edges                 each name on the border maps a country goes by, and when
+  city nodes                                 from data/places.json, one per city (`names` over time)
   `held` edges                               who holds each area with an outline, from the maps
 
 `held`: the script samples points inside each outline and, at every year the combined map changes (China's dynasty
@@ -19,7 +22,8 @@ border changes, and after editing graph.json or lineages.json.
 Usage: python3 tools/build_graph.py   (needs shapely; then python3 tools/check_graph.py)"""
 import json
 from shapely.geometry import Point, Polygon
-from build_countries import combined_maps, P
+from build_countries import combined_maps, in_poly, P
+import re, unicodedata
 import placegraph
 
 OUT = "graph/maps.jsonl"
@@ -27,6 +31,11 @@ OUT = "graph/maps.jsonl"
 MIN_SHARE = 10   # percent
 GRID = 140       # about this many sample points per area
 TODAY = 2026
+
+
+def slug(s):
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-") or "x"
 
 
 def samples(poly):
@@ -104,6 +113,42 @@ def main():
             if L.get("end") is None and b is not None and b >= TODAY: b = None
             edges.append({"child": map_node(name), "parent": "polity:" + L["id"], "rel": "name", "from": a, "to": b, "by": "maps"})
 
+    # Every other run of a name on the maps is a country of its own (countries.json spans: one run, one country), so
+    # any name in any year resolves to a polity id. Ids are kept from the last build: a run keeps the id of the old
+    # run of the same name it overlaps most, so they stay put when maps shift a few years.
+    old = {}
+    try:
+        for n in placegraph.load(P("data", OUT))["nodes"]:
+            if n["kind"] == "polity" and n.get("by") == "maps": old.setdefault(n["name"], []).append(n)
+    except (OSError, placegraph.GraphError, ValueError):
+        pass
+    covered = {}
+    for e in edges:
+        if e["rel"] == "name": covered.setdefault(e["child"][4:], []).append((e["from"] if e["from"] is not None else -1e9, e["to"] if e["to"] is not None else 1e9))
+    ids = {n["id"] for n in nodes}
+    yr = lambda y: f"bc{-y}" if y < 0 else str(y)
+    auto = 0
+    for name, runs in sorted(spans.items()):
+        for a, b, zh, region in runs:
+            b = min(b, TODAY)
+            if a > TODAY: continue
+            # The years of this run no country-table name covers.
+            pieces = [(a, b)]
+            for x, z in covered.get(name, []):
+                pieces = [q for (c, d) in pieces for q in ([(c, d)] if z < c or x > d else [(c, x - 1)] * (c < x) + [(z + 1, d)] * (z < d))]
+            for c, d in pieces:
+                if c > d: continue
+                prev = max((o for o in old.get(name, []) if o["id"] not in ids and o["from"] <= d and (o["to"] if o["to"] is not None else TODAY) >= c),
+                           key=lambda o: min(d, o["to"] if o["to"] is not None else TODAY) - max(c, o["from"]), default=None)
+                pid = prev["id"] if prev else f"polity:{slug(name)}-{yr(c)}"
+                k = 2
+                while pid in ids: pid, k = f"polity:{slug(name)}-{yr(c)}-{k}", k + 1
+                ids.add(pid)
+                nodes.append({"id": pid, "kind": "polity", "name": name, **({"name_zh": zh} if zh else {}), "from": c, "to": None if d >= TODAY else d, "by": "maps"})
+                edges.append({"child": map_node(name), "parent": pid, "rel": "name", "from": c, "to": None if d >= TODAY else d, "by": "maps"})
+                auto += 1
+    print(auto, "polities from map names with no entry in the country table")
+
     maps, features = combined_maps()
     span = [maps[0][0], TODAY]
     for A in G["nodes"]:
@@ -116,6 +161,29 @@ def main():
             for n, z, pct, c in hold:
                 if n: edges.append({"child": A["id"], "parent": map_node(n, z, c), "rel": "held", "from": a, "to": b, "share": pct, "by": "maps"})
         print(f"{A['id']:24} {len(runs):4} stretches")
+
+    # Cities (data/places.json, one entry per span of a city's history, ids <key>-<n>): one node per key, its names
+    # over time in `names`, placed in the smallest area holding it, else its region. Events' `places` are these keys.
+    areas = [A for A in G["nodes"] if A["kind"] == "area" and (A.get("geo") or {}).get("poly")]
+    depth = {}
+    up = {e["child"]: e["parent"] for e in G["edges"] if e["rel"] == "in"}
+    for A in areas:
+        d, x = 0, A["id"]
+        while up.get(x, "").startswith("area:"): d, x = d + 1, up[x]
+        depth[A["id"]] = d
+    cities = {}
+    for c in json.load(open(P("data/places.json"))):
+        cities.setdefault(re.sub(r"-\d+$", "", c["id"]), []).append(c)
+    for key, cs in sorted(cities.items()):
+        cs.sort(key=lambda c: c["from"])
+        last = cs[-1]
+        # No from/to: a city outlives the spans the atlas tells (Xi'an after 1912); `names` carry the years.
+        nodes.append({"id": "city:" + key, "kind": "city", "name": last.get("modern") or last["name"], "name_zh": last.get("modern_zh") or last["name_zh"],
+                      "geo": {"point": [last["lon"], last["lat"]]},
+                      "names": [{"from": c["from"], "to": c["to"], "name": c["name"], "name_zh": c["name_zh"], "rank": c.get("rank")} for c in cs]})
+        inside = sorted((A for A in areas if in_poly(last["lon"], last["lat"], A["geo"]["poly"])), key=lambda A: -depth[A["id"]])
+        par = inside[0]["id"] if inside else next(("region:" + r["id"] for r in R["regions"] if len(r.get("polygon") or []) > 2 and in_poly(last["lon"], last["lat"], r["polygon"])), None)
+        if par: edges.append({"child": "city:" + key, "parent": par, "rel": "in", "by": "maps"})
 
     nodes += sorted(maps_.values(), key=lambda n: n["id"])
     note = "Built by tools/build_graph.py from data/regions.json, data/lineages.json, the border maps and the hand-written graph files; do not edit. Format: docs/places.md."

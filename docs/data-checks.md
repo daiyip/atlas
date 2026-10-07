@@ -106,7 +106,8 @@ build_world / build_borders / carve_states / snap_terrain
 python3 tools/taiwan.py
 python3 tools/fix_maps.py        # FIXES in the script, then tools/world_fixes.json, then the overlap rule
 python3 tools/build_countries.py
-python3 tools/build_graph.py     # who held each area (地区史), then:
+python3 tools/build_graph.py     # polities, cities, who held each area (地区史)
+python3 tools/link_ids.py        # events, people, reigns, capitals → polity ids
 python3 tools/check_graph.py
 ```
 
