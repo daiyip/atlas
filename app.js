@@ -123,7 +123,7 @@ const UI = {
     fields: { general: "军事家", statesman: "政治家", thinker: "思想家", poet: "诗人", writer: "文学家", historian: "史学家", scientist: "科学家", physician: "医学家", engineer: "工程师", artist: "艺术家", religious: "宗教人物", explorer: "旅行家", scholar: "学者" },
     faiths: { buddhist: "佛教", daoist: "道教", confucian: "儒家", islam: "伊斯兰教", christian: "基督教", thought: "思想", other: "其他" },
     ifields: { craft: "工艺", writing: "文字", printing: "印刷", metallurgy: "冶金", military: "军事", astronomy: "天文", math: "数学", medicine: "医学", agriculture: "农业", navigation: "航海", engineering: "工程", money: "货币" },
-    economy: "经济重心", econPop: "人口", econWealth: "财赋", econSouth: "南方占", econSouthHint: "秦岭—淮河以南", econNorthHint: "秦岭—淮河以北", econNorthShort: "北方", econSouthShort: "南方", econCentre: "重心约在", econTop: "最多", econFrom: "数据", econNext: "下一个数据点", econOut: "这一层只覆盖汉至清（前206—1912）", econCentrePop: "人口重心", econCentreWealth: "财赋重心", econNote: "各省比例按历代户口、田赋统计约略复原，再分到当时的政区治所 · AI 整理，未经核对", econKind: { census: "户口", estimate: "估计", record: "账册" },
+    economy: "经济重心", econPop: "人口", econWealth: "财赋", econSouth: "南方占", econSouthHint: "秦岭—淮河以南", econNorthHint: "秦岭—淮河以北", econShareOf: (n, m) => `${n}% ${m === "pop" ? "人口" : "财赋"}`, econCentre: "重心约在", econTop: "最多", econFrom: "数据", econNext: "下一个数据点", econOut: "这一层只覆盖汉至清（前206—1912）", econCentrePop: "人口重心", econCentreWealth: "财赋重心", econNote: "各省比例按历代户口、田赋统计约略复原，再分到当时的政区治所 · AI 整理，未经核对", econKind: { census: "户口", estimate: "估计", record: "账册" },
     pop: "人口", popOf: (m, y, k) => { const w = Math.round(m * 100); return `${k === "estimate" ? "估计约" : "约"}${w >= 10000 ? (w / 10000).toFixed(1).replace(/\.0$/, "") + "亿" : w + "万"}（${y}）`; },
     capital: "都城", works: "代表作", life: (a, b) => `${a} – ${b}`, inventor: "发明者", pkinds: { pass: "山隘", wall: "长城关口", gate: "关口" }, guards: "扼守", battles: "关前史事", built: (y) => `${y}建`,
   },
@@ -149,7 +149,7 @@ const UI = {
     fields: { general: "Military", statesman: "Statesman", thinker: "Thinker", poet: "Poet", writer: "Writer", historian: "Historian", scientist: "Scientist", physician: "Physician", engineer: "Engineer", artist: "Artist", religious: "Religious figure", explorer: "Traveller", scholar: "Scholar" },
     faiths: { buddhist: "Buddhism", daoist: "Daoism", confucian: "Confucianism", islam: "Islam", christian: "Christianity", thought: "Thought", other: "Other" },
     ifields: { craft: "Craft", writing: "Writing", printing: "Printing", metallurgy: "Metalwork", military: "Military", astronomy: "Astronomy", math: "Mathematics", medicine: "Medicine", agriculture: "Farming", navigation: "Navigation", engineering: "Engineering", money: "Money" },
-    economy: "Economic centre", econPop: "Population", econWealth: "Revenue", econSouth: "South", econSouthHint: "south of the Qinling–Huai line", econNorthHint: "north of the Qinling–Huai line", econNorthShort: "North", econSouthShort: "South", econCentre: "Centre near", econTop: "Largest", econFrom: "Data", econNext: "next data point", econOut: "This layer covers Han to Qing (206 BC – 1912)", econCentrePop: "Population centre", econCentreWealth: "Revenue centre", econNote: "Province shares roughly rebuilt from dynastic census and tax figures, spread over that period's prefecture seats · AI-drafted, not source-checked", econKind: { census: "census", estimate: "estimate", record: "ledger" },
+    economy: "Economic centre", econPop: "Population", econWealth: "Revenue", econSouth: "South", econSouthHint: "south of the Qinling–Huai line", econNorthHint: "north of the Qinling–Huai line", econShareOf: (n, m) => `${n}% of ${m === "pop" ? "people" : "revenue"}`, econCentre: "Centre near", econTop: "Largest", econFrom: "Data", econNext: "next data point", econOut: "This layer covers Han to Qing (206 BC – 1912)", econCentrePop: "Population centre", econCentreWealth: "Revenue centre", econNote: "Province shares roughly rebuilt from dynastic census and tax figures, spread over that period's prefecture seats · AI-drafted, not source-checked", econKind: { census: "census", estimate: "estimate", record: "ledger" },
     pop: "Population", popOf: (m, y, k) => `${k === "estimate" ? "c. " : ""}${m} million (${y})`,
     capital: "Capital", works: "Known works", life: (a, b) => `${a} – ${b}`, inventor: "Inventor", pkinds: { pass: "Mountain pass", wall: "Great Wall gate", gate: "Gate" }, guards: "Guards", battles: "Happened here", built: (y) => `built ${y}`,
   },
@@ -2891,7 +2891,7 @@ function renderEconomy() {
     for (const [side, share, lat, anchor] of [["n", 1 - fr.south, h + 0.9, "bottom"], ["s", fr.south, h - 0.9, "top"]]) {
       const el = document.createElement("div");
       el.className = "mk-econ-half " + side;
-      el.innerHTML = `<b>${t(side === "n" ? "econNorthShort" : "econSouthShort")} ${Math.round(share * 100)}%</b><small>${t(side === "n" ? "econNorthHint" : "econSouthHint")}</small>`;
+      el.innerHTML = `<b>${t("econShareOf")(Math.round(share * 100), metric)}</b><small>${t(side === "n" ? "econNorthHint" : "econSouthHint")}</small>`;
       markers.econ.push(new maplibregl.Marker({ element: el, anchor }).setLngLat([lon, lat]).addTo(map));
     }
     const el = document.createElement("div");
