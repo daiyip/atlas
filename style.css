@@ -714,6 +714,21 @@ html:lang(en) .mk-geo.g-river, html:lang(en) .mk-geo.g-lake { text-transform: no
 .atlas-pop .pc-admin small, .atlas-pop .pc-chgis-list small { color: var(--muted); font-size: 11px; }
 .atlas-pop .pc-chgis { margin: 6px 0 2px; }
 .atlas-pop .pc-chgis-list a { text-decoration: none; }
+/* 地名古今: one row per period (names, holder, the prefecture it lay in), the current period lit, today last */
+.atlas-pop .pc-gazlist { margin: 2px 0 4px; padding: 0; list-style: none; max-height: 196px; overflow-y: auto; font-size: 13px;
+  border-left: 2px solid color-mix(in srgb, var(--muted) 30%, transparent); }
+.atlas-pop .pc-gazlist li { display: grid; grid-template-columns: 4.6em 1fr; gap: 6px; padding: 3px 4px 3px 6px; cursor: pointer; border-radius: 0 4px 4px 0; }
+.atlas-pop .pc-gazlist li:hover { background: color-mix(in srgb, var(--muted) 12%, transparent); }
+.atlas-pop .pc-gazlist li.on { background: color-mix(in srgb, var(--cinnabar) 12%, transparent); box-shadow: inset 2px 0 var(--cinnabar); margin-left: -2px; }
+.atlas-pop .pc-gazlist li.today { cursor: default; background: none; border-top: 1px dashed color-mix(in srgb, var(--muted) 40%, transparent); }
+.atlas-pop .pc-gazlist li > span { font: 600 11.5px/1.5 var(--font-display, inherit); color: var(--cinnabar); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.atlas-pop .pc-gazlist li > div { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; min-width: 0; }
+.atlas-pop .pc-gazlist b { font-weight: 700; }
+.atlas-pop .pc-gazlist small { color: var(--muted); font-size: 11px; }
+.atlas-pop .pc-gazlist .gz-held { flex-basis: 100%; }
+.atlas-pop .pc-gazlist .gz-held i { font-style: normal; }
+.atlas-pop .pc-gazlist .gz-held i:hover { color: var(--cinnabar); text-decoration: underline; }
+.atlas-pop .pc-gazlist em { color: var(--muted); font-style: normal; }
 .atlas-pop .pc-battles { margin: 2px 0 0; padding: 0; list-style: none; font-size: 13px; }
 .atlas-pop .pc-battles span { font: 500 11px var(--font-mono, monospace); color: var(--cinnabar); margin-right: 4px; }
 

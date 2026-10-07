@@ -118,7 +118,7 @@ const UI = {
     units: { infantry: "步兵", cavalry: "骑兵", chariots: "战车", archers: "弓兵", crossbows: "弩兵", navy: "水军", siege: "攻城", firearms: "火器", artillery: "火炮", elephants: "象兵" },
     kinds: { campaign: "进军", journey: "行程", trade: "商路", canal: "运河", wall: "长城" }, exchange: "交流", spread: "传播", spreadGroups: { faith: "宗教传播", tech: "技术传播", crop: "作物传播" }, arrived: (y) => `${y}传到`, set_out: (y) => `${y}起`, world_t: "世界", worldHead: "同一年的世界", goRegion: "切换地区", allWorld: "全球", worldHint: "点击地区，地图和时间轴切换过去；点击事件阅读详情", noWorldEv: "前后几十年没有收录的大事", elsewhere: "同时期的世界", wsHead: (x) => `同时期的${x}`, wsNearShort: "邻国", wsWorld: "世界", wsNear: (n) => `${n}的邻国`, wsNone: "前后几年没有收录的大事", hideStrip: "隐藏", showStrip: "在时间轴上方显示同时期的世界",
     sel: { hint: "点击地图上的国家即可选中，地图和各栏只显示与它相关的内容；再点一次取消", off: "这一年不在地图上", offMap: "这一年的地图没有单独画出它", before: "这一年尚未建立", after: "这一年已不存在", jump: (y) => `跳到${y}`, events: (n) => `事件 ${n}`, people: (n) => `本时期人物 ${n}`, cities: "城市", clear: "取消选中", circa: "约", away: "已移出视野，时间轴仍跟随它", back: (n) => `回到${n}`, story: "播放它的故事", now: "今", more: (n) => `另 ${n} 国`, less: "收起" },
-    people_l: "人物", cmp: { one: "对比", open: "两地对比", sync: "同步视角", openTime: "两时对比", place: "两地", time: "两时", period: "时期", year: "年份", close: "关闭对比", pick: "对比地区", rulers: "君主", events: "前后大事", none: "前后几十年没有收录的大事" }, lasted: (n) => `共${n}年`, packs: "专题", rpMore: "这一年的君主、大事与国家", asState: "作为国家：", close: "关闭", search: "搜索", share: "分享这个视图", tours: "导览", toursHead: "导览 · 跟着地图读历史", tourStory: "读这段故事", tourMusic: " 音乐", tourNarr: " 旁白", tourNarrHint: "朗读每一站的解说（AI 语音，中文）", voices: { Charon: "男声", Kore: "女声" }, tourMusicHint: "导览和时间轴播放时的背景音乐（AI 生成）", tourImmersive: "沉浸", tourImmersiveHint: "放大图片，收起其它面板（Esc 退出）", tourBack: "返回导览", tourPrev: "上一步", tourNext: "下一步", tourPlay: "自动播放", tourPause: "暂停", tourEnd: "结束导览", tourDone: "导览结束", tourSteps: (n) => `${n} 站`, tourCount: (n) => `${n} 条导览`, followLife: "跟随一生", livesHere: "本时期人物的一生", livesAll: "人物一生", tourAt: (n) => `第${n}站`, toursHere: "本时期导览", toursOther: "其他时期", noTours: "本时期还没有导览", tourHint: "点击一条导览，地图会跟着故事移动", linkCopied: "链接已复制，可以发给别人", linkCopy: "复制这个链接：", searchPh: "搜索导览、事件、人物、君主、城市或年份（如 755、前221）", autoLayers: "自动图层", autoHint: "打开事件或导览时，自动显示相关图层，自动打开的图层标为虚线", autoOn: "已自动显示", autoAlso: "相关图层", tipOn: "已打开", stLayBtn: "图层按钮", stLayPos: "图层排列", layBtns: { text: "文字", icon: "图标", both: "图标+文字" }, layPos: { group: "分组", nowrap: "一行·滑动", wrap: "一行·换行" }, tipOff: "已关闭", tipAuto: "自动显示", sgroups: { time: "时间", era: "朝代", tour: "导览", event: "事件", person: "人物", ruler: "君主", city: "城市" }, noResults: "没有找到相关内容", jumpYear: "跳到这一年", capitals: "都城·人口", faith: "宗教思想", inventions: "发明", passes: "关隘", admin: "政区", adminSeat: "治所", adminWas: "汉时旧名", adminSite: "此地历代 · 点击跳转", adminNow: "今", adminSnap: (y) => `以${y}为准 · AI 整理，已与 CHGIS 抽查比对`, adminUnsure: "位置待核", adminChgis: "查 CHGIS 记录", adminChgisWait: "正在查询 CHGIS…", adminChgisDown: "暂时连不上 CHGIS，稍后再试", adminChgisNone: "CHGIS 在这一年没有同名记录", adminChgisSrc: "来自 CHGIS 时空地名库（哈佛、复旦），实时查询", adminChgisMoved: "治所位置与本图略有不同", roads: "官道", walls: "长城", wallBy: "修筑", wallLen: (n) => `约${n.toLocaleString()}公里`, ruin: "已废弃，现为遗迹", clans: "豪族", ckinds: { gentry: "门阀士族", bloc: "地域集团", military: "军事集团", faction: "朋党", merchant: "商帮" }, seats: "郡望/根据地", families: "代表家族", members: "代表人物", drafted: "AI 整理，未经核对", cityEvents: (n) => `城中大事（${n}）· 点击跳转`, cityHere: (n, m) => n === m ? `城中大事 ${n} 件` : `这一段大事 ${n} 件 · 全城 ${m} 件`, cityNone: (m) => `这一段没有收录大事 · 点上方色条看其他时期（共 ${m} 件）`, cityTop: "要事", cityAll: "全部",  personEvents: (n) => `相关事件（${n}）· 点击跳转`, pranks: { capital: "都城", secondary: "陪都", major: "重要城市", port: "港口", frontier: "军事重镇" }, rkinds: { imperial: "驰道", post: "驿道", trade: "商道" }, via: "途经", inUse: "使用年代",
+    people_l: "人物", cmp: { one: "对比", open: "两地对比", sync: "同步视角", openTime: "两时对比", place: "两地", time: "两时", period: "时期", year: "年份", close: "关闭对比", pick: "对比地区", rulers: "君主", events: "前后大事", none: "前后几十年没有收录的大事" }, lasted: (n) => `共${n}年`, packs: "专题", rpMore: "这一年的君主、大事与国家", asState: "作为国家：", close: "关闭", search: "搜索", share: "分享这个视图", tours: "导览", toursHead: "导览 · 跟着地图读历史", tourStory: "读这段故事", tourMusic: " 音乐", tourNarr: " 旁白", tourNarrHint: "朗读每一站的解说（AI 语音，中文）", voices: { Charon: "男声", Kore: "女声" }, tourMusicHint: "导览和时间轴播放时的背景音乐（AI 生成）", tourImmersive: "沉浸", tourImmersiveHint: "放大图片，收起其它面板（Esc 退出）", tourBack: "返回导览", tourPrev: "上一步", tourNext: "下一步", tourPlay: "自动播放", tourPause: "暂停", tourEnd: "结束导览", tourDone: "导览结束", tourSteps: (n) => `${n} 站`, tourCount: (n) => `${n} 条导览`, followLife: "跟随一生", livesHere: "本时期人物的一生", livesAll: "人物一生", tourAt: (n) => `第${n}站`, toursHere: "本时期导览", toursOther: "其他时期", noTours: "本时期还没有导览", tourHint: "点击一条导览，地图会跟着故事移动", linkCopied: "链接已复制，可以发给别人", linkCopy: "复制这个链接：", searchPh: "搜索导览、事件、人物、君主、城市或年份（如 755、前221）", autoLayers: "自动图层", autoHint: "打开事件或导览时，自动显示相关图层，自动打开的图层标为虚线", autoOn: "已自动显示", autoAlso: "相关图层", tipOn: "已打开", stLayBtn: "图层按钮", stLayPos: "图层排列", layBtns: { text: "文字", icon: "图标", both: "图标+文字" }, layPos: { group: "分组", nowrap: "一行·滑动", wrap: "一行·换行" }, tipOff: "已关闭", tipAuto: "自动显示", sgroups: { time: "时间", era: "朝代", tour: "导览", event: "事件", person: "人物", ruler: "君主", city: "城市", place: "地名" }, noResults: "没有找到相关内容", jumpYear: "跳到这一年", capitals: "都城·人口", faith: "宗教思想", inventions: "发明", passes: "关隘", admin: "政区", adminSeat: "治所", adminWas: "汉时旧名", adminSite: "此地历代 · 点击跳转", adminNow: "今", adminSnap: (y) => `以${y}为准 · AI 整理，已与 CHGIS 抽查比对`, adminUnsure: "位置待核", adminChgis: "查 CHGIS 记录", adminChgisWait: "正在查询 CHGIS…", adminChgisDown: "暂时连不上 CHGIS，稍后再试", adminChgisNone: "CHGIS 在这一年没有同名记录", adminChgisSrc: "来自 CHGIS 时空地名库（哈佛、复旦），实时查询", adminChgisMoved: "治所位置与本图略有不同", roads: "官道", walls: "长城", wallBy: "修筑", wallLen: (n) => `约${n.toLocaleString()}公里`, ruin: "已废弃，现为遗迹", clans: "豪族", ckinds: { gentry: "门阀士族", bloc: "地域集团", military: "军事集团", faction: "朋党", merchant: "商帮" }, seats: "郡望/根据地", families: "代表家族", members: "代表人物", drafted: "AI 整理，未经核对", cityEvents: (n) => `城中大事（${n}）· 点击跳转`, cityHere: (n, m) => n === m ? `城中大事 ${n} 件` : `这一段大事 ${n} 件 · 全城 ${m} 件`, cityNone: (m) => `这一段没有收录大事 · 点上方色条看其他时期（共 ${m} 件）`, cityTop: "要事", cityAll: "全部", gazHead: "地名古今 · 点击跳转", gazHeld: "属", gazIn: "约在", gazKind: "地名古今", gazNote: "由本图的城市、政区和疆域推算 · AI 整理，未经核对",  personEvents: (n) => `相关事件（${n}）· 点击跳转`, pranks: { capital: "都城", secondary: "陪都", major: "重要城市", port: "港口", frontier: "军事重镇" }, rkinds: { imperial: "驰道", post: "驿道", trade: "商道" }, via: "途经", inUse: "使用年代",
     fields: { general: "军事家", statesman: "政治家", thinker: "思想家", poet: "诗人", writer: "文学家", historian: "史学家", scientist: "科学家", physician: "医学家", engineer: "工程师", artist: "艺术家", religious: "宗教人物", explorer: "旅行家", scholar: "学者" },
     faiths: { buddhist: "佛教", daoist: "道教", confucian: "儒家", islam: "伊斯兰教", christian: "基督教", thought: "思想", other: "其他" },
     ifields: { craft: "工艺", writing: "文字", printing: "印刷", metallurgy: "冶金", military: "军事", astronomy: "天文", math: "数学", medicine: "医学", agriculture: "农业", navigation: "航海", engineering: "工程", money: "货币" },
@@ -143,7 +143,7 @@ const UI = {
     units: { infantry: "Infantry", cavalry: "Cavalry", chariots: "Chariots", archers: "Archers", crossbows: "Crossbows", navy: "Navy", siege: "Siege", firearms: "Firearms", artillery: "Artillery", elephants: "Elephants" },
     kinds: { campaign: "Campaign", journey: "Journey", trade: "Trade route", canal: "Canal", wall: "Wall" }, exchange: "Exchange", spread: "Spread", spreadGroups: { faith: "Faith spreads", tech: "Technique spreads", crop: "Crop spreads" }, arrived: (y) => `arrived ${y}`, set_out: (y) => `from ${y}`, world_t: "World", worldHead: "The world this year", goRegion: "Go to region", allWorld: "Whole world", worldHint: "Click a region to move the map and timeline there; click an event to read it", noWorldEv: "No major events recorded within a few decades", elsewhere: "Elsewhere", wsHead: (x) => `Meanwhile · ${x}`, wsNearShort: "Neighbours", wsWorld: "World", wsNear: (n) => `Around ${n}`, wsNone: "No recorded events in these years", hideStrip: "Hide", showStrip: "Show other regions above the timeline",
     sel: { hint: "Click a country on the map to select it: the map and panels then show only what concerns it. Click it again to clear", off: "Not on the map in this year", offMap: "The map for this year doesn't draw it separately", before: "Not yet founded in this year", after: "No longer exists in this year", jump: (y) => `Go to ${y}`, events: (n) => `${n} events`, people: (n) => `${n} people this period`, cities: "Cities", clear: "Clear selection", circa: "c. ", away: "Out of view; the timeline still follows it", back: (n) => `Back to ${n}`, story: "Play its story", now: "today", more: (n) => `${n} more`, less: "Fewer" },
-    people_l: "People", cmp: { one: "Compare", open: "Compare regions", sync: "Sync view", openTime: "Compare times", place: "Two places", time: "Two times", period: "Period", year: "Year", close: "Close compare", pick: "Compare with", rulers: "Rulers", events: "Around this year", none: "No major events recorded within a few decades" }, lasted: (n) => `${n} years`, packs: "Packs", rpMore: "Rulers, events and countries this year", asState: "As a state: ", close: "Close", search: "Search", share: "Share this view", tours: "Tours", toursHead: "Guided tours", tourStory: "Read the story", tourMusic: " Music", tourNarr: " Narration", tourNarrHint: "Read each stop aloud (AI voice, in Chinese)", voices: { Charon: "Male", Kore: "Female" }, tourMusicHint: "Background music during tours and timeline playback (AI-generated)", tourImmersive: "Immersive", tourImmersiveHint: "Enlarge the picture and fold the other panels away (Esc to leave)", tourBack: "Back to the tour", tourPrev: "Back", tourNext: "Next", tourPlay: "Play", tourPause: "Pause", tourEnd: "End tour", tourDone: "End of tour", tourSteps: (n) => `${n} stops`, tourCount: (n) => `${n} tour${n === 1 ? "" : "s"}`, followLife: "Follow their life", livesHere: "Lives in this period", livesAll: "Lives", tourAt: (n) => `Stop ${n}`, toursHere: "Tours for this period", toursOther: "Other periods", noTours: "No tours for this period yet", tourHint: "Pick a tour and the map follows the story", linkCopied: "Link copied", linkCopy: "Copy this link:", searchPh: "Search tours, events, people, rulers, cities or a year (755, 221 BC)", autoLayers: "Auto layers", autoHint: "Reading an event or a tour stop switches on the layers it needs; those get a dashed outline", autoOn: "Switched on for this", autoAlso: "Related layers", tipOn: "On", stLayBtn: "Layer buttons", stLayPos: "Layer layout", layBtns: { text: "Text", icon: "Icon", both: "Icon + text" }, layPos: { group: "Groups", nowrap: "One row, scroll", wrap: "One row, wrap" }, tipOff: "Off", tipAuto: "On for this story", sgroups: { time: "Year", era: "Periods", tour: "Tours", event: "Events", person: "People", ruler: "Rulers", city: "Cities" }, noResults: "Nothing found", jumpYear: "Go to this year", capitals: "Capitals", faith: "Faith", inventions: "Inventions", passes: "Passes", admin: "Prefectures", adminSeat: "Seat", adminWas: "Han name", adminSite: "This seat by dynasty · click to jump", adminNow: "Today", adminSnap: (y) => `As in ${y} · AI-drafted, spot-checked against CHGIS`, adminUnsure: "position uncertain", adminChgis: "Look up in CHGIS", adminChgisWait: "Asking CHGIS…", adminChgisDown: "CHGIS can't be reached right now; try again later", adminChgisNone: "No record of this name in CHGIS for this year", adminChgisSrc: "From the CHGIS Temporal Gazetteer (Harvard, Fudan), looked up live", adminChgisMoved: "its seat differs a little from this map", roads: "Roads", walls: "Great Walls", wallBy: "Built by", wallLen: (n) => `about ${n.toLocaleString()} km`, ruin: "Abandoned; ruins remain", clans: "Elites", ckinds: { gentry: "Great clans", bloc: "Regional bloc", military: "Military clique", faction: "Court faction", merchant: "Merchant guild" }, seats: "Home seats", families: "Families", members: "Key figures", drafted: "AI-drafted, not source-checked", cityEvents: (n) => `Events here (${n}) · click to jump`, cityHere: (n, m) => n === m ? `${n} events here` : `${n} events in this phase · ${m} in all`, cityNone: (m) => `No events recorded in this phase · tap the bar for other periods (${m} in all)`, cityTop: "Major", cityAll: "All", personEvents: (n) => `Related events (${n}) · click to jump`, pranks: { capital: "Capital", secondary: "Secondary capital", major: "Major city", port: "Port", frontier: "Military stronghold" }, rkinds: { imperial: "Imperial highway", post: "Post road", trade: "Trade road" }, via: "Via", inUse: "In use",
+    people_l: "People", cmp: { one: "Compare", open: "Compare regions", sync: "Sync view", openTime: "Compare times", place: "Two places", time: "Two times", period: "Period", year: "Year", close: "Close compare", pick: "Compare with", rulers: "Rulers", events: "Around this year", none: "No major events recorded within a few decades" }, lasted: (n) => `${n} years`, packs: "Packs", rpMore: "Rulers, events and countries this year", asState: "As a state: ", close: "Close", search: "Search", share: "Share this view", tours: "Tours", toursHead: "Guided tours", tourStory: "Read the story", tourMusic: " Music", tourNarr: " Narration", tourNarrHint: "Read each stop aloud (AI voice, in Chinese)", voices: { Charon: "Male", Kore: "Female" }, tourMusicHint: "Background music during tours and timeline playback (AI-generated)", tourImmersive: "Immersive", tourImmersiveHint: "Enlarge the picture and fold the other panels away (Esc to leave)", tourBack: "Back to the tour", tourPrev: "Back", tourNext: "Next", tourPlay: "Play", tourPause: "Pause", tourEnd: "End tour", tourDone: "End of tour", tourSteps: (n) => `${n} stops`, tourCount: (n) => `${n} tour${n === 1 ? "" : "s"}`, followLife: "Follow their life", livesHere: "Lives in this period", livesAll: "Lives", tourAt: (n) => `Stop ${n}`, toursHere: "Tours for this period", toursOther: "Other periods", noTours: "No tours for this period yet", tourHint: "Pick a tour and the map follows the story", linkCopied: "Link copied", linkCopy: "Copy this link:", searchPh: "Search tours, events, people, rulers, cities or a year (755, 221 BC)", autoLayers: "Auto layers", autoHint: "Reading an event or a tour stop switches on the layers it needs; those get a dashed outline", autoOn: "Switched on for this", autoAlso: "Related layers", tipOn: "On", stLayBtn: "Layer buttons", stLayPos: "Layer layout", layBtns: { text: "Text", icon: "Icon", both: "Icon + text" }, layPos: { group: "Groups", nowrap: "One row, scroll", wrap: "One row, wrap" }, tipOff: "Off", tipAuto: "On for this story", sgroups: { time: "Year", era: "Periods", tour: "Tours", event: "Events", person: "People", ruler: "Rulers", city: "Cities", place: "Place names" }, noResults: "Nothing found", jumpYear: "Go to this year", capitals: "Capitals", faith: "Faith", inventions: "Inventions", passes: "Passes", admin: "Prefectures", adminSeat: "Seat", adminWas: "Han name", adminSite: "This seat by dynasty · click to jump", adminNow: "Today", adminSnap: (y) => `As in ${y} · AI-drafted, spot-checked against CHGIS`, adminUnsure: "position uncertain", adminChgis: "Look up in CHGIS", adminChgisWait: "Asking CHGIS…", adminChgisDown: "CHGIS can't be reached right now; try again later", adminChgisNone: "No record of this name in CHGIS for this year", adminChgisSrc: "From the CHGIS Temporal Gazetteer (Harvard, Fudan), looked up live", adminChgisMoved: "its seat differs a little from this map", roads: "Roads", walls: "Great Walls", wallBy: "Built by", wallLen: (n) => `about ${n.toLocaleString()} km`, ruin: "Abandoned; ruins remain", clans: "Elites", ckinds: { gentry: "Great clans", bloc: "Regional bloc", military: "Military clique", faction: "Court faction", merchant: "Merchant guild" }, seats: "Home seats", families: "Families", members: "Key figures", drafted: "AI-drafted, not source-checked", cityEvents: (n) => `Events here (${n}) · click to jump`, cityHere: (n, m) => n === m ? `${n} events here` : `${n} events in this phase · ${m} in all`, cityNone: (m) => `No events recorded in this phase · tap the bar for other periods (${m} in all)`, cityTop: "Major", cityAll: "All", gazHead: "Names through time · click to jump", gazHeld: "held by", gazIn: "roughly in", gazKind: "Place through time", gazNote: "Worked out from this atlas's cities, prefectures and borders · AI-drafted, approximate", personEvents: (n) => `Related events (${n}) · click to jump`, pranks: { capital: "Capital", secondary: "Secondary capital", major: "Major city", port: "Port", frontier: "Military stronghold" }, rkinds: { imperial: "Imperial highway", post: "Post road", trade: "Trade road" }, via: "Via", inUse: "In use",
     fields: { general: "Military", statesman: "Statesman", thinker: "Thinker", poet: "Poet", writer: "Writer", historian: "Historian", scientist: "Scientist", physician: "Physician", engineer: "Engineer", artist: "Artist", religious: "Religious figure", explorer: "Traveller", scholar: "Scholar" },
     faiths: { buddhist: "Buddhism", daoist: "Daoism", confucian: "Confucianism", islam: "Islam", christian: "Christianity", thought: "Thought", other: "Other" },
     ifields: { craft: "Craft", writing: "Writing", printing: "Printing", metallurgy: "Metalwork", military: "Military", astronomy: "Astronomy", math: "Mathematics", medicine: "Medicine", agriculture: "Farming", navigation: "Navigation", engineering: "Engineering", money: "Money" },
@@ -2102,6 +2102,7 @@ function showCard(lngLat, html) {
   popup = new maplibregl.Popup({ className: "atlas-pop", maxWidth: "300px", offset: 14, focusAfterOpen: false })
     .setLngLat(lngLat).setHTML(html).addTo(map);
   fillIllus(popup.getElement());
+  popup.getElement().querySelectorAll(".pc-gaz[data-gaz]").forEach(fillGaz);
   // Event lists open at the city's current period and jump to that moment when clicked.
   const list = popup.getElement().querySelector(".pc-events"), now = list?.querySelector(".now");
   if (now) list.scrollTop = now.parentElement.offsetTop - list.offsetTop - 4;
@@ -2415,8 +2416,8 @@ function adminCard(x) {
     <h4>${esc(adminName(x))} <span lang="${zh() ? "en" : "zh-CN"}">${esc(zh() ? x.name : x.name_zh)}</span></h4>
     ${x.was_zh ? `<p class="pc-works"><b>${t("adminWas")}</b> <span lang="zh-CN">${esc(x.was_zh)}</span></p>` : ""}
     <p class="pc-works">${seat ? `<span lang="zh-CN">${esc(seat)}</span>　` : ""}${x.modern_zh ? `<b>${t("adminNow")}</b> <span lang="zh-CN">${esc(x.modern_zh.replace(/^今/, ""))}</span>` : ""}</p>
-    ${site.length > 1 ? `<p class="pc-works"><b>${t("adminSite")}</b></p><ul class="pc-battles pc-admin">${site.map((o) =>
-      `<li${o === x ? ' class="on"' : ""} data-admin-year="${o.snap}"><span>${fmtYear(o.snap)}</span> ${esc(adminName(o))} <small>${esc(adminType(o))}</small></li>`).join("")}</ul>` : ""}
+    <div class="pc-gaz" data-gaz="a:${x.i}">${site.length > 1 ? `<p class="pc-works"><b>${t("adminSite")}</b></p><ul class="pc-battles pc-admin">${site.map((o) =>
+      `<li${o === x ? ' class="on"' : ""} data-admin-year="${o.snap}"><span>${fmtYear(o.snap)}</span> ${esc(adminName(o))} <small>${esc(adminType(o))}</small></li>`).join("")}</ul>` : ""}</div>
     <div class="pc-chgis" data-chgis="${x.i}"><button type="button" class="pc-life">${t("adminChgis")}</button></div>
     <p class="pc-meta">${t("adminSnap")(fmtYear(x.snap))}${x.conf === 0 ? ` · ${t("adminUnsure")}` : ""}</p>`;
 }
@@ -2476,6 +2477,93 @@ document.addEventListener("click", (e) => {
   const li = e.target.closest?.("[data-admin-year]");
   if (li) jumpToYear(+li.dataset.adminYear);
 });
+// 地名古今 (data/gazetteer.json, tools/build_gazetteer.py): for each site (a city with the seats at it, or seats no
+// city claims), every China period's names, who held it at each of the period's maps, and the 郡/州 it lay in when it
+// was no seat itself, down to its modern name. Loaded with the first city or seat card; city and seat cards show it.
+let gazLoad;
+function gazData() {
+  if (state.gaz) return state.gaz;
+  gazLoad ||= loadJSON("data/gazetteer.json").then((d) => {
+    const byCity = new Map(), byAdmin = new Map();
+    d.sites.forEach((s, k) => { s.k = k; if (s.city) byCity.set(s.city, s); for (const i of s.adm || []) byAdmin.set(i, s); });
+    state.gaz = { ...d, byCity, byAdmin };
+    document.querySelectorAll(".pc-gaz[data-gaz]").forEach(fillGaz);
+    if (!$("search").hidden) renderSearch();
+  }).catch(() => { state.gaz = { names: [], eras: [], sites: [], byCity: new Map(), byAdmin: new Map() }; });
+  return null;
+}
+// data-gaz keys: c:<city id>, a:<admin index>, s:<site index>
+function gazSite(key) {
+  const g = state.gaz, [k, v] = [key.slice(0, 1), key.slice(2)];
+  return k === "c" ? g.byCity.get(v) : k === "a" ? g.byAdmin.get(+v) : g.sites[+v];
+}
+const gazName = (i) => { const n = state.gaz.names[i]; return zh() ? n[0] : n[1]; };
+const gazNow = (s) => (zh() ? s.now[0] : s.now[1] || s.now[0]);
+function gazRows(s) {
+  const G = state.gaz, cur = chinaEraAt(state.year);
+  const rows = s.rows.map(([ei, y, city, seats, hold, units]) => {
+    const e = state.chinaEras.find((e) => e.id === G.eras[ei]);
+    if (!e) return "";
+    // The holder is left out when it is the period's own dynasty (唐 in 唐).
+    const own = hold.length === 1 && [e.name_zh, e.glyph].includes(G.names[hold[0][1]][0]);
+    const held = hold.length && !own ? `<small class="gz-held">${t("gazHeld")} ${hold.map(([hy, h]) =>
+      `<i data-gaz-year="${hy}" title="${fmtYear(hy)}">${esc(gazName(h))}</i>`).join(" → ")}</small>` : "";
+    const lay = units?.length ? `<small>${t("gazIn")} ${units.map((u) => esc(gazName(u))).join(zh() ? "、" : ", ")}</small>` : "";
+    const names = city.length ? `<b>${city.map((n) => esc(gazName(n))).join(zh() ? "、" : ", ")}</b>` : "";
+    const seat = seats.length ? `<small class="gz-seat">${seats.map((n) => esc(gazName(n))).join(" · ")}</small>` : "";
+    return `<li data-gaz-year="${y}"${e.id === cur ? ' class="on"' : ""}><span>${esc(zh() ? e.name_zh : e.short || e.name)}</span><div>${names}${seat}${held}${lay}${names || seat ? "" : `<em>—</em>`}</div></li>`;
+  }).join("");
+  const now = gazNow(s);
+  return `<p class="pc-works"><b>${t("gazHead")}</b></p><ul class="pc-gazlist">${rows}${now ? `<li class="today"><span>${t("adminNow")}</span><div><b>${esc(now)}</b></div></li>` : ""}</ul>`;
+}
+function fillGaz(box) {
+  if (!gazData()) return;    // fills when the file arrives
+  const s = gazSite(box.dataset.gaz);
+  if (!s) return;            // keeps whatever the card put there
+  box.innerHTML = gazRows(s);
+  gazScroll(box);
+}
+function gazScroll(box) {
+  const li = box.querySelector("li.on"), ul = li?.parentElement;
+  if (ul) ul.scrollTop = li.offsetTop - ul.offsetTop - ul.clientHeight / 2 + li.offsetHeight / 2;
+}
+// A card of its own for a site found by search (a seat or an old name).
+function gazCard(s, title) {
+  const now = gazNow(s);
+  return `<div class="pc-kind">${t("gazKind")}</div>
+    <h4>${esc(title)}${now ? ` <span lang="zh-CN">${esc(zh() ? `今${now}` : now)}</span>` : ""}</h4>
+    <div class="pc-gaz" data-gaz="s:${s.k}"></div><p class="pc-meta">${t("gazNote")}</p>`;
+}
+document.addEventListener("click", async (e) => {
+  const hit = e.target.closest?.(".pc-gazlist [data-gaz-year]");
+  if (!hit) return;
+  await jumpToYear(+hit.dataset.gazYear);
+  // The open card stays; its row for the new period lights up.
+  const box = hit.closest(".pc-gaz");
+  if (box?.isConnected) { box.innerHTML = gazRows(gazSite(box.dataset.gaz)); gazScroll(box); }
+});
+// Search: sites by any name they ever had or by their modern name, beyond the cities search already lists.
+function gazSearch(has, citiesFound) {
+  const G = state.gaz, out = [];
+  if (!G) return out;
+  for (const s of G.sites) {
+    if (s.city && citiesFound.has(s.city)) continue;
+    let row = s.rows.find((r) => [...r[2], ...r[3]].some((n) => has(...G.names[n])));
+    if (!row && !s.city && has(...s.now)) row = s.rows[s.rows.length - 1];
+    if (!row) continue;
+    const n = [...row[2], ...row[3]].find((n) => has(...G.names[n])) ?? row[3][0] ?? row[2][0];
+    const e = state.chinaEras.find((e) => e.id === G.eras[row[0]]);
+    out.push({ g: "place", year: row[1], title: gazName(n), sub: `${e ? nameOf(e) + " · " : ""}${zh() ? "今" : "modern "}${gazNow(s)}`,
+      go: () => jumpToGaz(s, row[1], gazName(n)) });
+    if (out.length >= 8) break;
+  }
+  return out;
+}
+async function jumpToGaz(s, y, title) {
+  await jumpToYear(y);
+  map.flyTo({ center: [s.lon, s.lat], zoom: Math.max(map.getZoom(), 6), duration: 1200, essential: true });
+  map.once("moveend", () => showCard([s.lon, s.lat], gazCard(s, title)));
+}
 function renderWalls() {
   const list = shown("walls") ? state.walls.filter((w) => state.year >= w.from && (!state.sel || w.paths.some(selKeep))) : [];
   const feats = [];
@@ -3095,7 +3183,7 @@ function placeCard(p) {
   return `<div class="pc-kind">${esc(t("pranks")[p.rank] || "")} · ${span(p)}</div>
     <h4>${esc(nameOf(p))} <span lang="${zh() ? "en" : "zh-CN"}">${esc(zh() ? p.name : p.name_zh)}</span></h4>
     ${now ? `<p class="pc-meta">${esc(now)}</p>` : ""}${tx(p, "note") ? `<p>${esc(tx(p, "note"))}</p>` : ""}
-    ${bar}${list}<p class="pc-meta">${t("drafted")}</p>`;
+    ${bar}${list}<div class="pc-gaz" data-gaz="c:${esc(cityId(p))}"></div><p class="pc-meta">${t("drafted")}</p>`;
 }
 // Reverse index from each event's `places` (city ids) and `people` (person ids), filled by tools/link_events.py,
 // so city and person cards list their events as soon as new events carry those fields.
@@ -4565,10 +4653,13 @@ function searchResults(q) {
     for (const { r, i, polity, era, pz } of searchIndex.rulers.filter(({ r }) => has(r.name_zh, r.name, r.title_zh, r.title, r.rank_zh)).slice(0, 10))
       out.push({ g: "ruler", year: r.from, title: zh() ? `${r.title_zh || r.title || r.rank_zh || ""} ${r.name_zh || ""}`.trim() : `${r.title || r.name}`,
         sub: `${zh() ? pz || polity : polity} · ${fmtYear(r.from)} – ${fmtYear(r.to)}`, go: () => jumpToRuler(polity, i, era) });
+    const found = new Set();
     for (const list of searchIndex.cities.filter((l) => l.some((c) => has(c.name_zh, c.name, c.modern_zh, c.modern))).slice(0, 8)) {
       const c = list.find((c) => has(c.name_zh, c.name)) || list[0];
+      found.add(cityId(c));
       out.push({ g: "city", year: c.from, title: nameOf(c), sub: zh() ? `今${c.modern_zh || c.modern}` : `modern ${c.modern}`, go: () => jumpToCity(c) });
     }
+    out.push(...gazSearch(has, found));
   }
   // Events named in the title first, then those that only happened at a matching place; key events first.
   const evs = state.events.map((ev) => [ev, has(ev.title_zh, ev.title) ? 0 : has(ev.place_zh, ev.place) ? 1 : 2]).filter(([, m]) => m < 2)
@@ -4606,6 +4697,7 @@ async function openSearch() {
   $("search-q").placeholder = t("searchPh");
   $("search-q").focus();
   $("search-q").select();
+  gazData();
   if (!searchIndex) { searchIndex = await buildSearchIndex(); renderSearch(); }
 }
 function closeSearch() {
