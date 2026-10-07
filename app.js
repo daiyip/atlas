@@ -5965,6 +5965,7 @@ function setNarration(on, remember = true) {
     const inTour = !!b.closest(".tour-ctl");
     b.querySelector(".music-label").textContent = (inTour ? " " : "") + (on ? (inTour ? "" : t("tourNarr").trim() + " · ") + t("voices")[state.voice] : t("tourNarr").trim());
     b.querySelector(".narr-short").textContent = on ? t("voices")[state.voice].slice(0, 1) : "";
+    b.dataset.voice = on ? state.voice : "off"; // the speaker is drawn blue (male), red (female) or grey (off)
   }
   if (remember) try { localStorage.setItem("atlas-narration", on ? "1" : "0"); localStorage.setItem("atlas-voice", state.voice); } catch {}
   if (state.tour && on) narrateStep(state.tour, state.tour.i); else stopNarration();
