@@ -182,6 +182,20 @@ PALETTE = ["#8a6f9e", "#5f87a3", "#a07d5a", "#6f9460", "#a3727a", "#4f8f86", "#9
 SKIP_LABEL = re.compile(r"hunter|marine|Finno|Paleo", re.I)
 
 
+LAND_URL = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_land.geojson"
+_land = []
+
+
+def land():
+    """Natural Earth land inside CLIP, so a hand-drawn claim that reaches the coast doesn't spill into the sea."""
+    if not _land:
+        p = os.path.join(CACHE, "ne_50m_land.geojson")
+        if not os.path.exists(p):
+            urllib.request.urlretrieve(LAND_URL, p)
+        _land.append(unary_union([shape(f["geometry"]).buffer(0) for f in json.load(open(p))["features"]]).intersection(CLIP))
+    return _land[0]
+
+
 def load(year):
     os.makedirs(CACHE, exist_ok=True)
     p = os.path.join(CACHE, f"world_{year}.geojson")
@@ -249,6 +263,7 @@ def build(sid, year, renames, ops):
             other["geoms"] = [g.difference(poly) for g in other["geoms"]]
         groups.setdefault(name, {"zh": zh, "focus": False, "geoms": [], "approx": True})["geoms"].append(part)
     for name, zh, poly in ops.get("claim", []):
+        poly = poly.intersection(land())
         for other in groups.values():
             other["geoms"] = [g.difference(poly) for g in other["geoms"]]
         grp = groups.setdefault(name, {"zh": zh, "focus": True, "geoms": [], "approx": True})

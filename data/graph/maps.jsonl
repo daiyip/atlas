@@ -10214,7 +10214,7 @@
 {"child":"area:liaodong","parent":"map:Donghu","rel":"held","from":-770,"to":-297,"share":90,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Yan","rel":"held","from":-296,"to":-223,"share":90,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Qin","rel":"held","from":-222,"to":-222,"share":90,"by":"maps"}
-{"child":"area:liaodong","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":99,"by":"maps"}
+{"child":"area:liaodong","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":95,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Han","rel":"held","from":-206,"to":8,"share":94,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Xin","rel":"held","from":9,"to":24,"share":95,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Han","rel":"held","from":25,"to":219,"share":95,"by":"maps"}
