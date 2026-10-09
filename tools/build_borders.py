@@ -85,6 +85,17 @@ LIAODONG = Polygon([(121.8, 40.8), (121.2, 39.0), (122.3, 39.0), (124.3, 39.9), 
                     (122.8, 42.3)])
 MONGOLIA_EAST = box(96, 40.5, 130, 56)
 
+# Qin's own extent after Tan Qixiang's Qin map (c. 210 BCE), where the c. 200 BCE source differs: Longxi up the Tao
+# River to Lintao, where the Qin wall began; Liaodong out to the Yalu; Guilin and Xiang commanderies (Guangxi, where
+# the Lingqu canal was dug in 214 BCE). Hainan was not taken until 110 BCE.
+QIN_LONGXI = Polygon([(103.3, 34.2), (103.4, 35.0), (103.7, 35.6), (104.3, 35.9), (105.2, 36.2), (106.2, 36.6),
+                      (106.3, 35.5), (105.0, 34.2)])
+QIN_LIAODONG = Polygon([(122.8, 42.4), (124.3, 42.2), (125.4, 41.2), (124.4, 39.9), (123.5, 39.6), (122.3, 39.0),
+                        (121.2, 39.0)])
+QIN_LINGNAN = Polygon([(104.5, 23.0), (105.5, 24.6), (107.5, 25.3), (109.0, 26.2), (110.6, 26.3), (111.6, 25.0),
+                       (111.5, 23.0), (110.0, 21.5), (108.0, 21.5), (106.5, 22.0)])
+HAINAN = box(108.4, 18.0, 111.3, 20.15)
+
 # Shang core (no Shang polygon in the source): middle and lower Yellow River plain.
 SHANG = Polygon([(110.2, 33.0), (110.4, 36.4), (112.5, 37.8), (115, 38.6), (117.3, 37.6), (119, 36.4),
                  (118.4, 34.6), (116.8, 33.6), (114.5, 32.6), (112, 32.4)])
@@ -100,7 +111,9 @@ SNAPSHOTS = [
     ("western-zhou", "bc1000", {"Zhoa": ("Western Zhou realm", "西周", True), "Sinic": None,
                                 "Wu": ("Wu", "吴", False)}, {}),
     ("qin", "bc200", {"Han Empire": ("Qin", "秦", True), "Min-Yue": ("Qin", "秦", True),
-                      "Nan-Yue": ("Qin", "秦", True), "Thai": ("Qiang and southwestern peoples", "羌 · 西南夷", False)}, {}),
+                      "Nan-Yue": ("Qin", "秦", True), "Thai": ("Qiang and southwestern peoples", "羌 · 西南夷", False)},
+     {"claim": [("Qin", "秦", QIN_LONGXI), ("Qin", "秦", QIN_LIAODONG), ("Qin", "秦", QIN_LINGNAN)],
+      "secede": [("Luoyue (Hainan)", "骆越", HAINAN)]}),
     ("western-han-early", "bc200", {"Han Empire": ("Han", "西汉", True),
                                     "Thai": ("Qiang and southwestern peoples", "羌 · 西南夷", False)}, {}),
     ("western-han", "bc1", {"Han": ("Han", "西汉", True)}, {"claim": [("Han", "西汉", HEXI)]}),
@@ -169,6 +182,20 @@ PALETTE = ["#8a6f9e", "#5f87a3", "#a07d5a", "#6f9460", "#a3727a", "#4f8f86", "#9
 SKIP_LABEL = re.compile(r"hunter|marine|Finno|Paleo", re.I)
 
 
+LAND_URL = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_land.geojson"
+_land = []
+
+
+def land():
+    """Natural Earth land inside CLIP, so a hand-drawn claim that reaches the coast doesn't spill into the sea."""
+    if not _land:
+        p = os.path.join(CACHE, "ne_50m_land.geojson")
+        if not os.path.exists(p):
+            urllib.request.urlretrieve(LAND_URL, p)
+        _land.append(unary_union([shape(f["geometry"]).buffer(0) for f in json.load(open(p))["features"]]).intersection(CLIP))
+    return _land[0]
+
+
 def load(year):
     os.makedirs(CACHE, exist_ok=True)
     p = os.path.join(CACHE, f"world_{year}.geojson")
@@ -228,7 +255,15 @@ def build(sid, year, renames, ops):
         for other in groups.values():
             other["geoms"] = [g.difference(poly) for g in other["geoms"]]
         groups.setdefault(name, {"zh": zh, "focus": False, "geoms": [], "approx": True})["geoms"].append(poly)
+    # "secede": land a source polity holds but should not, given to a new polity; unlike "cede" it adds no land
+    # beyond what the source features cover, so a box drawn over the sea keeps the coast.
+    for name, zh, poly in ops.get("secede", []):
+        part = unary_union([g for grp in groups.values() for g in grp["geoms"]] or [Polygon()]).intersection(poly)
+        for other in groups.values():
+            other["geoms"] = [g.difference(poly) for g in other["geoms"]]
+        groups.setdefault(name, {"zh": zh, "focus": False, "geoms": [], "approx": True})["geoms"].append(part)
     for name, zh, poly in ops.get("claim", []):
+        poly = poly.intersection(land())
         for other in groups.values():
             other["geoms"] = [g.difference(poly) for g in other["geoms"]]
         grp = groups.setdefault(name, {"zh": zh, "focus": True, "geoms": [], "approx": True})

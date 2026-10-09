@@ -1828,6 +1828,7 @@
 {"id":"polity:lule-1492","kind":"polity","name":"Lule","name_zh":"卢莱人","from":1492,"to":1511,"by":"maps"}
 {"id":"polity:lumbee-1492","kind":"polity","name":"Lumbee","name_zh":"拉姆比人","from":1492,"to":1511,"by":"maps"}
 {"id":"polity:lumnanas-1492","kind":"polity","name":"Lumnanas","name_zh":"伦南纳人","from":1492,"to":1511,"by":"maps"}
+{"id":"polity:luoyue-hainan-bc221","kind":"polity","name":"Luoyue (Hainan)","name_zh":"骆越","from":-221,"to":-207,"by":"maps"}
 {"id":"polity:luritja-1600","kind":"polity","name":"Luritja","name_zh":"卢里特贾人","from":1600,"to":1865,"by":"maps"}
 {"id":"polity:lusatian-culture-bc700","kind":"polity","name":"Lusatian culture","name_zh":"卢萨蒂亚文化","from":-700,"to":-501,"by":"maps"}
 {"id":"polity:luthigh-1600","kind":"polity","name":"Luthigh","name_zh":"卢蒂格人","from":1600,"to":1823,"by":"maps"}
@@ -4917,6 +4918,7 @@
 {"id":"map:Lumbee","kind":"map","name":"Lumbee","name_zh":"拉姆比人"}
 {"id":"map:Lumnanas","kind":"map","name":"Lumnanas","name_zh":"伦南纳人"}
 {"id":"map:Lunda","kind":"map","name":"Lunda","name_zh":"隆达王国"}
+{"id":"map:Luoyue (Hainan)","kind":"map","name":"Luoyue (Hainan)","name_zh":"骆越","color":"#7272a8"}
 {"id":"map:Luritja","kind":"map","name":"Luritja","name_zh":"卢里特贾人"}
 {"id":"map:Lusatian culture","kind":"map","name":"Lusatian culture","name_zh":"卢萨蒂亚文化"}
 {"id":"map:Luthigh","kind":"map","name":"Luthigh","name_zh":"卢蒂格人"}
@@ -8562,6 +8564,7 @@
 {"child":"map:Lule","parent":"polity:lule-1492","rel":"name","from":1492,"to":1511,"by":"maps"}
 {"child":"map:Lumbee","parent":"polity:lumbee-1492","rel":"name","from":1492,"to":1511,"by":"maps"}
 {"child":"map:Lumnanas","parent":"polity:lumnanas-1492","rel":"name","from":1492,"to":1511,"by":"maps"}
+{"child":"map:Luoyue (Hainan)","parent":"polity:luoyue-hainan-bc221","rel":"name","from":-221,"to":-207,"by":"maps"}
 {"child":"map:Luritja","parent":"polity:luritja-1600","rel":"name","from":1600,"to":1865,"by":"maps"}
 {"child":"map:Lusatian culture","parent":"polity:lusatian-culture-bc700","rel":"name","from":-700,"to":-501,"by":"maps"}
 {"child":"map:Luthigh","parent":"polity:luthigh-1600","rel":"name","from":1600,"to":1823,"by":"maps"}
@@ -10211,7 +10214,7 @@
 {"child":"area:liaodong","parent":"map:Donghu","rel":"held","from":-770,"to":-297,"share":90,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Yan","rel":"held","from":-296,"to":-223,"share":90,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Qin","rel":"held","from":-222,"to":-222,"share":90,"by":"maps"}
-{"child":"area:liaodong","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":94,"by":"maps"}
+{"child":"area:liaodong","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":95,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Han","rel":"held","from":-206,"to":8,"share":94,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Xin","rel":"held","from":9,"to":24,"share":95,"by":"maps"}
 {"child":"area:liaodong","parent":"map:Han","rel":"held","from":25,"to":219,"share":95,"by":"maps"}
@@ -10410,7 +10413,7 @@
 {"child":"area:yunnan","parent":"map:Chinese Warlords","rel":"held","from":1924,"to":1927,"share":91,"by":"maps"}
 {"child":"area:yunnan","parent":"map:Republic of China","rel":"held","from":1928,"to":1949,"share":92,"by":"maps"}
 {"child":"area:yunnan","parent":"map:China","rel":"held","from":1950,"to":2026,"share":91,"by":"maps"}
-{"child":"area:hainan","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":91,"by":"maps"}
+{"child":"area:hainan","parent":"map:Luoyue (Hainan)","rel":"held","from":-221,"to":-207,"share":91,"by":"maps"}
 {"child":"area:hainan","parent":"map:Nan-Yue","rel":"held","from":-206,"to":-112,"share":91,"by":"maps"}
 {"child":"area:hainan","parent":"map:Hainan","rel":"held","from":-111,"to":419,"share":91,"by":"maps"}
 {"child":"area:hainan","parent":"map:Liu Song","rel":"held","from":420,"to":478,"share":91,"by":"maps"}
@@ -10475,8 +10478,8 @@
 {"child":"area:transoxiana","parent":"map:Turkmenistan","rel":"held","from":1996,"to":2026,"share":10,"by":"maps"}
 {"child":"area:jiaozhi","parent":"map:Austro-Asiatic rice cultures","rel":"held","from":-2070,"to":-1601,"share":56,"by":"maps"}
 {"child":"area:jiaozhi","parent":"map:Austro-Asiatic rice cultures","rel":"held","from":-1600,"to":-771,"share":99,"by":"maps"}
-{"child":"area:jiaozhi","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":68,"by":"maps"}
-{"child":"area:jiaozhi","parent":"map:Qiang and southwestern peoples","rel":"held","from":-221,"to":-207,"share":30,"by":"maps"}
+{"child":"area:jiaozhi","parent":"map:Qiang and southwestern peoples","rel":"held","from":-221,"to":-207,"share":52,"by":"maps"}
+{"child":"area:jiaozhi","parent":"map:Qin","rel":"held","from":-221,"to":-207,"share":46,"by":"maps"}
 {"child":"area:jiaozhi","parent":"map:Nan-Yue","rel":"held","from":-206,"to":-112,"share":68,"by":"maps"}
 {"child":"area:jiaozhi","parent":"map:Qiang and southwestern peoples","rel":"held","from":-206,"to":-112,"share":30,"by":"maps"}
 {"child":"area:jiaozhi","parent":"map:Han","rel":"held","from":-111,"to":8,"share":97,"by":"maps"}
