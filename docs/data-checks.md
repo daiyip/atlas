@@ -125,7 +125,8 @@ coastlines are modern; old Yellow River courses are sketched.
 
 ## Ideas for later checks
 
-- Event places and story text against the same Wikipedia articles used for summaries.
-- China borders against CHGIS (private comparison only, as for the 政区 seats).
-- The rest of Natural Earth's disputed areas.
-- A per-country "point of view" switch (Natural Earth has official views for China, India and others).
+Tracked as issues: event places and story text ([#70](https://github.com/daiyip/atlas/issues/70)), China borders
+against CHGIS ([#71](https://github.com/daiyip/atlas/issues/71)), the rest of Natural Earth's disputed areas
+([#72](https://github.com/daiyip/atlas/issues/72)), a per-country "point of view" switch
+([#73](https://github.com/daiyip/atlas/issues/73)) and the AI-drafted layers above
+([#74](https://github.com/daiyip/atlas/issues/74)).
